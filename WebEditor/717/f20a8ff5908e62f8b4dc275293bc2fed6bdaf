@@ -1,0 +1,20 @@
+<concept id="91dad1a3e52c4ad3c0b4da1bcaa8efee" xml:lang="en-US">
+    <title>HBase</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <!-- Template instructions: 
+    How to Write Concept Topics, 105/000 21-FCK 101 05-->
+        <p/>
+     </conbody>
+</concept>

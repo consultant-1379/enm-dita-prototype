@@ -1,0 +1,47 @@
+<task id="6514424a00f86828ee4837f983500acc" xml:lang="en-US">
+    <title>Add a Root Certificate to a Trust Store</title>
+    <shortdesc/>
+    <prolog>
+        <permissions view="ericsson_internal"/>
+		<metadata/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->        
+        <steps>
+            <step id="step_N10024_N10021_N1001C_N10001">
+                <cmd>Transfer the certificate to <ph keyref="CoreVM"/> as <option>ecm_admin</option>
+                    user under <filepath>directory
+                        /app/ecm/appserver/jboss-eap-7.2/standalone/configuration</filepath>.</cmd>
+            </step>
+            <step id="step_N10039_N10021_N1001C_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user.</cmd>
+            </step>
+            <step id="step_N1004A_N10021_N1001C_N10001">
+                <cmd>Change directory to</cmd>
+                <info><cmdname>/app/ecm/appserver/jboss-eap-7.2/standalone/configuration</cmdname></info>
+            </step>
+            <step id="step_N10059_N10021_N1001C_N10001">
+                <cmd>Import the certificate root into the trust store by using keytool.</cmd>
+                <info><cmdname>$ keytool -importcert -alias &lt;alias> -keystore truststore.jks
+                        -trustcacerts -file &lt;root_certificate_file></cmdname></info>
+            </step>
+            <step id="step_N10068_N10021_N1001C_N10001">
+                <cmd>Enter the keystore password used to create the trust store.</cmd>
+            </step>
+            <step id="step_N10071_N10021_N1001C_N10001">
+                <cmd>Provide an alias for the root certificate to import. Aliases can be used to
+                    identify certificates within a trust store.</cmd>
+            </step>
+            <step id="step_N1007A_N10021_N1001C_N10001">
+                <cmd>For the <ph keyref="HA_s"/> deployments, transfer the root certificate to the
+                    second <ph keyref="CoreVM"/> and perform the same steps.</cmd>
+            </step>
+            <step id="step_N1008B_N10021_N1001C_N10001">
+                <cmd>Once imported, delete the certificate root files transferred to <ph keyref="CoreVM"/>(s).</cmd>
+                <info><cmdname>$ /bin/rm
+                        /app/ecm/appserver/jboss-eap-7.2/standalone/configuration/&lt;root_certificate_file></cmdname></info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

@@ -1,0 +1,20 @@
+<concept id="901dd032d875e98ddf89ef055a703b64" xml:lang="en-US">
+   <title>Below ESR Service Management</title>
+   <prolog>
+      <source>ST4 ID: 16335683083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>Below ESR services are managed with the <apiname>besr_cluster</apiname> and <apiname>besr_local</apiname> commands. The general structure of these commands is as follows:</p>
+      <codeblock>besr_cluster [options] &lt;command> &lt;component></codeblock>
+      <codeblock>besr_local [options] &lt;command> &lt;component></codeblock>
+      <p>Details and available commands vary between components. For details, use the <apiname>--help</apiname> option, or check the component specific parts of the documentation.</p>
+      <note id="note_N1004B_N1002A_N10001" type="note">For managing clusters, using the <apiname>besr_cluster</apiname> command is recommended. This also applies to clusters that consist of a single host.</note>
+      <p>The <apiname>besr_cluster</apiname> command logs its activity, and creates configuration backups for every action. These backups are created under <apiname>/data/config_backup</apiname>.</p>
+   </conbody>
+</concept>

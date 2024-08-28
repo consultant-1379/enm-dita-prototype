@@ -1,0 +1,29 @@
+<concept id="522c7a1bb39dbe29088302abe0f90d16" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Encrypt the Password and Update the Configuration File</title>
+   <prolog>
+      <source>ST4 ID: 14125899019</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>Use this procedure to encrypt and add the new <userinput>cw20</userinput> password to the
+            <filepath>standalone.xml</filepath> file.</p>
+      <p conkeyref="c7b8a924f43108d84fe5f75ffe352c2e/st4tb13015152011"/>
+      <ul conkeyref="4ac55a1dd078b07220015e6722a4d03d/st4tb13638139659">
+         <li/>
+      </ul>
+      <ol conkeyref="3bb9524ac65210ef0207f88b37084b86/st4tb12704176139">
+         <li/>
+      </ol>
+      <p>
+         <ph importance="normal">Next Step:</ph>
+      </p>
+      <p>
+         <xref keyref="b786df81280220f01a9c8daa7c103ba5"/>
+      </p>
+   </conbody>
+</concept>

@@ -1,0 +1,15 @@
+<concept id="59f9785c85bc778b91275cdf98ac1284" xml:lang="en-US">
+   <title>Check Kafka Logs</title>
+   <prolog>
+      <source>ST4 ID: 10135255435</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>To check Kafka logs, execute the following command on a Kafka node:</p>
+      <codeblock>docker logs kafka</codeblock>
+   </conbody>
+</concept>

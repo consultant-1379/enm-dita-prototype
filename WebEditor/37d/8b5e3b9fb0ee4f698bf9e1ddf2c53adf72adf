@@ -1,0 +1,29 @@
+<concept id="fcc72ac6f6004e1eb017c4fac1ef83e7" xml:lang="en-US">
+   <title>Adapter Load Balancer</title>
+   <prolog>
+      <source>ST4 ID: 16333991307</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zgabkis</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HY53817</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-27</change-completed>
+            <change-summary>EEAEPP-47137, Firewall restriction added.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The following sections describe the configuration options of the Adapter Load Balancer.</p>
+      <p>According to the default firewall configurations, the Adapter Load Balancer instance must listen on port TCP/33000.</p>
+      <p>For further information, see <xref format="html" href="http://www.keepalived.org/manpage.html" scope="external">http://www.keepalived.org/manpage.html</xref>.</p>
+   </conbody>
+</concept>

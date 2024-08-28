@@ -1,0 +1,1203 @@
+<map id="6717883090cbc58e62449a3696a5d55f" xml:lang="en-US">
+   <title>Variable Key Map</title>
+<keydef keys="activationComponentPG">
+  <topicmeta>
+    <keywords>
+      <keyword>15.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ActivationVM">
+  <topicmeta>
+    <keywords>
+      <keyword>Activation VM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="Camunda__NSO_">
+  <topicmeta>
+    <keywords>
+      <keyword>Camunda</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="Camunda_l">
+  <topicmeta>
+    <keywords>
+      <keyword>Camunda BPM Engine</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="Cassandra">
+  <topicmeta>
+    <keywords>
+      <keyword>Cassandra</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="CEE">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Cloud Execution Environment</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CEE_short">
+  <topicmeta>
+    <keywords>
+      <keyword>CEE</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CEErelease">
+  <topicmeta>
+    <keywords>
+      <keyword>CEE 6.4.1, CEE 6.5</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ceilometerDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ceilometerOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>N/A</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CertifiedOpenStackRelease">
+  <topicmeta>
+    <keywords>
+      <keyword>Pike and Queens</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="cinderDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="cinderOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>N/A</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CoreVM">
+  <topicmeta>
+    <keywords>
+      <keyword>Core VM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CoreVM_l"><topicmeta><keywords><keyword>Ericsson Orchestrator Cloud Manager Core VM</keyword></keywords></topicmeta></keydef><keydef keys="Current_ICP">
+  <topicmeta>
+    <keywords>
+      <keyword> </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CWnoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>162</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="CWversion">
+  <topicmeta>
+    <keywords>
+      <keyword>16.2</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="dynamicPortCreation_initialCap">
+  <topicmeta>
+    <keywords>
+      <keyword>Independent VM VNICs</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="dynamicPortCreation_lowercase">
+  <topicmeta>
+    <keywords>
+      <keyword>independent VM VNICs</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecaProductName">
+  
+<topicmeta><keywords><keyword>EO CM Cloud Analytics</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ecaProductname_s"><topicmeta><keywords><keyword>ECA</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECA_Collection_VM_s"><topicmeta><keywords><keyword>ECA Collection VM</keyword></keywords></topicmeta></keydef><keydef keys="ECA_Collection_VM_l"><topicmeta><keywords><keyword>Cloud Analytics Collection Engine VM</keyword></keywords></topicmeta></keydef><keydef keys="ECA_Collector_s"><topicmeta><keywords><keyword>ECA Collector</keyword></keywords></topicmeta></keydef><keydef keys="ECA_Collector_l"><topicmeta><keywords><keyword>Analytics Collector</keyword></keywords></topicmeta></keydef><keydef keys="ECA_Core_s"><topicmeta><keywords><keyword>ECA Core</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECA_Core_l"><topicmeta><keywords><keyword>EO CM Cloud Analytics Core</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECACoreVM"><topicmeta><keywords><keyword>ECA Core VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECACoreVM_l"><topicmeta><keywords><keyword>Cloud Analytics Core VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECACassandraVM"><topicmeta><keywords><keyword>ECA Cassandra VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECACassandraVM_l"><topicmeta><keywords><keyword>Cloud Analytics Cassandra VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECM">
+<topicmeta><keywords><keyword>Ericsson Orchestrator Cloud Manager</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECM_short">
+<topicmeta><keywords><keyword>Cloud Manager</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECMC">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Cloud Manager cluster</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ECMC_Script">
+  <topicmeta>
+    <keywords>
+      <keyword>Cloud Manager clustering script</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecmShutdownScript">
+  <topicmeta>
+    <keywords>
+      <keyword>cloudManager_shutdown.sh</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecmShutdownScriptMsg">
+  <topicmeta>
+    <keywords>
+      <keyword>Cloud Manager shutdown completed.</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecmStartupScript">
+  <topicmeta>
+    <keywords>
+      <keyword>cloudManager_startup.sh</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecmStartupScriptMsg">
+  <topicmeta>
+    <keywords>
+      <keyword>Cloud Manager start completed.</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ecmVersionNoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>182</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edaGui">
+  <topicmeta>
+    <keywords>
+      <keyword>Resource Configuration GUI</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edaProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Dynamic Activation </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edaProductName_short">
+  <topicmeta>
+    <keywords>
+      <keyword>EDA</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbDatabase">
+  <topicmeta>
+    <keywords>
+      <keyword>EDB Postgres Database</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>EnterpriseDB</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbProductName_short">
+  <topicmeta>
+    <keywords>
+      <keyword>EDB</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>9.5.9.14</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM">
+  <topicmeta>
+    <keywords>
+      <keyword>RDB VM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM_1">
+  <topicmeta>
+    <keywords>
+      <keyword>RDB1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM_HA2">
+  <topicmeta>
+    <keywords>
+      <keyword>RDB2</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM_HA3">
+  <topicmeta>
+    <keywords>
+      <keyword>RDB3</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM_short">
+  <topicmeta>
+    <keywords>
+      <keyword>RDB</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="edbVM_short_lower">
+  <topicmeta>
+    <keywords>
+      <keyword>rdb</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="efmProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>EnterpriseDB Failover Manager</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="efmProductName_short">
+  <topicmeta>
+    <keywords>
+      <keyword>EFM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="EO_CM_Version">
+  <topicmeta>
+    <keywords>
+      <keyword>18.2</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="EOO">
+  
+<topicmeta><keywords><keyword>Ericsson Orchestrator Cloud Manager on OpenStack</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="EOO_s"><topicmeta><keywords><keyword>EOO</keyword></keywords></topicmeta></keydef><keydef keys="ESA_version">
+  <topicmeta>
+    <keywords>
+      <keyword>4.0.3</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="External_Format_VNFD_long">
+  <topicmeta>
+    <keywords>
+      <keyword>External Format Virtual Network Function Descriptor (VNFD) via NSD-Sourced Network Service Life
+  Cycle Management (LCM)</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="External_Format_VNFD_NSO">
+  <topicmeta>
+    <keywords>
+      <keyword>External Format VNFD via NSD-Sourced Network Service LCM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="External_Format_VNFD_short">
+  <topicmeta>
+    <keywords>
+      <keyword>External Format VNFD</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="External_IdAM_Feature_Name">
+  <topicmeta>
+    <keywords>
+      <keyword>External Identify and Access Management (IdAM) Integration</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="externaldam_fullName">
+  <topicmeta>
+    <keywords>
+      <keyword>external Identity and Access Management (IdAM)</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="externalIdam">
+  <topicmeta>
+    <keywords>
+      <keyword>external IdAM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="externalIdam_initialCap">
+  <topicmeta>
+    <keywords>
+      <keyword>External IdAM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="glanceDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="glanceOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>1.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="gnocchiDefaultVersion">
+  
+<topicmeta><keywords><keyword>V1</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="heatstackDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>1.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="heatstackOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>N/A</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="internalIdAM">
+  <topicmeta>
+    <keywords>
+      <keyword>internal IdAM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="internalIdAM_fullName">
+  <topicmeta>
+    <keywords>
+      <keyword>internal Identity and Access Management (IdAM)</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="jboss_version">
+  <topicmeta>
+    <keywords>
+      <keyword>6.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="jboss_versionNoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>6.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="keystoneDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>3.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="keystoneOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="Ericsson_Orchestrator">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Orchestrator</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="moduleName">
+  
+<topicmeta><keywords><keyword>Ericsson Orchestrator Cloud Manager</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="moduleNameWithRelease">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Orchestrator 18.2 - Cloud Manager</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="moduleNameWithPriorRelease">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Orchestrator 18.1 - Cloud Manager</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="networkServiceDescriptor">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service Descriptor</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="networkServiceDescriptor_short">
+  <topicmeta>
+    <keywords>
+      <keyword>NSD</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="networkServiceLCM_Sequencing">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service LCM Sequencing </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="networkServiceLCM_Sequencing_Long">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service Life Cycle Management (LCM) Sequencing </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="neutronDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="neutronOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>N/A</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nova21">
+  <topicmeta>
+    <keywords>
+      <keyword>2.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="novaDefaultVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="novaOverrideVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsdSourcedService">
+  <topicmeta>
+    <keywords>
+      <keyword> </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoDbUpdate">
+  <topicmeta>
+    <keywords>
+      <keyword>networkSvcLcmDbUpdate</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoDbUpdateScript">
+  <topicmeta>
+    <keywords>
+      <keyword>networkSvcLcmDbUpdate.sh </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoFunctionality">
+  <topicmeta>
+    <keywords>
+      <keyword>network service orchestration</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoFunctionalityCaps">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service Orchestration</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service Life Cycle Manager</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="nsoProductName_s">
+  <topicmeta>
+    <keywords>
+      <keyword>NS LCM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="nsoProductName_short">
+  <topicmeta>
+    <keywords>
+      <keyword>NSO</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoProductNameNoSpaces">
+  <topicmeta>
+    <keywords>
+      <keyword>Network_Service_LCM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoShutdownScript">
+  <topicmeta>
+    <keywords>
+      <keyword>networkSvcLcm_shutdown.sh</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoShutdownScriptMsg">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service LCM shutdown completed.</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoStartupScript">
+  <topicmeta>
+    <keywords>
+      <keyword>networkSvcLcm_startup.sh </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="nsoStartupScriptMsg">
+  <topicmeta>
+    <keywords>
+      <keyword>Network Service LCM startup completed.</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="Old_Version_ICP">
+  <topicmeta>
+    <keywords>
+      <keyword>ICP1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="Old_Version_IRP">
+  <topicmeta>
+    <keywords>
+      <keyword>N/A</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oldProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson Cloud Manager</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oldVersion">
+  <topicmeta>
+    <keywords>
+      <keyword>18.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OldVersionNoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>18.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OldVersionUnderscore">
+  <topicmeta>
+    <keywords>
+      <keyword>&lt;prior_release_number></keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OpenAM">
+  <topicmeta>
+    <keywords>
+      <keyword>13.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OpenAmPolicy">
+  <topicmeta>
+    <keywords>
+      <keyword>3.5</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OpenDJ">
+  <topicmeta>
+    <keywords>
+      <keyword>3.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OpenStackRelease_EOO_installations">
+  
+<topicmeta><keywords><keyword>Newton and Queens</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="oracleGoldenGate">
+  <topicmeta>
+    <keywords>
+      <keyword>12c</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oracleGoldenGateLong">
+  <topicmeta>
+    <keywords>
+      <keyword>12.1.2.1.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oracleVer">
+  <topicmeta>
+    <keywords>
+      <keyword>11g</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oracleVerLong">
+  <topicmeta>
+    <keywords>
+      <keyword>11.2.0.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="OVFversion">
+  <topicmeta>
+    <keywords>
+      <keyword>2.1.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="postgres">
+  <topicmeta>
+    <keywords>
+      <keyword>9.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="postgresNoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>94</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="PPAS">
+  <topicmeta>
+    <keywords>
+      <keyword>Postgres Plus Advanced Server</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="PPAS_short">
+  <topicmeta>
+    <keywords>
+      <keyword>PPAS</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="releaseNoDotNoZero">
+  <topicmeta>
+    <keywords>
+      <keyword>18</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="rhLinuxPatchSet">
+  <topicmeta>
+    <keywords>
+      <keyword>6.x</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="rhLinuxVerGuest">
+  <topicmeta>
+    <keywords>
+      <keyword>7.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="rhLinuxVerHost">
+  <topicmeta>
+    <keywords>
+      <keyword>7.4</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="SO_l"><topicmeta><keywords><keyword>Service Orchestration</keyword></keywords></topicmeta></keydef><keydef keys="scmMappingAPIs">
+  <topicmeta>
+    <keywords>
+      <keyword>Service Configuration Mapping APIs</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="scmProductName">
+  <topicmeta>
+    <keywords>
+      <keyword>Service Configuration</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="scmProductName_short">
+  <topicmeta>
+    <keywords>
+      <keyword>SCM</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="snmpFmAgentPort">
+  <topicmeta>
+    <keywords>
+      <keyword>8162</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="softwareGateway">
+  <topicmeta>
+    <keywords>
+      <keyword>Ericsson's SW (Software) Gateway</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="streamingWAL">
+  <topicmeta>
+    <keywords>
+      <keyword>Streaming/WAL Archive Sync</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="translationTable">
+  <topicmeta>
+    <keywords>
+      <keyword>Service Configuration Mapping Table</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="upgradeFrom">
+  <topicmeta>
+    <keywords>
+      <keyword>18.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="valuePackage_feature">
+  <topicmeta>
+    <keywords>
+      <keyword>feature</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="valuePackage_feature_initialCap">
+  <topicmeta>
+    <keywords>
+      <keyword>Feature</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="vCenterRelease">
+  <topicmeta>
+    <keywords>
+      <keyword>6.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="Version">
+  <topicmeta>
+    <keywords>
+      <keyword>&lt;release_number></keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="VersionNoDot">
+  <topicmeta>
+    <keywords>
+      <keyword>182</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="VersionUnderscore">
+  <topicmeta>
+    <keywords>
+      <keyword>&lt;release_number></keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="vioRelease">
+  <topicmeta>
+    <keywords>
+      <keyword>3.0</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="weblogic">
+  <topicmeta>
+    <keywords>
+      <keyword>1212</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oldECMVersionUnderscore">
+  <topicmeta>
+    <keywords>
+      <keyword>18_1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="oldECMVersionDot">
+  <topicmeta>
+    <keywords>
+      <keyword>18.1</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="loginID">
+  <topicmeta>
+    <keywords>
+      <keyword>osadm</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="sudo">
+  <topicmeta>
+    <keywords>
+      <keyword>sudo </keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="physicalFunctionPassThru">
+  <topicmeta>
+    <keywords>
+      <keyword>Physical Function Pass Through</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="serviceConfiguration">
+  <topicmeta>
+    <keywords>
+      <keyword>configuration object</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharacterSet_A">
+  <topicmeta>
+    <keywords>
+      <keyword># % - $ ! * + = _</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharacterSet_B">
+  <topicmeta>
+    <keywords>
+      <keyword># % - $ ! * + _</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharactersSet_C">
+  <topicmeta>
+    <keywords>
+      <keyword>$ !</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharacterSet_D">
+  <topicmeta>
+    <keywords>
+      <keyword>- $ ! * = _</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharacterSet_E">
+  <topicmeta>
+    <keywords>
+      <keyword># % -  ! * + = _</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+<keydef keys="passwordCharacterSet_F">
+  <topicmeta>
+    <keywords>
+      <keyword># % - * +  = _</keyword>
+    </keywords>
+  </topicmeta>
+</keydef>
+
+<keydef keys="ESAVM"><topicmeta><keywords><keyword>ESA VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ABCDVM"><topicmeta><keywords><keyword>ABCD VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="ABCDVM_l"><topicmeta><keywords><keyword>Ansible-Based Cloud Deployment VM</keyword></keywords></topicmeta></keydef><keydef keys="CustomWorkflowVM"><topicmeta><keywords><keyword>Custom Workflow VM</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="HA_s"><topicmeta><keywords><keyword>HA</keyword></keywords></topicmeta></keydef>
+<keydef keys="HA_l"><topicmeta><keywords><keyword>High Availability</keyword></keywords></topicmeta></keydef>
+<keydef keys="non_HA_s"><topicmeta><keywords><keyword>non-HA</keyword></keywords></topicmeta></keydef>
+<keydef keys="non_HA_l"><topicmeta><keywords><keyword>Non-High Availability</keyword></keywords></topicmeta></keydef>
+<keydef keys="KVM_s"><topicmeta><keywords><keyword>KVM</keyword></keywords></topicmeta></keydef>
+<keydef keys="KVM_l"><topicmeta><keywords><keyword>Kernel-based Virtual Machine</keyword></keywords></topicmeta></keydef>
+<keydef keys="GR_s"><topicmeta><keywords><keyword>GR</keyword></keywords></topicmeta></keydef>
+<keydef keys="GR_l"><topicmeta><keywords><keyword>Geographical Redundancy</keyword></keywords></topicmeta></keydef>
+<keydef keys="GR_Service_s"><topicmeta><keywords><keyword>GR Service</keyword></keywords></topicmeta></keydef><keydef keys="GR_Service_l"><topicmeta><keywords><keyword>Geographical Redundancy Service</keyword></keywords></topicmeta></keydef><keydef keys="EO_EVNFM_s"><topicmeta><keywords><keyword>EVNFM</keyword></keywords></topicmeta></keydef>
+<keydef keys="EO_EVNFM_l"><topicmeta><keywords><keyword>Ericsson Orchestrator Evolved Virtual Network Function Manager</keyword></keywords></topicmeta></keydef>
+<keydef keys="VNF_LCM_s"><topicmeta><keywords><keyword>VNF LCM</keyword></keywords></topicmeta></keydef>
+<keydef keys="VNF_LCM_l"><topicmeta><keywords><keyword>Virtual Network Function Life Cycle Management</keyword></keywords></topicmeta></keydef>
+<keydef keys="EO_CM_Core_s"><topicmeta><keywords><keyword>EO CM Core</keyword></keywords></topicmeta></keydef>
+<keydef keys="EO_CM_Core_l"><topicmeta><keywords><keyword>Ericsson Orchestrator Cloud Manager Core Components</keyword></keywords></topicmeta></keydef>
+<keydef keys="EO_CM_Rest_s"><topicmeta><keywords><keyword>EO CM Rest</keyword></keywords></topicmeta></keydef>
+<keydef keys="EO_CM_Rest_l"><topicmeta><keywords><keyword>EO CM Rest Service</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Notification_Services_s"><topicmeta><keywords><keyword>Notification Services</keyword></keywords></topicmeta></keydef>
+<keydef keys="Notification_Services_l"><topicmeta><keywords><keyword>HTTP/HTTPS Notification Services</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="CMDB_Services_s"><topicmeta><keywords><keyword>CMDB Services</keyword></keywords></topicmeta></keydef>
+<keydef keys="CMDB_Services_l"><topicmeta><keywords><keyword>Cloud Manager Database Services</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="EOC_s"><topicmeta><keywords><keyword>EOC</keyword></keywords></topicmeta></keydef>
+<keydef keys="EOC_l"><topicmeta><keywords><keyword>Ericsson Order Care</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Catalog_Manager_s"><topicmeta><keywords><keyword>Catalog Manager</keyword></keywords></topicmeta></keydef>
+<keydef keys="Catalog_Manager_l"><topicmeta><keywords><keyword>Ericsson Catalog Manager</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="OpenAM_s"><topicmeta><keywords><keyword>OpenAM</keyword></keywords></topicmeta></keydef>
+<keydef keys="OpenAM_l"><topicmeta><keywords><keyword>ForgeRock OpenAM</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="OpenDJ_s"><topicmeta><keywords><keyword>OpenDJ</keyword></keywords></topicmeta></keydef>
+<keydef keys="OpenDJ_l"><topicmeta><keywords><keyword>ForgeRock OpenDJ</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ActiveMQ_s"><topicmeta><keywords><keyword>ActiveMQ</keyword></keywords></topicmeta></keydef>
+<keydef keys="ActiveMQ_l"><topicmeta><keywords><keyword>Apache ActiveMQ</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ESA_Trap_Receiver_s"><topicmeta><keywords><keyword>ESA Trap Receiver</keyword></keywords></topicmeta></keydef>
+<keydef keys="ESA_Trap_Receiver_l"><topicmeta><keywords><keyword>Ericsson SNMP Agent Trap Receiver</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ELK_s"><topicmeta><keywords><keyword>ELK</keyword></keywords></topicmeta></keydef>
+<keydef keys="ELK_l"><topicmeta><keywords><keyword>Elasticsearch, Logstash, Kibana</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="FM_s"><topicmeta><keywords><keyword>FM</keyword></keywords></topicmeta></keydef>
+<keydef keys="FM_l"><topicmeta><keywords><keyword>Fault Manager</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="DHRS_s"><topicmeta><keywords><keyword>DHRS</keyword></keywords></topicmeta></keydef>
+<keydef keys="DHRS_l"><topicmeta><keywords><keyword>Docker and Helm registry service</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="TOSCA_O_s"><topicmeta><keywords><keyword>TOSCA-O</keyword></keywords></topicmeta></keydef>
+<keydef keys="TOSCA_O_l"><topicmeta><keywords><keyword>TOSCA-O Service</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="VIM_Discovery_s"><topicmeta><keywords><keyword>VIM Discovery</keyword></keywords></topicmeta></keydef>
+<keydef keys="VIM_Discovery_l"><topicmeta><keywords><keyword>VIM Discovery Service</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="VIM_Capacity_s"><topicmeta><keywords><keyword>VIM Capacity</keyword></keywords></topicmeta></keydef>
+<keydef keys="VIM_Capacity_l"><topicmeta><keywords><keyword>VIM Capacity Service</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ECM_UMI_s"><topicmeta><keywords><keyword>ECM-UMI</keyword></keywords></topicmeta></keydef>
+<keydef keys="ECM_UMI_l"><topicmeta><keywords><keyword>EO CM Upgrade, Migration, and Install framework</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="LB_VM_s"><topicmeta><keywords><keyword>LB VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="LB_VM_l"><topicmeta><keywords><keyword>Load Balancer VM</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="F5_LTM_s"><topicmeta><keywords><keyword>F5 LTM</keyword></keywords></topicmeta></keydef>
+<keydef keys="F5_LTM_l"><topicmeta><keywords><keyword>F5 BIG-IP Local Traffic Manager</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Cassandra_DB_s"><topicmeta><keywords><keyword>Cassandra DB</keyword></keywords></topicmeta></keydef>
+<keydef keys="Cassandra_DB_l"><topicmeta><keywords><keyword>Apache Cassandra DB</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Zookeeper_s"><topicmeta><keywords><keyword>Zookeeper</keyword></keywords></topicmeta></keydef>
+<keydef keys="Zookeeper_l"><topicmeta><keywords><keyword>Apache Zookeeper</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Puppet"><topicmeta><keywords><keyword>Puppet</keyword></keywords></topicmeta></keydef>
+
+
+<keydef keys="EPAS_s"><topicmeta><keywords><keyword>EPAS</keyword></keywords></topicmeta></keydef>
+<keydef keys="EPAS_l"><topicmeta><keywords><keyword>EnterpriseDB Postgres Advanced Server</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="ESA_s"><topicmeta><keywords><keyword>ESA</keyword></keywords></topicmeta></keydef>
+<keydef keys="ESA_l"><topicmeta><keywords><keyword>Ericsson SNMP Agent</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="NS_LCM_VM_s"><topicmeta><keywords><keyword>NS LCM VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="NS_LCM_VM_l"><topicmeta><keywords><keyword>Network Service Life Cycle Manager VM</keyword></keywords></topicmeta></keydef>
+
+<keydef keys="Request_Manager"><topicmeta><keywords><keyword>Request Manager</keyword></keywords></topicmeta></keydef>
+
+
+<keydef keys="TOSCA_Parser"><topicmeta><keywords><keyword>TOSCA Parser</keyword></keywords></topicmeta></keydef>
+
+
+<keydef keys="Custom_WF_s"><topicmeta><keywords><keyword>Custom WF</keyword></keywords></topicmeta></keydef>
+<keydef keys="Custom_WF_l"><topicmeta><keywords><keyword>Custom Workflow</keyword></keywords></topicmeta></keydef>
+<keydef keys="Custom_WF_VM_s"><topicmeta><keywords><keyword>Custom WF VM</keyword></keywords></topicmeta></keydef>
+<keydef keys="Custom_WF_VM_l"><topicmeta><keywords><keyword>Custom Workflow VM</keyword></keywords></topicmeta></keydef>
+</map>

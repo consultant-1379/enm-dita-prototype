@@ -1,0 +1,275 @@
+<concept id="64b7565b4c557c445028ce4e810e50da" xml:lang="en-US">
+    <title>Anonymization in CICA</title>
+    <shortdesc>User data can be anonymized with the built-in anonymization feature of the CICA tool,
+        using the <cmdname>-a</cmdname> command line option.</shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbozviv</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-20</change-completed>
+                <change-summary>EEAEPP-45863 - Anonymization in CICA section added.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-10</change-completed>
+                <change-summary>EEAEPP-45863, Added more anonymizable field descriptions, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>This feature uses a sequential algorithm to anonymize the IMSI, MSISDN, IMEI, IMEISV,
+            IPv4 and IPv6 fields of an event:</p>
+        <ul id="ul_ztr_5kd_kmb">
+            <li>
+                <p>IMSI anonymization</p>
+                <ul id="ul_on4_xkd_kmb">
+                    <li>
+                        <p>The original MCC and MNC fields of the IMSI remain unchanged.</p>
+                    </li>
+                    <li>
+                        <p>The serial number of the IMSI is replaced with an ID, which is a serial
+                            number following the order of anonymization.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of IMSIs before and after anonymization:</p>
+                <ul id="ul_e1r_bld_kmb">
+                    <li>
+                        <p>First IMSI</p>
+                        <ul id="ul_z5b_dld_kmb">
+                            <li>
+                                <p>Before: <parmname>244125014041151</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>244125000000001</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second IMSI</p>
+                        <ul id="ul_cw1_fld_kmb">
+                            <li>
+                                <p>Before: <parmname>244121960503014</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>244121000000002</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>MSISDN anonymization</p>
+                <ul id="ul_y32_qld_kmb">
+                    <li>
+                        <p>The anonymized MSISDN begins with the serial number, which follows the
+                            order of anonymization.</p>
+                    </li>
+                    <li>
+                        <p>The serial number is followed by zeroes to match the original length of
+                            the MSISDN.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of MSISDNs before and after anonymization:</p>
+                <ul id="ul_z32_qld_kmb">
+                    <li>
+                        <p>First MSISDN</p>
+                        <ul id="ul_aj2_qld_kmb">
+                            <li>
+                                <p>Before: <parmname>35845744030021</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>10000000000000</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second MSISDN</p>
+                        <ul id="ul_bj2_qld_kmb">
+                            <li>
+                                <p>Before: <parmname>56017865242142</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>20000000000000</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>IMEI anonymization</p>
+                <ul id="ul_kjw_ps1_qmb">
+                    <li>
+                        <p>The original CD and TAC fields of the IMEI remain unchanged.</p>
+                    </li>
+                    <li>
+                        <p>The serial number of the IMEI is replaced with an ID, which is a serial
+                            number following the order of anonymization.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of IMEIs before and after anonymization:</p>
+                <ul id="ul_axv_ss1_qmb">
+                    <li>
+                        <p>First IMEI:</p>
+                        <ul id="ul_cth_5s1_qmb">
+                            <li>
+                                <p>Before: <parmname>137710010900210</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>137710010000010</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second IMEI:</p>
+                        <ul id="ul_nlq_xs1_qmb">
+                            <li>
+                                <p>Before: <parmname>355944048120314</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>355944040000014</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>IMEISV anonymization</p>
+                <ul id="ul_yrj_bt1_qmb">
+                    <li>
+                        <p>The original SV and TAC fields of the IMEISV remain unchanged.</p>
+                    </li>
+                    <li>
+                        <p>The serial number of the IMEISV is replaced with an ID, which is a serial
+                            number following the order of anonymization.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of IMEISVs before and after anonymization:</p>
+                <ul id="ul_t5x_2t1_qmb">
+                    <li>
+                        <p>First IMEISV:</p>
+                        <ul id="ul_yh4_gt1_qmb">
+                            <li>
+                                <p>Before: <parmname>132260085552909</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>132260000000109</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second IMEISV:</p>
+                        <ul id="ul_uqg_ht1_qmb">
+                            <li>
+                                <p>Before: <parmname>3551790644928521</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>3551790600000221</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>User IPv4 and IPv6 address anonymization</p>
+                <ul id="ul_vh1_tt1_qmb">
+                    <li>
+                        <p>The form and length of the address remain unchanged.</p>
+                    </li>
+                    <li>
+                        <p>The IP address is converted to decimal format, and the value of the
+                            address is replaced with an ID, which is a serial number following the
+                            order of anonymization. After this, a constant offset is added to this
+                            ID to ensure that the anonymized IP is valid. Finally, the decimal is
+                            converted back to the regular IP address format.</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of IPv4 addresses before and after anonymization:</p>
+                <ul id="ul_dfq_wt1_qmb">
+                    <li>
+                        <p>First IPv4 address:</p>
+                        <ul id="ul_q4l_zt1_qmb">
+                            <li>
+                                <p>Before: <parmname>100.66.82.149</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>10.202.154.59</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second IPv4 address:</p>
+                        <ul id="ul_hzy_zt1_qmb">
+                            <li>
+                                <p>Before: <parmname>100.80.64.193</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>10.148.53.119</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Examples of IPv6 addresses before and after anonymization:</p>
+                <ul id="ul_amx_wt1_qmb">
+                    <li>
+                        <p>First IPv6 address:</p>
+                        <ul id="ul_c4p_151_qmb">
+                            <li>
+                                <p>Before:
+                                        <parmname>2001:14bb:80:ba0f:87cf:b10a:b97b:4910</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>8:64a7:b3b6:e00d:8:64a7:b3b6:e00d</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Second IPv6 address:</p>
+                        <ul id="ul_srb_b51_qmb">
+                            <li>
+                                <p>Before:
+                                    <parmname>2001:db8:85a3:8d3:1319:8a2e:370:7348</parmname></p>
+                            </li>
+                            <li>
+                                <p>After: <parmname>8:c84e:676d:c11b:8:c84e:676d:c11b</parmname></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <p>This feature is available for the following event types:</p>
+        <codeblock outputclass="condensed pgwide">- protobuf: dp | gtpc | hls | mp4 | rtcp | rtp | sip | acc | srvcc | tls | tp | traf | wp | wr
+- tlv/avro: cdr2g3g (msc) | sgsn_mme_ebm | gpeh</codeblock>
+    </conbody>
+</concept>

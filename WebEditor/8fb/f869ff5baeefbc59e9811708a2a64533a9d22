@@ -1,0 +1,16 @@
+<concept id="0a6eb8b5ea5572b9ae888ee3bad2b6d5" xml:lang="en-US">
+   <title>PostgreSQL Reference Database</title>
+   <prolog>
+      <source>ST4 ID: 14512782091</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following sections describe PostgreSQL Reference Database related configuration and maintenance tasks.</p>
+      <p>The PostgreSQL Reference Database is used to store reference data from <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#mdr1571256800590?title=Expert%20Analytics" scope="external">External Reference Data Sources</xref></p>
+      <p>It is available for queries through the <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#jqp1571256799732?title=Expert%20Analytics" scope="external">Presentation and Exposure Layer</xref>.</p>
+   </conbody>
+</concept>

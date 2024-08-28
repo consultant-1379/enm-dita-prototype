@@ -1,0 +1,29 @@
+<concept id="0e278a408ef363334cc12c78fd5fb4f8" xml:lang="en-US">
+   <title>Dumper Usage</title>
+   <prolog>
+      <source>ST4 ID: 16330990091</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <section>
+                                    <title outputclass="st4mig_titled-block-title">Start Dumper by Command</title>
+                                    <p>To start the dumper by command, enable the dumper in the <apiname>probe_config.py</apiname>, then execute the following command:</p>
+                                    <codeblock>besr_local start dumper</codeblock>
+                                    <p>To stop the dumper, execute the following command:</p>
+                                    <codeblock>besr_local stop dumper</codeblock>
+                                    <note type="note">
+            <p>Make sure to disable the dumper functionality before the next start or restart of the Probe.</p>
+         </note>
+                                 </section>
+      <section>
+                                    <title outputclass="st4mig_titled-block-title">Start Dumper by Restarting the Probe</title>
+                                    <p>To start the dumper by restarting the Probe, enable the dumper in the <apiname>probe_config.py</apiname> of an individual Probe, then execute the following command:</p>
+                                    <codeblock>besr_local force-reload</codeblock>
+                                    <note type="note">Do not execute the <apiname>force-reload</apiname> command in [cluster] mode when the dumper is enabled.</note>
+                                 </section>
+   </conbody>
+</concept>

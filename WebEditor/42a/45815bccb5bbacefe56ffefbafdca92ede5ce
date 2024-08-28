@@ -1,0 +1,207 @@
+<task id="c69ab732269256c7ea66717f3ac7c23b" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for <ph keyref="edbVM"/> ID: enterprisedb</title>
+   <prolog>
+      <source>ST4 ID: 13577155211</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N100F3_N100F0_N10001" outputclass="st4mig_beforeProcedure">
+         <p>This section provides instructions for changing the password for the <ph keyref="edbVM"/> administrative ID, <option outputclass="st4mig_function">enterprisedb</option>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="36fd545084e342671f7c0fcd35822eb7/st4tb12331441931"/>
+            </li>
+            <li>
+               <p conkeyref="b613408a3438e50320749f473ab706fb/st4tb12331484427"/>
+            </li>
+            <li>
+               <p>Allowable special characters for this ID are <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li>
+         </ul>
+         <p>To change the password for this <ph keyref="edbVM"/> ID:</p>
+      </context>
+      <steps>
+         <step id="step_N1013A_N10137_N100F0_N10001">
+            <cmd>Log on to the <ph keyref="edbVM"/> (the master <ph keyref="edbVM"/> for an <ph keyref="HA_s"/> deployment) as <option keyref="loginID"/> user. </cmd>
+         </step>
+         <step id="step_N10154_N10137_N100F0_N10001">
+            <cmd>Execute the following command to connect to the database: </cmd>
+            <info>
+               <codeblock outputclass="condensed"><ph keyref="sudo"/>psql -p 5432 -U enterprisedb edb</codeblock>
+            </info>
+         </step>
+         <step id="step_N1016E_N10137_N100F0_N10001">
+            <cmd>Change the password for the <option>enterprisedb</option> ID with the following
+               command: </cmd>
+            <info>
+               <codeblock outputclass="condensed">alter user enterprisedb with password '&lt;<ph importance="low">New_Password</ph>>';</codeblock>
+               <note id="note_N10189_N1017C_N1016C_N10137_N100F0_N10001">
+                  <p>The single quotes are required, as shown.</p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N10197_N10137_N100F0_N10001">
+            <cmd>Exit <option>psql</option>. </cmd>
+         </step>
+         <step id="step_N101A5_N10137_N100F0_N10001">
+            <cmd>Run the following command on the <ph keyref="edbVM"/> and edit the new password in
+                  <filepath>.pgpass</filepath> file for correct processing of additional scripts. </cmd>
+            <info>
+               <codeblock><ph keyref="sudo"/>vi ~enterprisedb/.pgpass</codeblock>
+            </info>
+         </step>
+         <step id="step_N100FA_N10079_N10032_N10001">
+            <cmd>Enter the following command on the <ph keyref="edbVM"/>:</cmd>
+            <info>
+               <codeblock outputclass="condensed">sudo su - enterprisedb -c "psql -U enterprisedb -p 5432 edb -c 'select 1 dual;'"</codeblock>
+            </info>
+            <stepresult>
+               <codeblock outputclass="condensed">dual
+  ------
+      1
+  (1 row)
+</codeblock>
+               <note id="note_N101DB_N101D3_N101A5_N10137_N100F0_N10001">
+                  <p>For an <ph keyref="HA_s"/> deployment, execute this step for each <ph keyref="edbVM"/>. In a <ph keyref="GR_s"/> deployment, this step must also
+                     be executed on the standby site.</p>
+               </note>
+            </stepresult>
+         </step>
+         <step id="step_N101D0_N10137_N100F0_N10001">
+            <cmd>Log in with the new password to verify the change of password for the
+                  <option>enterprisedb</option> ID: </cmd>
+            <info>
+               <codeblock outputclass="condensed">psql -U enterprisedb edb
+Password for user enterprisedb: <varname>&lt;New_Password></varname>
+
+psql.bin (11.6.13)
+Type "help" for help.
+edb =>
+</codeblock>
+            </info>
+         </step>
+         <step id="step_N10217_N10137_N100F0_N10001">
+            <cmd>If <ph keyref="ecaProductname_s"/> is installed, then update the
+               password on the <ph keyref="ECACoreVM"/>:</cmd>
+            <info>
+               <codeblock outputclass="condensed">
+sudo vi /root/.pgpass
+sudo vi /home/sentilla/.pgpass</codeblock>
+               <note id="note_N10226_N1021E_N10217_N10137_N100F0_N10001">
+                  <ul id="ul_gmq_54m_3gb">
+                     <li>
+                        <p><ph keyref="GR_s"/> decouple is not required.</p>
+                     </li>
+                     <li>
+                        <p> For an <ph keyref="HA_s"/> deployment, execute this step for each <ph keyref="ECACoreVM"/>. In a <ph keyref="GR_s"/> deployment, this step
+                           must also be executed on the standby site.</p>
+                     </li>
+                     <li>
+                        <p>The rest of the steps in this procedure are only for an <ph keyref="HA_s"/> deployment. In a <ph keyref="GR_s"/> deployment, the following steps
+                           for <ph keyref="HA_s"/> must also be executed on the standby site.</p>
+                     </li>
+                     <li>
+                        <p>When password on the <ph keyref="ECACoreVM"/> is changed, log in to the <ph keyref="edbVM"/> (the master <ph keyref="edbVM"/> for an <ph keyref="HA_s"/> deployment) as <option keyref="loginID"/>
+                           user and proceed to the next steps of this instruction.</p>
+                     </li>
+                  </ul>
+               </note>
+            </info>
+         </step>
+         <step id="step_N10201_N10137_N100F0_N10001">
+            <cmd>Enter the following command to run the encryption procedure for <ph keyref="efmProductName_short"/> and enter the <varname>New_Password</varname> when
+               prompted. </cmd>
+            <info>
+               <codeblock outputclass="condensed">efm encrypt efm</codeblock>
+            </info>
+            <stepresult>
+               <codeblock outputclass="condensed">
+This utility will generate an encrypted password for you to place in your
+EFM cluster property file.
+Please enter the password and hit enter:
+
+Please enter the password again to confirm:
+
+The encrypted password is: &lt;<ph importance="low">New_Encrypted_Password</ph>>
+
+Please paste this into your cluster properties file.
+        db.password.encrypted=&lt;<ph importance="low">New_Encrypted_Password</ph>></codeblock>
+            </stepresult>
+         </step>
+         <step id="step_N10237_N10137_N100F0_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command on the <ph keyref="edbVM"/> to update <filepath>efm.properties</filepath> file with the
+                  new encrypted password:</ph>
+            </cmd>
+            <info>
+               <codeblock outputclass="condensed"><ph keyref="sudo"/> sed -i 's/db.password.encrypted=.*/db.password.encrypted=&lt;<ph importance="low">New_Encrypted_Password</ph>>/' /etc/edb/efm-3.6/efm.properties</codeblock>
+            </info>
+         </step>
+         <step id="step_N10216_N10079_N10032_N10001">
+            <cmd>Enter the following command to verify that the properties file was updated on the
+                  <ph keyref="edbVM"/>:</cmd>
+            <info><cmdname>grep -F 'db.password.encrypted='
+                  /etc/edb/efm-3.6/efm.properties</cmdname><note id="note_N102AF_N102A7_N10281_N10137_N100F0_N10001">
+                  <p>This step must be executed on each <ph keyref="edbVM"/>.</p>
+               </note></info>
+            <stepresult>
+               <codeblock outputclass="condensed">db.password.encrypted=&lt;<ph importance="low">New_Encrypted_Password</ph>></codeblock>
+            </stepresult>
+         </step>
+         <step id="step_N10241_N10076_N1002F_N10001">
+            <cmd>Restart the <ph keyref="efmProductName_short"/> service sequentially on all RDB
+               nodes (the master node must be restarted at the end): </cmd>
+            <info><cmdname>sudo systemctl restart efm-3.6</cmdname><note id="note_N10251_N1024C_N10241_N10076_N1002F_N10001">
+               <p>See the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Troubleshooting_Guide"/> if an
+                     error occurs.</p>
+               </note></info>
+         </step>
+         <step id="step_N1026C_N10137_N100F0_N10001">
+            <cmd>Execute the following command on the <ph keyref="edbVM"/> to verify that <ph keyref="efmProductName_short"/> accepted the new encrypted password: </cmd>
+            <info>
+               <codeblock outputclass="condensed">efm cluster-status efm</codeblock>
+               <note id="note_N102E4_N102DC_N102C7_N10137_N100F0_N10001">
+                  <p><option>XLog Loc</option> must be present in the Promote Status table as
+                     depicted in the sample result.</p>
+               </note>
+            </info>
+            <stepresult>
+               <codeblock outputclass="condensed">Cluster Status: efm
+
+        Agent Type  Address              Agent  DB       VIP
+        -----------------------------------------------------------------------
+        Master      10.61.156.201        UP     UP       10.61.157.218*
+        Standby     10.61.156.207        UP     UP       10.61.157.218
+        Standby     10.61.156.208        UP     UP       10.61.157.218
+
+Allowed node host list:
+        10.61.156.201 10.61.156.207 10.61.156.208
+
+Membership coordinator: 10.61.156.208
+
+Standby priority host list:
+        10.61.156.208 10.61.156.207
+
+Promote Status:
+
+        DB Type     Address              WAL Received LSN   WAL Replayed LSN   Info
+        ---------------------------------------------------------------------------
+        Master      10.61.156.201                           26/F4000218
+        Standby     10.61.156.208        26/F4000218        26/F4000218
+        Standby     10.61.156.207        26/F4000218        26/F4000218
+
+        Standby database(s) in sync with master. It is safe to promote.</codeblock>
+            </stepresult>
+         </step>
+      </steps>
+   </taskbody>
+</task>

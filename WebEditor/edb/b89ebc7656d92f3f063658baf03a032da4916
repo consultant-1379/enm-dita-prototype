@@ -1,0 +1,44 @@
+<concept id="a25c2d29a0e19b746fd9b336d060038c" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title>Brute Force Protection Algorithm</title>
+  <prolog>
+    <source/>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA" ux-source-priority="topic-and-map"/>
+  </prolog>
+  <conbody>
+    <p>Brute Force Protection Algorithm has been applied to the default <filepath>admin</filepath>
+      GUI user because this user cannot be permanently locked out from system.</p>
+    <p>Once the <filepath>AUTHN_MAX_LOGIN_ATTEMPTS</filepath> is
+reached for the default <filepath>admin</filepath> GUI user,
+the user is locked out for a period. The Brute Force Protection Algorithm
+determines the locking period as follows:</p>
+    <ul>
+      <li>
+        <p>When the <filepath>admin</filepath> user is locked for the first time, the locking period
+          is <filepath>AUTHN_BRUTE_FORCE_INITIAL_LOCK_PERIOD</filepath> (5 seconds by default).</p>
+      </li>
+      <li>
+        <p>From the second time, the locking period is doubled each time, until the
+            <filepath>AUTHN_BRUTE_FORCE_MAX_LOCK_PERIOD</filepath> is reached. For example:</p>
+        <ul>
+          <li>
+            <p>Second locking period is 10 seconds.</p>
+          </li>
+          <li>
+            <p>Third locking period is 20 seconds.</p>
+          </li>
+          <li>
+            <p>Fourth locking period is 40 seconds, and so on.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Later on, every time when the user is locked out, the
+locking period is <filepath>AUTHN_BRUTE_FORCE_MAX_LOCK_PERIOD</filepath> (15 minutes by default).</p>
+      </li>
+    </ul>
+  </conbody>
+</concept>

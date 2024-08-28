@@ -1,0 +1,289 @@
+
+    <div _ditaname="booktitle" class="booktitle">
+        <span _ditaname="mainbooktitle" class="mainbooktitle">Spectrum Disturbance Detected</span>
+        <span _ditaname="booktitlealt" class="booktitlealt" __outputclass="subtitle"></span>
+        <span _ditaname="booktitlealt" class="booktitlealt" __outputclass="cimage"></span>
+    </div>
+    <div _ditaname="bookmeta" class="bookmeta">
+        <div _ditaname="publisherinformation" class="publisherinformation">
+            <div _ditaname="published" class="published">
+                <div _ditaname="organization" class="organization"></div>
+                <div _ditaname="completed" class="completed">
+                    
+                    
+                    <span _ditaname="year" class="year">2019</span><span _ditaname="month" class="month">10</span><span _ditaname="day" class="day">14</span>
+                </div>
+            </div>
+        </div>
+        <span _ditaname="permissions" class="permissions" __view="ericsson_internal"></span>
+        <div _ditaname="audience" class="audience" __othertype="all" __type="other"></div>
+        <div _ditaname="category" class="category"></div>
+        <div _ditaname="keywords" class="keywords">
+            <div _ditaname="keyword" class="keyword"></div>
+        </div>
+        <div _ditaname="bookid" class="bookid">
+            <div _ditaname="edition" class="edition">B</div>
+            <div _ditaname="booknumber" class="booknumber">58/15431-CSA 113 131<span _ditaname="option" class="option" title="option"></span></div>
+        </div>
+        <div _ditaname="bookchangehistory" class="bookchangehistory">
+            <div _ditaname="reviewed" class="reviewed">
+                <div _ditaname="person" class="person" __value=""></div>
+            </div>
+            <div _ditaname="edited" class="edited" __value="No">
+                <div _ditaname="person" class="person" __value="efraiso">Francesca Isola</div>
+                <div _ditaname="organization" class="organization">BDGSBEED</div>
+            </div>
+            <div _ditaname="approved" class="approved" __value="Yes">
+                <div _ditaname="person" class="person" __value="efraiso">Francesca Isola</div>
+                <div _ditaname="organization" class="organization">BDGSBEED</div>
+            </div>
+            <div _ditaname="bookevent" class="bookevent">
+                <div _ditaname="bookeventtype" class="bookeventtype" __name="workflow_status" __value="approved"></div>
+            </div>
+            <div _ditaname="bookevent" class="bookevent">
+                <div _ditaname="bookeventtype" class="bookeventtype" __name="changerecord"></div>
+                <div _ditaname="person" class="person" __value=""></div>
+                <div _ditaname="revisionid" class="revisionid"></div>
+                <div _ditaname="completed" class="completed">
+                    <span _ditaname="year" class="year"></span>
+                    <span _ditaname="month" class="month"></span>
+                    <span _ditaname="day" class="day"></span>
+                </div>
+                <div _ditaname="summary" class="summary"></div>
+            </div>
+        </div>
+        <div _ditaname="bookrights" class="bookrights">
+            <div _ditaname="copyrfirst" class="copyrfirst">
+                <span _ditaname="year" class="year">2019</span>
+            </div>
+            <div _ditaname="bookowner" class="bookowner">
+                <div _ditaname="organization" class="organization">Ericsson AB</div>
+            </div>
+            <div _ditaname="bookrestriction" class="bookrestriction" __value="NA"></div>
+        </div>
+    </div>
+    <div _ditaname="frontmatter" class="frontmatter">
+        <div _ditaname="booklists" class="booklists">
+            <div _ditaname="trademarklist" class="trademarklist" __keyref="d418d677c80ba01b87fbf80c9ce4eae7"></div>
+            <div _ditaname="toc" class="toc" __outputclass="toc2"></div>
+        </div>
+    </div>
+    
+    
+    <div _ditaname="chapter" class="topicref" __keyref="d296866cb01a5827602f28f9ec53c3ab" _fromscopeindex="0" _scopeindex="0"><div _ditaname="troubleshooting" class="topic" __id="d296866cb01a5827602f28f9ec53c3ab" __xml:lang="en-US" _mainfile="1" _sha1="a1dc03810b6456864e0c951b9e42ea426e3f4f16" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_d296866cb01a5827602f28f9ec53c3ab" _origsha1="a1dc03810b6456864e0c951b9e42ea426e3f4f16"><!--{"comments":[{"comment":"Comment&nbsp;","timestamp":1620658433884,"editedOn":null,"resolved":{"resolvedOn":null,"resolvedBy":null},"reopened":{"reopenedOn":null,"reopenedBy":null},"user":"emoejin","innerComments":[]}],"id":"d296866cb01a5827602f28f9ec53c3ab"}-->
+    <div _ditaname="title" class="title">Spectr<mark __cid="d296866cb01a5827602f28f9ec53c3ab_0" __start="d296866cb01a5827602f28f9ec53c3ab_0_start" class="markExtraHighlight">um Disturbance Detected</mark></div>
+    <div _ditaname="shortdesc" class="shortdesc"><mark __cid="d296866cb01a5827602f28f9ec53c3ab_0" class="markExtraHighlight">This Operational Instruction (OPI) describes the Spectrum Disturbance Detected alarm
+        and the procedure to follow when it appears in the Alarm Monitor.</mark></div>
+    <div _ditaname="prolog" class="prolog"><div _ditaname="source" class="source"><mark __cid="d296866cb01a5827602f28f9ec53c3ab_0" class="markExtraHighlight">4/15431-CSA 113 131</mark></div><span _ditaname="permissions" class="permissions" __view="ericsson_internal"></span><span _ditaname="metadata" class="metadata"><div _ditaname="keywords" class="keywords"><div _ditaname="keyword" class="keyword"></div></div><span _ditaname="othermeta" class="othermeta" __content="NA" __name="workitem"></span></span><div _ditaname="resourceid" class="resourceid" __id="NA" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_NA"></div></div>
+    <div _ditaname="troublebody" class="troublebody"><div _ditaname="condition" class="condition" __id="condition_N1002B_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_condition_N1002B_N10029_N10001">
+            <div _ditaname="title" class="title"><mark __cid="d296866cb01a5827602f28f9ec53c3ab_0" class="markExtraHighlight">Alarm Description</mark></div>
+            <p _ditaname="p" class="p">The Spectrum Disturbance Detected alarm rises if a disturbance is detected on an
+                RfPort.</p>
+            <p _ditaname="p" class="p">This alarm is generated by SMM (Spectrum Measurement Management) application and it
+                can be enabled when Disturbance Monitoring mode is used for a monitored RfPort.</p>
+            <p _ditaname="p" class="p">These parameters can be selected by the operator:</p>
+            <p _ditaname="p" class="p">
+                <table _ditaname="table" class="table" __frame="all" __id="table_l1w_hjh_jhb" _nodeobj="0" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_table_l1w_hjh_jhb">
+                    <tbody _ditaname="tgroup" class="tgroup" __cols="2">
+                        <span _ditaname="colspec" class="colspec" __colname="c1" __colnum="1" __colwidth="1*"></span>
+                        <span _ditaname="colspec" class="colspec" __colname="c2" __colnum="2" __colwidth="1*"></span>
+                        <tbody _ditaname="tbody" class="tbody">
+                            <tr _ditaname="row" class="row">
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p"><span _ditaname="parmname" class="parmname" title="parmname">Number of Samplings</span></p>
+                                </td>
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p">Number of measurements for detecting an alarm condition.</p>
+                                </td>
+                            </tr>
+                            <tr _ditaname="row" class="row">
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p"><span _ditaname="parmname" class="parmname" title="parmname">Alarm Detection Criteria</span></p>
+                                </td>
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p">Criteria for alarm detection: Consecutive Samples or Time
+                                        Windowing.</p>
+                                </td>
+                            </tr>
+                            <tr _ditaname="row" class="row">
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p"><span _ditaname="parmname" class="parmname" title="parmname">Time Window (Minutes)</span></p>
+                                </td>
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p">Time window in which the requested number of measurements
+                                        must be captured for Time Windowing disturbance
+                                        detection.</p>
+                                </td>
+                            </tr>
+                            <tr _ditaname="row" class="row">
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p"><span _ditaname="parmname" class="parmname" title="parmname">Alarm Clearing Criteria</span></p>
+                                </td>
+                                <td _ditaname="entry" class="entry">
+                                    <p _ditaname="p" class="p">Criteria for clearing the alarm: Manual or Disturbance
+                                        Condition Ceased.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </tbody>
+                </table>
+            </p>
+            <table _ditaname="table" class="table" __id="table_cym_t4h_jhb" _nodeobj="1" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_table_cym_t4h_jhb" __conkeyref="344562b3702904bcc97e05e3502f3a49/table_cqm_mjj_mz" _scopeindex="0" contenteditable="false" _conreforiginal="0">
+            <tbody _ditaname="tgroup" class="tgroup" __cols="2">
+                <span _ditaname="colspec" class="colspec" __colname="col1" __colnum="1" __colwidth="1*"></span>
+                <span _ditaname="colspec" class="colspec" __colname="col2" __colnum="2" __colwidth="2.56*"></span>
+                <thead _ditaname="thead" class="thead">
+                    <tr _ditaname="row" class="row">
+                        <th _ditaname="entry" class="entry" __nameend="col2" __namest="col1" colspan="2">
+                            <p _ditaname="p" class="p">Alarm Attributes</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody _ditaname="tbody" class="tbody">
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Record Type</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">NON_SYNCHABLE_ALARM</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Event Type</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Quality of service</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Probable cause</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Performance Degraded</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Specific Problem</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Spectrum Disturbance Detected</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Severity</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">WARNING</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Managed Object Class</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">RfPort</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Problem Text</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">
+                                <ul _ditaname="ul" class="ul" __id="ul_ibd_z2y_khb" id="fe26b016d8a65103b22cce1fe80583f344b7b459_ul_ibd_z2y_khb">
+                                    <li _ditaname="li" class="li">
+                                        <p _ditaname="p" class="p">Power level greater than &lt;power level&gt; dbm. [Frequency
+                                            Range: &lt;range&gt;] Detected &lt;number of samples&gt;
+                                            consecutive samples for RfPort: &lt;RfPort LDN&gt;</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <ul _ditaname="ul" class="ul" __id="ul_b3l_bfy_khb" id="fe26b016d8a65103b22cce1fe80583f344b7b459_ul_b3l_bfy_khb">
+                                <li _ditaname="li" class="li">
+                                    <p _ditaname="p" class="p">Power level greater than &lt;power level&gt; dbm. [Frequency
+                                        Range: &lt;range&gt;] Detected &lt;number of samples&gt; samples
+                                        in a &lt;minutes&gt; minutes time window for RfPort: &lt;RfPort
+                                        LDN&gt;</p>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Technical Area</p>
+                        </td>
+                        <td _ditaname="entry" class="entry">
+                            <p _ditaname="p" class="p">Performance Management</p>
+                        </td>
+                    </tr>
+                    <tr _ditaname="row" class="row">
+                        <td _ditaname="entry" class="entry">Stateful/Stateless</td>
+                        <td _ditaname="entry" class="entry">Stateful</td>
+                    </tr>
+                </tbody>
+            </tbody>
+        </table>
+            <p _ditaname="p" class="p"></p>
+        </div>
+        <div _ditaname="troubleSolution" class="troubleSolution">
+            <div _ditaname="remedy" class="remedy" __id="remedy_N100F1_N100E5_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_remedy_N100F1_N100E5_N10029_N10001">
+                <?Solution ?>
+                <div _ditaname="title" class="title">Procedure</div>
+                <div _ditaname="steps-unordered" class="steps-unordered">
+                    <div _ditaname="stepsection" class="stepsection">
+                        <p _ditaname="p" class="p">The alarm notifies a Spectrum Disturbance detected for a monitored RfPort
+                            based on selected Disturbance criteria. SMM application can be used to: </p>
+                    </div>
+                    <div _ditaname="step" class="step" __id="step_N1010E_N100F9_N100F1_N100E5_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_step_N1010E_N100F9_N100F1_N100E5_N10029_N10001">
+                        <div _ditaname="cmd" class="cmd">analyze the previously collected measurements which cause the alarm
+                            condition</div>
+                    </div>
+                    <div _ditaname="step" class="step" __id="step_N100ED_N100D9_N100CF_N100CC_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_step_N100ED_N100D9_N100CF_N100CC_N10029_N10001">
+                        <div _ditaname="cmd" class="cmd">take the required action to remove the disturbance if needed</div>
+                    </div>
+                </div>
+            </div><div _ditaname="remedy" class="remedy" __id="remedy_N1010C_N1010A_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_remedy_N1010C_N1010A_N10029_N10001">
+                <div _ditaname="steps-unordered" class="steps-unordered">
+                    <div _ditaname="stepsection" class="stepsection">
+                        <p _ditaname="p" class="p">Depending on Alarm Reporting policy configured while starting the
+                            measurement, the alarm can be:</p>
+                    </div>
+                    <div _ditaname="step" class="step" __id="step_N1011C_N10119_N10111_N10106_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_step_N1011C_N10119_N10111_N10106_N10029_N10001">
+                        <div _ditaname="cmd" class="cmd">cleared manually by the operator</div>
+                    </div>
+                    <div _ditaname="step" class="step" __id="step_N1010F_N100FB_N100F7_N100CC_N10029_N10001" id="a1dc03810b6456864e0c951b9e42ea426e3f4f16_step_N1010F_N100FB_N100F7_N100CC_N10029_N10001">
+                        <div _ditaname="cmd" class="cmd">cleared automatically when the disturbance condition has ceased</div>
+                    </div>
+                </div>
+            </div></div></div></div></div><div _ditaname="backmatter" class="backmatter">
+        <div _ditaname="booklists" class="booklists">
+            <div _ditaname="bibliolist" class="bibliolist" _fromscopeindex="0" _scopeindex="0"></div>
+        </div>
+    </div>
+    <div _ditaname="reltable" class="reltable">
+        <!--Complete the relationship table as needed with source topic in first and target topic in the second cell-->
+        <div _ditaname="relheader" class="relheader">
+            <div _ditaname="relcolspec" class="relcolspec" __linking="sourceonly" __type="topic"></div>
+            <div _ditaname="relcolspec" class="relcolspec" __linking="targetonly" __type="topic"></div>
+        </div>
+        <div _ditaname="relrow" class="relrow">
+            <div _ditaname="relcell" class="relcell"></div>
+            <div _ditaname="relcell" class="relcell"></div>
+        </div>
+        <div _ditaname="relrow" class="relrow">
+            <div _ditaname="relcell" class="relcell"></div>
+            <div _ditaname="relcell" class="relcell"></div>
+        </div>
+        <div _ditaname="relrow" class="relrow">
+            <div _ditaname="relcell" class="relcell"></div>
+            <div _ditaname="relcell" class="relcell"></div>
+        </div>
+        <div _ditaname="relrow" class="relrow">
+            <div _ditaname="relcell" class="relcell"></div>
+            <div _ditaname="relcell" class="relcell"></div>
+        </div>
+    </div>

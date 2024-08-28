@@ -1,0 +1,67 @@
+<referable-content id="3bb9524ac65210ef0207f88b37084b86" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Encrypt Password</title>
+   <rcbody>
+      <ol id="st4tb12704176139">
+                                 <li>
+                                    <p>Log on as <userinput>ecm_admin</userinput> to the <ph keyref="CoreVM"/>.</p>
+                                 </li>
+                                 <li>
+                                    <p>Set <option>CLASSPATH</option> to the latest version of JBoss jar files required for encryption with the following command:</p>
+                                    <p>
+               <userinput>export
+                  JARCLASSPATH=${JBOSS_HOME}/modules/system/layers/base/.overlays/layer-base-jboss-eap-7.2.9.CP</userinput>
+            </p>
+                                    <p>
+               <userinput>export
+                  CLASSPATH=${JARCLASSPATH}/org/picketbox/main/picketbox-5.0.3.Final-redhat-00006.jar:${JBOSS_HOME}/modules/system/layers/base/org/jboss/logging/main/jboss-logging-3.3.2.Final-redhat-00001.jar</userinput>
+            </p>
+                                    <p>Execute the following command to encrypt the new password:</p>
+                                    <p>
+               <userinput>java -cp ${CLASSPATH}
+                  org.picketbox.datasource.security.SecureIdentityLoginModule
+                  '&lt;New_Password>'</userinput>
+            </p>
+                                    <p>The system displays the following:</p>
+                                    <p>
+                                       <systemoutput>Encoded password: -f84467d58d92dc604c715c1eb777ff193298f75c2764086</systemoutput>
+                                    </p>
+                                 </li>
+                                 <li>
+                                    <p>Navigate to the folder where the <filepath>standalone.xml</filepath> file resides:</p>
+                                    <codeblock>cd $JBOSS_HOME/standalone/configuration</codeblock>
+                                 </li>
+                                 <li>
+                                    <p>Search for the security domain attribute
+                  <option>encrypted-&lt;securityDomainName></option> in the
+                  <filepath>standalone.xml</filepath> file, and change the password value in the
+               login module attribute:</p>
+                                    <codeblock>
+ <systemoutput>&lt;security-domain name="encrypted-&lt;securityDomainName>" cache-type="default">
+ &lt;authentication>
+ &lt;login-module code="org.picketbox.datasource.security.SecureIdentityLoginModule" flag="required">
+ &lt;module-option name="username" value="<varname>&lt;username></varname>"/>
+ &lt;module-option name="password" value="<varname>&lt;encodedPassword></varname>"/>
+ &lt;/login-module>
+ &lt;/authentication>
+&lt;/security-domain>
+</systemoutput>
+                                    </codeblock>
+                                    <note id="note_N10092_N1006E_N10011_N1000E_N10001">
+                                       <ul>
+                  <li>
+                                             <p>
+                                                <ph importance="normal">HA deployments</ph>
+                                             </p>
+                                             <p>Add the encrypted password in the <filepath>standalone.xml</filepath> file located on the <ph keyref="CoreVM"/> on node 2 of an HA deployment.</p>
+                                          </li>
+                  <li>
+                                             <p>
+                                                <ph importance="normal">Geo-Redundant deployments</ph>
+                                             </p>
+                                             <p>Add the encrypted password in the <filepath>standalone.xml</filepath> located on both primary site and standby site at <ph keyref="CoreVM"/>s node 1 and node 2.</p>
+                                          </li>
+               </ul>
+                                    </note>
+                                 </li>
+                              </ol>
+   </rcbody>
+</referable-content>

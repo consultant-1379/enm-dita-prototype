@@ -1,0 +1,198 @@
+<concept id="2bc8b56b764a22a035878f5c748e0046" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title>View Authentication Parameters</title>
+  <prolog>
+    <source/>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA" ux-source-priority="topic-and-map"/>
+  </prolog>
+  <conbody>
+    <p>To list all the configuration information for the system, run the
+following command from node-1 or node-2:</p>
+    <p>
+      <systemoutput>$</systemoutput>
+      <userinput>bootloader.py config list --show_all</userinput>
+    </p>
+    <p>Then find the authentication parameters in <filepath>tomcat</filepath> section.</p>
+    <p> The <cite>Authentication Parameters Table</cite> lists all the parameters for authentication
+      configuration.</p>
+    <table colsep="1" id="tbPsw" rowsep="1">
+      <title>Authentication Parameters</title>
+      <tgroup cols="4">
+        <colspec colname="col1" colwidth="180.67pt"/>
+        <colspec colname="col2" colwidth="179.40pt"/>
+        <colspec colname="col3" colwidth="87.10pt"/>
+        <colspec colname="col4" colwidth="55.71pt"/>
+        <thead>
+          <row>
+            <entry valign="middle">
+              <p>Parameter</p>
+            </entry>
+            <entry valign="middle">
+              <p>Description</p>
+            </entry>
+            <entry valign="middle">
+              <p>Type</p>
+            </entry>
+            <entry valign="middle">
+              <p>Default Value</p>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MIN_PASSWD_LENGTH</p>
+            </entry>
+            <entry valign="middle">
+              <p>Minimum password length <fn>The password
+length must consist of minimum 12 characters.</fn>
+              </p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>12</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MIN_DIGIT_CHARS</p>
+            </entry>
+            <entry valign="middle">
+              <p>Minimum number of digits [0-9] within a password</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>1</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MIN_UPPER_CASE_CHARS</p>
+            </entry>
+            <entry valign="middle">
+              <p>Minimum number of upper case characters [A-Z] within a password</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>1</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MIN_LOWER_CASE_CHARS</p>
+            </entry>
+            <entry valign="middle">
+              <p>Minimum number of lower case characters [a-z] within a password</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>1</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MIN_SPECIAL_CHARS</p>
+            </entry>
+            <entry valign="middle">
+              <p>Minimum number of special characters
+                  <filepath>[!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~]</filepath> within a
+                password</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>1</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MAX_DAYS_TO_REMEMBER</p>
+            </entry>
+            <entry valign="middle">
+              <p>Number of days that a password cannot be
+reused</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>365</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MAX_DAYS_TO_LIVE</p>
+            </entry>
+            <entry valign="middle">
+              <p>Maximum days before a password needs to
+be changed</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>90</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_MAX_LOGIN_ATTEMPTS</p>
+            </entry>
+            <entry valign="middle">
+              <p>Maximum number of failed login attempts
+before the user is locked out</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>3</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_BRUTE_FORCE_INITIAL_LOCK_PERIOD</p>
+            </entry>
+            <entry valign="middle">
+              <p>Initial locking period (in milliseconds)
+of default <filepath>admin</filepath> GUI user after reaching "AUTHN_MAX_LOGIN_ATTEMPTS"</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>5000</p>
+            </entry>
+          </row>
+          <row>
+            <entry valign="middle">
+              <p>AUTHN_BRUTE_FORCE_MAX_LOCK_PERIOD</p>
+            </entry>
+            <entry valign="middle">
+              <p>Maximum locking period (in milliseconds)
+for the default <filepath>admin</filepath> GUI user.</p>
+            </entry>
+            <entry valign="middle">
+              <p>Integer</p>
+            </entry>
+            <entry valign="middle">
+              <p>900000</p>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </conbody>
+</concept>

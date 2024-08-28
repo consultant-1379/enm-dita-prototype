@@ -1,0 +1,101 @@
+<bookmap id="da6eb0cd96658c5ce6abed28a0a4b823" xml:lang="en-US">
+    <booktitle>
+        <mainbooktitle>Spectrum Disturbance Detected</mainbooktitle>
+        <booktitlealt outputclass="subtitle"/>
+        <booktitlealt outputclass="cimage"/>
+    </booktitle>
+    <bookmeta>
+        <publisherinformation>
+            <published>
+                <organization/>
+                <completed>
+                    
+                    
+                    <year>2019</year><month>10</month><day>14</day>
+                </completed>
+            </published>
+        </publisherinformation>
+        <permissions view="ericsson_internal"/>
+        <audience othertype="all" type="other"/>
+        <category/>
+        <keywords>
+            <keyword/>
+        </keywords>
+        <bookid>
+            <edition>B</edition>
+            <booknumber>58/15431-CSA 113 131<option/></booknumber>
+        </bookid>
+        <bookchangehistory>
+            <reviewed>
+                <person value=""/>
+            </reviewed>
+            <edited value="No">
+                <person value="efraiso">Francesca Isola</person>
+                <organization>BDGSBEED</organization>
+            </edited>
+            <approved value="Yes">
+                <person value="efraiso">Francesca Isola</person>
+                <organization>BDGSBEED</organization>
+            </approved>
+            <bookevent>
+                <bookeventtype name="workflow_status" value="approved"/>
+            </bookevent>
+            <bookevent>
+                <bookeventtype name="changerecord"/>
+                <person value=""/>
+                <revisionid/>
+                <completed>
+                    <year/>
+                    <month/>
+                    <day/>
+                </completed>
+                <summary/>
+            </bookevent>
+        </bookchangehistory>
+        <bookrights>
+            <copyrfirst>
+                <year>2019</year>
+            </copyrfirst>
+            <bookowner>
+                <organization>Ericsson AB</organization>
+            </bookowner>
+            <bookrestriction value="NA"/>
+        </bookrights>
+    </bookmeta>
+    <frontmatter>
+        <booklists>
+            <trademarklist keyref="d418d677c80ba01b87fbf80c9ce4eae7"/>
+            <toc outputclass="toc2"/>
+        </booklists>
+    </frontmatter>
+    
+    
+    <chapter keyref="d296866cb01a5827602f28f9ec53c3ab"/><backmatter>
+        <booklists>
+            <bibliolist/>
+        </booklists>
+    </backmatter>
+    <reltable>
+        <!--Complete the relationship table as needed with source topic in first and target topic in the second cell-->
+        <relheader>
+            <relcolspec linking="sourceonly" type="topic"/>
+            <relcolspec linking="targetonly" type="topic"/>
+        </relheader>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+    </reltable>
+</bookmap>

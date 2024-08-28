@@ -1,0 +1,16 @@
+<concept id="b6f00a9cd046c504ae423f3f7d1aad2b" xml:lang="en-US">
+   <title>Correlator</title>
+   <prolog>
+      <source>ST4 ID: 16331125131</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>This section describes the configuration of the Correlator component.</p>
+      <p>For more information on the Correlator, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#nsp1571256801401?title=Expert%20Analytics" scope="external">Expert Analytics</xref>.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,180 @@
+@charset "utf-8";@font-face{font-family:EricssonCapitalTT;src:url('?li=//123&fn=font/EricssonCapitalTT.ttf') format('truetype')}
+html{position:relative;font-family:Arial,Helvetica,sans-serif;overflow-x: hidden; overflow-y: hidden;font-size:10pt !important;line-height:14pt !important;padding:0;width:100%;height:100%;}
+body{font-size:10pt;line-height:14pt;background-color:#fff; overflow-x: hidden; overflow-y: hidden; counter-reset: figuretitle ttitleno exampletitle;}
+
+table[__id]>caption{counter-increment: ttitleno;}
+table[__id]>caption::before {content: "Table " counter(ttitleno) "\2003";}
+table>caption::before {content: "Table\2003";}
+table{display: table; border-collapse: collapse; white-space: normal; line-height: 12pt; font-weight: normal; font-size: 10pt; font-style: normal; color: -internal-quirk-inherit;
+    text-align: start; border-spacing: 2px; border-color: grey; font-variant: normal; margin:4pt 0 4pt 0;}
+.example[__id]{counter-increment: exampletitle;}
+.example::before{font-weight: bold;margin-top: 12pt;content: "Example\2003";}
+.example[__id]::before{font-weight:bold;margin-top: 12pt;content: "Example " counter(exampletitle) "\2003";}
+.example>.title{font-weight:bold;margin-top: 12pt;display:inline;}
+.mainbooktitle{margin:0 0 0 24pt;font-weight:normal;color:#0072D6;font-size:24pt; margin-top: 24pt;margin-bottom: 12pt;}
+figure[__id]>figcaption{counter-increment: figuretitle;}
+figure[__id]>figcaption::before{content: "Figure " counter(figuretitle) "\2003";}
+figure>figcaption::before{content: "Figure\2003";}
+
+entry{font-size:10pt !important;}
+
+
+.conbody, .taskbody, .refbody, .troublebody {margin:0 0 0 24pt;}
+.task>.title{font-weight:normal;color:#0072D6;font-size:16pt; margin-top: 24pt;margin-bottom: 12pt;}
+.concept>.title{font-weight:normal;color:#0072D6;font-size:16pt; margin-top: 24pt;margin-bottom: 12pt;}
+.reference>.title{font-weight:normal;color:#0072D6;font-size:16pt; margin-top: 24pt;margin-bottom: 12pt;}
+.troubleshooting>.title{font-weight:normal;color:#0072D6;font-size:16pt; margin-top: 24pt;margin-bottom: 12pt;}
+.section>.title{font-weight: bold;margin-top: 12pt;}
+
+.stepresult::before{font-weight:bold;margin-top: 12pt;content: "Result";}
+.stepresult{margin-top: 12pt;}
+.title {font-weight:bold;margin-top: 12pt;}
+.shortdesc{
+	margin:0 0 20pt 24pt;
+    border-left-color: #cccccc;
+    border-left-style: solid;
+    padding-left: 15px;
+}
+input{}
+input::before{    display: block;
+    font-weight: bold;
+    content: "xxxxxx";
+}
+.prolog {display:none;}
+h1,h2,h3,h4{line-height:14pt;font-size:10pt;font-weight:normal;}
+.note > :first-child {display:inline; margin 0 0 0 0;font-size:10pt;line-height:14pt;}
+li > :first-child {display:inline;}
+p{margin 2pt 0 2pt 0;font-size:10pt;line-height:14pt;}
+div.info{margin: 2pt 0 0 0;font-size:10pt;line-height:14pt;}
+li{line-height:14pt;}
+figure {
+    display: flex;
+    flex-flow: column-reverse;
+	align-items: flex-start;
+}
+caption {display:block !important; text-align:left;}
+
+dt, thead{font-weight: bold;}
+dd > :first-child {display:inline;}
+dd {display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0em;
+	margin-inline-start: 8em;
+	}
+
+span[_keytext]:empty::before {content: attr(_keytext);}
+.title[_keytext]::before {content: attr(_keytext) "\2003";}
+span[__importance="normal"] {font-weight: bold;}
+.cite {font-style: italic;font-family: sans-serif;}
+
+.uicontrol{font-weight: bold;font-family: sans-serif;}
+.note{padding:2pt 0 2pt 40pt;}
+.userinput {font-weight: bold;}
+pre, samp {font-family: monospace;}
+code, .parmname, .option, .cmdname, .filepath, .systemoutput {font-family: monospace;}
+kbd {font-weight: bold;}
+dfn {font-family: sans-serif;}
+[___eref]{background-color:#e5e5e5;}
+.xref {color:#0072D6;font-family: sans-serif;}
+.tm[__tmtype="tm"]::after {content "\2122";}
+.tm[__tmtype="reg"]::after {content "\00AE";}
+.varname {font-family: monospace;font-style: italic;}
+.varname::before {content: "\003c"; font-family: monospace; font-style: italic;}
+.varname::after  {content: "\003e"; font-family: monospace; font-style: italic;}
+.note::before {
+    display: block;
+    width: 37pt;
+    float: left;
+    margin: 0 0 0 -40pt;
+	font-weight: bold;
+    content: "Note:\2003";
+}
+img {
+	align:left;
+  max-width: 600pt;
+  height: auto;
+}
+th {background-color:#F2F2F2;}
+td, th {text-align:left;vertical-align: top;}
+th, td { border-collapse: collapse; border: 1px solid #ccddee; padding:3pt;}
+/*ul {
+	list-style-type: none;
+}
+ul > li::before {
+    content: "\2013";
+    padding-right: 5px;
+    margin-left: -18px;
+}*/
+.step ol>li {  list-style-type: lower-alpha; }
+ol>li ol>li {  list-style-type: lower-alpha; }
+ol>li ol>li ol>li {  list-style-type: lower-roman; }
+.step ol>li ol>li {  list-style-type: lower-roman; }
+.step .substep ol>li {  list-style-type: lower-roman; }
+.step{counter-increment: stepcounter; margin:4pt 0 4pt 0;padding-left: 25pt;}
+.step::before {
+    display: block;
+    width: 25pt;
+    float: left;
+    margin: 0 0 0 -25pt;
+    content: counter(stepcounter) ".";
+}
+.substeps {
+	counter-reset: substepcounter;
+	padding-left: 25pt;
+}
+.steps::before {
+	counter-reset: stepcounter;
+    display: block;
+    width: 100pt;
+    margin: 12pt 0 0 0;
+    font-weight: bold;
+    content: "Steps";
+}
+.stepxmp::before {
+    display: block;
+    width: 100pt;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "Example";
+}
+.steps-informal::before {
+	counter-reset: stepcounter;
+    display: block;
+    width: 100pt;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "Steps";
+}
+.postreq::before {
+    display: block;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "After This Task";
+}
+.prereq::before {
+    display: block;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "Prerequisites";
+}
+.troubleshooting::before {
+    display: block;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "Troubleshooting:";
+}
+.result::before {
+    display: block;
+    margin: 18pt 0 0 0;
+    font-weight: bold;
+    content: "Result";
+}
+.substep{counter-increment: substepcounter; margin:4pt 0 4pt 0;padding-left: 25pt;}
+.substep::before {
+    display: block;
+    width: 25pt;
+    float: left;
+    margin: 0 0 0 -25pt;
+    content: counter(substepcounter,lower-alpha) ".";
+}
+	a {color:blue;}

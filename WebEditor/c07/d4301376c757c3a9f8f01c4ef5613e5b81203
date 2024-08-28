@@ -1,0 +1,103 @@
+<referable-content id="0aa807053728304cc555c1774768dad9" xml:lang="en-US">
+<title>CERTIFICATE EXPIRY Ref Con</title>
+<rcbody>+<table id="table_cqm_mjj_mz">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Alarm Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>time domain violation</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>keyExpired</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>CERTIFICATE EXPIRY</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <p>CRITICAL</p>
+                                    </li>
+                                    <li>
+                                        <p>MAJOR</p>
+                                    </li>
+                                    <li>
+                                        <p>MINOR</p>
+                                    </li>
+                                    <li>
+                                        <p>WARNING</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>Security-PKI</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>Certificate for CA Entity and End Entity: &lt;CA Entity Name> with
+                                SubjectDN CN=&lt;SubjectDN> and Serial Number &lt;CA Serial No>
+                                expires in &lt;days> DAYS.</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Security</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table></rcbody>
+</referable-content>

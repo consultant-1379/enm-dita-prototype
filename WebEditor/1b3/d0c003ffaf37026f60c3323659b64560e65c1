@@ -1,0 +1,102 @@
+<referable-content id="82b10e5d09460d5668f5c6b4da0a70f6" xml:lang="en-US">
+<title>File System Threshold Exceeded Ref Con</title>
+<rcbody>
+        <table id="table_ocn_4lx_vfb">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Alarm Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>File System - Used Percentage</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>File System exceeded the specified threshold limit</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>File System Threshold exceeded</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <p>MINOR</p>
+                                    </li>
+                                    <li>
+                                        <p>MAJOR</p>
+                                    </li>
+                                    <li>
+                                        <p>CRITICAL</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>ESM Service</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>Used Percentage is X.Y %</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>ENM System Monitor</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

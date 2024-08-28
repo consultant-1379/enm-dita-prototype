@@ -1,0 +1,92 @@
+<referable-content id="956e9d2db72e98475764aad0abbd1b23" xml:lang="en-US">
+<title>FMX ENM CLI Error Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_cyc_vpy_dhb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>ProcessingError AAA</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>ConfigurationOrCustomisationError</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>FMX ENM CLI Error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>MAJOR</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>FMX</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>ENM CLI is not working…</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Fault Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

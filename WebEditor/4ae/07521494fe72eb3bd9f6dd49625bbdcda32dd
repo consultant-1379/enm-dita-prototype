@@ -1,0 +1,37 @@
+<task id="5dce49f229c0bab016070af02a2fcbef" xml:lang="en-US">
+    <title>Remove a Root Certificate from a Trust Store</title>
+    <shortdesc/>
+    <prolog>
+        <permissions view="ericsson_internal"/>
+		<metadata/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->        
+        <steps>
+            <step id="step_N10024_N10021_N1001C_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user.</cmd>
+            </step>
+            <step id="step_N10035_N10021_N1001C_N10001">
+                <cmd>Change directory to </cmd>
+                <info><cmdname>/app/ecm/appserver/jboss-eap-7.2/standalone/configuration</cmdname></info>
+            </step>
+            <step id="step_N10044_N10021_N1001C_N10001">
+                <cmd>List the root certificates that are currently within a trust store and find the
+                    alias of the root certificate to remove. Provide the password to a trust store
+                    when prompted.</cmd>
+                <info><cmdname>$ keytool -list -keystore truststore.jks</cmdname></info>
+            </step>
+            <step id="step_N10053_N10021_N1001C_N10001">
+                <cmd>To remove a certificate from a trust store, specify an alias and a certificate
+                    assigned to the root . Provide the password to a trust store when
+                    prompted.</cmd>
+                <info><cmdname>$ keytool -delete -noprompt -alias &lt;alias> -keystore
+                        truststore.jks</cmdname></info>
+            </step>
+            <step id="step_N10062_N10021_N1001C_N10001">
+                <cmd>For the <ph keyref="HA_s"/>  deployments, repeat these steps on the second <ph keyref="CoreVM"/>.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

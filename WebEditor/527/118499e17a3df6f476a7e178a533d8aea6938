@@ -1,0 +1,1443 @@
+<concept id="dd528e20272b8a9db2f7c8ebe99841e0" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+<title>Change Passwords</title>
+<prolog><source>ST4 ID: 13577134731</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><conbody><p>Many user or system IDs are required as part of the normal operations of <ph keyref="ECM_short"/>. Some of these IDs are customer-facing IDs and, therefore, have more external exposure; other IDs are internal and are used only by internal components. In addition, changing certain passwords may require short outages as certain components may need to be shut down and restarted. </p><note id="note_N101E0_N101D0_N10001" type="note">The following user IDs are not used by <ph keyref="ECM_short"/> and therefore, the passwords do not need to be changed: syncuser,
+         dvecli, dveadm, dsreplication.</note><p>Initial default passwords for all IDs are stored on the <ph keyref="ABCDVM"/> in the
+            <filepath>/ecm-umi/install/.ecm_passwords</filepath> file. Once passwords are changed,
+         it is highly recommended to remove this file and store it in a separate, secure location. </p><p>It is recommended to review the list of IDs below, identify which of them must be changed, and schedule the changing of the passwords of certain IDs during a scheduled maintenance window with the following considerations:</p><ol outputclass="st4mig_alphalist"><li>
+                           <p>If the procedure requires downtime, restrict access to the system. For
+               more information about restricting system access, see <cite>Restricting Access for
+                  Administrative Procedures</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>.</p>
+                        </li><li>
+                           <p>Change the passwords individually, and verify that the system operates properly after each password change.</p>
+                        </li><li>
+                           <p>Besides executing orders, you can run scripts to verify the system
+               operations. For more information about these scripts, see in <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments"/> .</p>
+                        </li>
+         <li>
+            <p>Password for an additional component can be changed only if this component is
+               installed.</p>
+         </li></ol><section id="section_N10222_N101D0_N10001" outputclass="static"><title outputclass="st4mig_titled-block-title">Considerations for Geo-Redundant Deployments</title></section><section id="section_N1022D_N101D0_N10001" outputclass="static"><!-- section wrapper added --><title outputclass="st4mig_titled-block-title"/><p>Special considerations should be made when changing passwords for geo-redundant deployments. For example:</p><ul><li>
+                              <p>Change the passwords on the active site (typically Site A) first.</p>
+                           </li><li>
+                              <p>Certain passwords must be changed on both the active site (Site A) and the standby site (Site B). Change these passwords on both sites AFTER <ph keyref="GR_l"/> is set up. </p>
+                              <p>This is true of all <ph keyref="ecaProductname_s"/> passwords.</p>
+                           </li><li>
+                              <p>Certain passwords are automatically replicated to Site B; therefore, there is no need to change the password on both sites.</p>
+                           </li><li>
+                              <p>The <ph keyref="GR_s"/> deployment considerations are provided in
+                  the password change instructions for each ID.</p>
+                           </li>
+            <li>
+               <p>The <uicontrol>Password Manager in GR Deployments</uicontrol> column in the table
+                  below shows the Password Manager use in the <ph keyref="GR_s"/> deployments:</p>
+               <ul id="ul_cdf_bdj_qnb">
+                  <li>
+                     <p>The <uicontrol>Sites</uicontrol> column indicates whether the Password
+                        Manager is used on both the active and standby sites or on the active site
+                        only.</p>
+                  </li>
+                  <li>
+                     <p>The <uicontrol>Stop Services </uicontrol> column indicates if it is required
+                        to stop the services. If  <option>Yes</option> is specified, the services
+                        are to stop on the standby site. See <cite>Stop GR Standby Site
+                           Components</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Emergency_Recovery_Procedures"/></p>
+                  </li>
+               </ul>
+            </li></ul>
+         <note id="note_N101FC_N1018A_N1013E_N10001">
+            <ul id="ul_enz_j2j_qnb">
+               <li>
+                  <p>Before using the Password Manager, check the <ph keyref="GR_s"/> deployment
+                     considerations for the required ID to find out if decoupling is needed.</p>
+               </li>
+               <li>
+                  <p>After using the Password Manager to change the <option>osadm</option> Linux ID
+                     password in a <ph keyref="GR_s"/> deployment, follow the instructions in
+                        <cite>Managing Passwords for Geo-Redundancy</cite> of the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/></p>
+               </li>
+            </ul>
+         </note>
+         <p>There are two ways to change a password in <ph keyref="ECM_short"/>:<ol id="ul_ovt_qfj_qnb">
+               <li>
+                  <p>Automated password change performed by the <xref keyref="9b9feb793e0bb566807d20ac5da8b382"/>.</p>
+               </li>
+               <li>
+                  <p>Manual password change described in the table below.</p>
+               </li>
+            </ol></p><table colsep="1" frame="all" id="table_N10266_N1022D_N101D0_N10001" rowsep="1"><title>
+               <ph keyref="ECM"/> User IDs</title><tgroup cols="7">
+               <colspec colname="COLSPEC0" colsep="1" colwidth="0.57*" rowsep="1"/>
+               <colspec colname="col1" colsep="1" colwidth="0.56*" rowsep="1"/>
+               <colspec colname="col3" colsep="1" colwidth="0.77*" rowsep="1"/>
+               <colspec colname="COLSPEC2" colsep="1" colwidth="0.44*" rowsep="1"/>
+               <colspec colname="col5" colsep="1" colwidth="2.83*" rowsep="1"/>
+               <colspec colname="newCol6" colwidth="1*"/>
+               <colspec colname="newCol7" colwidth="1*"/>
+               <thead>
+                  <row rowsep="1">
+                     <entry morerows="1" rowsep="1" valign="top">
+                        <p>Component / Type</p>
+                     </entry>
+                     <entry morerows="1" rowsep="1" valign="top">
+                        <p>User ID</p>
+                     </entry>
+                     <entry morerows="1" rowsep="1" valign="top">
+                        <p>Description</p>
+                     </entry>
+                     <entry morerows="1" rowsep="1" valign="top">
+                        <p>Requires</p>
+                        <p> Downtime?</p>
+                     </entry>
+                     <entry morerows="1" rowsep="1" valign="top">
+                        <p>Instructions</p>
+                     </entry>
+                     <entry nameend="newCol7" namest="newCol6">
+                        <p>Password Manager in GR Deployments</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>Sites</entry>
+                     <entry>Stop Services</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <ph keyref="ECM_short"/> application</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>All application user IDs except ecmadmin, cmdbSync, and
+                           cloudAnalytics</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>These IDs include the following:</p>
+                        <ul>
+                           <li>
+                              <p>application administrators (in addition to or in place of <ph importance="low">ecmadmin</ph>)</p>
+                           </li>
+                           <li>
+                              <p>tenant and subtenant administrator IDs</p>
+                           </li>
+                           <li>
+                              <p>tenant and subtenant users</p>
+                           </li>
+                        </ul>
+                        <p>These IDs are used to perform <ph keyref="ECM"/> GUI and/or REST API
+                           maintenance, administrative, and provisioning functions.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="2031ebc582d704784274087867d8a92e"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <ph keyref="ECM_short"/> application</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>ecmadmin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The <ph keyref="ECM"/> application administrator ID. This ID is the
+                           default "superuser" for the <ph keyref="ECM"/> GUI and REST APIs.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="f578fe9c12146f578adfaee43d927d32"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <ph keyref="ECM_short"/> application</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>cmdbSync</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This is an administrative ID used for internal processing.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="1fefa1b493496fe790d10a0ade046500"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <ph keyref="ECM_short"/> application</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>cloudAnalytics</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This is an administrative role used for internal processing for those who
+                           have installed the <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="96b9e93a92e9b0b0aff08d2eca92fc49"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Linux ID for all VMs</p>
+                        <p/>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>osadm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This Linux ID is the <userinput>sudo</userinput> root user.</p>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>No</p>
+                        <p/>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>
+                           <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>
+                        </p>
+                        <p/>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>root</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This Linux ID is <userinput>root</userinput> user.</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Linux IDs for the <ph keyref="CoreVM"/>
+                        </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>ecm_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This Linux ID is the owner of the <ph keyref="ECM"/> application and is
+                           used to perform most configuration / administrative operations.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>activemq</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This ID is the owner of the <ph keyref="ActiveMQ_s"/> software which is
+                           used to configure topics and queues. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="5" rowsep="1">
+                        <p>Linux IDs for the Activation component</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>casadm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Maintains Activation log data. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="5" rowsep="1">
+                        <p>
+                           <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>reporter</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Distributes reporter statistics for the Activation component.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>zooadm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Owns the <ph keyref="Zookeeper_s"/> application.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>bootloader</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p/>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>actadm</p>
+                     </entry>
+                     <entry>
+                        <p>Owns the Activation Processes running on the system.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <option>&lt;adm_actGrp></option>
+                        </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Used for administering the Activation component. This administrator is
+                           created manually and belongs to the <option>activation
+                           group</option>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Linux IDs for <ph keyref="edbVM"/>s</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>enterprisedb</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The enterprisedb Linux user.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>
+                           <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>efm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The owner of <ph keyref="efmProductName"/> (<ph keyref="efmProductName_short"/>).</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>Linux ID for <ph keyref="NS_LCM_VM_s"/> (Optional component)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>nso_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This Linux ID is used for administering the <ph keyref="nsoProductName_s"/> component.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p><xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>Linux ID for the <ph keyref="Custom_WF_VM_s"/> (Optional component)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>custwf_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>This Linux ID is used for administering the <ph keyref="Custom_WF_s"/>
+                           component.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p><xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Activation application IDs</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The ID used to login to the Activation component GUI.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="241b1ea279b6549321154996a3fa04bb"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>ecmAct</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Used by the Activation component to communicate internally and with other
+                              <ph keyref="ECM"/> components.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="ce43b4fcecb6f93404f499d42e2ed41d"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="4" rowsep="1">
+                        <p>
+                           <ph keyref="edbVM_short"/> application IDs</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>enterprisedb</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The owner of the <ph keyref="edbDatabase"/>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="c69ab732269256c7ea66717f3ac7c23b"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>replication</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The <ph keyref="edbDatabase"/> replication administrator.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="b1b3a119c0ab408e3e63fbcbdf7f8ad1"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>ecm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The <ph keyref="ECM"/> schema user.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>
+                           <xref keyref="fca841a301725bcb0cec0b17e25b5455"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>cmdb</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The CMDB schema database administrator.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>cw20</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The Orchestration component schema owner.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="cfd12a963ab8f6b0168d48be8346850f"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="2" rowsep="1">
+                        <p>Orchestration and Service Catalog</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>upadmin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Orchestration component GUI user.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="2" rowsep="1">
+                        <p>
+                           <xref keyref="d9970d6696d057c6578dfd530b4a60f1"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>scadmin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Service Catalog GUI user.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>catmainrestapi</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Service Catalog Maintenance REST API user. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Security (ForgeRock)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>amadmin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The security component user ID that is used to log in to the security
+                           component’s administrative GUI, as well as with security component
+                           utilities.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="3e86ef15a54084d509a5c2b349f7ab3b"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>Directory Manager</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Security component LDAP ID. This ID manages password policies and
+                           validators.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <xref keyref="64bfff75ab533a5b4e5e505c7a405aca"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="2" rowsep="1">
+                        <p>F5 Load Balancer</p>
+                        <p>(applicable to the <ph keyref="HA_s"/> deployments only)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>root</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The F5 Linux ID.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>
+                           <xref keyref="059afece07cee05b31a379a128904975"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The F5 application ID.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>monitor</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The F5 ID used to monitor the <ph keyref="edbVM"/>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="66afc35e0071b89e9a69b6f6bac23de6"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>Queuing Application</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The <ph keyref="ActiveMQ_s"/> administrator (JMS and web).</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="b6dc70889ca79032ca41424c0a4ce1c4"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>system</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The <ph keyref="ActiveMQ_s"/> system ID, which is used by <ph keyref="ECM"/>'s <ph keyref="ActiveMQ_s"/> client.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="a699ccbc8147c260acb4eaad7addf9ef"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="2" rowsep="1">
+                        <p>
+                           <ph keyref="nsoProductName_s"/> IDs (Optional component)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>process_engine</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The process_engine ID is the owner of the process_engine schema in the
+                              <ph keyref="edbDatabase"/>. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="78c35613df34d42e4024fb5fe687e05c"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>nso_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The nso_admin ID is the owner of the nso_admin database.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p><xref keyref="701f52b92c35241a51ebf3ba3f3617d9"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>svcorchadm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The ID used to log into the Camunda Cockpit on the <ph keyref="Custom_WF_VM_s"/>. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="2bad0dcc8ea7670db6bd768654b65e68"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" morerows="3" rowsep="1">
+                        <p><ph keyref="Custom_WF_s"/> IDs (Optional component)</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>custwf_process_engine</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The custwf_process_engine ID is the owner of the custwf_process_engine
+                           schema in the <ph keyref="edbDatabase"/>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>
+                           <xref keyref="c40eb4ab0c5ea6ddd6ce5097543fdf31"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>custom_workflow</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The custom_workflow ID is the owner of the custom_workflow schema in the
+                              <ph keyref="edbDatabase"/>.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>Yes</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>Yes</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>custwf_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The custwf_admin ID is the owner of the custwf_admin database. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="64e9b669361003a090ff6e3054cc93bc"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>custwfadm</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The ID used to log into the Camunda Cockpit on the <ph keyref="Custom_WF_VM_s"/>. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>
+                           <xref keyref="ff1be4a36c1e03ca4a645634d332492a"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row rowsep="1">
+                     <entry colsep="1" rowsep="1">
+                        <p>VIM Administrative and User IDs</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The administrative ID that <ph keyref="ECM_short"/> uses to access VIM
+                           projects. </p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <ul>
+                           <li>
+                              <p><cite>Modify VIM Zone</cite> in <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/></p>
+                           </li>
+                           <li>
+                              <p>Via API: <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Cloud_Service_Management_Guide"/>
+                              </p>
+                           </li>
+                        </ul>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" morerows="5" rowsep="1">
+                        <p>Log Collector components IDs</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>kibana_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The kibana_admin ID is used to administrate the Kibana dashboard.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" morerows="5" rowsep="1">
+                        <p><xref keyref="371fbec760038ab086fa087a4406c68b"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>curator</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The curator ID is used for housekeeping tasks in Elasticsearch and in the
+                              <filepath>elastic_index_monitor.sh</filepath> script.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>elastic</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"/>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>kibana</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"/>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>logstash_system</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"/>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>logstash_write</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"/>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>WF-MGMT Microservice</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>wfmgmt</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>WF-MGMT service schema owner role in PostgresDB</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p><xref keyref="80f59c8e23a60f13b00dc7020ee884a8"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" morerows="1" rowsep="1">
+                        <p>TOSCA-O ID</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>toscao</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The toscao ID is the owner of the TOSCA-O schema in the EDB Postgres
+                           Database.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"><xref keyref="109f1ec2f51f271c6920bfd537fbd98d"/></entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry colsep="1" rowsep="1">
+                        <p>toscao_admin</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>The toscao_admin ID is the owner of the TOSCA-O database in the EDB
+                           Postgres Database.</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1">
+                        <p>No</p>
+                     </entry>
+                     <entry colsep="1" rowsep="1"><xref keyref="c157b99f02c07a777adacb2574ca9950"/></entry>
+                     <entry>
+                        <p>Active</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Linux Bootloader for all VMs (except for <ph keyref="LB_VM_s"/>s)</p>
+                     </entry>
+                     <entry>
+                        <p>root</p>
+                     </entry>
+                     <entry>
+                        <p>Security record for Linux Bootloader.</p>
+                     </entry>
+                     <entry>
+                        <p>Only for verification</p>
+                     </entry>
+                     <entry><xref keyref="4fe3b334ae48dc5f7a7c3e6eb21f301c"/></entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DDC</p>
+                     </entry>
+                     <entry>
+                        <p>ddcadm</p>
+                     </entry>
+                     <entry>
+                        <p>ID is used by the Diagnostic Data Collection (DDC) on <ph keyref="ECM_short"/> VMs</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                     <entry>
+                        <p><xref keyref="ea84f8762df883179987e87c188737b4"/></p>
+                     </entry>
+                     <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                     <entry>
+                        <p>No</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup></table><p>The following table lists the IDs included with the <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/>. Note that in <ph keyref="HA_s"/> and geo-redundant
+            installations, the passwords must always match on both nodes (<ph keyref="HA_s"/>) and
+            locations (<ph keyref="GR_s"/>), and must be changed on both, that is, they do not propagate
+            automatically from primary to secondary.</p><table id="table_N10BF1_N1022D_N101D0_N10001"><title>
+               <ph keyref="ecaProductname_s"/> User IDs</title><tgroup cols="6"><colspec colname="COLSPEC0" colwidth="0.92*"/><colspec colname="col1" colwidth="0.61*"/><colspec colname="col3" colwidth="1.24*"/><colspec colname="COLSPEC1" colwidth="1.55*"/>               <colspec colname="newCol6" colwidth="1*"/>
+                  <colspec colname="newCol7" colwidth="1*"/>
+                                 <thead>
+                                    <row rowsep="1">
+                                       <entry morerows="1" rowsep="1" valign="top">
+                                          <p>Component / Type</p>
+                                       </entry>
+                                       <entry morerows="1" rowsep="1" valign="top">
+                                          <p>User ID</p>
+                                       </entry>
+                                       <entry morerows="1" rowsep="1" valign="top">
+                                          <p>Description</p>
+                                       </entry>
+                                       <entry morerows="1" rowsep="1" valign="top">
+                                          <p>Instructions</p>
+                                       </entry>
+                                       <entry nameend="newCol7" namest="newCol6">
+                                          <p>Password Manager in GR Deployments</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry>Sites</entry>
+                                       <entry>Stop Services</entry>
+                                    </row>
+                                 </thead>
+<tbody><row><entry>
+                                       <p>Linux</p>
+                                    </entry><entry>
+                                       <p>root</p>
+                                    </entry><entry>
+                                       <p>Standard root Linux user</p>
+                                    </entry><entry>
+                                       <p>
+                                          <xref keyref="c117f0c1408e1b263c33c2f5073f989e"/>
+                                       </p>
+                                    </entry>
+   <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+   <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry morerows="1">
+                                       <p>Postgres DB</p>
+                                    </entry><entry>
+                                       <p>root</p>
+                                    </entry><entry>
+                                       <p>Database user for application access</p>
+                                    </entry><entry morerows="1">
+                                       <p>
+                                          <xref keyref="0ca19acdb4539d3c9db002787f129634"/>
+                                       </p>
+                                    </entry>
+      <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+      <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry>
+                                       <p>bluebox</p>
+                                    </entry><entry>
+                                       <p>A combination of this ID and <userinput>root</userinput> is used for application access.</p>
+                                    </entry>                                       <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+      <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry morerows="1">
+                                       <p>Cassandra DB</p>
+                                    </entry><entry>
+                                       <p>cassandra</p>
+                                    </entry><entry>
+                                       <p>Default Cassandra DB superuser</p>
+                                    </entry><entry morerows="1">
+                                       <p>
+                                          <xref keyref="4867665ed3fdb74b4b984d6501312a34"/>
+                                       </p>
+                                    </entry>                                       <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+      <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry>
+                                       <p>catelemetry</p>
+                                    </entry><entry>
+                                       <p>Application user for Cassandra. JBoss uses this one.</p>
+                                    </entry>                                       <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+                                       <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry>
+                                       <p>JDK Keystores</p>
+                                    </entry><entry>
+                                       <p>n/a</p>
+                                    </entry><entry>
+                                       <p>Separate keystore passwords for Core VMs, other VMs, and Docker containers</p>
+                                    </entry><entry>
+                                       <p>
+                                          <xref keyref="42893089e5fdfd7b8a191fde9adb7b25"/>
+                                       </p>
+                                    </entry>                                       <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+      <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry>
+                                       <p>JBoss Keystores &amp; Certificates</p>
+                                    </entry><entry>
+                                       <p>n/a</p>
+                                    </entry><entry>
+                                       <p>Passwords for the keystores and certificates of the JBoss application server</p>
+                                    </entry><entry>
+                                       <p>
+                                          <xref keyref="578d85c3be8cc2e7f5ee1a52be816628"/>
+                                       </p>
+                                    </entry>                                       <entry>
+                        <p>Active/Standby</p>
+                     </entry>
+      <entry>
+                        <p>No</p>
+                     </entry></row>
+   <row><entry>
+      <p>JBoss Vault</p>
+   </entry><entry>
+      <p>n/a</p>
+   </entry><entry>
+      <p>Stores the <ph importance="normal">catelemetry</ph> and the <ph keyref="ActiveMQ_s"/> admin
+                           password for the Jboss</p>
+   </entry><entry>
+      <p><xref keyref="99851b9bfaf9f617359b2342653178e7"/>
+                        </p>
+   </entry>                                       <entry>
+      <p>Active/Standby</p>
+   </entry>
+      <entry>
+         <p>No</p>
+      </entry></row>
+                 </tbody></tgroup></table></section></conbody></concept>

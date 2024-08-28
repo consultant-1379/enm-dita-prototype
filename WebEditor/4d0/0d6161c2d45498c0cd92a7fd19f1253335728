@@ -1,0 +1,23 @@
+<concept id="eb32cc9e2587012e01830a643d0bf3b8" xml:lang="en-US">
+    <title>Obtain the Service Provider Metadata</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <!-- Template instructions: 
+    How to Write Concept Topics, 105/000 21-FCK 101 05-->
+        <p>Metadata for a Service Provider are located at</p>
+        <p><filepath>http://<varname>domain</varname>/openam/saml2/jsp/exportmetadata.jsp?entityid=<varname>realm</varname>SP&amp;realm=/<varname>realm</varname></filepath></p>
+        <p>Where <parmname>&lt;domain></parmname> is your installation domain and
+                <parmname>&lt;realm></parmname> is a federation realm name specified in <xref keyref="b549bb8cdf0820fa64954550dadd5bae"/>.</p>
+     </conbody>
+</concept>

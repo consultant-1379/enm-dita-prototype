@@ -1,0 +1,17 @@
+<map id="e1899148185254adc60d090e262bbae6" xml:lang="en-US">
+   <title>Variable Key Map EI GUI</title>
+   <keydef keys="EI_GUI_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Expert Insights</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EI_GUI_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>EI</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

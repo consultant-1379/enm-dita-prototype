@@ -1,0 +1,548 @@
+<reference id="7468388cfebd1eba24a0a2b5fb8d5ec7" xml:lang="en-US">
+    <title>ReferableReferenceList</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <refbody>
+        <section id="sec0">
+            <title/>
+            <table id="table_N10036_N10031_N10001">
+                <title/>
+                <tgroup cols="2">
+                    <colspec colname="c1" colnum="1" colwidth="10mm"/>
+                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                    <tbody>
+                        <row id="1">
+                            <entry>[1]</entry>
+                            <entry id="entry_Cloud_Manager_Integration_and_Extensibility_Guide">
+                                <p>
+                                    <cite id="cite_Cloud_Manager_Integration_and_Extensibility_Guide"><ph id="ph_Cloud_Manager_Integration_and_Extensibility_Guide">EO CM Integration and Extensibility Guide</ph></cite>,
+                                        <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1551-csx.101.093:en:*" scope="external">5/1551-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="2">
+                            <entry>[2]</entry>
+                            <entry id="entry_Cloud_Manager_Third_Party_Software">
+                                <p><cite id="cite_Cloud_Manager_Third_Party_Software"><ph id="ph_Cloud_Manager_Third_Party_Software">EO CM
+                                            Third-Party Software</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_0962-csx.101.093:en:*" scope="external">1/0962-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="3">
+                            <entry>[3]</entry>
+                            <entry id="entry_Customer_Product_Information_Overview">
+                                <p><cite id="cite_Customer_Product_Information_Overview"><ph id="ph_Customer_Product_Information_Overview">EO CM
+                                            Customer Product Information Overview</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1550-csx.101.093:en:*" scope="external">1550-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="4">
+                            <entry>[4]</entry>
+                            <entry id="entry_Dimensioning_Guide">
+                                <p><cite id="cite_Dimensioning_Guide"><ph id="ph_Dimensioning_Guide">EO CM Dimensioning Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:12701-csx.101.093:en:*" scope="external">127 01-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="5">
+                            <entry>[5]</entry>
+                            <entry id="entry_Fault_Management_Guide">
+                                <p><cite id="cite_Fault_Management_Guide"><ph id="ph_Fault_Management_Guide">EO CM Fault Management
+                                            Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_00651-csx.101.093:en:*" scope="external">1/006 51-CSX 101 093 Uen</xref>
+                                </p>
+                            </entry>
+                        </row>
+                        <row id="6">
+                            <entry>[6]</entry>
+                            <entry id="entry_Glossary_of_Terms_and_Acronyms">
+                                <p><cite id="cite_Glossary_of_Terms_and_Acronyms"><ph id="ph_Glossary_of_Terms_and_Acronyms">EO CM Glossary of
+                                            Terms and Acronyms</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:0033-csx.101.093:en:*" scope="external">0033-CSX 101 093 Uen</xref>
+                                </p>
+                            </entry>
+                        </row>
+                        <row id="7">
+                            <entry>[7]</entry>
+                            <entry id="entry_Product_Overview">
+                                <p><cite id="cite_Product_Overview"><ph id="ph_Product_Overview">EO
+                                            CM Product Overview</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_1550-csx.101.093:en:*" scope="external">1/1550-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="8">
+                            <entry>[8]</entry>
+                            <entry id="entry_System_Administration_Guide">
+                                <p><cite id="cite_System_Administration_Guide"><ph id="ph_System_Administration_Guide">EO CM System
+                                            Administration Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1543-csx.101.093:en:*" scope="external">1543-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="9">
+                            <entry>[9]</entry>
+                            <entry id="entry_System_Integration___API_Data_Dictionary">
+                                <p><cite id="cite_System_Integration___API_Data_Dictionary"><ph id="ph_System_Integration___API_Data_Dictionary">EO CM
+                                            System Integration - API Data Dictionary</ph></cite>,
+                                        <xref format="html" href="urn:x-ericsson:r2:reg-doc:19818-csx.101.093:en:*" scope="external">198 18-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="10">
+                            <entry>[10]</entry>
+                            <entry id="entry_System_Integration___CMDB_Update_Guide">
+                                <p><cite id="cite_System_Integration___CMDB_Update_Guide"><ph id="ph_System_Integration___CMDB_Update_Guide">EO CM
+                                            System Integration - CMDB Update Guide</ph></cite>,
+                                        <xref format="html" href="urn:x-ericsson:r2:reg-doc:9_1551-csx.101.093:en:*" scope="external">9/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="11">
+                            <entry>[11]</entry>
+                            <entry id="entry_System_Integration_Cloud_Service_Management_Guide">
+                                <p><cite id="cite_System_Integration_Cloud_Service_Management_Guide"><ph id="ph_System_Integration_Cloud_Service_Management_Guide">EO CM System Integration Cloud Service Management
+                                            Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:3_1551-csx.101.093:en:*" scope="external">3/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="12">
+                            <entry>[12]</entry>
+                            <entry id="entry_System_Integration_Cloud_Service_Query_Guide">
+                                <p><cite id="cite_System_Integration_Cloud_Service_Query_Guide"><ph id="ph_System_Integration_Cloud_Service_Query_Guide">EO
+                                            CM System Integration Cloud Service Query
+                                        Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:2_1551-csx.101.093:en:*" scope="external">2/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="13">
+                            <entry>[13]</entry>
+                            <entry id="entry_System_Integration_Overview_Guide">
+                                <p><cite id="cite_System_Integration_Overview_Guide"><ph id="ph_System_Integration_Overview_Guide">EO CM System
+                                            Integration Overview Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_1551-csx.101.093:en:*" scope="external"> 1/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="14">
+                            <entry>[14]</entry>
+                            <entry id="entry_Troubleshooting_Guide">
+                                <p><cite id="cite_Troubleshooting_Guide"><ph id="ph_Troubleshooting_Guide">EO CM Troubleshooting
+                                            Guide</ph></cite>, <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:159.01-csx.101.093:*:" scope="external">159 01-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="15">
+                            <entry>[15]</entry>
+                            <entry id="entry_User_Guide">
+                                <p><cite id="cite_User_Guide"><ph id="ph_User_Guide">EO CM User
+                                            Guide</ph></cite>, <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:1553-csx.101.093:*:" scope="external">1553-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="16">
+                            <entry>[16]</entry>
+                            <entry id="entry_Geo_Redundancy_Deployment_Guide">
+                                <p><cite id="cite_Geo_Redundancy_Deployment_Guide"><ph id="ph_Geo_Redundancy_Deployment_Guide">EO CM
+                                            Geo-Redundancy Deployment Guide</ph></cite>, <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:8_1531-csx.101.093:*:" scope="external">8/1531-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="17">
+                            <entry>[17]</entry>
+                            <entry id="entry_High_Availability_and_Geo_Redundancy_Overview">
+                                <p><cite id="cite_High_Availability_and_Geo_Redundancy_Overview"><ph id="ph_High_Availability_and_Geo_Redundancy_Overview">EO
+                                            CM High Availability and Geo Redundancy
+                                        Overview</ph></cite>, <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:221.02-csx.101.093:*:" scope="external">221 02-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="18">
+                            <entry>[18]</entry>
+                            <entry id="entry_Installation_Preparation_for_Cloud_Manager">
+                                <p><cite id="cite_Installation_Preparation_for_Cloud_Manager"><ph id="ph_Installation_Preparation_for_Cloud_Manager">EO CM
+                                            Installation Preparation for Cloud Manager</ph></cite>,
+                                        <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:9_1531-csx.101.093:*:" scope="external">9/1531-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="19">
+                            <entry>[19]</entry>
+                            <entry id="entry_Service_Catalog_User_Guide">
+                                <p><cite id="cite_Service_Catalog_User_Guide"><ph id="ph_Service_Catalog_User_Guide">EO CM Service Catalog
+                                            User Guide</ph></cite>, <xref format="9180:*:" href="urn:x-ericsson:r2:reg-doc:2_1553-csx.101.093:*:" scope="external">2/1553-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="20">
+                            <entry>[20]</entry>
+                            <entry id="entry_Package_Management_Guide">
+                                <p><cite id="cite_Package_Management_Guide"><ph id="ph_Package_Management_Guide">EO CM Package
+                                            Management Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:4_1551-csx.101.093:en:*" scope="external">4/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="21">
+                            <entry>[21]</entry>
+                            <entry id="entry_System_Integration_Cloud_Service_Management_Overview_Guide">
+                                <p><cite id="cite_System_Integration_Cloud_Service_Management_Overview_Guide"><ph id="ph_System_Integration_Cloud_Service_Management_Overview_Guide">EO CM System Integration Cloud Service Management
+                                            Guide</ph></cite>
+                                    <xref format="html" href="urn:x-ericsson:r2:reg-doc:3_1551-csx.101.093:en:*" scope="external">3/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="22">
+                            <entry>[22]</entry>
+                            <entry id="entry_System_Integration_Cloud_Service_Management_User_Guide">
+                                <p><cite id="cite_System_Integration_Cloud_Service_Management_User_Guide"><ph id="ph_System_Integration_Cloud_Service_Management_User_Guide">EO CM System Integration Cloud Service Management User
+                                            Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1553-csx.101.093:en:*" scope="external">1553-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="23">
+                            <entry>[23]</entry>
+                            <entry id="entry_Cloud_Manager_System_Administration_Guide">
+                                <p><cite id="cite_Cloud_Manager_System_Administration_Guide"><ph id="ph_Cloud_Manager_System_Administration_Guide">EO CM
+                                            System Administration Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1543-csx.101.093:en:*" scope="external">1543-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="24">
+                            <entry>[24]</entry>
+                            <entry id="entry_High_Availability_and_Geographical_Redundancy_Overview">
+                                <p><cite id="cite_High_Availability_and_Geographical_Redundancy_Overview"><ph id="ph_High_Availability_and_Geographical_Redundancy_Overview">EO CM High Availability and Geographical Redundancy
+                                            Overview</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:221.02-csx.101.093:en:*" scope="external">221 02-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="25">
+                            <entry>[25]</entry>
+                            <entry id="entry_Network_Impact_Report">
+                                <p><cite id="cite_Network_Impact_Report"><ph id="ph_Network_Impact_Report">EO CM Network Impact
+                                            Report</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:109.48-csx.101.093:en:*" scope="external">109 48-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="26">
+                            <entry>[26]</entry>
+                            <entry id="entry_Cloud_Manager_Configuration_Guide">
+                                <p><cite id="cite_Cloud_Manager_Configuration_Guide"><ph id="ph_Cloud_Manager_Configuration_Guide">EO CM
+                                            Configuration Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1543-csx.101.093:en:*" scope="external"> 5/1543-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="27">
+                            <entry>[27]</entry>
+                            <entry id="entry_Package_Management_User_Guide">
+                                <p><cite id="cite_Package_Management_User_Guide"><ph id="ph_Package_Management_User_Guide">EO CM Package
+                                            Management User Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:4_1551-csx.101.093:en:*" scope="external">4/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="28">
+                            <entry>[28]</entry>
+                            <entry id="entry_Data_Collection_Guide">
+                                <p><cite id="cite_Data_Collection_Guide"><ph id="ph_Data_Collection_Guide">EO CM Data Collection
+                                            Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:031.61-csx.101.093:en:*" scope="external">031 61-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="29">
+                            <entry>[29]</entry>
+                            <entry id="entry_Emergency_Information_Manufacturing_Instruction">
+                                <p><cite id="cite_Emergency_Information_Manufacturing_Instruction"><ph id="ph_Emergency_Information_Manufacturing_Instruction">EO CM Emergency Information Manufacturing
+                                            Instruction</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:4_1543-csh.109.232:en:*" scope="external">4/1543-CSH 109 232 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="30">
+                            <entry>[30]</entry>
+                            <entry id="entry_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments">
+                                <p><cite id="cite_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments"><ph id="ph_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments">EO CM Installing Cloud Manager for Bare Metal KVM
+                                            Deployments</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1531-csx.101.093:en:*" scope="external">1531-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="31">
+                            <entry>[31]</entry>
+                            <entry id="entry_Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager">
+                                <p><cite id="cite_Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager"><ph id="ph_Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager">EO CM Upgrade Instructions for Bare Metal KVM
+                                            Deployments</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:15372-csx.101.093:*:*" scope="external">153 72-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="32">
+                            <entry>[32]</entry>
+                            <entry id="entry_Installation_Preparation_for_Ericsson_Cloud_Manager">
+                                <p><cite id="cite_Installation_Preparation_for_Ericsson_Cloud_Manager"><ph id="ph_Installation_Preparation_for_Ericsson_Cloud_Manager">EO CM Installation Preparation for Ericsson Cloud
+                                            Manager</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:9_1531-csx.101.093:*:*" scope="external">9/1531-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="33">
+                            <entry>[33]</entry>
+                            <entry id="entry_Installing_Cloud_Manager_on_OpenStack">
+                                <p><cite id="cite_Installing_Cloud_Manager_on_OpenStack"><ph id="ph_Installing_Cloud_Manager_on_OpenStack">EO CM
+                                            Installing Cloud Manager on OpenStack</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:7_1531-csx.101.093:*:*" scope="external">7/1531-CSX 101 093 Uen </xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="34">
+                            <entry>[34]</entry>
+                            <entry id="entry_System_Integration_Cloud_Service_Management_Guide_API">
+                                <p><cite id="cite_System_Integration_Cloud_Service_Management_Guide_API"><ph id="ph_System_Integration_Cloud_Service_Management_Guide_API">EO CM System Integration Cloud Service Management Guide
+                                            API</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:3_1551-csx.101.093:*:*" scope="external">3/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="35">
+                            <entry>[35]</entry>
+                            <entry id="entry_Configuration_Guide">
+                                <p><cite id="cite_Configuration_Guide"><ph id="ph_Configuration_Guide">EO CM Configuration
+                                            Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1543-csx.101.093:*:*" scope="external">5/1543-CSX 101 093 Uen </xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="36">
+                            <entry>[36]</entry>
+                            <entry id="entry_Emergency_Recovery_Procedures">
+                                <p><cite id="cite_Emergency_Recovery_Procedures"><ph id="ph_Emergency_Recovery_Procedures">EO CM Emergency
+                                            Recovery Procedures</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:15432-csx.101.093:*:*" scope="external">154 32-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="37">
+                            <entry>[37]</entry>
+                            <entry id="entry_Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments">
+                                <p><cite id="cite_Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments"><ph id="ph_Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments">EO CM Installing Ericsson Cloud Manager for Bare Metal
+                                            KVM Deployments</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1543-csx.101.093:*:*" scope="external">5/1543-CSX 101 093 Uen </xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="38">
+                            <entry>[38]</entry>
+                            <entry id="entry_Security_and_Hardening_Guide">
+                                <p><cite id="cite_Security_and_Hardening_Guide"><ph id="ph_Security_and_Hardening_Guide">EO CM Security and
+                                            Hardening Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:10_1551-csx.101.093:*:*" scope="external">10/1551-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="39">
+                            <entry>[39]</entry>
+                            <entry id="entry_Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide">
+                                <p><cite id="cite_Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide"><ph id="ph_Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide">EO CM Integration and Extensibility Guide</ph></cite>,
+                                        <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1551-csx.101.093:*:*" scope="external">5/1551-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="40">
+                            <entry>[40]</entry>
+                            <entry id="entry_Function_Specification_Resource_Configuration">
+                                <p><cite id="cite_Function_Specification_Resource_Configuration"><ph id="ph_Function_Specification_Resource_Configuration">Function Specification Resource
+                                        Configuration</ph></cite>, <xref format="html" href="http://cpistore.internal.ericsson.com/alexserv?ac=LINKEXT&amp;li=EN/LZN7220043R2A&amp;FB=0&amp;FC=MK_220043R2&amp;FN=19_15517-CSH109628Uen.B.html" scope="external">19/155 17-CSH 109 628 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="41">
+                            <entry>[41]</entry>
+                            <entry id="entry_User_Guide_for_Resource_Configuration">
+                                <p><cite id="cite_User_Guide_for_Resource_Configuration"><ph id="ph_User_Guide_for_Resource_Configuration">User Guide
+                                            for Resource Configuration</ph></cite>, <xref format="html" href="http://cpistore.internal.ericsson.com/alexserv?ac=LINKEXT&amp;li=EN/LZN7220043R2A&amp;FB=0&amp;FC=MK_220043R2&amp;FN=11_1553-CSH109628Uen.B.html" scope="external">11/1553-CSH 109 628 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="42">
+                            <entry>[42]</entry>
+                            <entry id="entry_User_Guide_for_Resource_Activation">
+                                <p><cite id="cite_User_Guide_for_Resource_Activation"><ph id="ph_User_Guide_for_Resource_Activation">User Guide
+                                            for Resource Activation</ph></cite>, <xref format="html" href="http://cpistore.internal.ericsson.com/alexserv?ac=LINKEXT&amp;li=EN/LZN7220043R2A&amp;FB=0&amp;FC=MK_220043R2&amp;FN=1_1553-CSH109628Uen.E.html" scope="external">1/1553-CSH 109 628 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="43">
+                            <entry>[43]</entry>
+                            <entry id="entry_User_Guide_for_Designer_Studio">
+                                <p><cite id="cite_User_Guide_for_Designer_Studio"><ph id="ph_User_Guide_for_Designer_Studio">User Guide for
+                                            Designer Studio</ph></cite>, <xref format="html" href="http://cpistore.internal.ericsson.com/alexserv?ac=LINKEXT&amp;li=EN/LZN7220043R2A&amp;FB=0&amp;FC=MK_220043R2&amp;FN=10_1553-CSH109628Uen.C.html" scope="external">10/1553-CSH 109 628 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="44">
+                            <entry>[44]</entry>
+                            <entry id="entry_Trademark_Information">
+                                <p><cite id="cite_Trademark_Information"><ph id="ph_Trademark_Information">EO CM Trademark
+                                            Information</ph></cite>, <xref format="9180:*:*" href="urn:x-ericsson:r2:reg-doc:00651-csx.101.093:*:*" scope="external">00651-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="45">
+                            <entry>[45]</entry>
+                            <entry id="entry_System_Integration_Data_Dictionary">
+                                <p><cite id="cite_System_Integration_Data_Dictionary"><ph id="ph_System_Integration_Data_Dictionary">EO CM System
+                                            Integration Data Dictionary</ph></cite>, <xref format="9180:*:*" href="urn:x-ericsson:r2:reg-doc:19818-csx.101.093:*:*" scope="external">198 18-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="46">
+                            <entry>[46]</entry>
+                            <entry id="entry_Cloud_Manager_for_Bare_Metal_VM_Deployment">
+                                <p><cite id="cite_Cloud_Manager_for_Bare_Metal_VM_Deployment"><ph id="ph_Cloud_Manager_for_Bare_Metal_VM_Deployment">EO CM
+                                            for Bare Metal VM Deployment</ph></cite>, <xref format="9180:*:*" href="urn:x-ericsson:r2:reg-doc:1531-csx.101.093:*:*" scope="external"> 1531-CSX 101 093 Uen </xref></p>
+                            </entry>
+                        </row>
+                        <row id="47">
+                            <entry>[47]</entry>
+                            <entry id="entry_Cloud_Manager_Product_Overview">
+                                <p><cite id="cite_Cloud_Manager_Product_Overview"><ph id="ph_Cloud_Manager_Product_Overview">EO CM Product
+                                            Overview</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_1550-csx.101.093:*:*" scope="external">1/1550-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="48">
+                            <entry>[48]</entry>
+                            <entry id="entry_Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments">
+                                <p><cite id="cite_Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments"><ph id="ph_Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments">EO CM Upgrade Guide for OpenStack
+                                        Deployments</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:3_15372-csx.101.093:*:*" scope="external">3/153 72-CSX 101 093 Uen </xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="49">
+                            <entry>[49]</entry>
+                            <entry id="entry_Customer_Adaptation_Development_Guide">
+                                <p><cite id="cite_Customer_Adaptation_Development_Guide"><ph id="ph_Customer_Adaptation_Development_Guide">Customer
+                                            Adaptation Development Guide</ph></cite>, 5/1553-CSH 109
+                                    628</p>
+                                <p>Available in the <cite>Ericsson Dynamic Activation 1
+                                        Sep-17</cite> library EN/LZN 722 0043 R2A </p>
+                            </entry>
+                        </row>
+                        <row id="50">
+                            <entry>[50]</entry>
+                            <entry id="entry_Installing_Ericsson_Cloud_Manager_on_OpenStack">
+                                <p><cite id="cite_Installing_Ericsson_Cloud_Manager_on_OpenStack"><ph id="ph_Installing_Ericsson_Cloud_Manager_on_OpenStack">Installing Ericsson Cloud Manager on
+                                        OpenStack</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:7_1531-CSH.109.232:en:*" scope="external">7/1531-CSH 109 232 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="51">
+                            <entry>[51]</entry>
+                            <entry id="entry_Integration_and_Extensibility_Guide">
+                                <p>
+                                    <cite id="cite_Integration_and_Extensibility_Guide"><ph id="ph_Integration_and_Extensibility_Guide">EO CM
+                                            Integration and Extensibility Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:5_1551-csx.101.093:en:*" scope="external">5/1551-CSX 101 093 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="52">
+                            <entry>
+                                <p>[52]</p>
+                            </entry>
+                            <entry id="entry_VNF_LCM_Installation_Instructions">
+                                <p>
+                                    <cite id="cite_VNF_LCM_Installation_Instructions"><ph id="ph_VNF_LCM_Installation_Instructions"> VNF-LCM
+                                            Installation Instructions</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_1531-cna.403.3313:en:*" scope="external">1/1531-CNA 403 3313 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="53">
+                            <entry>
+                                <p>[53]</p>
+                            </entry>
+                            <entry id="entry_VNF_LCM_Upgrade_Instructions">
+                                <p>
+                                    <cite id="cite_VNF_LCM_Upgrade_Instructions"><ph id="ph_VNF_LCM_Upgrade_Instructions"> VNF-LCM Upgrade
+                                            Instructions</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:1_153.72-cna.403.3313:en:*" scope="external">1/153 72-CNA 403 3313 Uen</xref></p>
+                                <p>Available from Local Ericsson Support</p>
+                            </entry>
+                        </row>
+                        <row id="54">
+                            <entry>
+                                <p>[54]</p>
+                            </entry>
+                            <entry id="entry_Alarm_List">
+                                <p>
+                                    <cite id="cite_Alarm_List"><ph id="ph_Alarm_List">EO CM Alarm
+                                            List</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:190.83-csx.101.093:en:*" scope="external">190 83-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="55">
+                            <entry>
+                                <p>[55]</p>
+                            </entry>
+                            <entry id="entry_BUR">
+                                <p>
+                                    <cite id="cite_BUR"><ph id="ph_BUR">EO CM Backup and Restore
+                                            Administration Guide</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:3_1543-csx.101.093:en:*" scope="external">3/1543-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row id="56">
+                            <entry>
+                                <p>[56]</p>
+                            </entry>
+                            <entry id="entry_Online_Help">
+                                <p><cite id="cite_Online_Help"><ph id="ph_Online_Help">EO CM Online
+                                            Help</ph></cite>, <xref format="html" href="urn:x-ericsson:r2:reg-doc:10_1553-csx.101.093:en:*" scope="external">10/1553-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>[57]</p>
+                            </entry>
+                            <entry id="entry_security_SAG">
+                                <p><cite id="cite_security_SAG"><ph id="ph_security_SAG">EO CM Security System Administration Guide</ph></cite>,
+                                        <xref format="html" href="urn:x-ericsson:r2:reg-doc:9_1543-csx.101.093:en:*" scope="external">9/1543-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>[58]</p>
+                            </entry>
+                            <entry id="entry_mgmt_and_config_SAG">
+                                <p><cite id="cite_mgmt_and_config_SAG"><ph id="ph_mgmt_and_config_SAG">EO CM Management and Configuration System Administration Guide</ph></cite>,
+                                    <xref format="html" href="urn:x-ericsson:r2:reg-doc:8_1543-csx.101.093:en:*" scope="external">8/1543-CSX 101 093 Uen</xref></p>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <p><xref id="xref_Integration_and_Extensibility_Guide" keyref="referenceList/Integration_and_Extensibility_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Integration_and_Extensibility_Guide"/></xref></p>
+            <p><xref id="xref_Cloud_Manager_Integration_and_Extensibility_Guide" keyref="referenceList/Cloud_Manager_Integration_and_Extensibility_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Cloud_Manager_Integration_and_Extensibility_Guide"/></xref></p>
+            <p><xref id="xref_Cloud_Manager_Third_Party_Software" keyref="referenceList/Cloud_Manager_Third_Party_Software"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Cloud_Manager_Third_Party_Software"/></xref></p>
+            <p><xref id="xref_Customer_Product_Information_Overview" keyref="referenceList/Customer_Product_Information_Overview"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Customer_Product_Information_Overview"/></xref></p>
+            <p><xref id="xref_Dimensioning_Guide" keyref="referenceList/Dimensioning_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Dimensioning_Guide"/></xref></p>
+            <p><xref id="xref_Fault_Management_Guide" keyref="referenceList/Fault_Management_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Fault_Management_Guide"/></xref></p>
+            <p><xref id="xref_Glossary_of_Terms_and_Acronyms" keyref="referenceList/Glossary_of_Terms_and_Acronyms"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Glossary_of_Terms_and_Acronyms"/></xref></p>
+            <p><xref id="xref_Product_Overview" keyref="referenceList/Product_Overview"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Product_Overview"/></xref></p>
+            <p><xref id="xref_System_Administration_Guide" keyref="referenceList/System_Administration_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Administration_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration___API_Data_Dictionary" keyref="referenceList/System_Integration___API_Data_Dictionary"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration___API_Data_Dictionary"/></xref></p>
+            <p><xref id="xref_System_Integration___CMDB_Update_Guide" keyref="referenceList/System_Integration___CMDB_Update_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration___CMDB_Update_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration_Cloud_Service_Management_Guide" keyref="referenceList/System_Integration_Cloud_Service_Management_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Cloud_Service_Management_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration_Cloud_Service_Query_Guide" keyref="referenceList/System_Integration_Cloud_Service_Query_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Cloud_Service_Query_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration_Overview_Guide" keyref="referenceList/System_Integration_Overview_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Overview_Guide"/></xref></p>
+            <p><xref id="xref_Troubleshooting_Guide" keyref="referenceList/Troubleshooting_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Troubleshooting_Guide"/></xref></p>
+            <p><xref id="xref_User_Guide" keyref="referenceList/User_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_User_Guide"/></xref></p>
+            <p><xref id="xref_Geo_Redundancy_Deployment_Guide" keyref="referenceList/Geo_Redundancy_Deployment_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Geo_Redundancy_Deployment_Guide"/></xref></p>
+            <p><xref id="xref_High_Availability_and_Geo_Redundancy_Overview" keyref="referenceList/High_Availability_and_Geo_Redundancy_Overview"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_High_Availability_and_Geo_Redundancy_Overview"/></xref></p>
+            <p><xref id="xref_Installation_Preparation_for_Cloud_Manager" keyref="referenceList/Installation_Preparation_for_Cloud_Manager"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installation_Preparation_for_Cloud_Manager"/></xref></p>
+            <p><xref id="xref_Service_Catalog_User_Guide" keyref="referenceList/Service_Catalog_User_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Service_Catalog_User_Guide"/></xref></p>
+            <p><xref id="xref_Package_Management_Guide" keyref="referenceList/Package_Management_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Package_Management_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration_Cloud_Service_Management_Overview_Guide" keyref="referenceList/System_Integration_Cloud_Service_Management_Overview_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Cloud_Service_Management_Overview_Guide"/></xref></p>
+            <p><xref id="xref_System_Integration_Cloud_Service_Management_User_Guide" keyref="referenceList/System_Integration_Cloud_Service_Management_User_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Cloud_Service_Management_User_Guide"/></xref></p>
+            <p><xref id="xref_Cloud_Manager_System_Administration_Guide" keyref="referenceList/Cloud_Manager_System_Administration_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Cloud_Manager_System_Administration_Guide"/></xref></p>
+            <p><xref id="xref_High_Availability_and_Geographical_Redundancy_Overview" keyref="referenceList/High_Availability_and_Geographical_Redundancy_Overview"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_High_Availability_and_Geographical_Redundancy_Overview"/></xref></p>
+            <p><xref id="xref_Network_Impact_Report" keyref="referenceList/Network_Impact_Report"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Network_Impact_Report"/></xref></p>
+            <p><xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Configuration_Guide" id="xref_Cloud_Manager_Configuration_Guide"/></p>
+            <p><xref id="xref_Package_Management_User_Guide" keyref="referenceList/Package_Management_User_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Package_Management_User_Guide"/></xref></p>
+            <p><xref id="xref_Data_Collection_Guide" keyref="referenceList/Data_Collection_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Data_Collection_Guide"/></xref></p>
+            <p><xref id="xref_Emergency_Information_Manufacturing_Instruction" keyref="referenceList/Emergency_Information_Manufacturing_Instruction"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Emergency_Information_Manufacturing_Instruction"/></xref></p>
+            <p><xref id="xref_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments" keyref="referenceList/Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments"/></xref></p>
+            <p><xref id="xref_Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager" keyref="referenceList/Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Release_Upgrade_Instructions_for_Bare_Metal_KVM_Deployments_of_Cloud_Manager"/></xref></p>
+            <p><xref id="xref_Installation_Preparation_for_Ericsson_Cloud_Manager" keyref="referenceList/Installation_Preparation_for_Ericsson_Cloud_Manager"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installation_Preparation_for_Ericsson_Cloud_Manager"/></xref></p>
+            <p><xref id="xref_Installing_Cloud_Manager_on_OpenStack" keyref="referenceList/Installing_Cloud_Manager_on_OpenStack"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installing_Cloud_Manager_on_OpenStack"/></xref></p>
+            <p><xref id="xref_System_Integration_Cloud_Service_Management_Guide_API" keyref="referenceList/System_Integration_Cloud_Service_Management_Guide_API"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Cloud_Service_Management_Guide_API"/></xref></p>
+            <p><xref id="xref_Configuration_Guide" keyref="referenceList/Configuration_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Configuration_Guide"/></xref></p>
+            <p><xref id="xref_Emergency_Recovery_Procedures" keyref="referenceList/Emergency_Recovery_Procedures"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Emergency_Recovery_Procedures"/></xref></p>
+            <p><xref id="xref_Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments" keyref="referenceList/Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installing_Ericsson_Cloud_Manager_for_Bare_Metal_KVM_Deployments"/></xref></p>
+            <p><xref id="xref_Security_and_Hardening_Guide" keyref="referenceList/Security_and_Hardening_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Security_and_Hardening_Guide"/></xref></p>
+            <p><xref id="xref_Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide" keyref="referenceList/Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Ericsson_Cloud_Manager_Integration_and_Extensibility_Guide"/></xref></p>
+            <p><xref id="xref_Function_Specification_Resource_Configuration" keyref="referenceList/Function_Specification_Resource_Configuration"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Function_Specification_Resource_Configuration"/></xref></p>
+            <p><xref id="xref_User_Guide_for_Resource_Configuration" keyref="referenceList/User_Guide_for_Resource_Configuration"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_User_Guide_for_Resource_Configuration"/></xref></p>
+            <p><xref id="xref_User_Guide_for_Resource_Activation" keyref="referenceList/User_Guide_for_Resource_Activation"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_User_Guide_for_Resource_Activation"/></xref></p>
+            <p><xref id="xref_User_Guide_for_Designer_Studio" keyref="referenceList/User_Guide_for_Designer_Studio"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_User_Guide_for_Designer_Studio"/></xref></p>
+            <p><xref id="xref_Trademark_Information" keyref="referenceList/Trademark_Information"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Trademark_Information"/></xref></p>
+            <p><xref id="xref_System_Integration_Data_Dictionary" keyref="referenceList/System_Integration_Data_Dictionary"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_System_Integration_Data_Dictionary"/></xref></p>
+            <p><xref id="xref_Cloud_Manager_for_Bare_Metal_VM_Deployment" keyref="referenceList/Cloud_Manager_for_Bare_Metal_VM_Deployment"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Cloud_Manager_for_Bare_Metal_VM_Deployment"/></xref></p>
+            <p><xref id="xref_Cloud_Manager_Product_Overview" keyref="referenceList/Cloud_Manager_Product_Overview"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Cloud_Manager_Product_Overview"/></xref></p>
+            <p><xref id="xref_Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments" keyref="referenceList/Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Release_Upgrade_Guide_for_Cloud_Manager_on_OpenStack_Deployments"/></xref></p>
+            <p><xref id="xref_Customer_Adaptation_Development_Guide" keyref="referenceList/Customer_Adaptation_Development_Guide"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Customer_Adaptation_Development_Guide"/></xref></p>
+            <p><xref id="xref_Installing_Ericsson_Cloud_Manager_on_OpenStack" keyref="referenceList/Installing_Ericsson_Cloud_Manager_on_OpenStack"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Installing_Ericsson_Cloud_Manager_on_OpenStack"/></xref></p>
+            <p><xref id="xref_VNF_LCM_Installation_Instructions" keyref="referenceList/VNF_LCM_Installation_Instructions"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_VNF_LCM_Installation_Instructions"/></xref></p>
+            <p><xref id="xref_VNF_LCM_Upgrade_Instructions" keyref="referenceList/VNF_LCM_Upgrade_Instructions"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_VNF_LCM_Upgrade_Instructions"/></xref></p>
+            <p><xref id="xref_Alarm_List" keyref="referenceList/Alarm_List"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Alarm_List"/></xref></p>
+            <p><xref id="xref_BUR" keyref="referenceList/BUR"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_BUR"/></xref></p>
+            <p><xref id="xref_Online_Help" keyref="referenceList/Online_Help"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_Online_Help"/></xref></p>
+            <p><xref id="xref_security_SAG" keyref="referenceList/security_SAG"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_security_SAG"/></xref></p>
+            <p><xref id="xref_mgmt_and_config_SAG" keyref="referenceList/mgmt_and_config_SAG"><ph conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/ph_mgmt_and_config_SAG"/></xref></p>
+            
+        </section>
+    </refbody>
+</reference>

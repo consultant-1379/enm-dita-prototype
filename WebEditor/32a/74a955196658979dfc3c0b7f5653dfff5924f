@@ -1,0 +1,103 @@
+<referable-content id="2527b57398c687fe22267a2d4c78aa28" xml:lang="en-US">
+<title>CPU Busy Threshold Exceeded Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_m2b_zyw_vfb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Linux Idle</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>Linux Platform CPU exceeds specified threshold limit</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>CPU busy threshold exceeded</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <ul>
+                                <li>
+                                    <p>MINOR</p>
+                                </li>
+                                <li>
+                                    <p>MAJOR</p>
+                                </li>
+                                <li>
+                                    <p>CRITICAL</p>
+                                </li>
+                            </ul>
+                            <p>Depending on percentage of Idle state</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>ENM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>Idle is X.Y %</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>ENM System Monitor</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

@@ -1,0 +1,57 @@
+<task id="29379a7f56c74a7b88c350e60dd89244" xml:lang="en-US">
+   <title>Start the <ph keyref="nsoProductName"/> VM(s)</title>
+   <prolog>
+      <source>ST4 ID: 14110019595</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001">
+                                 <p>Use this procedure to start the <ph keyref="NS_LCM_VM_s"/>(s).</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10042_N1003F_N1002F_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/> :</ph>
+            </cmd>
+            <info>
+               <ul id="ul_er5_lsr_rgb">
+                  <li>
+                     <p>
+                        <ph keyref="non_HA_s"/> Deployment: <ph keyref="NS_LCM_VM_s"/></p>
+                  </li>
+                  <li>
+                     <p>
+                        <ph keyref="HA_s"/> Deployment: <ph keyref="NS_LCM_VM_s"/> for Node 1 and
+                        Node 2</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 <step id="step_N1007E_N1003F_N1002F_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to start the <ph keyref="NS_LCM_VM_s"/>:</ph>
+            </cmd>
+            <info>
+               <codeblock><ph keyref="sudo"/> /root/<ph keyref="nsoStartupScript"/>
+</codeblock>
+               <p>The following message is displayed when the startup is complete: <option keyref="nsoStartupScriptMsg"/>
+               </p>
+            </info>
+         </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N100A7_N1002F_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>Only for a Geo-Redundant Deployment: <xref keyref="b2e17828d77ade9d2c8e6bba8279fd1d"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

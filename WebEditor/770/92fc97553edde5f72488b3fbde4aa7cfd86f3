@@ -1,0 +1,102 @@
+<referable-content id="55e34a4f0226a7f64d2c3f4fb43f3185" xml:lang="en-US">
+<title>CBRS Domain Proxy: Unable to Set cbrsTxExpireTime on the cell Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_qvk_3cr_dgb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Alarm</p>
+                        </entry>
+                        <entry>
+                            <p>NON_SYNCHABLE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Domain Proxy Mediation: Cell Alarm</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>Cause is one of the following:</p>
+                            <ul id="ul_jgf_kss_mlb">
+                                <li>
+                                    <p>SAS is returning a cbrsTxExpireTime value that is not in the
+                                        future.</p>
+                                </li>
+                                <li>
+                                    <p>The node reported an error when setting transmit expire time
+                                        on the cell.</p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>CBRS Domain Proxy: Unable to set cbrsTxExpireTime on the cell</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object</p>
+                        </entry>
+                        <entry>
+                            <p>EUtranCellTDD</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Configuration Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

@@ -1,0 +1,160 @@
+<concept id="4867665ed3fdb74b4b984d6501312a34" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for Cassandra DB (<ph keyref="ecaProductName"/>)</title>
+   <prolog>
+      <source>ST4 ID: 13577137035</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/> includes two predefined user IDs, for connections to the Cassandra database nodes:</p>
+      <ul>
+         <li>
+                                 <p>cassandra (superuser)</p>
+                              </li>
+         <li>
+                                 <p>catelemetry (non-superuser)</p>
+                              </li>
+      </ul>
+      <p>Each ID comes with a default password. To change a password, follow the appropriate
+         procedure:</p>
+      <p>
+                              <ph>Considerations:</ph> 
+                           </p>
+      <ul>
+         <li>
+                                 <p>Changing the password for the <ph importance="normal">cassandra</ph> ID does not require system downtime.</p>
+                              </li>
+         <li>
+                                 <p>Changing the password for the <ph importance="normal">catelemetry</ph> ID produces a period of system downtime, while the JBoss server
+               is shut down.</p>
+                              </li>
+         <li>
+                                 <p>In geo-redundant deployments, you must change the passwords for this ID on both the active site (Site A) and the standby site (Site B).</p>
+                              </li>
+         <li>
+                                 <p>Allowable special characters for the <ph importance="normal">cassandra</ph> ID are: <ph keyref="passwordCharacterSet_A"/>
+            </p>
+                              </li>
+         <li>
+                                 <p>Allowable special characters for the <ph importance="normal">catelemetry</ph> ID are: <ph keyref="passwordCharacterSet_E"/>
+            </p>
+                              </li>
+      </ul>
+      <p>To change the <ph importance="normal">cassandra</ph> password:</p>
+      <ol>
+                              <li>
+                                 <p>Log in to <ph keyref="ECACassandraVM"/> 1 as <option keyref="loginID"/> Linux
+               user.</p>
+                              </li>
+                              <li>
+                                 <p>Connect to <option outputclass="st4mig_function">cqlsh</option>
+               as the <userinput>cassandra</userinput> superuser:</p><p>
+
+                                    <userinput>cqlsh -u cassandra ecads</userinput>
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Enter the following command:</p><p>
+
+                                    <userinput>alter user cassandra with password '<varname>New_Password</varname>';</userinput>
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Disconnect from <option outputclass="st4mig_function">cqlsh</option>.</p>
+                              </li>
+                              <li>
+                                 <p>Open the file <filepath>/root/.cassandra/cqlshrc</filepath> for editing (using <option outputclass="st4mig_function">sudo</option>), and change the value of the <filepath>password =</filepath> parameter to the new password.</p>
+                              </li>
+                              <li>
+                                 <p>For <ph keyref="HA_s"/> deployment only, repeat Step 5 for <ph keyref="ECACassandraVM"/>s 2 and 3.</p>
+                              </li>
+                              <li>
+                                 <p>Verify login with the new password using the following command:</p><p>
+
+                                    <userinput>cqlsh -u cassandra ecads</userinput>
+                                 </p>
+                              </li>
+                           </ol>
+      <p>To change the <ph importance="normal">catelemetry</ph> password, do the following:</p>
+      <ol>
+         <li>
+            <p>Log in to <ph keyref="ECACassandraVM"/> 1 as <option keyref="loginID"/> Linux
+               user.</p>
+         </li>
+         <li>
+            <p>Connect to <option outputclass="st4mig_function">cqlsh</option> as the
+                  <userinput>cassandra</userinput> superuser:</p>
+            <p>
+               <userinput>cqlsh -u cassandra ecads</userinput>
+            </p>
+         </li>
+                              <li>
+                                 <p>Run  the command:</p>
+                                 <codeblock>alter user 'catelemetry' with password '&lt;myNewPassword>';</codeblock>
+                              </li>
+                              <li>
+                                 <p>Disconnect from <option outputclass="st4mig_function">cqlsh</option>.</p>
+                              </li>
+                              <li>
+                                 <p>Log in to <ph keyref="ECACoreVM"/> as
+                  <userinput>osadm</userinput>.</p>
+                              </li>
+         <li>
+            <p>Run the command: </p>
+            <p><cmdname>sudo -s</cmdname></p>
+         </li>
+         <li>
+            <p>Run the command: </p>
+            <p><cmdname>cd $JBOSS_HOME/vault</cmdname></p>
+         </li>
+         <li>
+            <p>Run the script: </p>
+            <p><cmdname>./change_password.sh</cmdname></p>
+         </li>
+         <li>
+            <p>Choose the <option>Change user password </option> option</p>
+         </li>
+         <li>
+            <p>Follow the prompts.</p>
+            <note id="note_N101CE_N101C7_N1013B_N10032_N10001">
+               <p>Use <option>catelemetry</option> as a user for which you want to change a
+                  password. </p>
+            </note>
+            <p><ph importance="normal">For <ph keyref="HA_s"/> deployments</ph></p>
+         </li>
+         <li>
+            <p>Repeat Steps 6-10 on the second <ph keyref="ECACoreVM"/>.</p>
+         </li>
+         <li>
+            <p>Log on to <ph keyref="ECA_Collection_VM_s"/> 1 as <option keyref="loginID"/>
+               user.</p>
+         </li>
+         <li>
+            <p>Run the command: </p>
+            <p><cmdname>sudo -s</cmdname></p>
+         </li>
+         <li>
+            <p>Check the Docker containers (at least two must be running):</p>
+            <p><cmdname>docker ps</cmdname></p>
+            <p>Result:
+               <codeblock>CONTAINER ID                                                         IMAGE                                                                                         COMMAND               CREATED            STATUS                 PORTS                                    NAMES
+5e482b113fbb      sekidocker.rnd.ki.sw.ericsson.se/proj-eca/cloudanalytics.collection:&lt;snapshot version>      "/opt/jboss-eap-7...."      3 weeks ago      Up 3 weeks      8080/tcp, 9990/tcp      &lt;collection FQDN>-collection2
+7b22e44ca8a1      sekidocker.rnd.ki.sw.ericsson.se/proj-eca/cloudanalytics.collection:&lt;snapshot version>      "/opt/jboss-eap-7...."      3 weeks ago      Up 3 weeks      8080/tcp, 9990/tcp      &lt;collection FQDN>-collection1</codeblock></p>
+         </li>
+         <li>
+            <p>Run the command:</p>
+            <p><cmdname>cd /root/ca_collection/vault</cmdname></p>
+         </li>
+         <li>
+            <p>Repeat Steps 8-10.</p>
+         </li>
+         <li>
+            <p>Repeat Steps 13-16 on the second <ph keyref="ECA_Collection_VM_s"/>.</p>
+         </li>
+                           </ol>
+   </conbody>
+</concept>

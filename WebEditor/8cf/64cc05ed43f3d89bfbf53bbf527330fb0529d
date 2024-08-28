@@ -1,0 +1,122 @@
+<referable-content id="4c41a974cfb648ff3026b13fe825977f" xml:lang="en-US">
+<title>Backup Failure Ref Con Err</title>
+<rcbody>
+        <table id="table_2">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Error Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>ERROR_MESSAGE</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Backup Failure</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable causes</p>
+                        </entry>
+                        <entry>
+                            <p>Error <parmname>&lt;&lt;Cause>></parmname> in node
+                                    <parmname>&lt;&lt;Node>></parmname></p>
+                            <p><parmname>&lt;&lt;Node>></parmname> is the node where a backup
+                                operation has failed</p>
+                            <p><parmname>&lt;&lt;Cause>></parmname> is one of the
+                                    following:<ul compact="yes" outputclass="compact">
+                                    <li>
+                                        <p>Deploying BRS to NAS</p>
+                                    </li>
+                                    <li>
+                                        <p>Collecting configuration</p>
+                                    </li>
+                                    <li>
+                                        <p>Creating snapshots</p>
+                                    </li>
+                                    <li>
+                                        <p>Copying Neo4j </p>
+                                    </li>
+                                    <li>
+                                        <p>Transferring backup</p>
+                                    </li>
+                                    <li>
+                                        <p>Checking Neo4j</p>
+                                    </li>
+                                    <li>
+                                        <p>Removing snapshots</p>
+                                    </li>
+                                    <li>
+                                        <p>System backup is deactivated</p>
+                                    </li>
+                                    <li>
+                                        <p>Cannot proceed for ENM system backup due to ongoing LUN
+                                            conversion</p>
+                                    </li>
+                                </ul></p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Backup Failure</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>MAJOR</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>ENM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Backup and Restore</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful /Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateless</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

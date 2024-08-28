@@ -1,0 +1,14 @@
+<concept id="b2da41b56812bef07aa970d9c26c47a9" xml:lang="en-US">
+   <title>Manage Components</title>
+   <prolog>
+      <source>ST4 ID: 16338381195</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This section contains information about managing components running on the Analytics and UI <ph keyref=""/>s.</p>
+   </conbody>
+</concept>

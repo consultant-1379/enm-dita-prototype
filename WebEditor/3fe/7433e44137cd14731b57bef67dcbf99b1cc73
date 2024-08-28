@@ -1,0 +1,52 @@
+<concept id="b1f7fa9407dbcbe164995b2f46040ded" xml:lang="en-US">
+    <title>Configure <ph keyref="ECM_short"/> GUI Login Restrictions</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <!-- Template instructions: 
+    How to Write Concept Topics, 105/000 21-FCK 101 05-->
+        <p>To block or allow logging in to <ph keyref="ECM_short"/> by using the local credentials
+            (without using the federation realm), set up the following system configuration
+            parameters by running the <parmname>createConfigData</parmname> operation as a provider
+            administrator.</p>
+        <note id="note_N10046_N10035_N10001">
+            <p>See <cite>Create Configuration Data Operation</cite> in the  <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Cloud_Service_Management_Guide"/> for more information</p>
+        </note>
+        <ol id="ol_xk3_q5m_f4b">
+            <li>
+                <p>The configuration parameter that tells whether <ph keyref="ECM_short"/> GUI must
+                    block or allow logging in by using the local credentials.</p>
+                <p>When <parmname>paramValue</parmname> is set to <option>true</option>, <ph keyref="ECM_short"/> GUI  blocks logging in by using the local credentials.
+                    To allow logging in by using the local credentials, set
+                        <parmname>paramValue</parmname> to <option>false</option>.</p>
+                <codeblock>scopeType: "system"
+scopeName: "sso_data"
+paramName: "denyNonFederatedLoginUI"
+paramDataType: "boolean"
+paramValue: "true"</codeblock>
+            </li>
+            <li>
+                <p> The configuration parameter that defines which error message <ph keyref="ECM_short"/> GUI must display upon a user attempt to log in by using
+                    the local credentials when the <parmname>denyNonFederatedLoginUI</parmname>
+                    parameter is set to <option>true</option>.</p>
+                <p>The <parmname>paramValue</parmname> parameter must only contain the plain
+                    text.</p>
+                <codeblock>scopeType: "system"
+scopeName: "sso_data"
+paramName: "denyNonFederatedLoginUIMessage"
+paramDataType: "string"
+paramValue: "Tenant logins are disabled and the user is not authorized to log in using the local credential store. Please log in to EO-CM GUI using the FederationRealm."</codeblock>
+            </li>
+        </ol>
+     </conbody>
+</concept>

@@ -1,0 +1,67 @@
+<task id="cfd12a963ab8f6b0168d48be8346850f" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for Orchestration Component Schema ID: cw20</title>
+   <prolog>
+      <source>ST4 ID: 13577147787</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N1017F_N1017C_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>The <userinput>cw20</userinput> ID is the owner of the
+            orchestration schema. Changing this password includes multiple steps, such as changing
+            the password in several files, changing the password in the Orchestration component, and
+            stopping and restarting <ph keyref="ECM_short"/>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+            <ul id="ul_sft_qkx_cgb">
+               <li>
+                  <p>For geo-redundant deployments, repeat all these procedures on the standby site
+                     (Site B).</p>
+               </li>
+               <li>
+                  <p conkeyref="4911b66ffc16eb672b18c2efc7e815f8/st4tb12331396619"/>
+               </li>
+               <li>
+                  <p conkeyref="42b7f586ba0818bf63f64a598a86b7c7/st4tb12402192907"/>
+               </li>
+               <li>
+                  <p>Passwords are case-sensitive. </p>
+               </li>
+               <li>
+                  <p>Allowable special characters for this ID are: # % - $ * + = _</p>
+               </li>
+            </ul></p>
+                           </context>
+                           <steps>
+                              <step id="step_N10203_N10200_N1017C_N10001">
+            <cmd> To change the password for the <userinput>cw20</userinput> ID, log on to the <ph keyref="edbVM"/> as the <userinput>enterprisedb</userinput> user and do the
+               following: </cmd>
+            <info>
+               <codeblock># <userinput>psql -d ecmdb1 -U cw20</userinput>
+Password for user cw20: <userinput><varname>&lt;Current_Password></varname>
+</userinput>
+psql.bin (11.6.13)
+Type "help" for help.
+ecmdb1=> <userinput>ALTER USER cw20 WITH PASSWORD '<varname>&lt;New_Password></varname>';</userinput>
+ALTER ROLE
+ecmdb1=> <userinput>quit</userinput>
+                              </codeblock>
+            </info>
+         </step>
+                              
+                              
+                           </steps>
+                        <postreq id="postreq_N10344_N1017C_N10001">
+                                 <div outputclass="st4mig-add-info">
+                                    <!--
+			4015 add-info/title: Next Step:-->
+                                    <p>
+                                       <xref keyref="522c7a1bb39dbe29088302abe0f90d16"/>
+                                    </p>
+                                 </div>
+                              </postreq></taskbody>
+</task>

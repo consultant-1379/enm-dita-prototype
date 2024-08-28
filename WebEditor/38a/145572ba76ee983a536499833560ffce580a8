@@ -1,0 +1,33 @@
+<concept id="f2075b6bdc1a8fea16ac28eadbeb1b57" xml:lang="en-US">
+   <title>Start and Stop Impala</title>
+   <prolog>
+      <source>ST4 ID: 14578296459</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <note id="note_N1002B_N10028_N10001">
+         <p>The following commands can be executed on any <ph keyref=""/>
+            <ph keyref=""/>.</p>
+      </note>
+      <ul id="ul_pvh_spx_1lb">
+         <li>
+            <p>To start the Impala service:</p>
+            <p><userinput>arkctl start impala-statestore impala-catalog impala-server
+                  impala-lb</userinput></p>
+         </li>
+         <li>
+            <p>To stop the Impala service:</p>
+            <p><userinput>arkctl stop impala-statestore impala-catalog impala-server
+                  impala-lb</userinput></p>
+         </li>
+         <li>
+            <p>To check the status of the Impala service:</p>
+            <p>arkctl status impala-statestore impala-catalog impala-server impala-lb</p>
+         </li>
+      </ul>
+   </conbody>
+</concept>

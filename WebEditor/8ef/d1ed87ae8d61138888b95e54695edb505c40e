@@ -1,0 +1,65 @@
+<task id="b9eb40a376f9de34a485d86d1ecca7d4" xml:lang="en-US">
+    <title>Set Up a Remote Identity Provider in OpenAM</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>To configure a Remote Identity Provider in <ph keyref="OpenAM_s"/>, follow the
+                steps.</p>
+        </context>        
+        <steps>
+            <step id="step_N10046_N10043_N10031_N10001">
+                <cmd>Log in as <option>amadmin</option> to <ph keyref="OpenAM_s"/>.</cmd>
+            </step>
+            <step id="step_N10057_N10043_N10031_N10001">
+                <cmd>Navigate to the federation realm.</cmd>
+            </step>
+            <step id="step_N10060_N10043_N10031_N10001">
+                <cmd>Select <uicontrol>Configure SAMLv2 Provider</uicontrol> and then
+                        <uicontrol>Configure Remote Identity Provider</uicontrol>.</cmd>
+            </step>
+            <step id="step_N10071_N10043_N10031_N10001">
+                <cmd>In the form that will appear, specify a URL to an Identity Provider’s metadata.
+                    Alternatively, upload a file with the metadata directly. </cmd>
+            </step>
+            <step id="step_N1007A_N10043_N10031_N10001">
+                <cmd>Set the <uicontrol>Circle of Trust</uicontrol> name to
+                        <userinput>cot</userinput>.</cmd>
+            </step>
+            <step id="step_N1008B_N10043_N10031_N10001">
+                <cmd>Click <uicontrol>Configure</uicontrol>.</cmd>
+            </step>
+            <step id="step_N10098_N10043_N10031_N10001">
+                <cmd>Navigate back to the realm dashboard and select <menucascade>
+                        <uicontrol>Authentication → Modules</uicontrol>
+                    </menucascade> in the left menu.</cmd>
+            </step>
+            <step id="step_N100A9_N10043_N10031_N10001">
+                <cmd>In the table that will appear, select the <uicontrol>saml</uicontrol>
+                    record.</cmd>
+            </step>
+            <step id="step_N100B6_N10043_N10031_N10001">
+                <cmd> Click <uicontrol>Yes</uicontrol> in the dialog box.</cmd>
+            </step>
+            <step id="step_N100C3_N10043_N10031_N10001">
+                <cmd>Fill in the <uicontrol>IdP Entity ID</uicontrol> field with an Identity
+                    Provider's metadata.</cmd>
+            </step>
+            <step id="step_N100D0_N10043_N10031_N10001">
+                <cmd>Click <uicontrol>Save Changes</uicontrol>.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

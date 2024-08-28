@@ -1,0 +1,45 @@
+<task id="bd45e00637c2729fe7f32d53be2b5179" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for the First Time for the Activation GUI User: admin and
+        eoadmin@admin.local</title><shortdesc/><prolog><source/><permissions view="ericsson_internal"/><metadata><keywords><keyword/></keywords><othermeta content="NA" name="workitem"/></metadata><resourceid appid="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_zz2_xws_5hb" outputclass="st4mig_beforeProcedure">
+            <p>For security reasons, set this password before first login.</p>
+            <p>Allowable special characters for these user passwords are: <ph keyref="passwordCharacterSet_A"/>
+            </p>
+        </context><steps id="steps_b1f_xws_5hb"><step id="step_N10049_N10046_N10023_N10001"><cmd>Decide on a new password. </cmd></step><step id="step_N1004F_N10046_N10023_N10001">
+                <cmd>Use the following URL and log in to the Activation GUI as the user you want to
+                    change the password for.</cmd>
+                <info>
+                    <p><filepath>https://<varname>&lt;Activation_VM_IP></varname>:8383</filepath></p>
+                    <p>Where: <varname>Activation_VM_IP</varname> is the IP address of the <ph keyref="ActivationVM"/>.</p>
+                </info>
+                <info>
+                    <note id="note_N10061_N1005E_N1004E_N10046_N10023_N10001" type="note">For <ph keyref="HA_s"/>, log in to the <varname>Activation VIP-OAM-IP</varname>
+                        which is the activation load balancer.</note>
+                </info>
+            </step><step id="step_N10069_N10046_N10023_N10001"><cmd>Enter <userinput>admin</userinput> as the password. </cmd><stepresult>
+                    <p>The <uicontrol>Change Password</uicontrol> menu is displayed.</p>
+                </stepresult></step><step id="step_N10076_N10046_N10023_N10001"><cmd>Enter the new password and the confirm password.</cmd><info>
+                    <p>
+                        <note id="note_N10099_N10096_N10093_N1008B_N10038_N10023_N10001" type="note">
+                            <ph keyref="ECM_short"/> support cannot recover this password if it is lost.
+                            Make sure to store it securely.</note>
+                    </p>
+                </info></step><step id="step_N100A6_N10038_N10023_N10001"><cmd>Press the <uicontrol>Continue</uicontrol> button.</cmd></step>
+            <step id="step_N100AA_N10036_N10023_N10001">
+                <cmd>Log in to the <ph keyref="CoreVM"/> as <userinput>ecm_admin</userinput>.</cmd>
+            </step>
+            <step id="step_N100BB_N10036_N10023_N10001">
+                <cmd>Type in a new password in the <parmname>&lt;NEW PASSWORD></parmname> parameter
+                    and run the command:</cmd>
+                <info><cmdname>/app/ecm/tools/.enc-util/update_properties.py -e
+                        $JBOSS_HOME/modules/com/ericsson/configuration/main/core_config.properties
+                        -o
+                        $JBOSS_HOME/modules/com/ericsson/configuration/main/rest-services.properties
+                        -p '&lt;NEW PASSWORD>' -m encrypt -n SCM_ADMIN_PASSWORD</cmdname></info>
+            </step>
+            <step id="step_N100CE_N10036_N10023_N10001">
+                <cmd>Restart JBoss: </cmd>
+                <info><cmdname>sudo systemctl restart jboss-eap</cmdname></info>
+            </step>
+            <step id="step_N100DD_N10036_N10023_N10001">
+                <cmd>In an <ph keyref="HA_s"/> cluster, repeat Steps 6-8 on <ph keyref="CoreVM"/>
+                    2.</cmd>
+            </step></steps></taskbody></task>

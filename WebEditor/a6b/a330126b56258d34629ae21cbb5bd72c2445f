@@ -1,0 +1,77 @@
+<concept id="c117f0c1408e1b263c33c2f5073f989e" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for Linux (<ph keyref="ecaProductName"/>)</title>
+   <prolog>
+      <source>ST4 ID: 13577138571</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/> includes
+         the predefined user IDs: <userinput>root</userinput> and <userinput>osadm</userinput>.</p>
+      <p/>
+      <p>To change the password, use procedure described in <xref keyref="f51e11f8548ab2b26c03f273a5bf9883"/>.</p>
+      <p>
+         <uicontrol>Considerations:</uicontrol>
+      </p>
+      <ul>
+         <li>
+            <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+         </li>
+         <li>
+            <p>If you change any password in an <ph keyref="HA_s"/> environment, be sure to repeat
+               the same change procedure on the corresponding VM on the second node in the <ph keyref="HA_s"/> cluster.</p>
+         </li>
+         <li>
+            <p>In geo-redundant deployments, you must change the passwords for these IDs on both the
+               active site (Site A) and the standby site (Site B).</p>
+         </li>
+      </ul>
+      <p>
+         <ph importance="normal">Changing Password Policies</ph>
+      </p>
+      <p>By default, the following passwords policies are used:</p>
+      <ul>
+         <li>
+            <p>Minimum password length must be 14 characters.</p>
+         </li>
+         <li>
+            <p>At least one digit, one uppercase, and one lowercase character must be used.</p>
+         </li>
+         <li>
+            <p>The reuse of last five passwords is not allowed.</p>
+         </li>
+      </ul>
+      <p>If you want to change the password policies, open the configuration file:
+            <filepath>/etc/security/pwquality.conf</filepath>, edit the parameters as you wish, and
+         save your changes. After you make changes, the system will enforce the specified
+         requirements whenever anyone changes a password.</p>
+      <p>The most common parameters are:</p>
+      <ul>
+         <li>
+            <p>minlen = Minimum required length, in characters</p>
+         </li>
+         <li>
+            <p>dcredit = Number of digit characters required. For none set to 0; for one set to -1,
+               for 2, set to -2, and so on.</p>
+         </li>
+         <li>
+            <p>ucredit = Number of uppercase characters required; set as for digits</p>
+         </li>
+         <li>
+            <p>lcredit = Number of lowercase characters required; set as for digits</p>
+         </li>
+         <li>
+            <p>ocredit = Number of special characters required; set as for digits</p>
+         </li>
+         <li>
+            <p>minclass = Number of the above four character classes required. For example, to
+               require the specified number of at least of two types, set to 2.</p>
+         </li>
+      </ul>
+      <p>For information on any other parameters in this file, see the Linux documentation.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,14 @@
+<concept id="b49f6bfe84b596a19aff9818a24143ef" xml:lang="en-US">
+   <title>ARK Platform</title>
+   <prolog>
+      <source>ST4 ID: 16338374539</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This section describes the configuration of the <ph keyref=""/>.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,24 @@
+<map id="43238e89d208e156a33c35b590cb1c30" xml:lang="en-US">
+   <title>Variable Key Map Incident Generator (Rule Engine)</title>
+   <keydef keys="IncidentGeneratorName">
+      <topicmeta>
+         <keywords>
+            <keyword>Incident Generator</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="rule-engine">
+      <topicmeta>
+         <keywords>
+            <keyword>rule-engine</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="RuleEngineName">
+      <topicmeta>
+         <keywords>
+            <keyword>Rule Engine</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

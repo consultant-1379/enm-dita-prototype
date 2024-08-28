@@ -1,0 +1,42 @@
+<concept id="65245bf6619c7b3bd756268a18e5012d" xml:lang="en-US">
+   <title>ESC Data Files</title>
+   <prolog>
+      <source>ST4 ID: 16331091083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The ESC data files are as follows:</p>
+      <ul>
+         <li>
+                                       <p>
+                                          <apiname>/data/gtpc/data_pag/*/gtpc_*.dat</apiname>
+                                       </p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>/data/ims/data_pag/*/ims_*.dat</apiname>
+                                       </p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>/data/sv/data_pag/*/sv_*.dat</apiname>
+                                       </p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>/data/uplane/data_pag/perf/*/perf_*.dat</apiname>
+                                       </p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>/data/uplane/data_pag/traf/*/traf_*.dat</apiname>
+                                       </p>
+                                    </li>
+      </ul>
+   </conbody>
+</concept>

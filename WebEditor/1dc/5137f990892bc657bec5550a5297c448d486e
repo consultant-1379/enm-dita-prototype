@@ -1,0 +1,348 @@
+<concept id="d800f7516ed3e7da42d2d8f7793a00e9" xml:lang="en-US">
+   <title>Web Browser Compatibility</title>
+   <shortdesc>The recommended web browser for <ph keyref=""/> GUIs is the latest version
+      of Google Chrome.</shortdesc>
+   <prolog>
+      <source>ST4 ID: 16336906123</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zvardan</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-32044</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-02-06</change-completed>
+            <change-summary>EEAEPP-38164 Updated support information of Microsoft Edge, based on input from EMALPEI (20200128)</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zgrahle</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-07-14</change-completed>
+            <change-summary>EEAEPP-44022. Updated table. Input from EMALPEI. 20200703</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following table shows compatibility with other web browsers.</p>
+      <table colsep="1" frame="all" id="table_stw_rfn_3mb" rowsep="1">
+         <title>Web Browser Compatibility of GUIs (new)</title>
+         <tgroup cols="9">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="1*"/>
+            <colspec colname="c3" colnum="3" colwidth="1*"/>
+            <colspec colname="c4" colnum="4" colwidth="1*"/>
+            <colspec colname="c5" colnum="5" colwidth="1*"/>
+            <colspec colname="c6" colnum="6" colwidth="1*"/>
+            <colspec colname="c7" colnum="7" colwidth="1*"/>
+            <colspec colname="c8" colnum="8" colwidth="1*"/>
+            <colspec colname="c9" colnum="9" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry morerows="1">
+                     <p>GUI</p>
+                  </entry>
+                  <entry nameend="c3" namest="c2">
+                     <p>Google Chrome</p>
+                     <p>(Recommended)</p>
+                  </entry>
+                  <entry nameend="c5" namest="c4">
+                     <p>Mozilla Firefox</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>Microsoft Internet Explorer</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>Microsoft Edge</p>
+                     <p>(Non-Chromium-based)<fn>
+                           <p>Chromium-based Microsoft Edge was released on 15th January 2020. Thus,
+                              beginning with v.79, Microsoft Edge offers the same functionality,
+                              compatibility, and performance as Google Chrome. Customers using
+                              Internet Explorer and not Chromium-based versions of Microsoft Edge
+                              are recommended to upgrade to the latest version of Microsoft
+                              Edge.</p>
+                        </fn></p>
+                  </entry>
+                  <entry nameend="c9" namest="c8">
+                     <p>Microsoft Edge</p>
+                     <p>(Chromium-based)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Supported</p>
+                  </entry>
+                  <entry>
+                     <p>Tested<fn id="version_used">
+                           <p>Version used for testing EEA 18.7 at the time of the release.</p>
+                        </fn></p>
+                  </entry>
+                  <entry>
+                     <p>Supported</p>
+                  </entry>
+                  <entry>
+                     <p>Tested<xref href="#now1571257033403/version_used"/></p>
+                  </entry>
+                  <entry>
+                     <p>Supported</p>
+                  </entry>
+                  <entry>
+                     <p>Tested<xref href="#now1571257033403/version_used"/></p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <ph keyref=""/></p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Launcher</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>User Preferences Editor</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v78</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Unsupported</p>
+                  </entry>
+                  <entry>
+                     <p>Latest version</p>
+                  </entry>
+                  <entry>
+                     <p>v83</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note id="note_N10056_N10053_N10001" otherprops="AIO_limited" type="note">The <ph keyref=""/> Value Package and its components (Anomaly Detection and the <ph keyref=""/> GUI) are a restricted feature and is turned off by default. Consult
+         Ericsson personnel for more information.</note>
+   </conbody>
+</concept>

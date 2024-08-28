@@ -1,0 +1,111 @@
+<referable-content id="1adbfc8416850e4be9d55b6ed4e06fe7" xml:lang="en-US">
+<title>AutoDetectedIncident Ref Con</title>
+<rcbody>
+        <table id="table_zfw_xk1_vfb">
+            <tgroup cols="3">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="1.29*"/>
+                <colspec colname="newCol3" colnum="3" colwidth="2.24*"/>
+                <thead>
+                    <row>
+                        <entry nameend="newCol3" namest="col1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>ET_QUALITY_OF_SERVICE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>PERFORMANCE DEGRADED</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>AutoDetectedIncident</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <ul id="ul_a1z_x2d_khb">
+                                <li>
+                                    <p>MAJOR</p>
+                                </li>
+                                <li>
+                                    <p>CRITICAL</p>
+                                </li>
+                                <li>
+                                    <p>WARNING</p>
+                                </li>
+                                <li>
+                                    <p>MINOR</p>
+                                </li>
+                                <li>
+                                    <p>INDETERMINATE</p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>The first Fully Distinguished Name of the Network Element in the
+                                Autonomic Incident Management Incident.</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>Autonomic Incident Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful /Stateless</p>
+                            <p/>
+                        </entry>
+                        <entry nameend="newCol3" namest="col2">
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

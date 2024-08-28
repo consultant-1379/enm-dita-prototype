@@ -1,0 +1,26 @@
+<concept id="4a0e4e2da633e3353db5b1d96a362785" xml:lang="en-US">
+   <title>User Prerequisites</title>
+   <prolog>
+      <source>ST4 ID: 5125140875</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following are the prerequisites to make full use of this document:</p>
+      <ul>
+         <li>
+                           <p>Knowledge about the <ph keyref="ECM"/> product</p>
+                        </li>
+         <li>
+                           <p>System administrator authority on the server in which <ph keyref="ECM"/> is installed</p>
+                        </li>
+         <li>
+                           <p>Basic knowledge of security concepts</p>
+                        </li>
+      </ul>
+   </conbody>
+</concept>

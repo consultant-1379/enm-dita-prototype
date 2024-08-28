@@ -1,0 +1,51 @@
+<concept id="647566fd0469491c0d09333f933299d6" xml:lang="en-US">
+   <title>External References</title>
+   <prolog>
+      <source>ST4 ID: 16364642059</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ztthrtx</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-03-05</change-completed>
+            <change-summary>CAL#105022
+Corrected external links for JBoss and Docker.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following external documentation can be referenced for use in <ph keyref=""/>:</p>
+      <ul>
+         <li>
+                        <p><xref format="html" href="https://maprdocs.mapr.com/52/index.html" scope="external">MapR 5.2.x Documentation</xref>
+            </p>
+                     </li>
+         <li>
+                        <p><xref format="html" href="https://docs.docker.com/docsarchive/#accessing-unsupported-archived-documentation" scope="external">Archived Docker Documentation</xref> for v1.12</p>
+                     </li>
+         <li>
+                        <p><xref format="html" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/" scope="external">Product Documentation for JBoss Enterprise Application
+                  Platform</xref> for 6.4</p>
+                     </li>
+         <li>
+                        <p><xref format="html" href="https://www.zabbix.com/documentation/3.0/manual" scope="external">Zabbix
+                  Documentation</xref> 3.0</p>
+                     </li>
+         <li>
+                        <p><xref format="html" href="https://oozie.apache.org/docs/4.3.0/CoordinatorFunctionalSpec.html#a4._Datetime_Frequency_and_Time-Period_Representation" scope="external">Datetime, Frequency and Time-Period Representation</xref> in
+               Oozie Coordinator Specification for 4.3.0 </p>
+                     </li>
+         <li>
+                        <p><xref format="html" href="https://zookeeper.apache.org/doc/r3.4.5/index.html" scope="external">ZooKeeper Documentation</xref> for 3.4.5 </p>
+                     </li>
+      </ul>
+   </conbody>
+</concept>

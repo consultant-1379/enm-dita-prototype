@@ -1,0 +1,104 @@
+<referable-content id="344562b3702904bcc97e05e3502f3a49" xml:lang="en-US">
+<title>Spectrum Disturbance Detected Ref Con</title>
+<rcbody>
+        <table id="table_cqm_mjj_mz">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>NON_SYNCHABLE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Quality of service</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>Performance Degraded</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Spectrum Disturbance Detected</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>WARNING</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>RfPort</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_ibd_z2y_khb">
+                                    <li>
+                                        <p>Power level greater than &lt;power level&gt; dbm. [Frequency
+                                            Range: &lt;range&gt;] Detected &lt;number of samples&gt;
+                                            consecutive samples for RfPort: &lt;RfPort LDN&gt;</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <ul id="ul_b3l_bfy_khb">
+                                <li>
+                                    <p>Power level greater than &lt;power level&gt; dbm. [Frequency
+                                        Range: &lt;range&gt;] Detected &lt;number of samples&gt; samples
+                                        in a &lt;minutes&gt; minutes time window for RfPort: &lt;RfPort
+                                        LDN&gt;</p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Performance Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Stateful/Stateless</entry>
+                        <entry>Stateful</entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

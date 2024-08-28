@@ -1,0 +1,20 @@
+<concept id="f1783f885ae901fb3513101034240d8f" xml:lang="en-US">
+   <title>Restrict Access for Administrative Procedures</title>
+   <prolog>
+      <source>ST4 ID: 10919060619</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>When downtime is required for a procedure described in this guide, it means that no user
+         requests can be allowed while the procedure is being implemented. This requires shutting
+         down all traffic to the <ph keyref="ECM_short"/> nodes.</p>
+      <p>In a Geo-Redundant deployment, this can be done by disabling traffic at the F5 node in the
+         active site. Alternatively, traffic can be disabled at some upstream point in the network
+         (for example, at the DNS server).</p>
+   </conbody>
+</concept>

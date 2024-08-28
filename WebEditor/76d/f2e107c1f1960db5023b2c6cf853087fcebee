@@ -1,0 +1,42 @@
+<task id="e12593d87510524d290830fd5f6ed228" xml:lang="en-US">
+    <title>Check the Expiry Date of a Root Certificate Within a Trust Store</title>
+    <shortdesc/>
+    <prolog>
+        <permissions view="ericsson_internal"/>
+		<metadata/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->        
+        <steps>
+            <step id="step_N10024_N10021_N1001C_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user.</cmd>
+            </step>
+            <step id="step_N10035_N10021_N1001C_N10001">
+                <cmd>Change directory to </cmd>
+                <info><cmdname>/app/ecm/appserver/jboss-eap-7.2/standalone/configuration</cmdname></info>
+            </step>
+            <step id="step_N10044_N10021_N1001C_N10001">
+                <cmd>Check the expiry dates of the certificates within a trust store by using the
+                    alias assigned to the certificate root. Provide the password to a trust store
+                    when prompted. The expiry date is specified in the <uicontrol>Valid
+                        from</uicontrol> line.</cmd>
+                <info><cmdname>$ keytool -list -keystore truststore.jks -alias &lt;alias>
+                        -v</cmdname></info>
+            </step>
+            <step id="step_N10057_N10021_N1001C_N10001">
+                <cmd>If a certificate has expired, it can be removed or replaced.</cmd>
+                <substeps id="substeps_a3g_w5q_hpb">
+                    <substep>
+                        <cmd>To remove a certificate, follow steps in <xref keyref="5dce49f229c0bab016070af02a2fcbef"/>.</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>To replace a certificate, remove an expired certificate first. Then
+                            follow steps in  <xref keyref="6514424a00f86828ee4837f983500acc"/> to add a new
+                            certificate.</cmd>
+                    </substep>
+                </substeps>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

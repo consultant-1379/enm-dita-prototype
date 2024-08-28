@@ -1,0 +1,93 @@
+<referable-content id="32c21bcd5867260d652a4f130b6a043c" xml:lang="en-US">
+<title>Insufficient space for exporting elasticsearch index Ref Con</title>
+<rcbody>
+        <p id="p_N10011_N1000E_N10001">
+            <table colsep="1" frame="all" id="table_ons_yb3_jkb" rowsep="1">
+                <tgroup cols="2">
+                    <colspec colname="col1" colnum="1" colwidth="1*"/>
+                    <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                    <thead>
+                        <row>
+                            <entry nameend="col2" namest="col1">
+                                <p>Alarm Attributes</p>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <p>Record Type</p>
+                            </entry>
+                            <entry>
+                                <p>ALARM</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Event Type</p>
+                            </entry>
+                            <entry>
+                                <p>Processing error</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Probable cause</p>
+                            </entry>
+                            <entry>
+                                <p>Storage Capacity Problem</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Specific Problem</p>
+                            </entry>
+                            <entry>
+                                <p>Insufficient space for exporting elasticsearch index</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Severity</p>
+                            </entry>
+                            <entry>
+                                <p>CRITICAL</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Managed Object Class</p>
+                            </entry>
+                            <entry>
+                                <p>Elasticsearch</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Problem Text</p>
+                            </entry>
+                            <entry>
+                                <p>Insufficient storage space on the disk. Periodic export of
+                                    elasticsearch index would fail.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Technical Area</entry>
+                            <entry>
+                                <p>User Administration Applications</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Stateful /Stateless</p>
+                            </entry>
+                            <entry>
+                                <p>Stateful</p>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </p>
+    </rcbody>
+</referable-content>

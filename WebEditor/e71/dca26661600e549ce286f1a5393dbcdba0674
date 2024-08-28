@@ -1,0 +1,58 @@
+<task id="d99fae9294d42cac78f4e0da94546df1" xml:lang="en-US">
+    <title>Change osadm Password on <ph keyref="LB_VM_s"/>s</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N1003A_N10035_N10001">
+            <note id="note_N1003E_N1003A_N10035_N10001">
+                <p>The changed password will apply on both <ph keyref="LB_VM_s"/>s.</p>
+            </note>
+        </context>        
+        <steps>
+            <step id="step_N1004F_N1004C_N10035_N10001">
+                <cmd>Log in as <option>osadm</option> to the active <ph keyref="LB_VM_s"/>.</cmd>
+            </step>
+            <step id="step_N10060_N1004C_N10035_N10001">
+                <cmd> To check the <ph keyref="LB_VM_s"/> sync status, run the command:</cmd>
+                <info><cmdname>tmsh show /cm sync-status</cmdname></info>
+                <stepresult>
+                    <p>The output will show <systemoutput>Color green</systemoutput> and
+                            <systemoutput>Status In Sync</systemoutput>.</p>
+                </stepresult>
+            </step>
+            <step id="step_N10073_N1004C_N10035_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>passwd</cmdname></info>
+            </step>
+            <step id="step_N10082_N1004C_N10035_N10001">
+                <cmd>Specify a password as prompted.</cmd>
+            </step>
+            <step id="step_N1008B_N1004C_N10035_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>tmsh save /sys config partitions all &amp;&amp; tmsh run /cm
+                        config-sync to-group failover</cmdname></info>
+            </step>
+            <step id="step_N1009A_N1004C_N10035_N10001">
+                <cmd>To check the <ph keyref="LB_VM_s"/> status after the password change, run the
+                    command:</cmd>
+                <info><cmdname> tmsh show /cm sync-status</cmdname></info>
+                <stepresult>
+                    <p>The output will show <systemoutput>Color green</systemoutput> and
+                            <systemoutput>Status In Sync</systemoutput>.</p>
+                </stepresult>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

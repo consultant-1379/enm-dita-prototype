@@ -1,0 +1,17 @@
+<map id="d99f28d58af4374f780b1f442aa90b01" xml:lang="en-US">
+   <title>Variable Key Map EI GUI DrillDown/Editor</title>
+   <keydef keys="EI_EditorPage_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Studio</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EI_Dashboard_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Dashboard</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

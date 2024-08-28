@@ -1,0 +1,31 @@
+<concept id="cd9b56c7f4fffb4e999e1c331c5266f8" xml:lang="en-US">
+   <title>Introduction</title>
+   <prolog>
+      <source>ST4 ID: 5125131915</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This document contains Security Administration procedures for the <ph keyref="ECM"/>
+         product. </p>
+      <p>The sections in this chapter include:</p>
+      <ul id="ul_t1h_nxk_hlb">
+         <li>
+            <p>Purpose and Scope</p>
+         </li>
+         <li>
+            <p>Target Groups</p>
+         </li>
+         <li>
+            <p>Typographic Conventions</p>
+         </li>
+         <li>
+            <p>Prerequisites</p>
+         </li>
+      </ul>
+   </conbody>
+</concept>

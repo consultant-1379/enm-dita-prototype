@@ -1,0 +1,149 @@
+<concept id="b485a42ac8e8e64c4a6ef4e4123a1c3e" xml:lang="en-US">
+    <title>Example Use Cases for CICA</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-16</change-completed>
+                <change-summary>EEAEPP-45863, Created section, https://gerrit.ericsson.se/#/c/7782900</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zbozviv</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-20</change-completed>
+                <change-summary>EEAEPP-45863, Updated section, https://gerrit.ericsson.se/#/c/7794832</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-10</change-completed>
+                <change-summary>EEAEPP-45863, Updated anonymization part, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-13</change-completed>
+                <change-summary>EEAEPP-45863, Removed IPv4 anonymization references, input from EGBOJEN</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The following examples show the use of different command options, either alone or in
+            combinations:</p>
+        <ul id="ul_oc1_wxb_jmb">
+            <li>
+                <p>No filter</p>
+                <ul id="ul_sh5_xxb_jmb">
+                    <li>
+                        <p>Expected result: all data is collected from the sources</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -n <varname>cluster_name</varname> -o <varname>output_dir</varname></codeblock>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Time range filter</p>
+                <ul id="ul_bw3_zxb_jmb">
+                    <li>
+                        <p>Expected result: all data is collected for a given time range</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -n <varname>cluster_name</varname> -o <varname>output_dir</varname> -m <varname>min_ts</varname> -M <varname>max_ts</varname></codeblock>
+                        <p>where<ul id="ul_knk_4yb_jmb">
+                                <li>
+                                    <p><varname>min_ts</varname> is the timestamp in microseconds,
+                                        from which the application starts collecting data</p>
+                                </li>
+                                <li>
+                                    <p><varname>max_ts</varname> is the timestamp in microseconds,
+                                        until which the application collects data</p>
+                                </li>
+                            </ul></p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Source type filter</p>
+                <ul id="ul_xz4_zxb_jmb">
+                    <li>
+                        <p>Expected result: data is collected only from the specified sources
+                                (<parmname>S_CTR</parmname> and <parmname>S_GPEH</parmname>)</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -n <varname>cluster_name</varname> -o <varname>output_dir</varname> -s S_CTR -s S_GPEH</codeblock>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Restricted IMSI filter</p>
+                <ul id="ul_qs1_1yb_jmb">
+                    <li>
+                        <p>Expected result: only events linked to the specific IMSI or IMSIs are
+                            collected</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -n <varname>cluster_name</varname> -o <varname>output_dir</varname> -i <varname>IMSI_1</varname> -i <varname>IMSI_2</varname> ...</codeblock>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Source type and time range filter</p>
+                <ul id="ul_w5f_1yb_jmb">
+                    <li>
+                        <p>Expected result: data is collected from the
+                                <parmname>S_SGSN_MME_EBM</parmname> and <parmname>S_GTPC</parmname>
+                            sources for the defined time range</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -n <varname>cluster_name</varname> -o <varname>output_dir</varname> -s S_SGSN_MME_EBM -s S_GTPC -m <varname>min_ts</varname> -M <varname>max_ts</varname></codeblock>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Anonymization</p>
+                <ul id="ul_ttk_b4d_kmb">
+                    <li>
+                        <p>Expected result: data from the <parmname>S_GTPC</parmname> source is
+                            anonymized</p>
+                    </li>
+                    <li>
+                        <p>Command:</p>
+                        <codeblock>cica -o <varname>output_dir</varname> -s S_GTPC -a</codeblock>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </conbody>
+</concept>

@@ -1,0 +1,19 @@
+<concept id="98930146a56e8976de2ff1c2e3b6398a" xml:lang="en-US">
+   <title>Subscriber Profile Table Cleanup</title>
+   <prolog>
+      <source>ST4 ID: 8546050571</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Select subscriber profile attributes are stored in the Subscriber Profile table <apiname>subscriber_profile</apiname>, in the database. When subscriber IMSIs are deleted from the CRM Customer Device Info table by bulk CRM loads, the profile data in the Subscriber Profile table is abandoned. It can be cleaned up by periodically by running the following script:</p>
+      <codeblock>remove_orphaned_profiles [-h] [-p &lt;database password>]</codeblock>
+      <p>where:</p>
+      <codeblock>  -h                      - Help. This message.
+  -p &lt;database_password>  - Password of table owner.
+</codeblock>
+   </conbody>
+</concept>

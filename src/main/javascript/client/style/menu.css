@@ -1,0 +1,137 @@
+.filedialog {
+    background-color: #FFFFFF;
+	position: absolute;
+	height:auto;
+	width:auto;
+	max-height: calc(75%);
+	left: 18pt;
+	top:20pt;
+	overflow-x: auto;
+	display: none;
+	padding:4pt;
+	background-color:lightgray;
+}
+button.hoverButton{
+    font-size: 9pt;
+    width:  28pt;
+    height: 28pt;
+    border: solid 1px;
+    margin: 2px;
+    cursor: pointer;
+}
+button.arrow { 
+    width:  32px;
+    height: 32px;
+    border: solid 1px;
+    margin: 4px;
+    cursor: pointer;
+    background: url('data:image/svg+xml;utf8,<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>') no-repeat; }
+.sidenavTOC {
+  position: absolute;
+  top:30pt;
+  width: 30%;
+  height: 80%;
+  background-color: white;
+  display:none;
+  overflow-y: auto;
+
+}
+.sidenav {
+  position: absolute;
+  top:30pt;
+  left: 0pt;
+  width: 32pt;
+  height: 98%;
+  background-color:lightgray;
+}
+.xxsidenav {
+  position: absolute;
+  top:30pt;
+  background-size: 40pt 40pt;
+  background-image: url('data:image/svg+xml;utf8,<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 22"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>');
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  left: -480pt;
+  transition: 0.1s;
+  width: 500pt;
+  height: 80%;
+  overflow-y: auto;
+  text-decoration: none;
+  font-size: 12pt;
+  background-color: white;
+}
+.xxsidenav:hover {
+  left: 0;
+  background-image: none;
+  background-color: #F2F2F2;
+  padding-left: 10pt;
+  height: calc(100%-50pt);
+}
+.innerRightNav {
+	padding-left:10pt;
+}
+
+.topnav {
+  position: absolute;
+  top: 0pt;
+  left: 39pt;
+  transition: 0.1s;
+  width: calc(100% - 40pt);
+  height: 30pt;
+  text-decoration: none;
+  font-size: 12pt;
+  background-color:lightgray;
+  border-radius: 0 5pt 5pt 0;
+  padding-left:20pt;
+}
+
+.filenav {
+  position: absolute;
+  top: 0pt;
+  left: 0pt;
+  transition: 0.1s;
+  width: 40pt;
+  height: 30pt;
+  text-decoration: none;
+  font-size: 12pt;
+  background-color:lightgray;
+}
+
+.xtopnav:hover {
+  top: 0;
+  height: 100pt;
+  padding: 10pt 0 0 20pt;
+  background-color: #F2F2F2;
+}
+
+
+.docpanel {
+  position: absolute;
+  top:40pt;
+  left:30pt;
+  width: calc(100% - 40pt);
+  height: calc(100% - 50pt);
+  text-decoration: none;
+  background-color:none;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.elementDialog {
+    background-color: #F2F2F2;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+	height:auto;
+	width:auto;
+	max-height: calc(75%);
+	top: 50pt;
+	left: 50pt;
+	overflow-x: auto;
+	display: none;
+}
+.topicTree{
+	padding-left:20pt;
+    font-size: 9pt;
+}

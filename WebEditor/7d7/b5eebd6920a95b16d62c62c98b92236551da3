@@ -1,0 +1,88 @@
+<task id="fca841a301725bcb0cec0b17e25b5455" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for CMDB Schema IDs: cmdb and ecm</title>
+   <prolog>
+      <source>ST4 ID: 13577148555</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N100F3_N100F0_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <option>cmdb</option> ID is the owner of the cmdb schema in <ph keyref="edbDatabase"/>. The ecm ID is the owner of the <ph keyref="ECM"/> schema user for <ph keyref="edbDatabase"/>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="36fd545084e342671f7c0fcd35822eb7/st4tb12331441931"/>
+            </li>
+            <li>
+               <p conkeyref="b613408a3438e50320749f473ab706fb/st4tb12331484427"/>
+            </li>
+            <li>
+               <p>The <filepath>ecm</filepath> password must be changed also for the <ph keyref="edbProductName_short"/>.</p>
+            </li>
+            <li>
+               <p>The special characters that are allowed for the <option>ecm</option> ID are <ph keyref="passwordCharacterSet_A"/></p>
+            </li>
+         </ul>
+      </context>
+      <steps>
+         <step id="step_N10168_N10165_N100F0_N10001">
+            <cmd>Decide on a new password. </cmd>
+            <info>
+               <note id="note_N10097_N10094_N1008C_N10089_N1002E_N10001">
+                  <p>Changing the <filepath>cmdb</filepath> and <filepath>cmdb</filepath> passwords
+                     requires changes in several locations. We recommend that you type the new
+                     password into an electronic editor or notepad so that you can copy and paste
+                     it. This ensures that the password remains identical as you change it in
+                     multiple locations. </p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N1017E_N10165_N100F0_N10001">
+            <cmd>Log in as <option keyref="loginID"/>: </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>In Non-HA: <ph keyref="CoreVM"/>
+                     </p>
+                  </li>
+                  <li>
+                     <p>In HA: <ph keyref="CoreVM"/> of Node 1</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+         <step id="step_N101B0_N10165_N100F0_N10001">
+            <cmd>Execute the following command to shut down <ph keyref="ECM"/>: </cmd>
+            <info>
+               <codeblock outputclass="condensed">
+ <ph keyref="sudo"/>/root/<ph keyref="ecmShutdownScript"/>
+ </codeblock>
+            </info>
+            <stepresult>
+               <p>The following message is displayed: <option keyref="ecmShutdownScriptMsg"/>
+               </p>
+            </stepresult>
+         </step>
+         <step id="step_N101DB_N10165_N100F0_N10001">
+            <cmd>Repeat this procedure on the second <ph keyref="CoreVM"/> in an HA cluster. </cmd>
+         </step>
+
+
+      </steps>
+      <postreq id="postreq_N101EA_N100F0_N10001">
+         <div outputclass="st4mig-add-info">
+            <!--
+			4015 add-info/title: Next Step:-->
+            <p>
+               <xref keyref="bbc8ea21dff212267a2d1800eb523b1b"/>
+            </p>
+         </div>
+      </postreq>
+   </taskbody>
+</task>

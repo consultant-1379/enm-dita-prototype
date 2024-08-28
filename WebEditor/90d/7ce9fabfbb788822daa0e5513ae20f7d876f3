@@ -1,0 +1,51 @@
+<concept id="7e3dbca9ed7cef87782dbcac46eb3222" xml:lang="en-US">
+   <title>Monitor Job Scheduler</title>
+   <prolog>
+      <source>ST4 ID: 8136937995</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Use the Oozie Web Console or the <ph otherprops="CDH_exclude">MCS GUI</ph>
+         <ph otherprops="CDH">HUE GUI</ph> to monitor the jobs. The Status will be displayed for all
+         Coordinator and Workflow jobs. If a job status is not <apiname>SUCCEEDED</apiname>, use the
+         GUI to identify the sub-job in which the problem occurred, as described in Troubleshooting
+         Guide.</p>
+      <p>For example, jobs running in a cluster with hostname <apiname>&lt;servername></apiname> and port number <ph otherprops="CDH_exclude">
+                                    <apiname>8088</apiname>
+                                 </ph>
+                                 <ph otherprops="CDH">
+                                    <apiname>8090</apiname>
+                                 </ph> can be tracked using the following web console address:</p>
+      <p otherprops="CDH_exclude">https://&lt;servername>:8088/cluster/apps</p>
+      <p otherprops="CDH">https://&lt;servername>:8090/cluster/apps</p>
+      <p>It is possible to track the status of Oozie coordinators from the command line using the following commands:</p>
+      <note id="note_N10065_N10028_N10001" otherprops="CDH_exclude">
+                                 <p>Perform steps 1 and 2 in <xref keyref="4a1dd64050ce66046c63d1a7c05f8bba">Job Scheduler Logging</xref> before executing the following commands.</p>
+                              </note>
+      <codeblock otherprops="CDH_exclude">[root@&lt;server>]# /opt/mapr/oozie/oozie-&lt;version>/bin/oozie jobs  -jobtype  coord</codeblock>
+      <!-- note otherprops="CDH">
+                                 <p>Perform the steps 1, 2, and 3 in <xref keyref="yqj1571256781745/LINKEND1481202867">Job Scheduler Logging</xref> before executing the following commands.</p>
+                              </note -->
+      <codeblock otherprops="CDH">[root@&lt;server>]# oozie jobs  -jobtype  coord</codeblock>
+      <p>The status of a specific application with application ID can also be tracked by using the following command:</p>
+      <codeblock otherprops="CDH_exclude">[root@&lt;server>]#  /opt/mapr/oozie/oozie-&lt;version>/bin/oozie   job    -info 0001287-160511211344377-oozie-mapr-C</codeblock>
+      <codeblock otherprops="CDH">[root@&lt;server>]#  oozie   job    -info 0001287-160511211344377-oozie-cloudera-C</codeblock>
+      <p>For complete documentation of Apache Oozie, see the following online resources:</p>
+      <ul>
+         <li>
+                                    <p>
+                                       <xref format="html" href="http://oozie.apache.org" scope="external">Apache Oozie Workflow Scheduler</xref>
+                                    </p>
+                                 </li>
+         <li otherprops="CDH_exclude">
+                                    <p>
+                                       <xref format="html" href="http://doc.mapr.com/display/MapR/Oozie" scope="external">Oozie in the MapR documentation</xref>
+                                    </p>
+                                 </li>
+      </ul>
+   </conbody>
+</concept>

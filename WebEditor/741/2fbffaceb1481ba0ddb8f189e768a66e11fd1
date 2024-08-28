@@ -1,0 +1,92 @@
+<referable-content id="9d72cb4d0506cffa784f366c70e11467" xml:lang="en-US">
+<title>CBRS Domain Proxy: Unable to reach the Node</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_qvk_3cr_dgb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Alarm</p>
+                        </entry>
+                        <entry>
+                            <p>NON_SYNCHABLE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Domain Proxy Mediation: Node Alarm</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>Node is not reachable</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>CBRS Domain Proxy: Unable to reach the node</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object</p>
+                        </entry>
+                        <entry>
+                            <p>Network Element </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p/>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Configuration Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

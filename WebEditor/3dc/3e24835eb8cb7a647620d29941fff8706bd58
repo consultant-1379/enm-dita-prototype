@@ -1,0 +1,7 @@
+<referable-content id="689d9380dad5e10cbb3ce3ad9a889557" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>CW Optional - Multiple IDs</title>
+   <rcbody>
+      <note id="st4tb12424839691">
+                              <p>These IDs are only applicable with the <ph keyref="Custom_WF_s"/> optional <ph keyref="valuePackage_feature"/>.</p>
+                           </note>
+   </rcbody>
+</referable-content>

@@ -1,0 +1,167 @@
+<reference id="00b9f53573c39244501d1301893896da" xml:lang="en-US">
+    <title>Reference List </title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <refbody>
+        <table colsep="0" frame="none" id="table_bjn_p52_nfb" rowsep="0">
+            <tgroup cols="2">
+				<colspec colname="c1" colnum="1" colwidth="10mm"/>
+				<colspec colname="c2" colnum="2" colwidth="1.0*"/>
+				<tbody>
+					<row id="1">
+						<entry>
+							<p>[1]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Integration_and_Extensibility_Guide" id="Integration_and_Extensibility_Guide"/>
+					</row>
+					<row id="2">
+						<entry>
+							<p>[2]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Configuration_Guide" id="Configuration_Guide"/>
+					</row>
+					<row id="3">
+						<entry>
+							<p>[3]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Customer_Product_Information_Overview" id="Customer_Product_Information_Overview"/>
+					</row>
+					<row id="4">
+						<entry>
+							<p>[4]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Emergency_Recovery_Procedures" id="Emergency_Recovery_Procedures"/>
+					</row>
+					<row id="5">
+						<entry>
+							<p>[5]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Fault_Management_Guide" id="Fault_Management_Guide"/>
+					</row>
+					<row id="6">
+						<entry>
+							<p>[6]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Glossary_of_Terms_and_Acronyms" id="Glossary_of_Terms_and_Acronyms"/>
+					</row>
+					<row id="7">
+						<entry>
+							<p>[7]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_High_Availability_and_Geo_Redundancy_Overview" id="High_Availability_and_Geo_Redundancy_Overview"/>
+					</row>
+					<row id="8">
+						<entry>
+							<p>[8]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Product_Overview" id="Product_Overview"/>
+					</row>
+					<row id="9">
+						<entry>
+							<p>[9]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Security_and_Hardening_Guide" id="Security_and_Hardening_Guide"/>
+					</row>
+					<row id="10">
+						<entry>
+							<p>[10]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_System_Administration_Guide" id="System_Administration_Guide"/>
+					</row>
+					<row id="11">
+						<entry>
+							<p>[11]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_System_Integration___CMDB_Update_Guide" id="System_Integration___CMDB_Update_Guide"/>
+					</row>
+					<row id="12">
+						<entry>
+							<p>[12]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_System_Integration_Cloud_Service_Management_Guide" id="System_Integration_Cloud_Service_Management_Guide"/>
+					</row>
+					<row id="13">
+						<entry>
+							<p>[13]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_System_Integration_Cloud_Service_Query_Guide" id="System_Integration_Cloud_Service_Query_Guide"/>
+					</row>
+					<row id="14">
+						<entry>
+							<p>[14]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_System_Integration_Overview_Guide" id="System_Integration_Overview_Guide"/>
+					</row>
+					<row id="15">
+						<entry>
+							<p>[15]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Troubleshooting_Guide" id="Troubleshooting_Guide"/>
+					</row>
+					<row>
+						<entry id="16">
+							<p>[16]</p>
+						</entry>
+						<entry>
+							<p><cite>Ericsson Catalog Manager System Configuration User Guide</cite>, 10/1553-CSH 109
+								543/6</p>
+							<p>Available from local Ericsson Support</p>
+						</entry>
+					</row>
+					<row id="17">
+						<entry>
+							<p>[17]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments" id="Installing_Cloud_Manager_for_Bare_Metal_KVM_Deployments"/>
+					</row>
+					<row id="18">
+						<entry>
+							<p>[18]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Geo_Redundancy_Deployment_Guide" id="Geo_Redundancy_Deployment_Guide"/>
+					</row>
+					<row id="19">
+						<entry>
+							<p>[19]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Installing_Cloud_Manager_on_OpenStack" id="Installing_Cloud_Manager_on_OpenStack"/>
+					</row>
+					<row id="20">
+						<entry>
+							<p>[20]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Dimensioning_Guide" id="Dimensioning_Guide"/>
+					</row>
+					<row>
+						<entry>
+							<p>[21]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_BUR" id="BUR"/>
+					</row>
+					<row>
+						<entry>
+							<p>[22]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_Online_Help" id="Online_Help"/>
+					</row>
+					<row>
+						<entry>
+							<p>[23]</p>
+						</entry>
+						<entry conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/entry_security_SAG" id="security_SAG"/>
+					</row>
+				</tbody>
+			</tgroup>
+        </table>
+    </refbody>
+</reference>

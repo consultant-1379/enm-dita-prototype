@@ -1,0 +1,68 @@
+<task id="259c50fec89ee6a56b6bf12ce047bfdd" xml:lang="en-US">
+    <title>Change Appenders Log Level</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>ZGABKIS</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id/>
+                </change-request-reference>
+                <change-completed>2019-11-26</change-completed>
+                <change-summary>EEAEPP-30575, section created.</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10056_N10053_N10001"><p>The default <ph keyref=""/> logging
+                configuration does not need to be changed. However, the configuration can be
+                modified based on needs. For more information, see <xref format="html" href="https://logging.apache.org/log4j/2.x/manual/configuration.html" scope="external">Apache Log4j 2 Configuration</xref>. The changes are applied
+                within 30 seconds without restarting the <ph keyref=""/> Manager.</p><p>The
+                default logging configuration defines the following log appenders:</p><ul id="ul_a5m_2vw_vjb">
+                <li>
+                    <p><parmname>arkmanager.log</parmname> - <ph keyref=""/> Manager
+                        logs</p>
+                </li>
+                <li>
+                    <p><parmname>arkmanager-jetty.log</parmname> - built-in jetty logs</p>
+                </li>
+                <li>
+                    <p><parmname>arkmanager-jetty-access.log</parmname> - access logs</p>
+                </li>
+            </ul><ph>To change the log level for the appenders:</ph></context>
+        <steps>
+            <step id="step_N1009E_N1009B_N10053_N10001">
+                <cmd>In <filepath>log4j2.yaml</filepath>, go to the <codeph>Loggers</codeph>
+                    section.</cmd>
+            </step>
+            <step id="step_N100AF_N1009B_N10053_N10001">
+                <cmd>Locate <codeph>Root</codeph> for all appenders or the specific appenders to be
+                    changed.</cmd>
+            </step>
+            <step id="step_N100BC_N1009B_N10053_N10001">
+                <cmd>Set the value of the <codeph>level</codeph> entry according to the needs.</cmd>
+                <info>
+                    <p>
+                        <note id="note_N100CB_N100C8_N100C5_N100BA_N1009B_N10053_N10001">
+                            <p>The default value is <codeph>info</codeph>. Setting the value to
+                                    <codeph>debug</codeph> can generate large log files that require
+                                space until the next hourly rotation. The files are compressed
+                                during rotation to save space.</p>
+                        </note>
+                    </p>
+                </info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

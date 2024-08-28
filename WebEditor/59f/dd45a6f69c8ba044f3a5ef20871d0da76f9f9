@@ -1,0 +1,54 @@
+<task id="80f59c8e23a60f13b00dc7020ee884a8" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Change Password for WF-MGMT Database Role</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10036_N10031_N10001">
+            <p>As a persistent storage, the WF-MGMT Camunda-based microservice uses its own database
+                    <option>wfmgmtdb</option> hosted in Postgres EDB.</p>
+            <p>The <option>wfmgmt</option> Postgres user is the owner of the relevant schema. In
+                case you need to change the <option>wfmgmt</option> user password, follow the
+                procedure below:</p>
+            <p><uicontrol>Considerations</uicontrol>:</p>
+            <ul id="ul_jyg_mfk_vkb">
+                <li>
+                    <p>The following characters are allowed in the password:</p>
+                    <p>ASCII ranges: [a-z], [A-Z], [0-9], and special characters: % - $ ! * + _</p>
+                </li>
+                <li>
+                    <p>There is no need to repeat all these procedures on the standby site for
+                        geo-redundant deployments.</p>
+                </li>
+            </ul>
+        </context>
+        <steps>
+            <step id="step_N10052_N1004F_N10031_N10001">
+                <cmd>Log on as <option>ecm_admin</option> user to the Core VM (that is,
+                    CoreVM1).</cmd>
+            </step>
+            <step id="step_N1006C_N10060_N10031_N10001">
+                <cmd>Execute a service management tool providing a new password as follows:</cmd>
+                <info>
+                    <p><filepath>/app/ecm/wf-mgmt-svc/wf-mgmt.py configure --new-password
+                                '<varname>New password</varname>'</filepath></p>
+                </info>
+            </step>
+            <step id="step_N1007D_N10060_N10031_N10001">
+                <cmd>Enter the <option>enterprisedb</option> user password when prompted.</cmd>
+            </step>
+        </steps>
+        <result id="result_r4z_yry_vkb">
+            <p>The tool will update the password in Postgres EDB and service config file.</p>
+        </result> 
+    </taskbody>
+</task>

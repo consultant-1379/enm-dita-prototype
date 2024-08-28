@@ -1,0 +1,55 @@
+<concept id="390f963811ded2e73f1bf4e36e685ccc" xml:lang="en-US">
+   <title>ARK Logging</title>
+   <prolog>
+      <source>ST4 ID: 16339978763</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ZGABKIS</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2019-11-26</change-completed>
+            <change-summary>EEAEPP-30575, ARK logging directories updated.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>
+         <ph keyref=""/> log files are stored as follows:</p>
+      <ul>
+         <li>
+                                    <p>Application logs are stored in the following directory:</p>
+                                    <p>
+               <filepath>/opt/ericsson/eea/log/yarn-nodemanager/<varname>app</varname></filepath></p>
+                                    <p>Application logs are stored locally, that is an application
+               running on an <ph keyref=""/>
+               <ph keyref=""/> logs the files on that <ph keyref=""/>.
+               After the application stops running, YARN copies the application logs to HDFS. The
+               logs on HDFS become available in <filepath>/tmp/logs/root/logs</filepath> 10 minutes
+               after the application has finished for 30 days.</p>
+                                 </li>
+         <li>
+                                    <p>Component logs are stored in the following directory:</p>
+            <p><filepath>/opt/ericsson/eea/log/<varname>component_name</varname></filepath></p>
+                                    
+                                    
+                                 </li>
+         <li>
+            <p><ph keyref=""/> Manager logs are stored by <filepath>log4j2</filepath> in the
+               following directory:</p>
+            <p><filepath>/opt/ericsson/eea/log/ark</filepath></p>
+         </li>
+         <li>
+            <p>The default configuration of <ph keyref=""/> logging is stored in
+                  <filepath>/opt/ericsson/eea/ark/config/arkmgr_conf/log4j2.yaml</filepath>.</p>
+         </li>
+      </ul>
+   </conbody>
+</concept>

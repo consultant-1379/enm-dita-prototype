@@ -1,0 +1,67 @@
+<task id="e8f684c46635abebeebeeb908f8bb911" xml:lang="en-US">
+    <title>Configure a Single Log-Out in <ph keyref="OpenAM_s"/></title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10039_N10034_N10001">
+            <p>To configure a Single Log-Out, follow the steps.</p>
+        </context>        
+        <steps>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N10046_N10043_N10031_N10001" id="step_N10046_N10043_N10031_N10001">
+                <cmd/>
+            </step>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N10057_N10043_N10031_N10001" id="step_N1004D_N10043_N10031_N10001">
+                <cmd/>
+            </step>
+            <step conkeyref="ab62d0e118376a8a56419785db53f8b8/step_N10054_N10043_N10031_N10001" id="step_N10057_N10042_N10034_N10001">
+                <cmd/>
+            </step>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N100A9_N10043_N10031_N10001" id="step_N10065_N10043_N10031_N10001">
+                <cmd/>
+            </step>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N100B6_N10043_N10031_N10001" id="step_N10069_N10042_N10034_N10001">
+                <cmd/>
+            </step>
+            <step id="step_N10072_N10042_N10034_N10001">
+                <cmd>Change <uicontrol>Single Logout Enabled</uicontrol> to
+                        <userinput>true</userinput>.</cmd>
+            </step>
+            <step id="step_N10083_N10042_N10034_N10001">
+                <cmd>In <uicontrol>Single Logout URL</uicontrol>, specify a URL where a user will be
+                    redirected after a successful log-out.</cmd>
+            </step>
+            <step id="step_N10090_N10042_N10034_N10001">
+                <cmd>Click <uicontrol>Save Changes</uicontrol>.</cmd>
+            </step>
+            <step id="step_N1009D_N10042_N10034_N10001">
+                <cmd>Select <menucascade>
+                        <uicontrol>Authentication → Chains</uicontrol>
+                    </menucascade> in the left menu.</cmd>
+            </step>
+            <step id="step_N100AE_N10042_N10034_N10001">
+                <cmd>Open the <uicontrol>Settings</uicontrol> tab. </cmd>
+            </step>
+            <step id="step_N100BB_N10042_N10034_N10001">
+                <cmd>In the <uicontrol>POST AUTHENTICATION PROCESSING CLASS</uicontrol> field,
+                    specify a name of a Java class (that will execute at the end of the
+                    authentication process) :</cmd>
+                <info><codeph>org.forgerock.openam.authentication.modules.saml2.SAML2PostAuthenticationPlugin</codeph></info>
+            </step>
+            <step id="step_N100CE_N10042_N10034_N10001">
+                <cmd>Click on the <uicontrol>+</uicontrol> button and save the changes.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

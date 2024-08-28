@@ -1,0 +1,261 @@
+<task id="f51e11f8548ab2b26c03f273a5bf9883" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for <ph keyref="ECM"/> Linux IDs</title>
+   <prolog>
+      <source>ST4 ID: 13577159051</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N100DB_N100D8_N10001" outputclass="st4mig_beforeProcedure">
+         <p>
+            <ph keyref="ECM_short"/> includes several Linux IDs:</p>
+         <table id="table_N100E8_N100DB_N100D8_N10001">
+            <title>VMs for Linux IDs</title>
+            <tgroup cols="3">
+               <colspec colname="col1" colwidth="0.76*"/>
+               <colspec colname="col2" colwidth="1.24*"/>
+               <colspec colname="COLSPEC0" colwidth="1.24*"/>
+               <thead>
+                  <row>
+                     <entry valign="top">
+                        <p>ID</p>
+                     </entry>
+                     <entry valign="top">
+                        <p>VM</p>
+                     </entry>
+                     <entry valign="top">
+                        <p>Purpose</p>
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>osadm</p>
+                     </entry>
+                     <entry>
+                        <p>All VMs</p>
+                     </entry>
+                     <entry>
+                        <p>This is the <option>sudo</option> root user.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>root</p>
+                     </entry>
+                     <entry>
+                        <p>All VMs</p>
+                     </entry>
+                     <entry>
+                        <p>This is the root user.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>ecm_admin</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="CoreVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Maintains Activation log data.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>activemq</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="CoreVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Owner of the <ph keyref="ActiveMQ_s"/> software which, is used to configure topics and
+                           queues.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>enterprisedb</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="edbVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Owner of the <ph keyref="edbDatabase"/>.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>efm</p>
+                        <p>(Enterprise Failover Manager)</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="edbVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Owner of the <ph keyref="edbDatabase"/> infrastructure. Applicable to <ph keyref="HA_s"/> deployments only.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>actadm</p>
+                     </entry>
+                     <entry>
+                        <p><ph keyref="ActivationVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Owns the Activation Processes running on the system.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>casadm</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="ActivationVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Distributes reporter statistics for the Activation component.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>reporter</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="ActivationVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Used for synchronization of license counters and configurations.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>zooadm</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <ph keyref="ActivationVM"/>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>Owns the <ph keyref="Zookeeper_s"/> application.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>custwf_admin</p>
+                     </entry>
+                     <entry>
+                        <p><ph keyref="Custom_WF_VM_s"/> (optional)</p>
+                     </entry>
+                     <entry>
+                        <p>Used for administering the <ph keyref="Custom_WF_s"/> component.</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>nso_admin</p>
+                     </entry>
+                     <entry>
+                        <p><ph keyref="NS_LCM_VM_s"/> (optional)</p>
+                     </entry>
+                     <entry>
+                        <p>Used for administering the NSO component.</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <note id="note_N101D5_N10035_N10032_N10001">
+            <ul id="ul_tlx_mdk_qnb">
+               <li>
+                  <p>custwf_admin and nso_admin IDs are only applicable with relevant optional
+                     features.</p>
+               </li>
+               <li>
+                  <p>If you have expired Linux passwords, change the password for
+                        <option>osadm</option> first.</p>
+               </li>
+               <li>
+                  <p>The procedure for changing the <option>osadm</option> password on <ph keyref="LB_VM_s"/>s differs from other VMs; see <xref keyref="d99fae9294d42cac78f4e0da94546df1"/>.</p>
+               </li>
+            </ul>
+         </note>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+            </li>
+            <li>
+               <p>If <option>root</option> is disabled, do not change the password for the
+                     <option>root</option> user.</p>
+            </li>
+            <li>
+               <p>A password for a Linux user must fulfill the following requirements: at least 14
+                  characters, 1 digit, 1 uppercase letter, 1 lowercase letter, 1 special character.
+                  These requirements are recommended for a root user. </p>
+            </li>
+         </ul>
+         <p>To change the password for Linux IDs:</p>
+      </context>
+                           <steps>
+                              <step id="step_N10255_N10252_N100D8_N10001">
+            <cmd>Log in as <option keyref="loginID"/> to the appropriate VM. </cmd>
+            <info>
+               <p>Use <xref keyref="f51e11f8548ab2b26c03f273a5bf9883/table_N100E8_N100DB_N100D8_N10001"/> to
+                  identify the correct VM.</p>
+            </info>
+         </step>
+                              <step id="step_N10267_N10252_N100D8_N10001">
+            <cmd>Execute the following command: </cmd>
+            <info>
+               <codeblock outputclass="condensed"><option keyref="sudo"/> passwd <varname>&lt;username></varname></codeblock>
+            </info>
+         </step>
+                              <step id="step_N10288_N10252_N100D8_N10001">
+            <cmd> Follow the prompt to provide the new password. </cmd>
+            <stepresult>
+               <p>The following message is displayed when the password has been changed
+                  successfully:</p>
+               <msgblock outputclass="condensed">passwd: all authentication tokens updated successfully.</msgblock>
+            </stepresult>
+         </step>
+                              <step id="step_N102A3_N10252_N100D8_N10001">
+            <cmd>Repeat this procedure on VM-2 and VM-3 (<ph keyref="HA_s"/> deployments only). </cmd>
+            <stepxmp>
+               <p>If the Linux ID was on the <option>Activation VM-1</option>, then change the
+                  password on the <ph keyref="ActivationVM"/>-2 and<option> VM-3</option> in the <ph keyref="HA_s"/> cluster. </p>
+            </stepxmp>
+         </step>
+                              <step id="step_N102B5_N10252_N100D8_N10001">
+            <cmd>Repeat this procedure on the standby site of geo-redundant deployments. </cmd>
+         </step>
+         <step id="step_N102A2_N10230_N10032_N10001">
+            <cmd>Provided that you have geo-redundant deployments and have used the
+                  <option>osadm</option> user name from step 2, you must follow instructions
+               specified in <cite>Managing Passwords for Geo-Redundancy</cite> of the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/>.</cmd>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

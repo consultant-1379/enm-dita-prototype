@@ -1,0 +1,24 @@
+<concept id="196a16a652f0d304954edcc1a9f2d3f3" xml:lang="en-US">
+   <title>Assign Tenants to an <ph keyref="externalIdam_initialCap"/> System</title>
+   <prolog>
+      <source>ST4 ID: 11518743051</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>If desired, perform the following to assign tenants to an <ph keyref="externalIdam"/> system:</p>
+      <ul>
+         <li>
+                           <p>Create a tenant and assign the new <ph keyref="externalIdam"/> system or update an existing tenant with a new <ph keyref="externalIdam"/> system, as described in <xref keyref="e3d80e95a03c41b4d6e1353d83ee378b"/>.</p>
+                        </li>
+         <li>
+                           <p>Convert all existing tenants to a single <ph keyref="externalIdam"/> system (specified as the default) using the <ph keyref="ECM"/> 
+                              <ph keyref="externalIdam"/> conversion script, as described in <xref keyref="6c079fc85d2a1282594a4437f52b2515"/>.</p>
+                        </li>
+      </ul>
+   </conbody>
+</concept>

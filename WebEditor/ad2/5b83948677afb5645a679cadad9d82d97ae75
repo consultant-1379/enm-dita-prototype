@@ -1,0 +1,57 @@
+<task id="10a41d568563bb192690d142df439727" xml:lang="en-US">
+   <title>Configure <ph keyref="ECM"/> to Use LDAPS for Connection with an External Idam
+      System</title>
+   <prolog>
+      <source>ST4 ID: 13577179019</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10083_N10080_N10001">
+         <p conkeyref="db08b5f5612ded90c06a66bb26720872/st4tb11450947083"/>
+         <p>The following procedure is used to configure OpenAM to use Lightweight Directory Access
+            Protocol over Secure Sockets Layer (LDAPS).</p>
+         <note id="note_N1008F_N10083_N10080_N10001">
+            <p>Importing of the certificate must be executed by <ph importance="normal"><ph keyref="loginID"/></ph> user and the command, <userinput>sudo -s</userinput>,
+               must be executed. For additional information on the use of the Key and Certification
+               Management Tool, see the keytool help page: <xref format="html" href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html" scope="external">keytool - Key and Certificate Management Tool</xref>.</p>
+         </note>
+      </context>
+      <steps>
+         <step id="step_N100B0_N100AD_N10080_N10001">
+            <cmd>Import the certificate for the <ph keyref="externalIdam"/> system to the JBOSS
+               certificate trust store.  </cmd>
+            <info>The <ph keyref="ECM"/> application server with OpenAM deployed uses the keystore
+               to communicate with the <ph keyref="externalIdam"/> system using the certificate
+               stored in the trust store. The <ph keyref="ECM"/> trust store is located in the
+               following directory:<p>
+                  <filepath>/usr/java/latest/jre/lib/security/cacerts</filepath>
+               </p></info>
+         </step>
+         <step id="step_N100DA_N100AD_N10080_N10001">
+            <cmd>To view the list of trust store certificates, enter the following command using the
+               default password <option>changeit</option>: </cmd>
+            <info>
+               <codeblock outputclass="condensed pgwide">keytool -list -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit</codeblock>
+            </info>
+         </step>
+         <step id="step_N100F8_N100AD_N10080_N10001">
+            <cmd>Enter the following command to import the certificate into the keystore:  </cmd>
+            <info>
+               <codeblock outputclass="condensed pgwide">keytool -import -trustcacerts -alias <varname>Alias name</varname> -file <varname>ca-cert.cer</varname> -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit </codeblock>
+            </info>
+         </step>
+         <step id="step_N1011A_N100AD_N10080_N10001">
+            <cmd importance="optional">Execute the following command to delete an entry from the
+               trust store: </cmd>
+            <info>
+               <codeblock outputclass="condensed pgwide">keytool -delete -alias <varname>Alias name</varname> -keystore /usr/java/latest/jre/lib/security/cacerts -storepass changeit</codeblock>
+            </info>
+         </step>
+      </steps>
+   </taskbody>
+</task>

@@ -1,0 +1,19 @@
+<concept id="db65cecada1602940bc3e3e77f63b20c" xml:lang="en-US"><!--{"comments":[{"comment":"eqweq","timestamp":1625490853735,"editedOn":null,"resolved":{"resolvedOn":1625490862311,"resolvedBy":"emoejin"},"reopened":{"reopenedOn":null,"reopenedBy":null},"user":"emoejin","innerComments":[]}],"id":"db65cecada1602940bc3e3e77f63b20c"}-->
+   <title>Component Configuration and Use</title>
+   <prolog>
+      <source>ST4 ID: 16330888971</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>This section provides information about configuration and use for the components of the <ph keyref=""/> application.</p>
+      <note id="note_N10035_N1002A_N10001" outputclass="st4mig_attention" type="note">S<mark cid="db65cecada1602940bc3e3e77f63b20c_0" start="db65cecada1602940bc3e3e77f63b20c_0_start">ome of the commands, paths and other content in 
+    </mark><apiname><mark cid="db65cecada1602940bc3e3e77f63b20c_0">mono-spaced</mark></apiname><mark cid="db65cecada1602940bc3e3e77f63b20c_0"> format may be broken manually into multiple lines using the 
+    </mark><ph importance="normal"><mark cid="db65cecada1602940bc3e3e77f63b20c_0">⇒</mark></ph><mark cid="db65cecada1602940bc3e3e77f63b20c_0"> line-break symbol to fit the text into the page margins. Do not copy and paste such lines into CLI or other i</mark>nput fields, type them in manually instead. 
+  </note>
+   </conbody>
+</concept>

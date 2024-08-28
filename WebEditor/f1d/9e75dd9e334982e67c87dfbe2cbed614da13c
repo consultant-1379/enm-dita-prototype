@@ -1,0 +1,157 @@
+<concept id="9113314c035823800ae471c7eb6237c7" xml:lang="en-US">
+   <title>Change the <ph keyref="ecaProductname_s"/> Certificates</title>
+   <prolog>
+      <source>ST4 ID: 13577127307</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref="ecaProductname_s"/>
+         <ph keyref="valuePackage_feature"/> includes the following self-signed certificates:</p>
+      <table id="table_N10103_N100F4_N10001">
+         <tgroup cols="3">
+            <colspec colname="COLSPEC0" colwidth="0.29*"/>
+                              <colspec colname="col1" colwidth="1.66*"/>
+                              <colspec colname="col2" colwidth="1.05*"/>
+                              <thead>
+                                 <row>
+                                    <entry valign="top">
+                                       <p>Certificate For:</p>
+                                    </entry>
+                                    <entry valign="top">
+                                       <p>File</p>
+                                    </entry>
+                                    <entry valign="top">
+                                       <p>Function</p>
+                                    </entry>
+                                 </row>
+                              </thead>
+                              <tbody>
+                                 <row>
+                                    <entry morerows="1">
+                                       <p>JBoss</p>
+                                    </entry>
+                                    <entry>
+                                       <p>
+                                          <filepath>$JBOSS_HOME/standalone/configuration/cacerts.jks</filepath>
+                                       </p>
+                                    </entry>
+                                    <entry>
+                                       <p>Self-signed certificate for JBoss (served on port 8181).
+                        Encrypts monitoring traffic over the <ph keyref="ecaProductname_s"/> NBI,
+                        between JBoss and the F5 node.</p>
+                                    </entry>
+                                 </row>
+                                 <row>
+                                    <entry>
+                                       <p>
+                                          <filepath>$JBOSS_HOME/standalone/configuration/keystore.jks</filepath>
+                                       </p>
+                                    </entry>
+                                    <entry>
+                                       <p>Self-signed certificate keystore for the above</p>
+                                    </entry>
+                                 </row>
+                              </tbody>
+                           </tgroup>
+      </table>
+      <p>
+                           <ph importance="normal">Replacing the JBoss (port 8181) Certificate</ph>
+                        </p>
+      <ol>
+                           <li>
+                              <p>Generate (or otherwise obtain) a new certificate. To generate one,
+                                 log on as <option keyref="loginID"/> on the <ph keyref="ECACoreVM"/> 1, and execute
+               the following command:</p><p>
+
+                                 <userinput>sudo -s</userinput>
+                              </p>
+                              <p>Then use the command:</p>
+                              <codeblock>keytool -genkey -alias sentilla -keyalg RSA -keypass changeit -storepass changeit 
+-keystore [myNewKeyStore].jks</codeblock>
+                              <p>Fill in the information asked at the prompt. This generates a new
+               keystore called <filepath>myNewKeystore.jks</filepath>, containing a certificate with
+               the alias <filepath>sentilla</filepath>. </p>
+                           </li>
+                           <li>
+                              <p>Change the owner of <filepath>myNewKeystore.jks</filepath> to <option outputclass="st4mig_function">sentilla</option> with the command:</p><p>
+
+                                 <userinput>chown sentilla:sentilla myNewKeystore.jks</userinput>
+                              </p>
+                           </li>
+                           <li>
+                              <p>Place the new files on the <ph keyref="CoreVM"/> 1. (The default
+               path is <filepath>$JBOSS_HOME/standalone/configuration</filepath>.)</p>
+                           </li>
+                           <li>
+                              <p>Export the new certificate, using the command:</p>
+                              <codeblock>keytool -export -alias sentilla -storepass changeit -file [myNewCert].cer -keystore myNewKeystore.jks</codeblock>
+                              <p>This produces a file <filepath>myNewCert.cer</filepath>, containing the <filepath>sentilla</filepath> certificate.</p>
+                           </li>
+                           <li>
+                              <p>Import this file into <filepath>cacerts.jks</filepath>, using the command:</p>
+                              <codeblock>keytool -import -v -trustcacerts -alias sentilla -file myNewCert.cer -keystore $JBOSS_HOME/standalone/configuration/cacerts.jks 
+-keypass changeit -storepass changeit</codeblock>
+                           </li>
+                           <li>
+                              <p>Open the file
+                  <filepath>$JBOSS_HOME/standalone/configuration/standalone-full.xml</filepath> and
+               edit it to point to the new keystore <filepath>[myNewKeyStore].jks</filepath>. Do
+               this by updating the <parmname>path</parmname> attribute for the
+                  <parmname>keystore</parmname> tag under <parmname>server-identities</parmname> and
+               the <parmname>path</parmname> attribute of the <parmname>file</parmname> tag under
+                  <parmname>&lt;key-store name="https-key-store"></parmname>. Depending on the
+               type of certificate, other parameters may be required. For more details, see the
+               JBoss documentation.</p>
+            <p>Example:</p>
+            <codeblock>&lt;server-identities>
+   &lt;ssl>
+      &lt;keystore path="${jboss.server.config.dir}/[myNewKeyStore].jks" keystore-password="changeit" alias="sentilla" key-password="changeit"/>
+   &lt;/ssl>
+&lt;/server-identities>
+
+&lt;key-store name="https-key-store">
+   &lt;credential-reference clear-text="changeit"/>
+   &lt;implementation type="JKS"/>
+   &lt;file path="${jboss.server.config.dir}/[myNewKeyStore].jks"/>
+&lt;/key-store></codeblock>
+                           </li>
+                           <li>
+                              <p>Restart JBoss with the following command:</p><p>
+
+                                 <userinput>systemctl restart bluebox</userinput>
+                              </p>
+                           </li>
+                           <li>
+                              <p>Repeat this process for the <ph keyref="CoreVM"/> 2, starting from Step 1.</p>
+                           </li>
+                        </ol>
+      <note id="note_N1023A_N100F4_N10001">
+         <p>
+            <ul id="ul_sqd_brr_y3b">
+               <li>
+                  <p>The file names <filepath>myNewKeystore.jks</filepath> and
+                        <filepath>myNewCert.cer</filepath> are examples; you can use any name you
+                     like.</p>
+               </li>
+               <li>
+                  <p>The alias <filepath>sentilla</filepath> is defined in the JBoss
+                        <filepath>standalone.xml</filepath> by default. However, you can use a
+                     different alias as long as it is also set in the keystore, trust store, and
+                     standalone.xml. These three must agree.</p>
+               </li>
+               <li>
+                  <p>The certificates and keystores use the default password <option outputclass="st4mig_function">changeit</option>, but you can set a different
+                     one as long as the keystore, trust store, certificate, and
+                        <filepath>standalone.xml</filepath> all agree. JBoss does not support
+                     different passwords for these items.</p>
+               </li>
+            </ul>
+         </p>
+      </note>
+   </conbody>
+</concept>

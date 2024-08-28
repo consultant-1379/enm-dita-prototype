@@ -1,0 +1,47 @@
+<concept id="2b787b6255f9a7c1ded11ec6be86c9b3" xml:lang="en-US">
+   <title>Custom Roles with <ph keyref="externalIdam_initialCap"/>
+                     </title>
+   <prolog>
+      <source>ST4 ID: 11529893387</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>For non-administrator custom roles that use an <ph keyref="externalIdam"/> for user
+         authentication and authorization, the following permissions must not be included. These
+         permissions can be included for administrator custom roles.</p>
+      <ul>
+         <li>
+                           <p>addTenantUser</p>
+                        </li>
+         <li>
+                           <p>activateTenantUser</p>
+                        </li>
+         <li>
+                           <p>deactivateTenantUser</p>
+                        </li>
+         <li>
+                           <p>modifyTenantUser</p>
+                        </li>
+         <li>
+                           <p>deleteTenantUser</p>
+                        </li>
+         <li>
+                           <p>queryUsers</p>
+                        </li>
+         <li>
+                           <p>queryTenants</p>
+                        </li>
+         <li>
+                           <p>getTenant</p>
+                        </li>
+         <li>
+                           <p>getSubTenant</p>
+                        </li>
+      </ul>
+   </conbody>
+</concept>

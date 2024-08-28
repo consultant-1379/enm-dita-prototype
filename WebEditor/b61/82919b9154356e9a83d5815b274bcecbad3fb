@@ -1,0 +1,140 @@
+<concept id="b94c06137ebb050738a116d1bddcf10a" xml:lang="en-US">
+   <title>Probe Usage</title>
+   <prolog>
+      <source>ST4 ID: 16330957195</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The <ph keyref=""/> Probe uses the <apiname>systemd.services</apiname> to run. Wrapper commands that control these services are called <apiname>besr_local</apiname> and <apiname>besr_cluster</apiname>. <apiname>besr_local</apiname> is used for single host commands and <apiname>besr_cluster</apiname> is used for cluster-wide commands.</p>
+      <p>The following example is an output from the <apiname>besr_local</apiname> wrapper command:</p>
+      <codeblock>$ besr_local -h
+usage: besr_local [-h] command [component] ...
+
+Common BESR local handler
+
+positional arguments:
+  command     Command to do
+  component   Component to be used
+  args        Arguments to be forwarded
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+Available components with its commands:
+  - all: status, force-reload, stop, remove, start, restart
+  - uplane: status, force-reload, stop, remove, start, restart
+  - redis: status, force-reload, stop, remove, flushimsi, start, flush, restart
+  - gtpc: status, force-reload, stop, remove, start, restart
+  - cupcake: status, force-reload, stop, remove, start, restart</codeblock>
+      <p>The following example is an output from the <apiname>besr_cluster</apiname> wrapper command:</p>
+      <codeblock>$ besr_cluster -h
+usage: besr_cluster [-h] [-d] command [component] ...
+
+Common BESR cluster handler
+
+positional arguments:
+  command               Command to do
+  component             Component to be used
+  args                  Arguments to be forwarded
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --distribute-config
+                        Distributes the locally stored configs to all nodes in
+                        the cluster
+
+Available components with its commands:
+  - all: status, force-reload, stop, remove, start, restart
+  - uplane: status, force-reload, stop, remove, start, restart
+  - redis: status, force-reload, flush, stop, remove, start, flushimsi, restart
+  - gtpc: status, force-reload, stop, remove, start, restart
+  - cupcake: status, force-reload, stop, remove, start, restart</codeblock>
+      <p>The <apiname>&lt;command></apiname> argument is mandatory.</p>
+      <ul>
+         <li>
+                                    <p>start</p>
+                                    <p>Starts user space applications.</p>
+                                 </li>
+         <li>
+                                    <p>stop</p>
+                                    <p>Stops user space applications, except the packet capture component (cupcake).</p>
+                                 </li>
+         <li>
+                                    <p>status</p>
+                                    <p>Shows status information.</p>
+                                 </li>
+         <li otherprops="relSF">
+                                    <p>
+                                       <draft-comment>
+                  <p>pnstart@number = "Admin20191008"</p>
+               </draft-comment>detailed-status</p>
+                                    <p>Shows status information, and prints the journal log of the component after its last restart.<draft-comment>
+                  <p>pnend@number = "Admin20191008"</p>
+               </draft-comment>
+                                    </p>
+                                 </li>
+         <li>
+                                    <p>remove</p>
+                                    <p>Stops user space applications, including the packet capture component (cupcake).</p>
+                                 </li>
+         <li>
+                                    <p>restart</p>
+                                    <p>Shortcut to stop and start.</p>
+                                 </li>
+         <li>
+                                    <p>force-reload</p>
+                                    <p>Shortcut to remove and start.</p>
+                                 </li>
+         <li>
+                                    <p>flush</p>
+                                    <p>Flushes all databases: the GTPC Session Store and the User Plane IMSI Mapping Database.</p>
+                                    <p>Component is mandatory and it is advised to be <apiname>redis</apiname>.</p>
+                                 </li>
+         <li>
+                                    <p>flushimsi</p>
+                                    <p>Flushes only the User Plane IMSI Mapping Database.</p>
+                                    <p>Component is mandatory and it is advised to be <apiname>redis</apiname>.</p>
+                                 </li>
+      </ul>
+      <p>The <apiname>&lt;component></apiname> argument is optional for all commands, except <apiname>flush</apiname> and <apiname>flushimsi</apiname>.</p>
+      <ul>
+         <li>
+                                    <p>all</p>
+                                 </li>
+         <li>
+                                    <p>uplane</p>
+                                 </li>
+         <li>
+                                    <p>redis</p>
+                                 </li>
+         <li>
+                                    <p>gtpc</p>
+                                 </li>
+         <li>
+                                    <p>ims</p>
+                                 </li>
+         <li>
+                                    <p>cupcake</p>
+                                 </li>
+      </ul>
+      <p>The <apiname>&lt;optional></apiname> argument is optional.</p>
+      <ul>
+         <li>
+                                    <p>-h, --help</p>
+                                    <p>Shows help message.</p>
+                                 </li>
+         <li>
+                                    <p>-d, --distribute-config</p>
+                                    <p>Copies thefollowing configuration files to all nodes in the Probe cluster. Command argument is mandatory. Only <apiname>besr_cluster</apiname> is available for this option.</p>
+                                    <codeblock>/opt/ericsson/eea/conf/filter.cfg
+/opt/ericsson/eea/conf/probe_config.py
+/opt/ericsson/eea/conf/subscriber_trace.cfg</codeblock>
+                                 </li>
+      </ul>
+   </conbody>
+</concept>

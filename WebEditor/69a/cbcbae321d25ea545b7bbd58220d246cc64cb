@@ -1,0 +1,32 @@
+<task id="b2e17828d77ade9d2c8e6bba8279fd1d" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Additional Instructions for <ph keyref="nsoProductName"/> VM(s) in a GR Deployment </title>
+   <prolog>
+      <source>ST4 ID: 14110023563</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10032_N1002F_N10001">
+         <p>In a <ph keyref="GR_s"/> deployment, the password for <option>process_engine</option> must be changed on
+            the standby site (typically, Site B) too.</p>
+      </context>
+      <steps id="steps_uxn_xpq_clb">
+         <step id="step_N10043_N1003F_N1002F_N10001">
+            <cmd>Perform the instructions from <xref keyref="299a6f2f109ce089c15134a732aadc5d"/> to change the
+               password on both VMs of the standby site.</cmd>
+            <info>
+               <p>
+                  <note id="note_N10054_N10051_N1004E_N10043_N1003F_N1002F_N10001">
+                     <p>Do not start <ph keyref="nsoProductName_s"/> service on the standby
+                        site.</p>
+                  </note>
+               </p>
+            </info>
+         </step>
+      </steps>
+   </taskbody>
+</task>

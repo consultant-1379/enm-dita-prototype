@@ -1,0 +1,45 @@
+<concept id="aaff73bf348f470a02a8f8bd6ee8d45c" xml:lang="en-US">
+   <title><ph keyref="OpenAM_s"/> Log Files</title>
+   <prolog>
+      <source>ST4 ID: 8132208779</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref="OpenAM_s"/> related log files for authentication and authorization are on
+         the VM where the <ph keyref="ECM_short"/> core application resides.</p>
+      <table id="table_N10053_N10048_N10001">
+         <tgroup cols="2">
+                                 <colspec colname="col1" colwidth="0.38*"/>
+                                 <colspec colname="col2" colwidth="1.62*"/>
+                                 <thead>
+                                    <row>
+                                       <entry valign="top">
+                                          <p>Log Type</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Location</p>
+                                       </entry>
+                                    </row>
+                                 </thead>
+                                 <tbody>
+                                    <row>
+                                       <entry>
+                                          <p>Authentication access</p>
+                                       </entry>
+                                       <entry>
+                                          <p><filepath>/app/ecm/security/openAm/data/openam/log/authentication.audit.json</filepath>
+                     </p>
+                                       </entry>
+                                    </row>
+                                 </tbody>
+                              </tgroup>
+      </table>
+      <p>The logs are normalized to a common format for presentation on the Log Collector GUI, see
+            <cite>Log Collector</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>.</p>
+   </conbody>
+</concept>

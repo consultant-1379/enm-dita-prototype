@@ -1,0 +1,56 @@
+<concept id="059afece07cee05b31a379a128904975" xml:lang="en-US">
+   <title>Change Password for the F5 Administrative IDs</title>
+   <prolog>
+      <source>ST4 ID: 13577135499</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The F5 load balancer, applicable to <ph keyref="HA_s"/> deployments only, uses the
+         following administrative IDs: </p>
+      <ul>
+         <li>
+                              <p>
+                                 <userinput>root</userinput>
+                              </p>
+                           </li>
+         <li>
+                              <p>
+                                 <userinput>admin</userinput>
+                              </p>
+                           </li>
+      </ul>
+      <p>
+                           <ph importance="normal">Considerations:</ph> 
+                        </p>
+      <ul>
+         <li>
+                              <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+                           </li>
+         <li>
+                              <p conkeyref="b19dad100ea1ea53c6abde22c3f8791d/st4tb12402177803"/>
+                           </li>
+      </ul>
+      <note id="note_N10088_N10048_N10001">
+                           <p>The <ph keyref="LB_VM_s"/> uses pre-configured password policies, and these require the
+            password value to include a minimum of six characters.</p>
+                        </note>
+      <p>Change password instructions:</p>
+      <ul>
+         <li>
+                              <p>
+                                 <xref keyref="4632cdfedf1beb6a1298275253b3e5a5"/>
+                              </p>
+                           </li>
+         <li>
+                              <p>
+                                 <xref keyref="24f20b4f4627c297e0c59e4124cd8753"/>
+                              </p>
+                           </li>
+      </ul>
+   </conbody>
+</concept>

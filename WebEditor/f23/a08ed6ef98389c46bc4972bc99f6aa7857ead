@@ -1,0 +1,46 @@
+<task id="b549bb8cdf0820fa64954550dadd5bae" xml:lang="en-US">
+    <title>Set a Federation Realm Name</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>To set a federation realm name, follow the steps. </p>
+        </context>        
+        <steps>
+            <step id="step_N10042_N1003F_N10031_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user. </cmd>
+            </step>
+            <step id="step_N10053_N1003F_N10031_N10001">
+                <cmd>Change directories: </cmd>
+                <info><cmdname>cd
+                        $JBOSS_HOME/modules/com/ericsson/configuration/main/</cmdname><p>Where
+                            <parmname>$JBOSS_HOME</parmname> is the JBoss home directory, for
+                        example <filepath>/app/ecm/appserver/jboss-eap-6.4</filepath>.</p></info>
+            </step>
+            <step id="step_N1006D_N1003F_N10031_N10001">
+                <cmd>Specify a federation realm name in the
+                        <filepath>am-config.properties</filepath> file:</cmd>
+                <info><cmdname>federatedUsersRealm=&lt;FederationRealmName></cmdname></info>
+            </step>
+            <step id="step_N10080_N1003F_N10031_N10001">
+                <cmd>Save and close the <filepath>am-config.properties</filepath> file.</cmd>
+            </step>
+            <step id="step_N1008D_N1003F_N10031_N10001">
+                <cmd>Restart JBoss:</cmd>
+                <info><cmdname>sudo systemctl restart jboss-eap</cmdname></info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

@@ -1,0 +1,96 @@
+<referable-content id="cb4549382392170f377d3cfe4433e942" xml:lang="en-US">
+<title>CBRS Domain Proxy: Cell is not transmitting Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_qvk_3cr_dgb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Alarm</p>
+                        </entry>
+                        <entry>
+                            <p>NON_SYNCHABLE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Domain Proxy Service: Cell Alarm</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <ul id="ul_uxh_ncr_dgb">
+                                <li>
+                                    <p>cbrsTxExpireTime timed out for CBSD: &lt;FieldReplaceableUnit
+                                        FDN></p>
+                                </li>
+                                <li>
+                                    <p>grantExpireTime timed out for CBSD: &lt;FieldReplaceableUnit
+                                        FDN></p>
+                                </li>
+                                <li>
+                                    <p>SAS deregistered CBSD: &lt;FieldReplaceableUnit FDN></p>
+                                </li>
+                                <li>
+                                    <p>One or more grant(s) was suspended for the CBSD:
+                                        &lt;FieldReplaceableUnit FDN></p>
+                                </li>
+                                <li>
+                                    <p>One or more grant(s) was relinquished for the CBSD:
+                                        &lt;FieldReplaceableUnit FDN></p>
+                                </li>
+                                <li>
+                                    <p>One or more grant(s) was terminated for the CBSD:
+                                        &lt;FieldReplaceableUnit FDN></p>
+                                </li>
+                                <li>
+                                    <p>Unexpected event for CBSD: &lt;FieldReplaceableUnit
+                                        FDN></p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>CBRS Domain Proxy: Cell is not transmitting</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object</p>
+                        </entry>
+                        <entry>
+                            <p>EUtranCellTDD</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

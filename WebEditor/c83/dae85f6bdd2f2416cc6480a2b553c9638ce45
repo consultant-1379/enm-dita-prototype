@@ -1,0 +1,189 @@
+<concept id="98bf716241e76cd7805ea5867b497b04" xml:lang="en-US">
+   <title>The <option>arkpkgmgr</option> Tool</title>
+   <prolog>
+      <source>ST4 ID: 16338397963</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zgrahle</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-23994</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-02-18</change-completed>
+            <change-summary>EEAEPP-35735. The arkpkgmgr Tool. Added new address and security information. Input from EZOLEKON. 20200217
+            </change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zmennor</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-26436</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-03-30</change-completed>
+            <change-summary>EEAEPP-39385, Updated example with NSLI in The arkpkgmgr Tool section.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This tool performs the following functions:</p>
+      <ul>
+         <li>
+            <p>Appsuite management</p>
+            <ul>
+               <li>
+                  <p>Starts, stops, restarts, and displays status of an appsuite.</p>
+               </li>
+               <li>
+                  <p>Deploys and undeploys appsuites.</p>
+               </li>
+               <li>
+                  <p>Prints database (installed appsuites).</p>
+               </li>
+            </ul>
+            
+            
+         </li>
+         <li>
+            <p>Stores information of appsuites in Zookeeper</p>
+         </li>
+         <li otherprops="EEAEPP-23994_exclude">
+            <p>Specifies the <ph keyref=""/> Master <ph keyref=""/> and port
+               with the <option>-master</option> option. Default is
+                  <filepath>arkmgr.ark.eea:8080</filepath>.</p>
+         </li>
+         <li otherprops="EEAEPP-23994">
+            <p>Specifies the <ph keyref=""/> Master <ph keyref=""/> and port
+               with the <option>-master</option> option. Default is
+                  <filepath>arkmgr.ark.eea:8082</filepath>.</p>
+         </li>
+         <li>
+            <p>Specifies the Zookeeper <ph keyref=""/>
+               with the <option>-zookeeper</option> option. Default is
+               
+               <option>zookeeper.eea:5181</option>.</p>
+         </li>
+      </ul>
+      <section id="section_hs2_zwk_tkb">
+         <title>The arkpkgmgr Command</title>
+         <p>Available subcommands to manage the components are as follows:</p>
+         <note id="note_N100C0_N100B3_N1004B_N10001">
+            <p>The tool must be used as <option>root</option> user.</p>
+         </note>
+         <ul id="ul_is2_zwk_tkb">
+            <li>
+               <p><option>start</option></p>
+            </li>
+            <li>
+               <p><option>stop</option></p>
+            </li>
+            <li>
+               <p><option>stop all</option></p>
+            </li>
+            <li>
+               <p><option>restart</option></p>
+            </li>
+            <li>
+               <p><option>status</option></p>
+            </li>
+            <li>
+               <p><option>status all</option></p>
+            </li>
+            <li>
+               <p><option>status all -d</option></p>
+            </li>
+            <li>
+               <p><option>install</option></p>
+            </li>
+            <li>
+               <p><option>reinstall</option></p>
+            </li>
+            <li>
+               <p><option>remove</option></p>
+            </li>
+            <li>
+               <p><option>database</option></p>
+            </li>
+         </ul>
+         <p>The <userinput>arkpkgmgr status <varname>appsuite</varname></userinput> command has the
+            following possible outputs:</p>
+         <ul id="ul_js2_zwk_tkb">
+            <li>
+               <p><systemoutput>Stopped:</systemoutput> If all applications in the appsuite are in a
+                  <option>stopped</option> state or they were never started.</p>
+            </li>
+            <li>
+               <p><systemoutput>Failed:</systemoutput> When one of the applications in the appsuite
+                  is in a <option>failed</option> state.</p>
+            </li>
+            <li>
+               <p><systemoutput>Running:</systemoutput> When at least one <option>autostart =
+                  true</option> flagged application is <option>running</option>, all other
+                  flagged applications are either <option>running</option> or
+                  <option>succeeded</option> and no applications are in a <option>failed</option>
+                  state.</p>
+            </li>
+            <li>
+               <p><systemoutput>Inconsistent:</systemoutput> When at least one application is
+                  <option>running</option>, but there are <option>autostart = true</option>
+                  flagged applications that have a state other than <option>running</option> or
+                  <option>succeeded</option>.</p>
+            </li>
+            <li>
+               <p><systemoutput>Succeeded:</systemoutput> When all applications in the appsuite are
+                  in a <option>succeeded</option> state.</p>
+            </li>
+         </ul>
+         <p>For more details on the subcommands, use the CLI help as follows:</p>
+         <p><userinput>arkpkgmgr --help</userinput></p>
+         <p>arkpkgmgr <varname>subcommand</varname> --help</p>
+         <p>The following is an example of an <option>arkpkgmgr</option> command that lists the
+            status of all installed <ph keyref=""/> components:</p>
+         <p><userinput>arkpkgmgr -m
+            <varname>ark_master_host</varname>:<varname>port_number</varname> -z
+            <varname>zookeeper host</varname>:<varname>port_number</varname> status
+            all</userinput></p>
+         <p><option>arkpkgmgr</option> operates under secure connection and to establish it use
+            default certificate and key by the following path:</p>
+         <p><filepath>/opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/</filepath></p>
+         <p>It is possible to set custom certificates by adding the following options:</p>
+         <ul id="ul_y3j_wxk_tkb">
+            <li>
+               <p>"<option>-k</option>", "<option>--keyfile</option>" - client private key</p>
+            </li>
+            <li>
+               <p>"<option>-c</option>", "<option>--certfile</option>" - client certificate</p>
+            </li>
+            <li>
+               <p>"<option>-C</option>", "<option>--cafile</option>" - CA certificate that issued
+                  client certificate</p>
+            </li>
+         </ul>
+         <note id="note_N10231_N100B3_N1004B_N10001">
+            <p>If custom certificates and private key is used, the ArkManager Server certificate and
+               the private key also needs to be replaced.</p>
+         </note>
+      </section>
+      <example id="example_N10273_N1006E_N10001" otherprops="EEAEPP-26436">
+         <title/>
+         <msgblock>[root@cluster]# arkpkgmgr -m arkmgr.ark.eea:8082 -k /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/arkmanager_eea_ark_tools_cln.key -c /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/arkmanager_eea_ark_tools_cln.cert -C /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/eea_CA.crt status all
+
+network-sli-1.2 Stopped
+network-sli-scheduler-1.4 Running</msgblock>
+      </example>
+      <example id="example_N10250_N1004B_N10001" otherprops="EEAEPP-26436_exclude">
+         <!--ZMENNOR, 20200330, EEAEPP-39385: was otherprops="EEAEPP-23994" previously-->
+         <title/>
+         <msgblock>[root@cluster]# arkpkgmgr -m arkmgr.ark.eea:8082 -k /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/arkmanager_eea_ark_tools_cln.key -c /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/arkmanager_eea_ark_tools_cln.cert -C /opt/ericsson/eea/ark/certificates/arkmanager_eea_ark_tools/client/eea_CA.crt status all
+
+sli-1.94 Stopped
+sli-scheduler-1.94 Succeeded</msgblock>
+      </example>
+   </conbody>
+</concept>

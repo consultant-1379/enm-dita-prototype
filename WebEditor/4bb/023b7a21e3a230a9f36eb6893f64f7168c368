@@ -1,0 +1,87 @@
+<task id="64e9b669361003a090ff6e3054cc93bc" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for <ph keyref="Custom_WF_l"/> Database ID: custwf_admin</title>
+   <prolog>
+      <source>ST4 ID: 13577156747</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N1009F_N1009C_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>This section provides instructions for changing the password for
+            the <ph keyref="Custom_WF_s"/> database ID, <option outputclass="st4mig_function">custwf_admin</option>.</p>
+                              <note conkeyref="777941f1e8f52faf7b42b00a1d2ec774/st4tb12424830731" id="note_N100AD_N1009F_N1009C_N10001"/>
+                              <p>
+                                 <ph importance="normal">Considerations:</ph>
+                              </p>
+                              <ul>
+            <li>
+                                    <p conkeyref="e161fbb6e4a4ce5a9b79219449e83bbc/st4tb12334118539"/>
+                                 </li>
+            <li>
+                                    <p>Password changes for this ID do not require changes on the
+                  standby site in a geo-redundant deployment.</p>
+                                 </li>
+            <li>
+                                    <p>Allowable special characters for these IDs are: <ph keyref="passwordCharacterSet_A"/>
+               </p>
+                                 </li>
+         </ul>
+                           </context>
+                           <steps>
+                              <step id="step_N100DF_N100DC_N1009C_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on to the <ph keyref="edbVM"/> (the master <ph keyref="edbVM"/> for an </ph><ph keyref="HA_s"/><ph outputclass="st4mig_cmd-para"> deployment) as the
+                     <userinput>enterprisedb</userinput> user (superuser).</ph>
+            </cmd>
+         </step>
+                              <step id="step_N100F9_N100DC_N1009C_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to connect to the database:</ph></cmd><info><p><ph>
+
+                                    <userinput>psql -p 5432 custwfdb1</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N10112_N100DC_N1009C_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to change the password for the <userinput>custwf_admin</userinput> database ID:</ph>
+            </cmd>
+            <info>
+               <codeblock>alter user custwf_admin with password '&lt;<ph importance="low">New_Password</ph>>';</codeblock>
+               <note id="note_N1012D_N10120_N10110_N100DC_N1009C_N10001">
+                                    <p>The single quotes are required, as shown.</p>
+                                 </note>
+            </info>
+                                 
+                                 
+                              </step>
+                              <step id="step_N1013B_N100DC_N1009C_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Exit out of <option outputclass="st4mig_function">psql</option> by entering <userinput>\q</userinput>, followed by pressing the
+                  </ph><uicontrol>Enter</uicontrol>
+               <ph outputclass="st4mig_cmd-para"> key.</ph>
+            </cmd>
+         </step>
+                              <step id="step_N10157_N100DC_N1009C_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">To verify the change of password for the
+                     <uicontrol>custwf_admin</uicontrol> ID, log in with the new password:</ph>
+            </cmd>
+            <info>
+               <codeblock>psql -p 5432 -U custwf_admin custwfdb1 
+Password for user custwf_admin: &lt;<ph importance="low">New_Password</ph>></codeblock>
+            </info>
+            <stepresult>
+               <p>A response similar to the following is displayed:</p>
+               <codeblock>psql.bin (11.6.13)
+Type "help" for help. 
+custwfdb1=></codeblock>
+            </stepresult>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

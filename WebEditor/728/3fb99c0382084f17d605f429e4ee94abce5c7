@@ -1,0 +1,8 @@
+<referable-content id="db23c2ff4d1d9523456294b0e4fa99f9" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/Interfaces--><title>noUserGroupsForIdam</title>
+   <rcbody>
+      <note id="tb13784368651" type="note">Users in an <ph keyref="externalIdam"/> cannot be
+         explicitly assigned to a user group in <ph keyref="ECM_short"/>. They can, however, be
+         assigned in the <ph keyref="externalIdam"/> to a proxy group (which is named using <ph keyref="ECM_short"/> conventions), and <ph keyref="ECM_short"/> will honor that
+         assignment when determining access to an object belonging to a protected VDC.</note>
+   </rcbody>
+</referable-content>

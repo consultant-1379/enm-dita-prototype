@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0"
+	 id="Layer_1" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" xmlns:ev="http://www.w3.org/2001/xml-events"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="792px"
+	 viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+<v:documentProperties  v:langID="1033" v:metric="true" v:viewMarkup="false"></v:documentProperties>
+<g>
+	<title>simple</title>
+	<v:pageProperties  v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9">
+		</v:pageProperties>
+	<g id="group1-1" transform="translate(48.105,0.7425)">
+		<title>Layer_1-2</title>
+		<g id="shape2-2" transform="translate(11.88,-3.86535E-012)">
+			<title>Sheet.2</title>
+			<path fill="#88BB40" d="M63.316,186.977c0-0.381-0.379-0.689-0.847-0.689s-0.847,0.308-0.847,0.689v22.334
+				c0,0.38,0.379,0.689,0.847,0.689s0.847-0.309,0.847-0.689l0,0V186.977z"/>
+		</g>
+		<g id="shape3-4" transform="translate(5.19584E-013,-728.392)">
+			<title>Sheet.3</title>
+			<ellipse fill="#88BB40" cx="74.359" cy="912.256" rx="1.359" ry="1.106"/>
+		</g>
+		<g id="shape4-6" transform="translate(81.18,-301.208)">
+			<title>Sheet.4</title>
+			<path fill="#88BB40" d="M13.611,493.356v-5.988c0,0-2.091,2.313-8.072,0.425c-3.283-1.152-7.005-1.152-10.289,0
+				c0.729,1.791,1.185,3.647,1.359,5.528c-0.176,1.914-0.632,3.805-1.359,5.63c3.283-1.152,7.005-1.152,10.289,0
+				c5.876,1.905,8.072-0.425,8.072-0.425V493.356L13.611,493.356z"/>
+		</g>
+	</g>
+</g>
+</svg>

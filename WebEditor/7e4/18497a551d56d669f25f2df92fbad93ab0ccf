@@ -1,0 +1,13 @@
+<concept id="7de29c9324c25959588ae2c67bf8de80" xml:lang="en-US">
+    <title>Manage a Trust Store for Signature Validation</title>
+    <shortdesc/>
+    <prolog>
+        <permissions view="ericsson_internal"/>
+		<metadata/>
+    </prolog>
+    <conbody>
+        <!-- Template instructions: 
+    How to Write Concept Topics, 105/000 21-FCK 101 05-->
+        <p>Packages that are digitally signed against a root certificate can be validated within <ph keyref="ECM_short"/>. This section explains how to manage a trust store within <ph keyref="ECM_short"/> to validate packages.</p>
+     </conbody>
+</concept>

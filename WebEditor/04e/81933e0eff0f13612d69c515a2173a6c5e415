@@ -1,0 +1,122 @@
+<task id="25e4b9adcc94ee344f03ac9dc6519daf" xml:lang="en-US">
+   <title>Start and Stop Job Scheduler</title>
+   <prolog>
+      <source>ST4 ID: 8136804235</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                                 <context id="context_N1002B_N10028_N10001">
+                                    <p>For details on the procedures for checking the status of the Oozie service, and starting or stopping it, see the procedure below. The jobs controlled by Oozie are described here.</p>
+                                    <note id="note_N10033_N1002B_N10028_N10001">
+                                       <p> The Oozie Job Scheduler starts the <ph keyref=""/> applications defined under the<ph otherprops="EEAEPP-20807"><draft-comment>
+                     <p>pnstart@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+                  <apiname>/user/eea/ark_apps</apiname> HDFS<draft-comment>
+                     <p>pnend@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+               </ph> directory. The actual properties are set in the properties files under <ph otherprops="EEAEPP-20807_exclude"><draft-comment>
+                     <p>pnstart@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+                  <apiname>ark_apps</apiname>
+                  <draft-comment>
+                     <p>pnend@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+               </ph>
+               <ph otherprops="EEAEPP-20807">
+                  <draft-comment>
+                     <p>pnstart@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+                  <apiname>/opt/ericsson/eea/tool/oozie/configfiles</apiname>
+                  <draft-comment>
+                     <p>pnend@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>
+               </ph>. </p>
+                                    </note>
+                                    <p>The Coordinator jobs
+               (<apiname>SLIBackup_coordinator</apiname>, <apiname>SLICleanup_coordinator</apiname>
+            and <apiname>GroupMapper_coordinator</apiname>) schedule all the Workflow jobs which in
+            turn invoke <apiname>SLI_Backup_State</apiname>, <apiname>SLI_MemDB_Cleanup</apiname>
+            and <apiname>SLI_group-mapper</apiname> applications in the Hadoop cluster. It is only
+            necessary to ensure that the Coordinator jobs are running. For more information on
+            checking the status of the jobs, see <xref keyref="7e3dbca9ed7cef87782dbcac46eb3222">Monitor Job
+               Scheduler</xref>.</p>
+                                    <p>Provided the directory to the scripts directory use <apiname>&lt;VERSION></apiname> for the version of Oozie resources, coordinator jobs can be started, restarted, and stopped from the command line on a MapR Container as follows:</p>
+                                 </context>
+                                 <steps>
+                                    <step id="step_N1010F_N1010C_N10028_N10001">
+                                       <cmd>
+               <ph outputclass="st4mig_cmd-para">Go to the Oozie scripts directory:</ph>
+            </cmd>
+            <info>
+               <codeblock>cd [SCRIPTS PATH]</codeblock>
+               <p>where <apiname>[SCRIPTS PATH]</apiname> is the directory path where all the scripts are installed in the container. The usual scripts path in a MapR docker container is the following:</p>
+                                          <codeblock otherprops="EEAEPP-20807_exclude"><draft-comment><p>pnstart@number = "EEAEPP-20807_20191001"</p></draft-comment>/mapr/&lt;CLUSTERNAME>/opt/ericsson/eea/resource/oozie-workflow-&lt;VERSION>-resource/scripts/<draft-comment>
+                     <p>pnend@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment></codeblock>
+                                       
+                                          <codeblock otherprops="EEAEPP-20807"><draft-comment>
+                     <p>pnstart@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment>/opt/ericsson/eea/tool/oozie/scripts/<draft-comment>
+                     <p>pnend@number = "EEAEPP-20807_20191001"</p>
+                  </draft-comment></codeblock>
+                                       </info>
+                                       
+                                       
+                                       
+                                       
+                                    </step>
+                                    <step id="step_N1015E_N1010C_N10028_N10001">
+            <cmd/>
+            <info>
+               <ul id="ul_afl_4wy_mjb">
+                  <li>
+                     <p> To start or restart the SLI Persistance_coordinator:</p>
+                     <codeblock>bash startSLIPersistance.sh [coordinator prop file path]</codeblock>
+                     <p>where [coordinator prop file path] is a compulsory parameter for specifying
+                        the corresponding Coordinator properties file path that contains the
+                        configuration for the coordinators and applications to be run. The start
+                        scripts stop if there is any running or preparatory Coordinator
+                        corresponding to the scripts, and start the Coordinator again with a new
+                        start and end date. The usual scripts path for [coordinator prop file path]
+                        is the following:</p>
+                     <codeblock otherprops="EEAEPP-20807_exclude">/mapr/&lt;CLUSTERNAME>/opt/ericsson/eea/resource/oozie-workflow-&lt;VERSION>-resource/configfiles/&lt;FILENAME></codeblock>
+                     <codeblock otherprops="EEAEPP-20807">/opt/ericsson/eea/tool/oozie/configfiles/</codeblock>
+                  </li>
+                  <li>
+                     <p>To stop the SLI Persistence job:</p>
+                     <codeblock>bash stopSLIPersistance.sh</codeblock>
+                  </li>
+                  <li>
+                     <p>To start or restart the SLI Backup job:</p>
+                     <codeblock>bash startSLIBackup.sh [coordinator prop file path]</codeblock>
+                  </li>
+                  <li>
+                     <p>To stop the SLI Backup job:</p>
+                     <codeblock>bash stopSLIBackup.sh</codeblock>
+                  </li>
+                  <li>
+                     <p>To start or restart the SLI Cleanup job:</p>
+                     <codeblock>bash startSLICleanup.sh [coordinator prop file path]</codeblock>
+                  </li>
+                  <li>
+                     <p>To stop the SLI Cleanup job:</p>
+                     <codeblock>bash stopSLICleanup.sh</codeblock>
+                  </li>
+                  <li>
+                     <p>To start or restart the GroupMapper job:</p>
+                     <codeblock>bash startGroupMapper.sh [coordinator prop file path]</codeblock>
+                  </li>
+                  <li>
+                     <p>To stop the GroupMapper job:</p>
+                     <codeblock>bash stopGroupMapper.sh</codeblock>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 </steps>
+                              </taskbody>
+</task>

@@ -1,0 +1,25 @@
+<concept id="6623f2c431c7b0ae69a7552be1de918a" xml:lang="en-US">
+   <title>
+                              <ph keyref="ECM"/> Security Log File</title>
+   <prolog>
+      <source>ST4 ID: 5125158283</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <filepath>security.log</filepath> contains information about all user log ons, what
+         type of operation the user performed, and more. The file is on a VM where the GUI and NBI
+         reside, in the following directory:</p>
+      <p><filepath>$JBOSS_HOME/standalone/log/</filepath>
+      </p>
+      <note id="note_N10041_N1002F_N10001">
+                              <p>This log file is rotated after 5 MB.</p>
+                           </note>
+      <p>The logs are normalized to a common format for presentation on the Log Collector GUI, see
+            <cite>Log Collector</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>.</p>
+   </conbody>
+</concept>

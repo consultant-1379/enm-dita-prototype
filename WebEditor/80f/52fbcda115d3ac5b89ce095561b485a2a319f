@@ -1,0 +1,55 @@
+<task id="767c9bd3977268dd423ea6e6387e5abd" xml:lang="en-US">
+   <title>Shut Down the <ph keyref="Custom_WF_VM_l"/>s</title>
+   <prolog>
+      <source>ST4 ID: 14110185099</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>To shut down the <ph keyref="Custom_WF_VM_s"/>s:</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N1003A_N10037_N1002B_N10001">
+            <cmd>Log in as <option keyref="loginID"/>: </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p><ph keyref="non_HA_s"/> Deployment: <ph keyref="Custom_WF_VM_s"/></p>
+                  </li>
+                  <li>
+                     <p><ph keyref="HA_s"/> Deployment: <ph keyref="Custom_WF_VM_s"/> for Node 1 and Node 2</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 <step id="step_N1006E_N10037_N1002B_N10001">
+                                    <cmd>Execute the following command to shut down the <ph keyref="Custom_WF_VM_s"/>: </cmd>
+            <info>
+               <codeblock outputclass="condensed"><ph keyref="sudo"/>/root/CustomWorkflow_shutdown.sh</codeblock>
+            </info>
+            <stepresult>
+               <p>The following message is displayed when the shutdown is complete:
+                     <systemoutput>Custom Workflow shutdown completed.</systemoutput></p>
+            </stepresult>
+         </step>
+                                 <step id="step_N10090_N10037_N1002B_N10001">
+                                    <cmd>Repeat this procedure on the second <ph keyref="Custom_WF_VM_s"/> in an <ph keyref="HA_s"/> cluster. </cmd>
+         </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N1009C_N1002B_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="893e04ee1edb6a5c8cef64563522e24f"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

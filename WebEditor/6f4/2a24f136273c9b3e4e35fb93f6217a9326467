@@ -1,0 +1,18 @@
+<concept id="72e244b73f8255a17d7d2c97278ebb76" xml:lang="en-US">
+   <title>External IdAM Management</title>
+   <prolog>
+      <source>ST4 ID: 11175010955</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This section provides the procedures for configuring and assigning an <ph keyref="externalIdam"/> system for user authentication and authorization in <ph keyref="ECM"/>. By default, <ph keyref="ECM"/> is configured with ForgeRock
+         OpenAM/OpenDJ for user authentication and authorization. Configuring an <ph keyref="externalIdam"/> is optional.</p>
+      <p conkeyref="db08b5f5612ded90c06a66bb26720872/st4tb11450947083"/>
+      <note conkeyref="db23c2ff4d1d9523456294b0e4fa99f9/tb13784368651" id="note_N1007F_N10064_N10001"/>
+   </conbody>
+</concept>

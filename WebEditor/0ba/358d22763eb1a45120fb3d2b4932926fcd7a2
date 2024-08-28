@@ -1,0 +1,79 @@
+<task id="2031ebc582d704784274087867d8a92e" xml:lang="en-US">
+   <title>Change Password for <ph keyref="ECM"/> Application ID</title>
+   <prolog>
+      <source>ST4 ID: 13577154443</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N100F7_N100F4_N10001" outputclass="st4mig_beforeProcedure">
+         <p>Users and administrators of the <ph keyref="ECM_short"/> application can change their
+            own password. Note that the <option>cmdbSync</option>, <option>ecmadmin</option>, and
+               <option>cloudAnalytics</option> IDs may require additional procedures to change the
+            passwords. See the sections in this guide for changing these passwords.</p>
+         <p>Consider the following when changing passwords: </p>
+         <ul>
+            <li>
+               <p conkeyref="690ae9590e04e0b2502391df12d0729a/st4tb12402157323"/>
+            </li>
+            <li>
+               <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+            </li>
+            <li>
+               <p>Allowable special characters for this ID are <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li>
+         </ul>
+         <note id="note_N10139_N100F7_N100F4_N10001" type="note">
+            <p>The <option outputclass="st4mig_function">changePassword</option> permission is only
+               assigned to the user roles for users who are internally authorized.</p>
+         </note>
+      </context>
+      <steps>
+         <step id="step_N1014D_N1014A_N100F4_N10001">
+            <cmd>Log in to the <ph keyref="ECM_short"/> GUI. </cmd>
+         </step>
+         <step id="step_N1015F_N1014A_N100F4_N10001">
+            <cmd>Click <uicontrol>Username</uicontrol> in the System Bar and select the
+                  <uicontrol>Change Password</uicontrol> option from the menu. </cmd>
+            <stepresult>
+               <p>The <uicontrol>Change Password</uicontrol> dialog is displayed.</p>
+            </stepresult>
+         </step>
+         <step id="step_N10181_N1014A_N100F4_N10001">
+            <cmd>Enter appropriate values in the <uicontrol>Old Password</uicontrol>, <uicontrol>New
+                  Password</uicontrol>, and <uicontrol>Confirm Password</uicontrol> fields and click
+                  <uicontrol>Change</uicontrol>. </cmd>
+            <info>
+               <p conkeyref="7bdc8d0e6968dd81201c784bbb38693e/st4tb10953409931"/>
+               <ul conkeyref="678938bdf79fa9936f1c2fad8d5103ff/st4tb10953405835">
+                  <li/>
+               </ul>
+               <note id="note_N100D6_N100C7_N100AF_N10082_N10032_N10001" type="note">The password is changed in <ph keyref="ECM_short"/> only. All users
+                  configured by an <ph keyref="externalIdam"/> system must have their password
+                  changed by the administrator of the <ph keyref="externalIdam"/> system.</note>
+            </info>
+            <stepresult>
+               <p>A dialog confirming a password has been changed is displayed.</p>
+            </stepresult>
+         </step>
+
+
+      </steps>
+      <postreq id="postreq_N101D6_N100F4_N10001" otherprops="eocm_Library">
+         <div outputclass="st4mig-add-info">
+            <!--4015 add-info/title: Next Step:-->
+            <p>
+               <xref keyref="a111498f44fb4fff4d0fda1bfa512b37"/></p>
+         </div>
+         <note id="note_N101EB_N101D8_N100F4_N10001">
+            <p>Refer to <xref keyref="9b8bbdc0313c7f39f41331cab9724387"/> for instructions on how administrators can
+               reset passwords for users or other administrators on their own or lower levels.</p>
+         </note>
+      </postreq>
+   </taskbody>
+</task>

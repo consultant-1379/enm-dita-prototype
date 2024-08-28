@@ -1,0 +1,30 @@
+<concept id="24dca298f232279bfb0a6ef4b55d4fe8" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Maintain SSL Certificates on Activation Node</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <conbody>
+        <p>Certificates for SSL verification are time-limited, therefore you must check the validity
+            of all installed SSL certificates. SSL certificates with validity dates shorter than one
+            year must be replaced during an appropriate maintenance window.</p>
+        <p>This section describes how to maintain three types of certificates:<ul id="ul_dlk_2r2_kjb">
+                <li>
+                    <p>Puppet certificates</p>
+                </li>
+                <li>
+                    <p>Internal certificates for communication within the cluster</p>
+                </li>
+                <li>
+                    <p>External certificates for communication outside the cluster</p>
+                </li>
+            </ul></p>
+    </conbody>
+</concept>

@@ -1,0 +1,39 @@
+<task id="c2e94fab1cd5e2ac8a18fd0531c3e2d4" xml:lang="en-US">
+    <title>Set Up a Service Provider in <ph keyref="OpenAM_s"/></title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10039_N10034_N10001">
+            <p>To configure a Service Provider in <ph keyref="OpenAM_s"/>, follow the steps.</p>
+        </context>        
+        <steps>
+            <step id="step_N10042_N1003F_N10031_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user. </cmd>
+            </step>
+            <step id="step_N10053_N1003F_N10031_N10001">
+                <cmd>Change directories: </cmd>
+                <info><cmdname>cd /app/ecm/security/openAm/sso-tools/scripts/</cmdname></info>
+            </step>
+            <step id="step_N10069_N10046_N10034_N10001">
+                <cmd>Run the script: </cmd>
+                <info><cmdname>./configure_federation_realm.sh &lt;realm> --openam-url
+                        &lt;openam-url> </cmdname><p>Where <parmname>&lt;realm></parmname> is
+                        a federation realm name specified in <xref keyref="b549bb8cdf0820fa64954550dadd5bae"/> and
+                            <parmname>&lt;openam-url></parmname> is a full URL to the <ph keyref="OpenAM_s"/> instance. <parmname>&lt;openam-url></parmname>
+                        must include protocol and port.</p></info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

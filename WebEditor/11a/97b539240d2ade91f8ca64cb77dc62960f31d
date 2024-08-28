@@ -1,0 +1,88 @@
+<referable-content id="dbff04037c3da263d5d5c11ab3438524" xml:lang="en-US">
+<title>All Emergency Unlock Activations Have Been Used Ref Con</title>
+<rcbody>
+        <table id="table_cqm_mjj_mz">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Alarm Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>ERROR_MESSAGE</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Emergency Unlock</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>Emergency Unlock exhausted</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>All emergency unlock activations have been used</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>MAJOR</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>LicenseConfigurationAndManagementService</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>License Configuraon and Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful /Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateless</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

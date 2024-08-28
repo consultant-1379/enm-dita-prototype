@@ -1,0 +1,7 @@
+<referable-content id="c17a916cd7298cd1e7d9235fcb652b58" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/startStop--><title>RestartjBoss</title>
+   <rcbody>
+      <p id="st4tb12189587211">
+                        <userinput>sudo systemctl restart jboss-eap</userinput>
+                     </p>
+   </rcbody>
+</referable-content>

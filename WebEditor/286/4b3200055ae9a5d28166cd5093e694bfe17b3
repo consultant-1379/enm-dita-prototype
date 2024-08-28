@@ -1,0 +1,14 @@
+<concept id="3fa9cb8c28cf9fe9f2e3896a9d9cc54e" xml:lang="en-US">
+   <title>Job Scheduler</title>
+   <prolog>
+      <source>ST4 ID: 16338344843</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The Apache Oozie Job Scheduler runs as a MapR service. There is a hierarchy of jobs, starting with Coordinator jobs that invoke Workflow jobs, which contain workflow actions and jobs that invoke <apiname>map-reduce</apiname> jobs by passing application configuration parameters.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,90 @@
+<referable-content id="7810d387f29a53f5fdc4134f0410ba5a" xml:lang="en-US">
+<title>Unable to write Alarms to History Ref Con</title>
+<rcbody>
+        <table id="table_N1003A_N1002A_N10027_N10001">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>ERROR_MESSAGE</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>ET_PROCESSING_ERROR_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>System Resource Unavailable</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Unable to write Alarms to History</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>FmHistory</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>Internal alarm raised by FM Services when alarms cannot be stored in
+                                Solr due to unavailability or issue with dependencies viz.,
+                                    Solr/<codeph>DLMS</codeph> etc.</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Technical Area</entry>
+                        <entry>
+                            <p>Fault Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful /Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateless</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

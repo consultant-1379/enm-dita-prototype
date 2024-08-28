@@ -1,0 +1,201 @@
+<bookmap id="26381aecf4b3ed326d822cbdc8a9311c" xml:lang="en-US">
+   <booktitle>
+      <mainbooktitle>EO CM Security System Administration Guide</mainbooktitle>
+      <!--st4mig 01: ST4-ID of XS-Meta: 14234922763--><booktitlealt outputclass="subtitle"><ph keyref="ECM"/></booktitlealt>
+   </booktitle>
+   <bookmeta>
+      <publisherinformation>
+         <published>
+            <organization/>
+            <completed>
+               
+               
+               <year>2020</year><month>11</month><day>24</day>
+            </completed>
+         </published>
+      </publisherinformation>
+      <permissions view="ericsson_internal"/>
+      <audience othertype="all" type="other"/>
+      <bookid>
+         <edition>PC30</edition>
+         <booknumber>9/1543-CSX 101 093<option/></booknumber>
+      </bookid>
+      <bookchangehistory>
+         <edited value="Yes">
+            <person value="etadpra">Prasad Tadas</person>
+            <organization>BDGSBEBE</organization>
+         </edited>
+         <approved value="No">
+            <person value="zeuhocl">Olena Chupryna</person>
+            <organization>FGL</organization>
+         </approved>
+         <bookevent>
+            <bookeventtype name="workflow_status" value="work"/>
+         </bookevent>
+      </bookchangehistory>
+      <bookrights>
+         <copyrfirst>
+            <year>2018 - 2021</year>
+         </copyrfirst>
+         <bookowner>
+            <organization>Ericsson AB</organization>
+         </bookowner>
+         <bookrestriction value="NA"/>
+      </bookrights>
+   </bookmeta>
+   <frontmatter>
+      <booklists><trademarklist keyref="c0b5f5d51d64adb304d55ebda30e7aad"/><toc outputclass="toc3"/>
+      </booklists>
+      <keydef keyref="00b9f53573c39244501d1301893896da" keys="referenceList"/>
+      <keydef keyref="eea91f3b37fb729e4000f5813bee58d5" keys="SAG_UG_OLH_topics"/><preface>
+         <mapref format="ditamap" keyref="fbe1442dfde86deaab760e1ad1547c73"/>
+         <mapref format="ditamap" keyref="d011c413c7c9f0fab495dcfabe138918"/>
+         <mapref format="ditamap" keyref="6717883090cbc58e62449a3696a5d55f"/>
+      </preface>
+   </frontmatter>
+   
+   
+
+   
+   
+   <chapter keyref="cd9b56c7f4fffb4e999e1c331c5266f8"><topicref keyref="753cf696eb04263e42a48c8353706db0"/><topicref keyref="dc933f83048a52d644157ffbadf0501b"/><topicref keyref="0b0bc011a7a6bbfd366aa6abb8efdb60"/><topicref keyref="4a0e4e2da633e3353db5b1d96a362785"/></chapter><chapter keyref="d2584ebb34d8714ef6c725495859d8e7">
+      <topicref keyref="dd528e20272b8a9db2f7c8ebe99841e0">
+         <topicref keyref="9b9feb793e0bb566807d20ac5da8b382"><topicref keyref="267aeaabfb1e65a38e94a8bf28971f25"/></topicref><topicref keyref="2031ebc582d704784274087867d8a92e">
+            <topicref keyref="a111498f44fb4fff4d0fda1bfa512b37"/>
+            <topicref keyref="9b8bbdc0313c7f39f41331cab9724387"/>
+         </topicref>
+         <topicref keyref="d9970d6696d057c6578dfd530b4a60f1"/>
+         <topicref keyref="059afece07cee05b31a379a128904975">
+            <topicref keyref="4632cdfedf1beb6a1298275253b3e5a5"/>
+            <topicref keyref="24f20b4f4627c297e0c59e4124cd8753"/>
+         </topicref>
+         <topicref keyref="66afc35e0071b89e9a69b6f6bac23de6"/>
+         <topicref keyref="3e86ef15a54084d509a5c2b349f7ab3b">
+            <topicref keyref="6957512d1aa034c0ea595a76a1060c2e"/>
+         </topicref>
+         <topicref keyref="64bfff75ab533a5b4e5e505c7a405aca"/>
+         <topicref keyref="f51e11f8548ab2b26c03f273a5bf9883"><topicref keyref="d99fae9294d42cac78f4e0da94546df1"/></topicref>
+         
+         <topicref keyref="701f52b92c35241a51ebf3ba3f3617d9"/><topicref keyref="c40eb4ab0c5ea6ddd6ce5097543fdf31">
+            <topicref keyref="767c9bd3977268dd423ea6e6387e5abd"/>
+            <topicref keyref="893e04ee1edb6a5c8cef64563522e24f"/>
+            <topicref keyref="045609c1054f68b57a77b33d4469e4bc"/>
+            <topicref keyref="f6ea18d08ab45d3f26a2994169267b1a"/>
+            <topicref keyref="5a8302f758617734ff5da865365d71a9"/>
+         </topicref>
+         <topicref keyref="ff1be4a36c1e03ca4a645634d332492a"/>
+         <topicref keyref="2bad0dcc8ea7670db6bd768654b65e68"/>
+         <topicref keyref="fca841a301725bcb0cec0b17e25b5455">
+            <topicref keyref="bbc8ea21dff212267a2d1800eb523b1b"/>
+            <topicref keyref="82ee4c4f848066e396621685840c31c0"/>
+            <topicref keyref="c4632b1f0f6a45914d715b0bf809872b"/>
+            <topicref keyref="a80ec3a6750ed87e40887ea48da8b164"/>
+         </topicref>
+         <topicref keyref="c69ab732269256c7ea66717f3ac7c23b"/>
+         <topicref keyref="b1b3a119c0ab408e3e63fbcbdf7f8ad1"/>
+         <topicref keyref="78c35613df34d42e4024fb5fe687e05c">
+            <topicref keyref="4ed3747db3e5ecf7938bc5446593d849"/>
+            <topicref keyref="7a0400a1949dc4aa704b2a894acffbda"/>
+            
+            <topicref keyref="299a6f2f109ce089c15134a732aadc5d"/><topicref keyref="29379a7f56c74a7b88c350e60dd89244"/>
+            <topicref keyref="b2e17828d77ade9d2c8e6bba8279fd1d"/>
+         </topicref>
+         <topicref keyref="64e9b669361003a090ff6e3054cc93bc"/>
+         
+         
+         <topicref keyref="a699ccbc8147c260acb4eaad7addf9ef"/>
+         <topicref keyref="b6dc70889ca79032ca41424c0a4ce1c4">
+            <topicref keyref="f192c60511dc17f9f9548aacfb37c7f6"/>
+            <topicref keyref="e89b6ba58b7351e0767a91e9e63038e7"/>
+            <topicref keyref="3bd9da496e5ed74ebae80e68e37b52d2"/>
+            <topicref keyref="0deaef38f7d17f1f7da151abdf446019"/>
+         </topicref>
+         <topicref keyref="cfd12a963ab8f6b0168d48be8346850f">
+            <topicref keyref="522c7a1bb39dbe29088302abe0f90d16"/>
+            <topicref keyref="b786df81280220f01a9c8daa7c103ba5"/>
+            <topicref keyref="32c540a588f95000d95487ed49ff572f"/>
+         </topicref>
+         <topicref keyref="ce43b4fcecb6f93404f499d42e2ed41d">
+            
+            
+            <topicref keyref="9aaed630316ff754c73a618c71a92e92"/>
+         </topicref>
+         <topicref keyref="bd45e00637c2729fe7f32d53be2b5179"/><topicref keyref="241b1ea279b6549321154996a3fa04bb"/>
+         <topicref keyref="0672f6de4cb82ca6ddcf897fa5e43be5"/><topicref keyref="0df3ca4e631626ef8c5248695fc87caf"><topicref keyref="a25c2d29a0e19b746fd9b336d060038c"/><topicref keyref="2bc8b56b764a22a035878f5c748e0046"/><topicref keyref="3141e4e16749bc206a6e2caa7369fd16"/><topicref keyref="c4cfd6e3507a71397387a67419af48ca"/></topicref><topicref keyref="1fefa1b493496fe790d10a0ade046500">
+            <topicref keyref="126e3b719196664664e5e89055ffd09f"/>
+            <topicref keyref="766e4832627b5777c048e38fdc2f2adc"/>
+         </topicref>
+         <topicref keyref="864494920487a9653c7ad3c33017cfca"/><topicref keyref="f578fe9c12146f578adfaee43d927d32">
+            
+         </topicref>
+         <topicref keyref="72f47b97f5c7badae183ca3378f572b9">
+            <topicref keyref="c117f0c1408e1b263c33c2f5073f989e"/>
+            <topicref keyref="0ca19acdb4539d3c9db002787f129634"/>
+            <topicref keyref="4867665ed3fdb74b4b984d6501312a34"/>
+            <topicref keyref="96b9e93a92e9b0b0aff08d2eca92fc49"/>
+            <topicref keyref="42893089e5fdfd7b8a191fde9adb7b25"/>
+            <topicref keyref="578d85c3be8cc2e7f5ee1a52be816628"/>
+         <topicref keyref="99851b9bfaf9f617359b2342653178e7"/></topicref>
+      <topicref keyref="109f1ec2f51f271c6920bfd537fbd98d"/><topicref keyref="c157b99f02c07a777adacb2574ca9950"/><topicref keyref="371fbec760038ab086fa087a4406c68b"/><topicref keyref="80f59c8e23a60f13b00dc7020ee884a8"/><topicref keyref="ea84f8762df883179987e87c188737b4"/><topicref keyref="4fe3b334ae48dc5f7a7c3e6eb21f301c"/></topicref>
+      <topicref keyref="7aa6940684aa9b0fc8bf6482247b3e51">
+         <topicref keyref="31a5133ca1c6d45b36c4ad2c2f349ad2">
+            <topicref keyref="d6e76dac128ad4cd44b7d626adb5bbcd"/>
+            <topicref keyref="8afde674c0ba9b334b5fc019dfa7f575"/>
+            <topicref keyref="d058ed595325f2d8152f49579325b746"/>
+            <topicref keyref="097e721c165799909d9c854cae47d0ca"/>
+            <topicref keyref="fac584d38d7dd214f03656f6243f3bdb"/>
+            <topicref keyref="804779e3005e8302c3644c5f92b2dd70"/>
+         </topicref>
+         <topicref keyref="96a98ddbada1a85e51c4d13e83a2d02b"/>
+         <topicref keyref="5c37d657c6e555ac3a46b0bd268acf66"/>
+         <topicref keyref="24dca298f232279bfb0a6ef4b55d4fe8"><topicref keyref="c34c9fbf02f246a78612cd60f010b4c5"><topicref keyref="bc889c6409148a059ff351574f0c7ef3"/></topicref><topicref keyref="7e016d82e12b326813217370d1cb4824"/><topicref keyref="d7152251792cb9f6deec0ddf84f5c22c"/><topicref keyref="382cb0cbdab9e4bab19201128c0e2546">
+            
+         <topicref keyref="2d97e5ac3258f9963659770b03e75e51"/></topicref><topicref keyref="445b5ecaba3666ef236b0dacc2c15a7a"><topicref keyref="6fd8183fecca333a16228be32c00957c"/><topicref keyref="5c5f36bef12e0dd21d6a9bc67ea502e0"/></topicref></topicref><topicref keyref="5de2be9ee2883b418d9e3281eeb0710b"/>
+         
+         <topicref keyref="e015d9293040ce735ade1a9353a65b3c"/><topicref keyref="d87e41e102b93771ac8ddc3fbe78485a"/>
+         <topicref keyref="9113314c035823800ae471c7eb6237c7"/>
+      <topicref keyref="7de29c9324c25959588ae2c67bf8de80"><topicref keyref="45e508da755105970e5a88af38fb5568"/><topicref keyref="6514424a00f86828ee4837f983500acc"/><topicref keyref="5dce49f229c0bab016070af02a2fcbef"/><topicref keyref="e12593d87510524d290830fd5f6ed228"/></topicref></topicref>
+      <topicref keyref="f7dfa724637090bc691c96b727e00e34"/>
+   </chapter><chapter keyref="72e244b73f8255a17d7d2c97278ebb76">
+      <topicref keyref="80bfda2c74ba54046dbc583df99efba7"/>
+      <topicref keyref="2b787b6255f9a7c1ded11ec6be86c9b3"/>
+      <topicref keyref="10a41d568563bb192690d142df439727"/>
+      <topicref keyref="6f1938cdc56da137da68fbcf96ee4b56"/>
+      <topicref keyref="2864ea07766b409ee2a8c34dc960b20e"/>
+      <topicref keyref="196a16a652f0d304954edcc1a9f2d3f3">
+         <topicref keyref="e3d80e95a03c41b4d6e1353d83ee378b"/>
+         <topicref keyref="6c079fc85d2a1282594a4437f52b2515"/>
+      </topicref>
+   <topicref keyref="d3a13d2b43bd90ce53d7c99994e39c49"><topicref keyref="b549bb8cdf0820fa64954550dadd5bae"/><topicref keyref="c2e94fab1cd5e2ac8a18fd0531c3e2d4"><topicref keyref="b9eb40a376f9de34a485d86d1ecca7d4"/><topicref keyref="ab62d0e118376a8a56419785db53f8b8"/><topicref keyref="7222b72f15bf6df0b6a1b63689c775e6"/><topicref keyref="eb32cc9e2587012e01830a643d0bf3b8"/></topicref><topicref keyref="e8076bb03d830af93bc05b30785c36b0"/><topicref keyref="e8f684c46635abebeebeeb908f8bb911"/><topicref keyref="b1f7fa9407dbcbe164995b2f46040ded"/></topicref></chapter><chapter keyref="a53b3d4de9251e4cdcd47b06b918b1e4">
+            <topicref keyref="6623f2c431c7b0ae69a7552be1de918a"/>
+            <topicref keyref="aaff73bf348f470a02a8f8bd6ee8d45c"/>
+         </chapter>
+         <!--The following topics are "resource only" topics. These are added to avoid broken links.-->
+   <chapter keyref="f1783f885ae901fb3513101034240d8f" processing-role="resource-only"/><backmatter>
+      <booklists>
+            
+         <bibliolist keyref="00b9f53573c39244501d1301893896da"/></booklists>
+      </backmatter>
+   <reltable>
+      <relheader>
+         <relcolspec linking="sourceonly" type="topic"/>
+         <relcolspec linking="targetonly" type="topic"/>
+      </relheader>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+   </reltable>
+</bookmap>

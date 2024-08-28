@@ -1,0 +1,110 @@
+<task id="299a6f2f109ce089c15134a732aadc5d" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Change the Configuration Files for Network Service LCM VM(s)</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10032_N1002F_N10001">
+            <p>Use this procedure to make changes to configuration files.</p>
+        </context>
+        <steps id="steps_a43_sld_clb">
+            <step id="step_N1003E_N1003B_N1002F_N10001">
+                <cmd>Log on as  <option keyref="loginID"/>, then execute the following
+                    command:</cmd>
+                <info>
+                    <p><ph>
+                            <userinput>sudo -s</userinput>
+                        </ph>
+                    </p>
+                    <p>
+                        <ul id="ul_qlr_prh_gnb">
+                            <li>
+                                <p>
+                                    <ph importance="normal"><ph keyref="non_HA_s"/> Deployment</ph>:
+                                        <ph keyref="NS_LCM_VM_s"/></p>
+                            </li>
+                            <li>
+                                <p>
+                                    <ph importance="normal"><ph keyref="HA_s"/> Deployment</ph>: <ph keyref="NS_LCM_VM_s"/> for Node 1 and Node 2</p>
+                            </li>
+                        </ul>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N1005F_N1003B_N1002F_N10001">
+                <cmd>
+                    <ph outputclass="st4mig_cmd-para">Change directories:</ph>
+                </cmd>
+                <info>
+                    <codeblock>cd  /opt/ericsson/do/svcorch-svc/jboss_extensions/configuration</codeblock>
+                </info>
+            </step>
+            <step id="step_N10076_N1003B_N1002F_N10001">
+                <cmd>
+                    <ph outputclass="st4mig_cmd-para">Edit the
+                            <filepath>standalone-full.xml</filepath> file.</ph>
+                </cmd>
+            </step>
+            <step id="step_N10088_N1003B_N1002F_N10001">
+                <cmd>
+                    <ph outputclass="st4mig_cmd-para">Search for the <filepath>username</filepath>
+                        attributes for the <filepath>process_engine</filepath> ID, and change the
+                        value in its associated <filepath>password</filepath> attribute. </ph>
+                </cmd>
+                <info>
+                    <note conkeyref="c2e73278f2e4b5388f80e3cb8c3e92b4/tb12438324619" id="note_N100A0_N1009D_N10085_N1003B_N1002F_N10001"/>
+                    <p>Example: <fig id="fig_dcj_clf_dlb">
+                            <title>Example</title>
+                            <image id="image_f53_2vf_dlb" keyref="267c5339a5a131c4c03fff07686be9ef" scalefit="yes"/>
+                        </fig></p>
+                </info>
+            </step>
+            <step id="step_N100DE_N10040_N10031_N10001">
+                <cmd>Change directories:</cmd>
+                <info>
+                    <pre>cd /opt/ericsson/do/svcorch-svc/jboss_extensions/modules/system/layers/base/com/ericsson/configuration/main/</pre>
+                    <p>it the </p>
+                </info>
+            </step>
+            <step id="step_N100F4_N10040_N10031_N10001">
+                <cmd>Edit the <filepath>dbcp_config.properties</filepath> file.</cmd>
+            </step>
+            <step id="step_N10101_N10040_N10031_N10001">
+                <cmd>Search for the <option>processEngine.pool.password</option> key, and change the
+                    value. Example:</cmd>
+                <info>
+                    <pre>processEngine.pool.user=process_engine
+processEngine.pool.password=-7786376b2c7c0220bbcbd1a47b1cdc2e    #here's the encrypted password to change
+processEngine.pool.connectURI=jdbc:edb://edb_host:5432/sodb1
+processEngine.pool.timeBetweenEvictionsRunsMilis=5000
+processEngine.pool.minEvictableIdleTimeMillis=300000
+processEngine.pool.numTestsPerEvictionRun=10
+processEngine.pool.maxActive=40</pre>
+                </info>
+                <info>
+                    <p>
+                        <note id="note_N10112_N1010F_N1010C_N100F7_N1003D_N10031_N10001">
+                            <p>For <ph keyref="HA_s"/> deployments, change the passwords for
+                                    <option>process_engine</option>, as directed in the previous
+                                steps, in the <filepath>standalone-full.xml</filepath> file on the
+                                    <ph keyref="NS_LCM_VM_s"/> on Node 2 of an <ph keyref="HA_s"/>
+                                deployment.</p>
+                        </note>
+                    </p>
+                </info>
+            </step>
+        </steps>
+        <postreq id="postreq_yhy_rpq_clb">
+            <p><xref format="html" href="http://calstore.internal.ericsson.com/elex?id=13926&amp;ORPA=%2520Additional%2520Instructions%2520for%2520Network%2520Service%2520LCM%2520VM%2528s%2529%2520in%2520a%2520GR%2520Deployment&amp;SR=TOPIC&amp;FN=1543-CNH1609180Uen.PK51.html#drv1539392322491" scope="external">Start the Network Service LCM VM(s)</xref></p>
+        </postreq>
+    </taskbody>
+</task>

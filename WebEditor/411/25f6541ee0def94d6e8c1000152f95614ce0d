@@ -1,0 +1,30 @@
+<concept id="fe6f2fe0ad3146d0efbe32ed29d2ad1c" xml:lang="en-US">
+   <title>Enter Container</title>
+   <prolog>
+      <source>ST4 ID: 14578475531</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <note id="note_N1002B_N10028_N10001">
+         <p>The following commands are to be executed on the Impala <ph keyref=""/>.</p>
+      </note>
+      <ul id="ul_f4x_myx_1lb">
+         <li>
+            <p>To enter the Impala server container:</p>
+            <p><userinput>docker exec -it impala-server bash</userinput></p>
+         </li>
+         <li>
+            <p>To enter the Impala statestore container:</p>
+            <p><userinput>docker exec -it impala-statestore bash</userinput></p>
+         </li>
+         <li>
+            <p>To enter the Impala catalog container:</p>
+            <p><userinput>docker exec -it impala-catalog bash</userinput></p>
+         </li>
+      </ul>
+   </conbody>
+</concept>

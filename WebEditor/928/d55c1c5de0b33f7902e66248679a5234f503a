@@ -1,0 +1,69 @@
+<task id="f8a93485a242c61ab073035f57efaf35" xml:lang="en-US">
+   <title>Back Up Configuration Files</title>
+   <prolog>
+      <source>ST4 ID: 16335668107</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <taskbody>
+                              <context id="context_N1002D_N1002A_N10001">
+                                 <p>For <ph keyref=""/> Probe, Adapters and Correlator components there is no automatic configuration backup solution. To create configuration backup, perform the following procedure:</p>
+                                 <note id="note_N10039_N1002D_N1002A_N10001" type="note">
+            <p>This procedure is only for configuration rollback after a failed software upgrade. Do not overwrite the configuration files after a successful upgrade procedure.</p>
+         </note>
+                              </context>
+                              <steps>
+                                 <step id="step_N10047_N10044_N1002A_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Create a copy of the contents of the following folders and files:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                          <p>
+                                             <apiname>/opt/ericsson/eea/conf/*</apiname>
+                                          </p>
+                                       </li>
+                  <li>
+                                          <p>
+                                             <apiname>/opt/ericsson/eea/sconf/*</apiname>
+                                          </p>
+                                       </li>
+                  <li>
+                                          <p>
+                                             <apiname>/opt/ericsson/eea/security/*</apiname>
+                                          </p>
+                                       </li>
+                  <li>
+                                          <p>
+                                             <apiname>/etc/sysconfig/network-scripts/ifcfg-*</apiname>
+                                          </p>
+                                       </li>
+               </ul>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N1008D_N10044_N1002A_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Create a copy of the output of the following commands:</ph>
+            </cmd>
+            <info>
+               <codeblock>yum info installed avro-c boost c-ares cea-* hiredis hyperscan ixgbe jemalloc jq libevent libgcc libquic libstdc++ libxml++ lz4 protobuf python-libconfig python-pip python-zmq rdkafka redis wireshark zeromq zlib</codeblock>
+               <codeblock>gem list redis</codeblock>
+               <codeblock>pip list | grep "avro\|libconf\|netsnmpagent\|ply\|protobuf\|pyasn1\|pysmi\|pysnmp\|redis\|six"</codeblock>
+               <codeblock>rpm -qa</codeblock>
+               <codeblock>ip route</codeblock>
+            </info>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                 </step>
+                              </steps>
+                           </taskbody>
+</task>

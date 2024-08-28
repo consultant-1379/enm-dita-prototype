@@ -1,0 +1,100 @@
+<referable-content id="f178421aff1e7ee28de3a8648425debc" xml:lang="en-US">
+<title>Failed to Import Configuration on Node Ref Con</title>
+<rcbody>
+        <table id="table_cqm_mjj_mz">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Alarm Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ERROR_MESSAGE</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Node integration error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Causes</p>
+                        </entry>
+                        <entry>
+                            <ul id="ul_skb_scp_xgb">
+                                <li>
+                                    <p>Configuration import file may not be compatible with
+                                        configuration on the node</p>
+                                </li>
+                                <li>
+                                    <p>Error setting rbsConfigLevel for
+                                            <parmname>&lt;RbsConfiguration FDN></parmname> to
+                                            <parmname>&lt;value></parmname></p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Failed to Import Configuration on Node</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>MAJOR</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>MeContext or RbsConfiguration</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Auto Provisioning</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateless</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

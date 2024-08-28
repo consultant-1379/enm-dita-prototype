@@ -1,0 +1,96 @@
+<task id="8afde674c0ba9b334b5fc019dfa7f575" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Renew Expired F5 Certificate for <ph keyref="ECM"/> on OpenStack Deployments</title>
+   <prolog>
+      <source>ST4 ID: 13577133963</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10083_N10080_N10001">
+                                 <p>Follow this procedure to renew expired F5 certificates for <ph keyref="EOO_s"/>.</p>
+         <note id="note_N10041_N10035_N10032_N10001">
+            <p>You must delete any manually created custom Virtual Servers from both <ph keyref="LB_VM_s"/>s prior to
+               the renewal procedure.</p>
+         </note>
+                              </context>
+                              <steps>
+                                 <step id="step_N1008F_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to the <ph keyref="ABCDVM"/> as the <userinput>root</userinput> user.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N100A1_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Change to the directory:</ph></cmd><info><p><ph>
+
+                                       <userinput>cd /ecm-umi/install/eoo/stage/cert</userinput> 
+                                    </ph>
+            </p></info>
+                                 </step>
+                                 <step id="step_N100BA_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Delete the certificate files from the directory</ph></cmd><info><p><ph>
+
+                                       <userinput>rm -rf ecmssl.*</userinput>
+                                    </ph>
+            </p></info>
+                                 </step>
+                                 <step id="step_N100D3_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Change to the directory:</ph></cmd><info><p><ph>
+
+                                       <userinput>cd /ecm-umi/install/eoo</userinput> 
+                                    </ph>
+            </p></info>
+                                 </step>
+                                 <step id="step_N100EC_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Edit the file:</ph></cmd><info><p><ph>
+
+                                       <filepath>.baseenv.HA.int</filepath>
+                                    </ph>
+            </p></info>
+                                 </step>
+                                 <step id="step_N10105_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Change ssl flag:</ph></cmd><info><p><ph><userinput>SSL_ONLY=true</userinput>
+                                    </ph>
+            </p></info>
+                                 </step>
+                                 <step id="step_N1011E_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Run the script:</ph></cmd><info><p><ph>
+                     <userinput>./ecm_install_HA.sh -e</userinput>
+                  </ph>
+               </p></info>
+                                 </step>
+                                 <step id="step_N10137_N1008C_N10080_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following menu options, in the order specified:</ph>
+            </cmd>
+            <info>
+               <codeblock>4a) SSH setup for Cloud Manager nodes
+e) Enable root login
+4d) Execute Cloud Manager Clustering on core nodes
+4e) Install configuration on F5
+4f) Stop services on Cloud Manager core nodes
+4g) Start services on Cloud Manager core nodes
+da) Disable root login
+
+ 
+                                       </codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N1014E_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Synchronize the nodes as described in </ph><xref keyref="fac584d38d7dd214f03656f6243f3bdb">Synchronize F5 Nodes</xref><ph outputclass="st4mig_cmd-para">.</ph>
+            </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

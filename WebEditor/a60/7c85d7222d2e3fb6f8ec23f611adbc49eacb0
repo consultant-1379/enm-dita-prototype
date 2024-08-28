@@ -1,0 +1,87 @@
+<task id="66afc35e0071b89e9a69b6f6bac23de6" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for the F5 ID: monitor</title>
+   <prolog>
+      <source>ST4 ID: 13577142411</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10067_N10064_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <userinput>monitor</userinput> ID, on the F5 Load Balancer, is used in HA
+            deployments to monitor the <ph keyref="edbVM"/>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+            </li>
+            <li>
+               <p conkeyref="b19dad100ea1ea53c6abde22c3f8791d/st4tb12402177803"/>
+            </li>
+         </ul>
+         <note id="note_N10095_N10067_N10064_N10001">
+            <p>The <ph keyref="LB_VM_s"/> uses preconfigured password policies, and these require the password value
+               to include a minimum of six characters.</p>
+         </note>
+         <p>To change the password for the <option>monitor</option> ID, do the following steps on
+            the master <ph keyref="edbVM"/>:</p>
+         <codeblock># <userinput>psql -d ecmdb1 -U monitor</userinput>
+Password for user monitor: <userinput><varname>&lt;Current_Password></varname></userinput>
+psql.bin (11.6.13)
+Type "help" for help.
+ecmdb1=> <userinput>ALTER USER monitor WITH PASSWORD '<varname>&lt;New_Password></varname>';</userinput>
+ALTER ROLE
+ecmdb1=> <userinput>quit</userinput></codeblock>
+         <p>Next, change the password in the F5 Load Balancer (to the same
+               <varname>&lt;New_Password></varname> used in the previous step on the master <ph keyref="edbVM"/>):</p>
+      </context>
+      <steps>
+         <step id="step_N100D8_N100D5_N10064_N10001">
+            <cmd>Log in as <userinput>admin</userinput> to the F5 GUI. </cmd>
+         </step>
+         <step id="step_N100EA_N100D5_N10064_N10001">
+            <cmd>Select <uicontrol>Local Traffic</uicontrol> > <uicontrol>monitor</uicontrol>.
+            </cmd>
+         </step>
+         <step id="step_N10100_N100D5_N10064_N10001">
+            <cmd>Open the monitor <uicontrol>edb1_monitor</uicontrol>. </cmd>
+         </step>
+         <step id="step_N10112_N100D5_N10064_N10001">
+            <cmd>Update the password. </cmd>
+         </step>
+         <step id="step_N10120_N100D5_N10064_N10001">
+            <cmd>Save the change. </cmd>
+         </step>
+         <step id="step_N1012E_N100D5_N10064_N10001">
+            <cmd>Repeat this procedure for the other <ph keyref="edbVM"/>s and the <ph keyref="edbVM_short"/> VIP in the HA cluster: </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>
+                        <uicontrol>edb2_monitor</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>edb3_monitor</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>edb4_monitor</uicontrol>
+                     </p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+         <step id="step_N10118_N1009B_N1002E_N10001">
+            <cmd>Sync configuration.</cmd>
+         </step>
+      </steps>
+   </taskbody>
+</task>

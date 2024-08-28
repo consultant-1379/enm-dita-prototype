@@ -1,0 +1,22 @@
+<concept id="d3a13d2b43bd90ce53d7c99994e39c49" xml:lang="en-US">
+    <title>Set Up SAML Circle of Trust</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <!-- Template instructions: 
+    How to Write Concept Topics, 105/000 21-FCK 101 05-->
+        <p><ph keyref="ECM_short"/> allows integratng users from an external SAML Identity Provider.
+                <ph keyref="ECM_short"/> expects that communication between an Identity Provider and
+            a Service Provider is established via the Service Provider initiated flow.</p>
+     </conbody>
+</concept>

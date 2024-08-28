@@ -1,0 +1,65 @@
+<task id="6957512d1aa034c0ea595a76a1060c2e" xml:lang="en-US">
+   <title>Establish Passwordless Communication between Nodes</title>
+   <prolog>
+      <source>ST4 ID: 10724513675</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1004B_N10048_N10001" outputclass="st4mig_beforeProcedure">
+                                 <p>Passwordless communication between both nodes in an HA deployment is required for certain password changes. </p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10058_N10055_N10048_N10001">
+            <cmd>Log in as <userinput>ecm_admin</userinput> to one of the <ph keyref="CoreVM"/>
+               nodes. (This section will refer to it as <option>CoreVM1</option>.) </cmd>
+         </step>
+                                 <step id="step_N10069_N10055_N10048_N10001">
+            <cmd>Execute the following command: </cmd>
+            <info>
+               <codeblock outputclass="condensed">ssh-keygen -t rsa</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N1007C_N10055_N10048_N10001">
+            <cmd>Press return at each prompt until the script completes.  </cmd>
+            <stepresult>
+               <p>The <filepath>id_rsa.pub</filepath> file is generated when the script
+                  completes.</p>
+            </stepresult>
+         </step>
+                                 <step id="step_N10091_N10055_N10048_N10001">
+            <cmd>Copy the file to the second <ph keyref="CoreVM"/> in the HA cluster:</cmd>
+            <info>
+               <codeblock outputclass="condensed">ssh-copy-id -i .ssh/id_rsa.pub ecm_admin@<varname>corevm2-ip_address</varname></codeblock>
+            </info>
+         </step>
+                                 <step id="step_N100AB_N10055_N10048_N10001">
+            <cmd>Log on as <option>ecm_admin</option> to the second <ph keyref="CoreVM"/> in the HA
+               cluster.</cmd>
+         </step>
+                                 <step id="step_N100BC_N10055_N10048_N10001">
+            <cmd>Execute the following command: </cmd>
+            <info>
+               <codeblock outputclass="condensed">ssh-keygen -t rsa</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N100CF_N10055_N10048_N10001">
+            <cmd>Press return at each prompt until the script completes. </cmd>
+            <stepresult>
+               <p>The <filepath>id_rsa.pub</filepath> file is generated when the script completes.
+               </p>
+            </stepresult>
+         </step>
+                                 <step id="step_N100E4_N10055_N10048_N10001">
+            <cmd>Copy the <option>id_rsa.pubfile</option> to the CoreVM1.</cmd>
+            <info>
+               <codeblock outputclass="condensed">ssh-copy-id -i .ssh/id_rsa.pub ecm_admin@<varname>&lt;corevm1-ip_address></varname></codeblock>
+            </info>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

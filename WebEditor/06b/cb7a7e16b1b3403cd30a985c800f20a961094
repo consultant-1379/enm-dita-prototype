@@ -1,0 +1,182 @@
+<task id="382cb0cbdab9e4bab19201128c0e2546" xml:lang="en-US">
+   <title>Change the Activation Certificates on Ports 8181 and 8383</title>
+   <prolog>
+      <source>ST4 ID: 13577126539</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N10083_N10080_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>The Activation certificates are on the <ph keyref="ActivationVM"/>
+            on the following ports: </p>
+                              <ul>
+            <li>
+                                    <p>Port 8181 - This certificate is not currently used. However, instructions are included to replace this certificate (NBIA Module).</p>
+                                 </li>
+            <li>
+                                    <p>Port 8383 - Used for communication between <ph keyref="ECM"/> REST layer and the Activation component (Tomcat module).</p>
+                                 </li>
+         </ul>
+                              <note id="note_N100AC_N10083_N10080_N10001">
+            <ul id="ul_n5l_bps_3gb">
+               <li>
+                  <p>You may generate a single certificate and use it for both ports.</p>
+               </li>
+               <li>
+                  <p>For HA deployments, these certificates are on all Activation VMs. Therefore,
+                     this procedure must be executed on each of the Activation VMs in an HA
+                     deployment.</p>
+               </li>
+            </ul>
+                              </note>
+                           </context>
+                           <steps>
+                              <step id="step_N100CA_N100C7_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/> to the <ph keyref="ActivationVM"/>, then execute the following command:</ph></cmd>
+            <info>
+               <p><ph>
+                     <userinput>sudo -s</userinput>
+                  </ph>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N100EB_N100C7_N10080_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Generate a new private key and add it to the <filepath>pgexternal_keystore.jks</filepath> file:</ph>
+            </cmd>
+            <info>
+               <codeblock>/usr/java/latest/bin/keytool -genkey -keyalg RSA \
+-alias pgexternaltrf -keystore /home/bootloader/ssl/pgexternal_keystore.jks \
+-validity &lt;days certificate is valid; example: 3600> -keysize 2048 \
+-dname 'CN=*.&lt;FQDN  of Activation VM>, OU=&lt;department; example: IT>, O=&lt;company name; example: Ericsson>, L=Unknown, ST=Unknown, C=&lt;2-character Country; example: US>'</codeblock>
+               <p>Replace the values between the <filepath>&lt;></filepath> with local values. Additional information:</p>
+               <p>CN = Common Name of the certificate owner</p><p>
+OU=Organization of the certificate owner</p><p>
+O=Organization to which the certificate owner belongs</p><p>
+L=Locality name of the certificate owner</p><p> ST=State or province of the certificate owner</p><p>
+C=Country of the certificate owner</p>
+               <note id="note_N1011D_N100FA_N100EA_N100C7_N10080_N10001">
+                  <p>The <filepath>*</filepath> in the <filepath>CN</filepath> part allows the
+                     certificate to bind to a base domain address, instead of specific domain name.
+                     This allows one certificate to be used for several domain names, instead of one
+                     certificate for every domain name alias. It is recommended to include the
+                        <filepath>CN=*.&lt;value></filepath> so that a single certificate may be
+                     used for all <ph keyref="ActivationVM"/>s in an HA cluster.</p>
+               </note>
+            </info>
+                                 
+                                 
+                                 
+                                 
+                              </step>
+         <step id="step_N1013A_N100C7_N10080_N10001">
+            <cmd>When prompted for the password, set the keystore password.</cmd>
+         </step>
+         <step id="step_N10143_N100C7_N10080_N10001">
+            <cmd>Generate a Certificate Signing Request (CSR):</cmd>
+            <info>
+               <p>
+                  <codeblock>/usr/java/latest/bin/keytool -keystore /home/bootloader/ssl/pgexternal_keystore.jks -certreq \
+-alias pgexternaltrf -keyalg RSA -file /home/bootloader/ssl/pgexternaltrf.csr</codeblock>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N10159_N100C7_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Verify the creation of the CSR:</ph>
+            </cmd>
+            <info>
+               <codeblock>cat /home/bootloader/ssl/pgexternaltrf.csr</codeblock>
+            </info>
+         </step>
+                              <step id="step_N101AF_N100C7_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Send the CSR(s)
+                     (<filepath>pgexternal.csr</filepath>) to a trusted Certificate Authority (CA).
+                  Proceed to the next step once you have received the intermediate certificate(s)
+                  and signed server certificate files from the CA.</ph>
+            </cmd>
+         </step>
+         <step id="step_N101C1_N100C7_N10080_N10001">
+            <cmd>Save all the files received from the CA to
+                  the<filepath>/home/bootloader/ssl</filepath> directory.</cmd>
+         </step>
+                              <step id="step_N101CE_N100C7_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Using the keytool, import the certificate(s), one
+                  by one, into the keystore. Note that this procedure varies, depending on the type
+                  of certificate that was provided by the CA. </ph>
+               <ph>The following example imports three certificates from a trusted CA:</ph></cmd>
+            <info>
+               <p>Import Root CA certificate file <filepath>verisignRoot.crt</filepath>:</p>
+               <codeblock>/usr/java/latest/bin/keytool -import -keystore /home/bootloader/ssl/pgexternal_keystore.jks \
+-file /home/bootloader/ssl/verisignRoot.crt -alias verisignrootca
+</codeblock>
+               <p>Enter keystore password: <varname>password</varname></p>
+               <codeblock>Certificate was added to keystore</codeblock>
+            </info>
+            <info>
+               <p>Import Intermediate CA example file intermediate.crt:</p>
+               <codeblock>/usr/java/latest/bin/keytool -import -keystore /home/bootloader/ssl/pgexternal_keystore.jks \
+-file /home/bootloader/ssl/intermediate.crt -alias intermediateca
+</codeblock>
+            </info>
+            <info>
+               <p>Enter keystore password: <varname>password</varname></p>
+               <codeblock>Certificate was added to keystore</codeblock>
+            </info>
+            <info>
+               <p>Import Server certificate file pgexternaltrf.crt:</p>
+               <codeblock>/usr/java/latest/bin/keytool –importcert -keystore /home/bootloader/ssl/pgexternal_keystore.jks \
+-file /home/bootloader/ssl/pgexternaltrf.crt -alias pgexternaltrf</codeblock>
+            </info>
+            <info>
+               <p>Enter keystore password: <varname>password</varname></p>
+               <codeblock>Certificate was added to keystore</codeblock>
+            </info>
+         </step>
+                              <step id="step_N1022D_N100C7_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">If the following error is displayed: </ph>
+            </cmd>
+            <info>
+               <p><cmdname>keytool error:
+                     java.security.cert.CertificateException:java.io.IOException: Incomplete
+                     data</cmdname></p>
+            </info>
+            <info>
+               <p>Execute the following (example) commands:</p>
+            </info>
+            <info>
+               <codeblock>openssl x509 -outform der -in pgexternaltrf.crt -out pgexternaltrf.der
+
+/usr/java/latest/bin/keytool –importcert -keystore /home/bootloader/ssl/pgexternal_keystore.jks \
+-file /home/bootloader/ssl/pgexternaltrf.der -alias pgexternaltrf</codeblock>
+            </info>
+         </step>
+         <step id="step_N1021F_N100C3_N10080_N10001">
+            <cmd>Update the <filepath>hosts.erb</filepath> file of the <ph keyref="Puppet"/>
+               templates with the newly added hostname:</cmd>
+            <info><cmdname>vi
+                  /etc/puppetlabs/code/modules/hostsfile/templates/hosts.erb</cmdname><p>Update an
+                  existing entry or insert a new entry at the end of the file if it does not
+                  exist:</p><cmdname>&lt;EDA_VIP_Floating_IP> &lt;EDA_VIP_FQDN></cmdname></info>
+         </step>
+                              
+                              
+                           </steps>
+                        <postreq id="postreq_N10244_N10080_N10001">
+                                 <div outputclass="st4mig-add-info">
+                                    <!--
+			4015 add-info/title: Next Step:-->
+                                    <p>
+               <xref keyref="445b5ecaba3666ef236b0dacc2c15a7a"/>
+            </p>
+                                 </div>
+                              </postreq></taskbody>
+</task>

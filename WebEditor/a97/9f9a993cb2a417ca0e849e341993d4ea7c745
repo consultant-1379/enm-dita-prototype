@@ -1,0 +1,29 @@
+<concept id="6155a6d21de5371fc15034d66eb918dd" xml:lang="en-US">
+   <title>Start and Stop</title>
+   <prolog>
+      <source>ST4 ID: 16331151243</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <note id="note_N1002D_N1002A_N10001">
+                                    <p>The following steps require the privileges of <apiname>eea-besr-config</apiname> and <apiname>eea-besr-service</apiname>.</p>
+                                 </note>
+      <p>To start the Correlator cluster, execute the following command:</p>
+      <codeblock>besr_cluster start corr</codeblock>
+      <p>To stop the Correlator cluster, execute the following command:</p>
+      <codeblock>besr_cluster stop corr</codeblock>
+      <p>To check whether the Correlator cluster is running, execute the following command:</p>
+      <codeblock>besr_cluster status corr</codeblock>
+      <p>To enable and start the <ph keyref=""/> Correlator Healthcheck Service:</p>
+      <codeblock>sudo /usr/bin/systemctl enable eea-health-check.service
+sudo /usr/bin/systemctl start eea-health-check.service</codeblock>
+      <note id="note_N10066_N1002A_N10001">
+                                    <p>Start the service on a single host of the cluster only.</p>
+                                 </note>
+   </conbody>
+</concept>

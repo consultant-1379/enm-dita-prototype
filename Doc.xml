@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<concept id="UserMgmt-UserInterface">
+    <title>User Interface</title>
+    <conbody>
+
+        <section id="systembar">
+            <title>System Bar</title>
+            <p>
+                <image href="resources/images/systembar.png" alt="System Bar"/>
+            </p>
+            <p>The <b>System Bar</b> contains the following menu options:</p>
+            <ul>
+                <li><b>Tenant Switcher</b></li>
+                <li><b>Help</b></li>
+                <li><b>Log Out</b></li>
+            </ul>
+            <p>The <b>Tenant Switcher</b> allows you to switch tenants. 
+            See <xref href="tutorials/usecases/switchTenant.xml">Switch Tenant</xref> tutorial.</p>
+
+        </section>
+
+
+
+        <section id="primaryNav">
+            <title>Primary Navigation Menu</title>
+            <p>
+                <image href="resources/images/primaryNavClosed.png" alt="Primary Navigation Menu Closed"/>
+            </p>
+
+            <p>The <b>Primary Navigation Menu</b> can be accessed from all screens to navigated through the application and to the home page.</p>
+
+            <p>This menu can also be used  to launch other Service Orchestration related applications.</p>
+
+            <p>It is accessed by selecting the dark icon on the left of all screens as shown above, to open the menu shown below.</p>
+
+            <p>
+                <image href="resources/images/primaryNavOpen.png" alt="Primary Navigation Menu Open"/>
+            </p>
+
+            <p>The <b>Primary Navigation Menu</b> contains the following menu options:</p>
+
+            <ul>
+                <li><b>SO</b> - returns you to the SO homepage dashboard from any screen</li>
+                <li><b>Service Orchestration</b> - shows links to specific orchestration screens</li>
+                <li><b>Universal Design Studio</b> - can be used to launch UDS in a new browser tab</li>
+                <li><b>System</b>  - can be used to launch system applications in new browser tabs</li>
+            </ul>
+
+        </section>
+    </conbody>
+</concept>

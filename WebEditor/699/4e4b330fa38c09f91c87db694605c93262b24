@@ -1,0 +1,272 @@
+<concept id="d2554fde4930dbc84d8375721bb7d0d1" xml:lang="en-US">
+   <title>Service Alert Loader</title>
+   <prolog>
+      <source>ST4 ID: 16343203083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ZFUZTAM</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HY11963</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-11-18</change-completed>
+            <change-summary>EEAEPP-35374, Note added, input by EYOSIRI</change-summary>
+            <data>service-alert-loader can run only when the schemas are already uploaded by the Correlator. If the schemas are not present in the registry, the application fails, because the union schema cannot be created.</data>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-37576_exclude</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-05-28</change-completed>
+            <change-summary>EEAEPP-43974 - Service Alert Loader internals changed.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-06-03</change-completed>
+            <change-summary>EEAEPP-43148 - Service Alert Loader internals changes.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <note id="note_N1002B_N10028_N10001" otherprops="SADF_limited" type="note">
+         <p>Service Alert Data Flow is a restricted feature and is turned off by default. Consult Ericsson personnel for more information.</p>
+      </note>
+      <p>The Service Alert Loader application is used to access Correlator data through Kafka and
+         prepare it to be loaded into Impala.</p>
+      <note id="note_N1005E_N1004C_N10001" otherprops="EEAEPP-37576_exclude">
+         <p><option>service-alert-loader</option> can run only when the schemas are already uploaded
+            by the Correlator. If the schemas are not present in the registry, the application
+            fails, because the union schema cannot be created.</p>
+      </note>
+      <note id="note_N1008A_N1006B_N10001" otherprops="EEAEPP-37576">
+         <p><option>service-alert-loader</option> can run only when the schemas are already uploaded
+            by the Correlator. The union schema used for Parquet output is generated from the SADF
+            content model included with the application. However, schemas must exist in the Schema
+            Registry for decoding service alerts.</p>
+      </note>
+      <p>The configuration parameters of the Service Alert Loader can be modified in the <apiname>service-alert-loader.properties</apiname> file.</p>
+      <p>Default location: <apiname>/eea_config/service-alert-loader/service-alert-loader.properties</apiname>
+                           </p>
+      <p>The default location can be changed in the <apiname>application.properties</apiname> file by Ericsson personnel.</p>
+      <p>The available properties are listed in the following table:</p>
+      <table id="table_N10055_N10028_N10001">
+         <tgroup cols="4">
+                                 <colspec colname="1" colwidth=""/>
+                                 <colspec colname="2" colwidth=""/>
+                                 <colspec colname="3" colwidth=""/>
+                                 <colspec colname="4" colwidth=""/>
+                                 <thead>
+                                    <row>
+                                       <entry valign="top">
+                                          <p>Name</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Description</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Default Value</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Possible Values</p>
+                                       </entry>
+                                    </row>
+                                 </thead>
+                                 <tbody>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>checkpointLocation</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Checkpoint folder for Spark stream.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>
+                                             <apiname>maprfs:///eea_data/service-alert/spark_checkpoint</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>
+                                             <apiname>maprfs</apiname> path</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>exclude_service_alerts</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Input filter; if set, the specified service alerts will be dropped.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>None</p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>Semicolon separated list of strings of service alert names</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>identityMapCapacity</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>
+                                             <apiname>SchemaRegistryClient</apiname> cache capacity, must be set if more service alerts are sent by the Correlator.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>
+                                             <apiname>300</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>Integer between 100 and 1000</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>maxAllowedLatencyInSec</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          
+                                             <p otherprops="relSEA_exclude">
+                                                <draft-comment>
+                           <p>pnstart@number = "Admin20191002"</p>
+                        </draft-comment>Maximum allowed latency, service alerts with higher latency (that is, the value of the "<apiname>time</apiname>" field is behind the current time by more than the number of seconds set in this property.)<draft-comment>
+                           <p>pnend@number = "Admin20191002"</p>
+                        </draft-comment>
+                                             </p>
+                                          
+                                          
+                                             <p otherprops="relSEA">
+                                                <draft-comment>
+                           <p>pnstart@number = "Admin20191002"</p>
+                        </draft-comment>Maximum allowed latency, service alerts with higher latency are dropped (that is, if the value of the "<apiname>time</apiname>" field is behind the current time by more than the number of seconds set in this property).<draft-comment>
+                           <p>pnend@number = "Admin20191002"</p>
+                        </draft-comment>
+                                             </p>
+                                          
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>None</p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>Integer in seconds between 300 and 2147483647</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>only_service_alerts</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Input filter; if set, all other service alerts will be dropped.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>None</p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>Semicolon separated list of strings of service alert names</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>outputPath</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Output folder for Parquet files.</p>
+                     <note id="note_N10276_N1026B_N10258_N100FB_N100B7_N100B3_N1006B_N10001" otherprops="EEAEPP-37576">
+                        <p>Do not modify it unless absolutely sure.</p>
+                     </note>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p otherprops="EEAEPP-37576_exclude">
+                                             <apiname>maprfs:///eea_data/service-alert/parquet_output</apiname>
+                                          </p>
+                                          <p otherprops="EEAEPP-37576">
+                                             <apiname>maprfs:///eea_data/service-alert/v1/onemin</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>
+                                             <apiname>maprfs</apiname> path</p>
+                                       </entry>
+                                    </row>
+                                    <row otherprops="EEAEPP-37576_exclude">
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>tableName</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Name of Impala table, service alerts loaded.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>
+                                             <apiname>service_alerts_1min</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>String, name of an Impala table</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>topic</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Name of Kafka topic to consume.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>
+                                             <apiname>service-alert</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>String with a valid Kafka topic name</p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry colname="1" morerows="0" nameend="1" namest="1">
+                                          <p>
+                                             <apiname>vip_groups</apiname>
+                                          </p>
+                                       </entry>
+                                       <entry colname="2" morerows="0" nameend="2" namest="2">
+                                          <p>Input filter; if set, only service alerts that belong to the specified VIP groups will be handled, all others will be dropped.</p>
+                                       </entry>
+                                       <entry colname="3" morerows="0" nameend="3" namest="3">
+                                          <p>None</p>
+                                       </entry>
+                                       <entry colname="4" morerows="0" nameend="4" namest="4">
+                                          <p>Semicolon separated list of strings of VIP groups</p>
+                                       </entry>
+                                    </row>
+                                 </tbody>
+                              </tgroup>
+      </table>
+   </conbody>
+</concept>

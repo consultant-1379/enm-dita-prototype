@@ -1,0 +1,412 @@
+<concept id="ab2b6ea91f8fb2b8b53d2456447a03d0" xml:lang="en-US">
+   <title><ph keyref=""/> Incident HBase Loader Configuration</title>
+   <prolog>
+      <source>ST4 ID: 16364160523</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zmennor</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-22314</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-01</change-completed>
+            <change-summary>EEAEPP-44838, Removed Redis instances from the ESR Incident HBase Loader Configuration section.</change-summary>
+            <data>+ editorial changes</data>
+         </change-item>
+         <change-item>
+            <change-person>ztthrtx</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX86294</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-09</change-completed>
+            <change-summary>Added section describing further configuration options based on EEAEPP-37968
+Input from: ETHEGB</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zvardan</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX86294</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-14</change-completed>
+            <change-summary>ESR Incident HBase Loader config is updated with "deprecated" note for parameters hbase.time.to.live.in.second, hbase.number.of.regions, and hbase.max.versions, also the parameters apache.phoenix.jdbc.connection.string and apache.phoenix.create.view are removed, based on review comments by ETHEGB (20200713)</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref=""/> Incident HBase Loader configuration is set during
+         installation, so manual modification of this file is only required if it is incorrect.</p>
+      <p>The <ph keyref=""/> Incident HBase Loader can be configured with the following
+         parameters:</p>
+      <table id="table_N10062_N1004F_N10001">
+         <tgroup cols="2">
+            <colspec colname="col1"/>
+            <colspec colname="col2"/>
+            <thead>
+               <row>
+                  <entry valign="top">
+                     <p>Parameter Name</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Parameter Description</p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.table.name</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the target table to load the incidents in
+                        HBase.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.put.size</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the batch size used when batchloading the data into
+                        HBase.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.time.to.live.in.second</parmname><fn>
+                           <p>The <parmname>hbase.time.to.live.in.second</parmname> parameter is
+                              deprecated, use <parmname>hblib.table.attr.TTL</parmname> instead,
+                              which is specific for each <ph keyref=""/> application.
+                                 <parmname>hblib.table.attr.TTL</parmname> overrides any value
+                              configured for <parmname>hbase.time.to.live.in.second</parmname>.</p>
+                        </fn>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the time to live value of HBase cells. If the time
+                        to live value is exceeded, then the affected rows are automatically deleted
+                        from HBase.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.number.of.regions</parmname><fn>
+                           <p>The <parmname>hbase.number.of.regions</parmname> parameter is
+                              deprecated, use <parmname>hblib.number.of.regions</parmname> instead,
+                              which is specific for each <ph keyref=""/> application.
+                                 <parmname>hblib.number.of.regions</parmname> overrides any value
+                              configured for <parmname>hbase.number.of.regions</parmname>.</p>
+                        </fn>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the number of regions a table is split to when
+                        created.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.max.versions</parmname><fn>
+                           <p>The <parmname>hbase.max.versions</parmname> parameter is deprecated,
+                              use <parmname>hblib.table.attr.VERSIONS</parmname> instead, which is
+                              specific for each <ph keyref=""/> application.
+                                 <parmname>hblib.table.attr.VERSIONS</parmname> overrides any value
+                              configured for <parmname>hbase.max.versions</parmname>.</p>
+                        </fn>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the maximum number of versions which are kept for
+                        each cell in the HBase table.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.batch.loading.interval.in.millisec</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the amount of time required to automatically
+                        batchload data into HBase (even if the batch size is not reached).</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.client.keyvalue.maxsize</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the maximum size of HBase cells (0 is
+                        unlimited).</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>hbase.client.retries.number</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the number of retries when loading to HBase.</p>
+                  </entry>
+               </row>
+               <row otherprops="EEAEPP-22314_exclude">
+                  <entry>
+                     <p>
+                        <parmname>redis.queue</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is used to set the name of the Redis queue where the
+                        monitoring data is sent.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>appsuite.name.for.monitoring</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is used to set the appsuite name used in monitoring data.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>input.kafka.topic</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is used to set the name of the source Kafka topic.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>input.record.ts</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is used to set the source of the timestamp used in HBase key
+                        generation.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.key.deserializer.java.lang.String</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is the deserializer class for the key of the message, and it
+                        has to match the serializer class.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.value.deserializer.java.lang.String</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is the deserializer class for the value of the message, and
+                        it has to match the serializer class.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.group.id</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is the group ID of the consumer. Consumers in the same group
+                        share partitions.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.enable.auto.commit</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>If this parameter is set to <parmname>true</parmname>, offset commits are
+                        handled by Kafka automatically. If this parameter is set to
+                           <parmname>false</parmname>, offsets are committed manually.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.max.poll.records</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the maximum number of records returned in a
+                        poll.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.auto.offset.reset</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter is used if there is no initial offset in Kafka, or if the
+                        current offset does not exist anymore on the server. Valid values are the
+                        following:</p>
+                     <ul>
+                        <li>
+                           <p>
+                              <parmname>earliest</parmname>
+                           </p>
+                           <p>If set to <parmname>earliest</parmname>, it automatically resets the
+                              offset to the earliest offset.</p>
+                        </li>
+                        <li>
+                           <p>
+                              <parmname>latest</parmname>
+                           </p>
+                           <p>If set to <parmname>latest</parmname>, it automatically resets the
+                              offset to the latest offset.</p>
+                        </li>
+                     </ul>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.max.partition.fetch.bytes</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The maximum amount of data per-partition the server returns. If the first
+                        message in the first non-empty partition of the fetch is larger than this
+                        limit, the message is still returned to ensure that the consumer can make
+                        progress. The maximum message size accepted by the broker is defined using
+                           <parmname>message.max.bytes</parmname> (broker configuration) or
+                           <parmname>max.message.bytes</parmname> (topic configuration). See
+                        fetch.max.bytes for limiting the consumer request size.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.session.timeout.ms</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>If no heartbeats are received by the broker before the expiration of this
+                        session timeout, then the broker removes this consumer from the group and
+                        initiates a rebalance.</p>
+                     <p>
+                        <parmname>request.timeout.ms</parmname> has to be greater than
+                           <parmname>session.timeout.ms</parmname> and
+                           <parmname>fetch.max.wait.ms</parmname>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <parmname>kafka.consumer.config.request.timeout.ms</parmname>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter specifies the maximum amount of time the client waits for the
+                        response of a request. If the response is not received before the timeout
+                        elapses, the client resends the request if necessary, or fails the request
+                        if retries are exhausted.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>An example configuration of the <ph keyref=""/> Incident HBase Loader is as
+         follows:</p>
+      <codeblock otherprops="EEAEPP-22314_exclude">hbase.table.name=esr-incident
+hbase.put.size=500
+hbase.time.to.live.in.second=2592000
+hbase.number.of.regions=100
+hbase.max.versions=1
+hbase.batch.loading.interval.in.millisec=5000
+hbase.client.keyvalue.maxsize=0
+hbase.client.retries.number=10
+redis.queue=esr-incident-hbase-loader
+appsuite.name.for.monitoring=esr-incident-hbase-loader-suite
+
+#-----------------------------------------Kafka------------------------------------------------
+
+input.kafka.topic=esr-incident
+input.record.ts=esr_start_timestamp
+kafka.consumer.key.deserializer.java.lang.String=org.apache.kafka.common.serialization.StringDeserializer
+kafka.consumer.value.deserializer.java.lang.String=org.apache.kafka.common.serialization.StringDeserializer
+
+#--Parameters with the kafka.consumer.config prefix are passed to the kafka consumer instance--
+
+kafka.consumer.config.group.id=EsrIncidentHBaseLoader
+kafka.consumer.config.enable.auto.commit=false
+kafka.consumer.config.max.poll.records=500
+kafka.consumer.config.auto.offset.reset=earliest
+kafka.consumer.config.max.partition.fetch.bytes=20485760
+kafka.consumer.config.session.timeout.ms=180000
+kafka.consumer.config.request.timeout.ms=300000</codeblock>
+      <codeblock otherprops="EEAEPP-22314">hbase.table.name=esr-incident
+hbase.put.size=500
+hbase.time.to.live.in.second=2592000
+hbase.number.of.regions=100
+hbase.max.versions=1
+hbase.batch.loading.interval.in.millisec=5000
+hbase.client.keyvalue.maxsize=0
+hbase.client.retries.number=10
+<!--redis.queue=esr-incident-hbase-loader
+-->appsuite.name.for.monitoring=esr-incident-hbase-loader-suite
+
+#-----------------------------------------Kafka------------------------------------------------
+
+input.kafka.topic=esr-incident
+input.record.ts=esr_start_timestamp
+kafka.consumer.key.deserializer.java.lang.String=org.apache.kafka.common.serialization.StringDeserializer
+kafka.consumer.value.deserializer.java.lang.String=org.apache.kafka.common.serialization.StringDeserializer
+
+#--Parameters with the kafka.consumer.config prefix are passed to the kafka consumer instance--
+
+kafka.consumer.config.group.id=EsrIncidentHBaseLoader
+kafka.consumer.config.enable.auto.commit=false
+kafka.consumer.config.max.poll.records=500
+kafka.consumer.config.auto.offset.reset=earliest
+kafka.consumer.config.max.partition.fetch.bytes=20485760
+kafka.consumer.config.session.timeout.ms=180000
+kafka.consumer.config.request.timeout.ms=300000</codeblock>
+      <p>Make sure that in the <filepath>app_custom_parameters.conf</filepath> file, the
+            <parmname>num_containers</parmname> parameter is set according to the dimensioning. For
+         optimal performance, at least one third as many <ph keyref=""/> Incident HBase
+         Loader containers must be running as there are <ph keyref=""/> incident Kafka
+         topic partitions. This has to be applied to large scaled deployments where daily incident
+         rate exceeds a few dozens of millions. The parameter can be fine-tuned according to the
+         requirements of the individual deployment and operation experiences.</p>
+      <section conkeyref="5eba175a874d70ddd08f8640e04016e5/section_HBase_table_conf" id="section_uk4_ykd_hmb">
+         <title/>
+         <p/>
+      </section>
+   </conbody>
+</concept>

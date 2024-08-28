@@ -1,0 +1,96 @@
+<task id="804779e3005e8302c3644c5f92b2dd70" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>
+                              Resolve F5 Synchronization Issues</title>
+   <prolog>
+      <source>ST4 ID: 14109517579</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10083_N10080_N10001">
+         <p>In case of issues with the synchronization of the F5 Load Balancer, follow this
+            procedure.</p>
+      </context>
+      <steps>
+         <step id="step_N1008F_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <userinput>admin</userinput> user to the
+                  F5 BIG-IP GUI.</ph>
+            </cmd>
+         </step>
+         <step id="step_N100A1_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Navigate to <uicontrol>Device Management >
+                     Device Trust</uicontrol> and click on the <uicontrol>Reset Device
+                     Trust</uicontrol> button on both F5 nodes.</ph>
+            </cmd>
+         </step>
+         <step id="step_N100B7_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Select <userinput>Generate New Self-Signed
+                     Authority</userinput> from the <uicontrol>Certificate Signing
+                     Authority</uicontrol> drop-down menu and click the
+                     <uicontrol>Update</uicontrol> button on both F5 nodes.</ph>
+            </cmd>
+            <stepresult>
+               <p>The nodes are set to <ph keyref="non_HA_s"/>.</p>
+            </stepresult>
+         </step>
+         <step id="step_N100D9_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to F5 Node 2, navigate to <uicontrol>Device
+                     Management > Device Trust > Device Trust Members</uicontrol> and click
+                     <uicontrol>+ (ADD)</uicontrol> to provide the IP address of the other F5 node
+                  in the <uicontrol>Device IP Address</uicontrol> field. Also provide the
+                     <uicontrol>Administrator Username</uicontrol> and the <uicontrol>Administrator
+                     Password</uicontrol>.</ph>
+            </cmd>
+         </step>
+         <step id="step_N100FB_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click <uicontrol>Retrieve Device
+                     Information</uicontrol>.</ph>
+            </cmd>
+         </step>
+         <step id="step_N1010D_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click <uicontrol>Device Certificate
+                     Matches</uicontrol> and then <uicontrol>Add Device</uicontrol>.</ph>
+            </cmd>
+            <info>
+               <p>The F5 nodes are now in sync, but not in <userinput>ACTIVE/STBY</userinput>.</p>
+            </info>
+         </step>
+         <step id="step_N1012F_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">To configure the nodes in
+                     <userinput>ACTIVE/STBY</userinput>, navigate to <uicontrol>Device Management
+                     > Device Groups</uicontrol>.</ph>
+            </cmd>
+         </step>
+         <step id="step_N10147_N1008C_N10080_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">If a group called <userinput>failover</userinput>
+                  is present, select that group name and then move the node from the
+                     <uicontrol>Available</uicontrol> list to the <uicontrol>Includes</uicontrol>
+                  list. Click the <uicontrol>Update</uicontrol> button.</ph>
+            </cmd>
+            <info>
+               <p>
+                  <note id="note_N10169_N10166_N10163_N10147_N1008C_N10080_N10001">
+                     <p>Sync type <uicontrol>Manual with full sync</uicontrol> must be used.</p>
+                  </note>
+               </p>
+            </info>
+         </step>
+         <step id="step_N1017A_N1008C_N10080_N10001">
+            <cmd> As nodes are working in <userinput>ACTIVE/STBY</userinput>, synchronize them by
+               following <xref keyref="fac584d38d7dd214f03656f6243f3bdb"/>. </cmd>
+         </step>
+      </steps>
+   </taskbody>
+</task>

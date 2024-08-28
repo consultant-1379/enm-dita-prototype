@@ -1,0 +1,31 @@
+<concept id="2d97e5ac3258f9963659770b03e75e51" xml:lang="en-US">
+    <title>General Cleanup</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>Back up all SSL working files, including the SSL keystore passwords, from the system to a
+            secure storage area.</p>
+        <p>Files to be backed up:</p>
+        <ul id="ul_ibg_kmb_vhb">
+            <li>
+                <p>Keystore files</p>
+            </li>
+            <li>
+                <p>CSR request file</p>
+            </li>
+            <li>
+                <p>CA authority certificate files</p>
+            </li>
+        </ul>
+     </conbody>
+</concept>

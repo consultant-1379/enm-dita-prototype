@@ -1,0 +1,271 @@
+<task id="7e193d6221b74f96ef8e06240c45c01a" xml:lang="en-US">
+    <title>Configure Operator Incidents</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-11-23</change-completed>
+                <change-summary>EEAEPP-48473, New section: Configure Operator Incidents.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-11-27</change-completed>
+                <change-summary>EEAEPP-48473, "network issues" changed to "network anomalies" in the Configure Operator Incidents section.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-12-10</change-completed>
+                <change-summary>EEAEPP-48473, Corrected the ModelsThresholds.properties file contents, and added stop/start commands for Anomaly Fix Threshold in the Configure Operator Incidents section.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-12-18</change-completed>
+                <change-summary>EEAEPP-48473, Command correction, and more details added about editing the configuration file on HDFS in the Configure Operator Incidents section.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zgabkis</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2021-03-01</change-completed>
+                <change-summary>EEAEPP-55979, Configuration example is explained in more detail.</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zgabkis</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-42023</change-request-id>
+                </change-request-reference>
+                <change-completed>2021-03-18</change-completed>
+                <change-summary>EEAEPP-48473, Several commands added to make the process easier to complete.</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10057_N10054_N10001">
+            <p>Operator Incidents indicate network anomalies for specific segments in core, radio
+                and end-user domains based on configurable fix thresholds. The thresholds are set
+                for <option>ruleid</option>s, and anomalies are categorized as Operator Incidents on
+                the <ph keyref=""/> GUI if these thresholds are exceeded. To configure the
+                Operator Incident thresholds:</p>
+        </context>        
+        <steps>
+            <step id="step_N100A9_N100A6_N10092_N10001">
+                <cmd>Stop the Anomaly Fix Threshold application on the <ph keyref=""/>
+                    master <ph keyref=""/> with <option>eea</option> user:</cmd>
+                <info><userinput>arkpkgmgr stop anomaly-fix-threshold</userinput></info>
+            </step>
+            <step id="step_N1006B_N10068_N10054_N10001">
+                <cmd>Copy the <filepath>ModelsThresholds.properties</filepath> file on HDFS from the
+                        <filepath>/eea_config/anomaly-fix-threshold/</filepath> folder into a local
+                    temporary folder by using the following commands and open it for editing:</cmd>
+                <info><userinput>docker exec -u eea mapr hadoop fs -copyToLocal
+                        /eea_config/anomaly-fix-threshold/ModelsThresholds.properties
+                        /home/eea/</userinput></info>
+                <info><userinput>docker cp mapr:/home/eea/ModelsThresholds.properties
+                            <varname>path_within_local_filesystem</varname></userinput></info>
+                <stepresult>
+                    <p>The file includes the following content:</p>
+                    <note id="note_N10081_N1007A_N1006B_N10068_N10054_N10001">
+                        <p>This is only an example. The specific settings might be different. Lines
+                            beginning with <codeph>##</codeph> are comments.</p>
+                        <p>The numbers in the configuration represent the incidents/KPI ratios.</p>
+                    </note>
+                    <codeblock>##############################################################################
+## Common part:
+##############################################################################
+# These are simple keys
+# model: list of all models
+model = SGW,PGW,LTETAC,P-CSCF,eNodeB,gNodeB,Cell,APN,Service_Provider,User_Group,Device_vendor,Device_marketing_name,Model
+#model = SGW,Model,LTETAC
+##############################################################################
+##############################################################################
+## key composition: MODEL_NAME.TYPE.DIMENSION.DETAIL
+## MODEL_NAME: SGW | PGW |LTETAC | P-CSCF | eNodeB | gNodeB | Cell | APN | Service_Provider |User_Group |Device_vendor |Device_marketing_name
+## TYPE: minimum | threshold | include | input | modelbased
+## ----------------------
+## A. TYPE == minimum
+## DIMENSION: incident 
+## DETAIL: default | configured
+## ----------------------
+## B. TYPE == threshold
+## DIMENSION: any model related dimension, MANDATORY to have a list with all possible values in the common part
+## DETAIL: &lt;possible dimension value> | default
+##          the dimension value mentioned here should be in the afford mentioned list as well
+## ----------------------
+## C. TYPE == include
+## DIMENSION: include
+## DETAIL: anomaly
+## These dimensions will be included into anomaly record
+
+##############################################################################
+GLOBAL.default.market.dimension = region3
+##############################################################################
+Device_vendor.input.topic.name = device-vendor-1hour-topic
+Device_vendor.input.threshold.dimension = type
+Device_vendor.modelbased.node.type = device_vendor
+## if model_field == anomaly_field ->  model_field example:  lte_tac
+## if model_field != anomaly_field -> model_field:anomaly_field  example:  time:ts
+Device_vendor.include.anomaly.dimensions = device_vendor:vendor,type:ruleid,start_time:ts,end_time:end_ts
+Device_vendor.minimum.incident.default = 0
+Device_vendor.minimum.incident.configured = 0
+Device_vendor.threshold.ruleid.default = 0
+Device_vendor.threshold.ruleid.TCP_TP_DL_RCA = 0.1
+Device_vendor.threshold.ruleid.WEB_DLTIME_RCA = 0.3</codeblock>
+                </stepresult>
+            </step>
+            <step id="step_N10096_N10068_N10054_N10001">
+                <cmd>Modify only the following lines if needed:</cmd>
+                <info>
+                    <codeblock><varname>modelName</varname>.minimum.incident.default
+<varname>modelName</varname>.minimum.incident.configured
+<varname>modelName</varname>.threshold.ruleid.default
+<varname>modelName</varname>.threshold.ruleid.<varname>ruleid</varname></codeblock>
+                </info>
+                <info>
+                    <p>The file includes the following settings:</p>
+                    <dl>
+                        <dlentry>
+                            <dt>model</dt>
+                            <dd>
+                                <p>A comma-separated list of all possible models. This is a
+                                    predefined list based on Correlator configuration and Aggregator
+                                    output topics.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt>GLOBAL.default.market.dimension</dt>
+                            <dd>
+                                <p>The name of the dimension that splits the market into
+                                    regions.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.input.topic.name</dt>
+                            <dd>
+                                <p>The model topic name sent by the Aggregator.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.input.threshold.dimension</dt>
+                            <dd>
+                                <p>The name of the dimension of the input topic for which the
+                                    threshold is set. This corresponds to the
+                                        <option>ruleid</option> in the output (anomaly) topic.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.include.anomaly.dimensions</dt>
+                            <dd>
+                                <p>The list of input dimensions whose values must be in the output
+                                    topic. The following apply to this parameter:</p>
+                                <p><codeph>IF input_topic_field == output_topic_field ->
+                                        input_topic_field</codeph>. Example:
+                                        <parmname>device_vendor</parmname>.</p>
+                                <p><codeph>IF input_topic_field != output_topic_field ->
+                                        input_topic_field:output_topic_field</codeph>. Example:
+                                        <parmname>time:ts</parmname>.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.minimum.incident.default</dt>
+                            <dd>
+                                <p>The default minimum incident number for which the incident ratio
+                                    is calculated and checked against the threshold.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.minimum.incident.configured</dt>
+                            <dd>
+                                <p>The configured minimum incident number for which the incident
+                                    ratio is calculated and checked against the threshold.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.threshold.ruleid.default</dt>
+                            <dd>
+                                <p>The default threshold value for all <option>ruleid</option>s. If
+                                    there is no threshold set for a <option>ruleid</option>, then
+                                    this value is considered.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                    <dl>
+                        <dlentry>
+                            <dt><varname>modelName</varname>.threshold.ruleid.<varname>ruleid</varname></dt>
+                            <dd>
+                                <p>The threshold value for a specific <option>ruleid</option>. If
+                                    the threshold value is too high, then no anomalies are
+                                    detected.</p>
+                            </dd>
+                        </dlentry>
+                    </dl>
+                </info>
+            </step>
+            <step id="step_N1022C_N100C5_N100B1_N10001">
+                <cmd>Save and close the temporary file, and overwrite the original file with it on
+                    HDFS in the <filepath>/eea_config/anomaly-fix-threshold/</filepath> folder by
+                    using the following commands:</cmd>
+                <info><userinput>chown eea:eea ModelsThresholds.properties</userinput></info>
+                <info><userinput>docker cp
+                            <varname>path_for_edited_ModelsThresholds.properties_within_local_filesystem</varname>
+                        mapr:/home/eea/ModelsThresholds.properties</userinput></info>
+                <info><userinput>docker exec -u eea mapr hadoop fs -copyFromLocal
+                        /home/eea/ModelsThresholds.properties
+                        /eea_config/anomaly-fix-threshold/</userinput></info>
+            </step>
+            <step id="step_N10201_N100A6_N10092_N10001">
+                <cmd>Start the Anomaly Fix Threshold application on the <ph keyref=""/>
+                    master <ph keyref=""/> with <option>eea</option> user:</cmd>
+                <info><userinput>arkpkgmgr start anomaly-fix-threshold</userinput></info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

@@ -1,0 +1,37 @@
+<concept id="7ede2fcaf83aec1705adaa3f31de9fff" xml:lang="en-US">
+    <title>EI GUI Datastore</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-06</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: new section: EI GUI Datastore.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>Use the datastore <ph keyref=""/> PM Data for
+                <option>&lt;sqm_engine_node></option> in <ph keyref=""/> GUI to see
+            the new <ph keyref=""/> PM data in <ph keyref=""/> graphs. For
+            more information about <ph keyref=""/> GUI datastore configuration, see
+                <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#smc1571256988334?title=Presentation%20and%20Exposure%20Layer%20Configuration%20Guide" scope="external">Presentation and Exposure Layer Configuration
+                Guide</xref>.</p>
+    </conbody>
+</concept>

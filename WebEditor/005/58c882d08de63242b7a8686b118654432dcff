@@ -1,0 +1,8 @@
+<referable-content id="206626c214f9b90e5d78fbd9304d8b69" xml:lang="en-US">
+<title>SLI</title>
+<rcbody>
+        <note id="note_SLIDeprecated">
+            <p>SLI is a deprecated feature, and is turned off by default. From <ph keyref=""/> 18.5, SLI is replaced by NSLI.</p>
+        </note>
+    </rcbody>
+</referable-content>

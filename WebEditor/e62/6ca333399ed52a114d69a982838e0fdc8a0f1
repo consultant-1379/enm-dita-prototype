@@ -1,0 +1,15 @@
+<concept id="608d560f6ce753e63056eb4364b9f5b6" xml:lang="en-US">
+   <title>Check Logs</title>
+   <prolog>
+      <source>ST4 ID: 14578469259</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Log files for Impala components are available on the Impala servers at
+            <filepath>/opt/ericsson/eea/log/impala</filepath>.</p>
+   </conbody>
+</concept>

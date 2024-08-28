@@ -1,0 +1,106 @@
+<task id="a4315c494e99578dda6d27ea0893a460" xml:lang="en-US">
+    <title>Handle SQM KI Change</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-06</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: new topic: Handle SQM KI Change.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10058_N10053_N10001">
+            <p><ph keyref=""/>
+                <ph keyref=""/> Loader is impacted when an <ph keyref=""/>
+                KI is changed in a running cluster. In case of KI change in <ph keyref=""/> Engine, proceed with the following manual steps:</p>
+        </context>
+        <steps>
+            <step id="step_N10073_N10070_N10053_N10001">
+                <cmd>Check the <uicontrol>List of Entries</uicontrol> on the <ph keyref=""/> Config Store Editor for the last modified date
+                    related to the <ph keyref=""/> PM files:
+                        <filepath>main.xml</filepath> and <filepath>metadata.xml</filepath>. Use
+                        <option>“sqm”</option> in the search criteria and order by <uicontrol>Last
+                        Modified</uicontrol>:</cmd>
+                <info><p><filepath>https://<varname>&lt;jboss_node></varname>/configstore-editor/#configstoreviewer</filepath></p><fig id="fig_e15_5mh_sjb">
+                        <title>Config Store Editor List of Entries</title>
+                        <image id="image_b3z_lpx_qjb" keyref="d11f094015099cb186dd171770e67cbf">
+                            <alt>EI_ConfigStoreEditorListOfEntries_Scrn_20190924_1</alt>
+                        </image>
+                    </fig><note id="note_N1008A_N1007E_N10073_N10070_N10053_N10001">
+                        <p>The dates can be compared when newer versions of
+                                <filepath>main.xml</filepath> and <filepath>metadata.xml</filepath>
+                            files are available.</p>
+                    </note></info>
+            </step>
+            <step id="step_N10096_N10070_N10053_N10001">
+                <cmd>Proceed with the <ph keyref=""/> Engine KI changes, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*?title=SQM%20Process%20Engine%20System%20Administrator%20Guide" scope="external">SQM Process Engine System Administrator Guide</xref>.</cmd>
+            </step>
+            <step id="step_N100A6_N10070_N10053_N10001">
+                <cmd>Wait for the next run of <ph keyref=""/>
+                    <ph keyref=""/> Loader application. The time when a new KI appears
+                    depends on the <systemoutput>SLIDING_WINDOW_SEC</systemoutput> property, which
+                    is defined in the configuration file of the <ph keyref=""/>
+                    <ph keyref=""/> Loader.</cmd>
+            </step>
+            <step id="step_N100AF_N10070_N10053_N10001">
+                <cmd>Check the <uicontrol>List of Entries</uicontrol> on the <ph keyref=""/> Config Store Editor for the <uicontrol>Last Modified
+                        Date</uicontrol> related to the  <ph keyref=""/> PM files:
+                        <filepath>main.xml</filepath> and <filepath>metadata.xml</filepath>.</cmd>
+                <info><p><filepath>https://<varname>&lt;jboss
+                            node></varname>/configstore-editor/#configstoreviewer</filepath></p><fig id="fig_v23_hvh_sjb">
+                        <title>Config Store Editor List of Entries by Last Modified Date</title>
+                        <image id="image_p15_zpx_qjb" keyref="63c8da66b6a8a8b92bffb6d10deb1044">
+                            <alt>EI_ConfigStoreEditorListOfEntries_Scrn_20190924_2</alt>
+                        </image>
+                    </fig><note id="note_N100BF_N100B3_N100AC_N10070_N10053_N10001">
+                        <p>Make sure new entries with newer versions of
+                                <filepath>main.xml</filepath> and <filepath>metadata.xml</filepath>
+                            files are shown.</p>
+                    </note></info>
+            </step>
+            <step id="step_N100CE_N10070_N10053_N10001">
+                <cmd keyref="">Restart the Impala Loader to identify the <ph keyref=""/> KI changes by running the following command on the
+                        <ph keyref=""/> Master <ph keyref=""/> as <ph keyref=""/> Admin User:</cmd>
+                <info><codeblock>arkpkgmgr restart impala-loader</codeblock><p>The following is an
+                        output example:</p><systemoutput>Stopping appsuite impala-loader Stopping
+                        app impala-loader-2.7 Starting appsuite impala-loader Starting app
+                        impala-loader-2.7</systemoutput><note id="note_N100D9_N100D1_N100CA_N10070_N10053_N10001">
+                        <p>Impala restart may impact other components other than the <ph keyref=""/>
+                            <ph keyref=""/> Loader. For more information, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#jhg1571256804973?title=Expert%20Analytics" scope="external">Expert Analytics</xref>.</p>
+                    </note></info>
+            </step>
+            <step id="step_N100E9_N10070_N10053_N10001">
+                <cmd>Check Impala Catalog to see if the new <ph keyref=""/> table was
+                    created in the <ph keyref=""/> database:</cmd>
+                <info><p><filepath>https://<varname>&lt;impala
+                            node></varname>:25000/catalog</filepath></p><fig id="fig_evl_c23_sjb">
+                        <title>Catalog</title>
+                        <image id="image_vsb_fqx_qjb" keyref="f252f40fe2e8d000a8f4a83eb32e3f63">
+                            <alt>EI_ImpalaCatalog_Scrn_20190924</alt>
+                        </image>
+                    </fig><p>The table name must contain the newer timestamp. For example, the
+                            <option>“sqm_pm_1567436700_5min”</option> table contains the timestamp
+                        equal to “1567436700” in epoch time. Check if the timestamp matches the
+                        Config Store timestamp found in <xref href="#tvj1572874758259/step_N100AF_N10070_N10053_N10001"/>.</p></info>
+            </step>
+        </steps>
+    </taskbody>
+</task>

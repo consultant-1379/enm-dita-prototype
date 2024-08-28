@@ -1,0 +1,115 @@
+<map id="6d302bb70f3fc1d823b326cdda27ba76" xml:lang="en-US">
+   <title>Variable Key Map Node Terminology</title>
+   <keydef keys="GenericNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ProbeNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AdapterNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AdminNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ARKNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AdapterNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AdminNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ARKNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="GenericNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ProbeNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="GUILauncherName">
+      <topicmeta>
+         <keywords>
+            <keyword>Launcher</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AdminNodeName">
+      <topicmeta>
+         <keywords>
+            <keyword>Admin</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ImpalaNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ImpalaNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="SQMNodeTypeUC">
+      <topicmeta>
+         <keywords>
+            <keyword>Node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="SQMNodeTypeLC">
+      <topicmeta>
+         <keywords>
+            <keyword>node</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

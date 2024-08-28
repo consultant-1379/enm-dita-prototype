@@ -1,0 +1,24 @@
+<map id="5bae0669dfab56ea072932a0baa8c1bb" xml:lang="en-US">
+   <title>Variable Key Map SQM</title>
+   <keydef keys="SQM_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>SQM</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="SQM_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Service Quality Manager</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="SQM_dataEngine">
+      <topicmeta>
+         <keywords>
+            <keyword>SQM Process Engine</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

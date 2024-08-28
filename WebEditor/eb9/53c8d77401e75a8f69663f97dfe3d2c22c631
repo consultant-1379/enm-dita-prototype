@@ -1,0 +1,8 @@
+<referable-content id="7bdc8d0e6968dd81201c784bbb38693e" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/Password Policies--><title>Password Policies</title>
+   <rcbody>
+      <p id="st4tb10953409931">
+         <ph keyref="ECM_short"/> provides a default set of password policies. However, customers
+         may change the default password policies to conform to local requirements. The default
+         password policies are:</p>
+   </rcbody>
+</referable-content>

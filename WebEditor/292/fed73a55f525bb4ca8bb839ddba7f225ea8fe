@@ -1,0 +1,128 @@
+<task id="6fd8183fecca333a16228be32c00957c" xml:lang="en-US">
+  <title>Tomcat-server Module SSL Configuration
+and Activation</title>
+  <prolog>
+    <source>3/1543-CSH 109 628</source>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA"/>
+  </prolog>
+  <taskbody>
+    <context id="context_N1002B_N10028_N10001">
+      <note id="note_N1002F_N1002B_N10028_N10001">
+        <p>All commands throughout this subsection need to be run from
+node-1.</p>
+      </note>
+    </context>
+    <steps>
+      <step id="step_N1003C_N10039_N10028_N10001">
+        <cmd>Set keystore for tomcat-server module:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter @TOMCAT_KEYSTORE_FILE@ --value
+            /home/bootloader/ssl/pgexternal_keystore.jks</userinput>
+        </info>
+      </step>
+      <step id="step_N10051_N10039_N10028_N10001">
+        <cmd>Set the keystore password:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter @TOMCAT_KEYSTORE_PASSWORD@ --value
+              <varname>password</varname>
+          </userinput>
+        </info>
+      </step>
+      <step id="step_N10069_N10039_N10028_N10001">
+        <cmd>Set the private alias:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter @AUTHN_PRIVATE_ALIAS@ --value
+            pgexternaloam</userinput>
+        </info>
+      </step>
+      <step id="step_N1007E_N10039_N10028_N10001">
+        <cmd>Set the public alias:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter
+@AUTHN_PUBLIC_ALIAS@ --value pgexternaloam</userinput>
+        </info>
+      </step>
+      <step id="step_N10093_N10039_N10028_N10001">
+        <cmd>Redistribute keystore to all nodes in the cluster:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>sudo -u actadm /opt/dve/bin/bootloaderSync.sh</userinput>
+        </info>
+      </step>
+      <step id="step_N100A8_N10039_N10028_N10001">
+        <cmd>Perform an activation for the configured parameters to
+take effect on all modules on the system, one by one:</cmd>
+        <info>
+          <note id="note_N100AD_N100AA_N100A3_N10039_N10028_N10001">
+            <p>Wait for each node to be activated before starting with the next one, otherwise
+              traffic disturbances occur. The <varname>all</varname> parameter should only be used
+              when no provisioning traffic is running.</p>
+          </note>
+        </info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+          </userinput>
+        </info>
+        <info>
+          <filepath>
+            <varname>&lt;hostname></varname>
+          </filepath> is the hostname
+of the node that is to be activated.</info>
+        <info>
+          <note id="note_N100DA_N100D7_N100A3_N10039_N10028_N10001">
+            <p>Repeat the command for each node in the cluster.</p>
+          </note>
+        </info>
+      </step>
+      <step id="step_N100EB_N10039_N10028_N10001">
+        <cmd>Verify the certificate from an external node:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>openssl s_client -connect <varname>&lt;dname_for_oam></varname>:8383 -showcerts -tls1</userinput>
+        </info>
+        <info>Expected response example:</info>
+        <info>
+          <table colsep="0" frame="none" id="table_N10100_N100FD_N100E2_N10038_N10028_N10001" outputclass="condensed" rowsep="0">
+            <tgroup cols="1">
+              <colspec colname="col1"/>
+              <tbody>
+                <row>
+                  <entry>
+                    <p>
+                      <pre>&lt;CONNECTED(00000003)
+depth=2 /C=US/O=VeriSign, Inc./OU=VeriSign Trust Network/OU=(c) 2006 VeriSign, Inc. - For authorized use only/CN=VeriSign Class 3 Public Primary Certification Authority - G5
+verify error:num=20:unable to get local issuer certificate
+verify return:0
+---
+Certificate chain
+0 s:/C=SE/ST=Stockholm/L=Stockholm/O=Ericsson/OU=IT/CN=eg8-vip-oam.ete.ka.sw.ericsson.se
+   i:/C=US/O=Symantec Corporation/OU=Symantec Trust Network/CN=Symantec Class 3 Secure Server CA - G4
+-----BEGIN CERTIFICATE-----
+MIIGCzCCBPOgAwIBAgIQXEKFiasv3kVZjna6Ms73NjANBgkqhkiG9w0BAQsFADB+
+MQswCQYDVQQGEwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAd
+BgNVBAsTFlN5bWFudGVjIFRydXN0IE5ldHdvcmsxLzAtBgNVBAMTJlN5bWFudGVj
+IENsYXNzIDMgU2VjdXJlIFNlcnZlciBDQSAtIEc0MB4XDTE3MDEwOTAwMDAwMFoX
+DTE4MDExMDIzNTk1OVowgYExCzAJBgNVBAYTAlNFMRIwEAYDVQQIDAlTdG9ja2hv
+bG0xEjAQBgNVBAcMCVN0b2NraG9sbTERMA8GA1UECgwIRXJpY3Nzb24xCzAJBgNV
+
+----------------------------------------------</pre>
+                    </p>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

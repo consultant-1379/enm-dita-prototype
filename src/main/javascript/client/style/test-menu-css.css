@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.sidenav {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  height: 500px;
+  text-decoration: none;
+  font-size: 20px;
+    background-color: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.sidenav:hover {
+  left: 0;
+  background-color: none;
+}
+
+.topnav {
+  position: absolute;
+  top: -40pt;
+  transition: 0.1s;
+  padding: 15px;
+  width: 100%;
+  height: 60pt;
+  text-decoration: none;
+  font-size: 20px;
+  background-color:none;
+  border-radius: 0 5px 5px 0;
+}
+
+.topnav:hover {
+  top: 0;
+  background-color: none;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <button id="a">Prepre</button>
+  <button id="b">Blog</button>
+  <button id="c">Projects</button>
+  <button id="d">Contact</button>
+</div>
+<div class="sidenav">
+  <p id="about">About</p>
+  <p id="blog">Blog</p>
+  <p id="projects">Projects</p>
+  <p id="contact">Contact</p>
+</div>
+
+<div style="margin-left:80px;">
+  <h2>Hoverable Sidenav Buttons</h2>
+  <p>Hover over the buttons in the left side navigation to open them.</p>
+</div>
+   
+</body>
+</html> 

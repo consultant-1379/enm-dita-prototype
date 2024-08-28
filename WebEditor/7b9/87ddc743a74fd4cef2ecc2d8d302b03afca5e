@@ -1,0 +1,14 @@
+<concept id="59b1293cd30903106ef05168618d3e5d" xml:lang="en-US">
+   <title>Impala</title>
+   <prolog>
+      <source>ST4 ID: 14578290187</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Impala is a distributed SQL engine for Hadoop used by <ph keyref=""/>.</p>
+   </conbody>
+</concept>

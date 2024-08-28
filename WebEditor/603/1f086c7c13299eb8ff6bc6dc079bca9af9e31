@@ -1,0 +1,83 @@
+<task id="bc889c6409148a059ff351574f0c7ef3" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Check and Renew Certificates on Standby Nodes</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10034_N10031_N10001">Do the following on nodes two and
+            three:</context>
+        <steps>
+            <step id="step_N101FD_N101F1_N1002E_N10001">
+                <cmd>SSH to other node and stop ESA:</cmd>
+                <info>
+                    <codeblock># 3ppmon stopesa</codeblock>
+                </info>
+            </step>
+            <step id="step_N1020F_N101F1_N1002E_N10001">
+                <cmd>Stop puppet agent service:</cmd>
+                <info>
+                    <codeblock># puppet resource service puppet ensure=stopped</codeblock>
+                </info>
+                <info>
+                    <p>Ensure that the service is stopped:</p>
+                </info>
+                <info>
+                    <codeblock># ps -ef | grep puppet</codeblock>
+                </info>
+            </step>
+            <step id="step_N10232_N101F1_N1002E_N10001">
+                <cmd>Delete existing puppet agent certificates:</cmd>
+                <info>
+                    <codeblock># sudo rm -r /etc/puppetlabs/puppet/ssl/*</codeblock>
+                </info>
+            </step>
+            <step id="step_N10244_N101F1_N1002E_N10001">
+                <cmd>Start ESA:</cmd>
+                <info>
+                    <codeblock># 3ppmon startesa</codeblock>
+                </info>
+            </step>
+            <step id="step_N10256_N101F1_N1002E_N10001">
+                <cmd>When the puppet agent is up, it fetches the new certificates from master. The
+                    new certificates appears at the /etc/puppetlabs/puppet/ssl/ location.</cmd>
+            </step>
+            <step id="step_N1025F_N101F1_N1002E_N10001">
+                <cmd>Verify that the renewed CA and puppet agent certificates are renewed with
+                    20-year expiry date:</cmd>
+                <info>
+                    <codeblock># cd /etc/puppetlabs/puppet/ssl/certs</codeblock>
+                </info>
+                <info>
+                    <codeblock># openssl x509 -in ca.pem -text -noout</codeblock>
+                </info>
+                <info>
+                    <codeblock># openssl x509 -in &lt;hostname>.pem -text -noout</codeblock>
+                </info>
+                <stepresult>
+                    <p>All certificates are now valid for the next 20 years.</p>
+                </stepresult>
+            </step>
+            <step id="step_N1028B_N101F1_N1002E_N10001">
+                <cmd>Ensure that the puppet agent is working fine:</cmd>
+                <info>
+                    <codeblock># sudo service puppet status</codeblock>
+                </info>
+                <info>
+                    <codeblock># puppet agent --test</codeblock>
+                </info>
+                <info>
+                    <codeblock># 3ppmon status</codeblock>
+                </info>
+            </step>
+        </steps>
+    </taskbody>
+</task>

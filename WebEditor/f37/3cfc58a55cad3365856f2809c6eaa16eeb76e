@@ -1,0 +1,104 @@
+<referable-content id="3d80e099b99c27280802cc6c385d4b80" xml:lang="en-US">
+<title>Failed to Unlock Cells Ref Con</title>
+<rcbody>
+        <table id="table_cqm_mjj_mz">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">Alarm Attributes</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>ERROR_MESSAGE</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Node integration error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Causes</p>
+                        </entry>
+                        <entry>
+                            <ul>
+                                <li>
+                                    <p>Error setting <parmname>administrativeState</parmname> to
+                                        UNLOCKED on the <parmname>&lt;EUtranCell FDN></parmname>
+                                        cell </p>
+                                </li>
+                                <li>
+                                    <p>Error setting <parmname>rbsConfigLevel</parmname> for
+                                            <parmname>&lt;RbsConfiguration FDN></parmname> to
+                                            <parmname>&lt;value></parmname></p>
+                                </li>
+                                <li>
+                                    <p>Error retrieving MOs for <parmname>&lt;EUtranCell
+                                            FDN></parmname> and <parmname>&lt;NbIotCell
+                                            FDN></parmname></p>
+                                </li>
+                            </ul>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Failed to Unlock Cells</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>EUtranCell, NbIotCell, or RbsConfiguration</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Auto Provisioning</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateless</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

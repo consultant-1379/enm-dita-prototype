@@ -1,0 +1,29 @@
+<concept id="a075c8d4def2da92d92e5bd0139afc6c" xml:lang="en-US">
+   <title>Interactive Queries</title>
+   <prolog>
+      <source>ST4 ID: 14578481803</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The Impala shell tool can be used to open interactive sessions with Impala servers for ad hoc queries and exploration.</p>
+      <note id="note_N1002F_N10028_N10001">
+         <p>Execute the following commands on the Impala <ph keyref=""/>.</p>
+      </note>
+      <ul id="ul_af5_r2y_1lb">
+         <li>
+            <p>To connect to an Impala server with the Impala shell:</p>
+            <p><userinput>docker exec -it impala-server impala-shell -i localhost</userinput></p>
+         </li>
+         <li>
+            <p>To execute an ad hoc query on an Impala server with the Impala shell:</p>
+            <p><userinput>docker exec -it impala-server impala-shell -i localhost -q
+                  "${query}"</userinput></p>
+         </li>
+      </ul>
+      <p>The Impala shell accepts SQL statements listed in the <xref format="html" href="https://www.cloudera.com/documentation/enterprise/5-9-x/topics/impala_langref_sql.html#langref_sql" scope="external">Impala SQL Statements</xref> in Cloudera.</p>
+   </conbody>
+</concept>

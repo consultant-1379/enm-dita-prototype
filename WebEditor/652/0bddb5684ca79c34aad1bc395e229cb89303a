@@ -1,0 +1,15 @@
+<concept id="6be5d2884ac05164433c78e599abcc0e" xml:lang="en-US">
+   <title>Enter Kafka Container</title>
+   <prolog>
+      <source>ST4 ID: 10135259403</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>To enter the Kafka container, execute the following command on a Kafka node:</p>
+      <codeblock>docker exec -it kafka bash</codeblock>
+   </conbody>
+</concept>

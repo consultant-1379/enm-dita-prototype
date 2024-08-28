@@ -1,0 +1,32 @@
+<concept id="e5e2b27a95a926c3d76f0f4b67313784" xml:lang="en-US">
+   <title>Partition Maintenance</title>
+   <prolog>
+      <source>ST4 ID: 8546048267</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Use the <apiname>partition_maint</apiname> script to create the tables, as well as to add and drop partitions. Based on the information loaded into the <apiname>partition_dict</apiname> table, the script creates the table if it does not exist and creates any needed partitions such that there are enough partitions for at least the amount of time specified by the field <apiname>partition_dict.partitions_days_ahead</apiname>. It also drops partitions that are older than the specified retention period for the table. An option is provided to copy the contents of a partition to an archive directory before it is dropped. File names will be of the form <apiname>&lt;schema>_&lt;table_name>_&lt;partition_timestamp>.dat</apiname>.</p>
+      <p>Initially, this script creates many partitions for each table, so that it is ahead of the current day. Later, this script must run by using cron once per day so that it simply adds and drops just a few partitions.</p>
+      <p>The usage of this script is as follows:</p>
+      <note id="note_N10047_N10028_N10001">
+         <p>This command must be executed either as <option>root</option> or
+               <option>postgres</option> user.</p>
+      </note>
+      <codeblock otherprops="relSC">partition_maint [-h] [-a | -t &lt;table_name> ] [-p &lt;db_pass>] [-c &lt;arch_dir>] [ -r ]
+</codeblock>
+      <p>where:</p>
+      <codeblock>  -h                      - Help. This message.
+  -a                      - Process all tables.
+  -t &lt;table_name>         - Process specified table.
+  -p &lt;db_pass>            - Database password.
+  -r                      - Load/reload the partition partition_dict table
+  -c &lt;arch_dir>           - Copy data to archive directory before dropping the partition.</codeblock>
+      <p>The <apiname>partition_maint</apiname> script runs through crontab by default to constantly
+         maintain the appropriate number of partitions.  </p>
+      <p>After the table has been created, you can modify the partition size by updating the <apiname>partition_size</apiname> column of the <apiname>partition_dict</apiname> table. The new sizes will take effect the next time the <apiname>partition_dict</apiname> creates new partitions.</p>
+   </conbody>
+</concept>

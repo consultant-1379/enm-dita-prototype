@@ -1,0 +1,138 @@
+<task id="2e614913b765b58666686858a2236d9b" xml:lang="en-US">
+    <title>Configure <ph keyref=""/>
+        <ph keyref=""/> Loader</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-04</change-completed>
+                <change-summary>EEAEPP-29996, change: Topic created: Configure SQM EI Loader, input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id/>
+                </change-request-reference>
+                <change-completed>2020-06-17</change-completed>
+                <change-summary>EEAEPP-44180, Added MAX_SLIDING_WINDOW_HOUR and a detailed description of the sliding window concept in the Configure SQM EI Loader section.</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10058_N10053_N10001">
+            <p>To check if the property file exists and that the properties are set correctly:</p>
+        </context>
+        <steps-unordered>
+            <step id="step_N10064_N10061_N10053_N10001">
+                <cmd>Run the following command as <option>admin</option> user on the <ph keyref=""/> Master <ph keyref=""/>:</cmd>
+                <info>
+                    <codeblock>docker exec -it mapr hadoop fs -cat /eea_config/sqm_ei_loader/sqm_ei_loader.properties</codeblock>
+                </info>
+            </step>
+        </steps-unordered>
+        <example id="example_N10071_N10053_N10001"><title>Output</title><codeblock>SQM_INSTANCE_NAME=eeaesxisoa030
+IMPALA_LOADER_TRIGGER_ZK_NODE=/sqm/sqm_pm
+SLIDING_WINDOW_SEC=0</codeblock><p>The
+                output can include the following properties:</p><dl>
+                <dlentry>
+                    <dt><systemoutput>SQM_INSTANCE_NAME</systemoutput></dt>
+                    <dd>
+                        <p>The <ph keyref=""/> name for the <ph keyref=""/>
+                            input parquet files.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><systemoutput>IMPALA_LOADER_TRIGGER_ZK_NODE</systemoutput></dt>
+                    <dd>
+                        <p>The prefix in ZooKeeper that the <ph keyref=""/>
+                            <ph keyref=""/> Loader uses to notify Impala Loader about
+                            the newly generated partition.</p>
+                        <p>Default value: <parmname>/sqm/sqm_pm</parmname></p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><systemoutput>SLIDING_WINDOW_SEC</systemoutput></dt>
+                    <dd>
+                        <p>Defines the sliding window for <ph keyref=""/>
+                            <ph keyref=""/> Loader to get <ph keyref=""/>
+                            data (adaptation to delay in the
+                                    <filepath>/sqm/<varname>sqm_instance</varname>/pd/enriched/</filepath>
+                            folder. It must be configured after installation or upgrade.</p>
+                        <p>Default value: <parmname>0</parmname></p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><systemoutput>MAX_SLIDING_WINDOW_HOUR</systemoutput></dt>
+                    <dd>
+                        <p>The maximum difference between the application startup time (minus
+                                <systemoutput>SLIDING_WINDOW_SEC</systemoutput> and interval) and
+                            the last successfully processed timestamp in ZooKeeper.<note id="note_N10132_N1012B_N10128_N1011F_N100B4_N100A7_N10079_N10001">
+                                <p>If this property is absent in the property file, the default
+                                    value of <parmname>1</parmname> (hour) is used.</p>
+                            </note></p>
+                    </dd>
+                </dlentry>
+            </dl><p>The meaning of the <systemoutput>SLIDING_WINDOW_SEC</systemoutput> and
+                    <systemoutput>MAX_SLIDING_WINDOW_HOUR</systemoutput> is illustrated by the
+                following figure:</p><fig id="fig_z2z_421_bmb">
+                <title><ph keyref=""/>
+                    <ph keyref=""/> Loader Sliding Window</title>
+                <image id="image_xby_n21_bmb" keyref="ec7f00d22155d6476541276b207ed968">
+                    <alt>SQM_EILoaderSlidingWindow_Proc_20200617</alt>
+                </image>
+            </fig><p>The different parts of the figure are the following:</p><dl>
+                <dlentry>
+                    <dt>x<sub>n</sub></dt>
+                    <dd>
+                        <p>The latest available bucket (that has at least one parquet file) to
+                            process from the
+                                <filepath>/sqm/<varname>sqm_instance</varname>/pd/enriched/</filepath>
+                            folder.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt>x<sub>maxLastTs</sub></dt>
+                    <dd>
+                        <p>The oldest bucket to process from the
+                                    <filepath>/sqm/<varname>sqm_instance</varname>/pd/enriched/</filepath>
+                            folder.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt>x<sub>0</sub>`</dt>
+                    <dd>
+                        <p>Let <equation-inline>x<sub>0</sub>` = [x<sub>maxLastTs</sub>;
+                                    x<sub>n</sub>]</equation-inline></p>
+                        <p>x<sub>lastTs</sub> is the last successfully processed bucket, which is
+                            located on the ZooKeeper <ph keyref=""/> in the
+                                    <filepath>/sqm/sqm_pm/<varname>interval</varname></filepath>,
+                            where <equation-inline>&lt;interval> = (fivemin | fifteenmin |
+                                onehour)</equation-inline>.</p>
+                        <p><equation-inline>x<sub>0</sub> = IF (x<sub>lastTs</sub> ≥
+                                    x<sub>maxLastTs</sub>) THEN x<sub>lastTs</sub> + interval ELSE
+                                    x<sub>maxLastTs</sub></equation-inline></p>
+                    </dd>
+                </dlentry>
+            </dl><p>In summary, <ph keyref=""/>
+                <ph keyref=""/> Loader defines buckets to process per run as
+                follows:</p><equation-inline>buckets = [x<sub>0</sub>;
+                x<sub>n</sub>]</equation-inline></example>
+    </taskbody>
+</task>

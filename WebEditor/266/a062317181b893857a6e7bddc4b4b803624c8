@@ -1,0 +1,131 @@
+<referable-content id="3f1f25e37b1c7cb504e5bad50296cd9e" xml:lang="en-US">
+<title>Neo4j file system usage is above recommended threshold
+</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_cyc_vpy_dhb" outputclass="condensed" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Processing Error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>Storage Capacity Problem</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j file system usage is above recommended threshold</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_x5h_h4p_q3b">
+                                    <li>
+                                        <p>MINOR</p>
+                                    </li>
+                                    <li>
+                                        <p>MAJOR</p>
+                                    </li>
+                                    <li>
+                                        <p>CRITICAL</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_czt_4wr_wjb">
+                                    <li>
+                                        <p>Neo4j database directory (&lt;directory>) has &lt;used
+                                            file system percentage> percent space used, only
+                                            &lt;available file system size> is available. Your usage
+                                            is high and will soon be at a critical level. Ensure
+                                            there are no thread dumps dumps or unexpected tar files
+                                            on your Neo4j File System.</p>
+                                    </li>
+                                    <li>
+                                        <p>Neo4j database directory (&lt;directory>) has &lt;used
+                                            file system percentage> percent space used, only
+                                            &lt;available file system size> is available. Your
+                                            database space usage is excessive and not supported;
+                                            some Neo4j use cases are restricted. </p>
+                                    </li>
+                                    <li>
+                                        <p>Neo4j database directory (&lt;directory>) has &lt;used
+                                            file system percentage> percent space used, only
+                                            &lt;available file system size> is available. Your usage
+                                            is excessive and not supported; Neo4j is now not
+                                            supporting any write activity on the database and is
+                                            read only.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

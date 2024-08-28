@@ -1,0 +1,41 @@
+<concept id="d6c1afc16e9b06066b2aa0eef7e9cac5" xml:lang="en-US">
+   <title>ESR HBase Bulkloader Monitoring</title>
+   <prolog>
+      <source>ST4 ID: 16342808971</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <section id="section_N1002B_N10028_N10001">
+                                 <title outputclass="st4mig_titled-block-title">Monitoring Library</title>
+                                 <p>The ESR Bulkloader sends metrics to a monitoring library, which is installed with the <apiname>esr-hbase-bulkloader</apiname> appsuite.</p>
+                                 <p>The monitoring library flushes the collected monitoring information to Kafka periodically. The flushing period can be configured (60 seconds by default). A Kafka topic, named <apiname>esr-hbase-bulkloader-monitoring</apiname>, is created automatically if it does not exist yet.</p>
+                                 <p>The monitoring library can be configured by editing the <apiname>application.properties</apiname> configuration file. If the file does not exist yet, a new one can be created.</p>
+                                 <p>Currently supported properties are as follows:</p>
+                                 <codeblock>disable.metric.flushing=true
+metric.flush.period.sec=60
+flush.metrics.continuously=false
+kafka.topic.replication=3
+</codeblock>
+                                 <note id="note_N10056_N1002B_N10028_N10001">
+                                    <p>Having an <apiname>application.properties</apiname> file is not mandatory. The library can be used without one.</p>
+                                 </note>
+                                 <p>From the Kafka topic, the Metrics Collector application reads and processes the information, then transfers it to Zabbix.</p>
+                                 <p>The monitoring information of the ESR HBase Bulkloader can be found on the Zabbix charts.</p>
+                                 <p>The values of the metrics are aggregated by the Metrics
+            Collector application. The default aggregation interval is 60 seconds. For the
+            configuration details, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#vpi1571256935045?title=Processing%20Layer%20Configuration%20Guide" scope="external">Metrics Collector</xref>.</p>
+                                 <p>The aggregated data contains the timestamp of the aggregation, which helps the user decide if it is useful or obsolete.</p>
+                              </section>
+      <section id="section_N1007A_N10028_N10001">
+                                 <title outputclass="st4mig_titled-block-title">Logging</title>
+                                 <p>Non-aggregated monitoring information is also logged by the monitoring library, which uses slf4j framework.</p>
+                                 <p>By default, when an application is installed and started on an <ph keyref=""/> cluster, there is a <apiname>monitor.log</apiname> file. This file contains all information about the monitor, for example, initialization-related entries, flush operations, warnings for already registered metrics, and so on.</p>
+                                 <p>To configure the attributes of the <apiname>monitor.log file</apiname>, edit the <apiname>log4j_monlib.properties</apiname> configuration file.</p>
+                                 <p>The library log level can also be modified in the <apiname>log4j_monlib.properties</apiname> configuration file, by changing the <apiname>INFO</apiname> level to <apiname>DEBUG</apiname>.</p>
+                              </section>
+   </conbody>
+</concept>

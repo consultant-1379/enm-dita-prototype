@@ -1,0 +1,113 @@
+<concept id="42893089e5fdfd7b8a191fde9adb7b25" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for JDK Keystores (<ph keyref="ecaProductName"/>)</title>
+   <prolog>
+      <source>ST4 ID: 13577139339</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>The keystores included with the <ph keyref="ecaProductname_s"/> Oracle JDK have default
+         passwords, which can be set differently for various components as described below.</p>
+      <p>
+                              <ph importance="normal">Considerations</ph>
+                           </p>
+      <p>Note the following considerations:</p>
+      <ul>
+         <li>
+                                 <p>Changing this password does not require system downtime.</p>
+                              </li>
+         <li>
+                                 <p>If you change any password in an <ph keyref="HA_s"/>
+               environment, be sure to repeat the same change procedure on the corresponding VM on
+               the second node in the <ph keyref="HA_s"/> cluster.</p>
+                              </li>
+         <li>
+                                 <p>For geo-redundant deployments, you must change these passwords on both the active site (Site A) and the standby site (Site B).</p>
+                              </li>
+         <li>
+                                 <p>Allowable special characters for this ID are: <ph keyref="passwordCharacterSet_F"/>
+            </p>
+                              </li>
+      </ul>
+      <p>
+                              <ph importance="normal">JDK Keystore Password (<ph keyref="CoreVM"/>s)</ph>
+                           </p>
+      <p>To change the JDK keystore password for the <ph keyref="CoreVM"/>s:</p>
+      <ol>
+                              <li>
+                                 <p>Log on to the <ph keyref="CoreVM"/> 1 as <option keyref="loginID"/> , then execute the following command:</p><p>
+
+                                    <userinput>sudo -s</userinput>
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Update the keystore password by running the command:</p>
+                                 <codeblock>keytool -storepasswd -keystore /usr/java/latest/jre/lib/security/cacerts 
+-storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+                              </li>
+                              <li>
+                                 <p>Update <filepath>/opt/sentilla/share/scripts/import_openstack_cert.py</filepath> by opening it for editing and replace the two occurrences of the following parameter with the value for the new password:</p><p>
+
+                                    <userinput>"-storepass", "<varname>&lt;oldPassword></varname>"</userinput>
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Repeat this procedure for the <ph keyref="CoreVM"/> 2.</p>
+                              </li>
+                           </ol>
+      <p>
+         <ph importance="normal">JDK Keystore Password (</ph><ph keyref="ECACassandraVM"/><ph importance="normal">s)</ph>
+      </p>
+      <p>To change the JDK keystore password for the <ph keyref="ECACassandraVM"/>s:</p>
+      <ol>
+                              <li>
+                                 <p>Log on to the VM as <option keyref="loginID"/>, then execute the
+               following command:</p><p>
+
+                                    <userinput>sudo -s</userinput>
+                                 </p>
+                              </li>
+                              <li>
+                                 <p>Update the keystore password by running the command:</p>
+                                 <codeblock>keytool -storepasswd -keystore /usr/java/latest/jre/lib/security/cacerts
+ -storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+                              </li>
+                           </ol>
+      <p>
+                              <ph importance="normal">JDK Keystore Password (Collection Docker Containers)</ph>
+                           </p>
+      <p>To change the JDK keystore password for Docker containers on the Collection nodes:</p>
+      <note id="note_N101DA_N100F4_N10001">
+                              <p>This step is not applicable for <ph keyref="non_HA_s"/>
+            deployments.</p>
+                           </note>
+      <ol>
+                              <li>
+                                 <p>Log on to the Collection VM 1 as
+               <userinput>root</userinput>.</p>
+                              </li>
+                              <li>
+                                 <p>Update the keystore for collector 1 by running the command:</p>
+                                 <codeblock>keytool -storepasswd -keystore /root/ca_collection/collection1/configuration/cacerts -storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+                              </li>
+                              <li>
+                                 <p>Update the keystore for collector 2 by running the command:</p>
+                                 <codeblock>keytool -storepasswd -keystore /root/ca_collection/collection2/configuration/cacerts -storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+                              </li>
+                              <li>
+                                 <p>Repeat steps 2 and 3 for Collection VM 2.</p>
+                              </li>
+                           </ol>
+      <p>
+         <ph importance="normal">Note for </ph><ph keyref="HA_s"/><ph importance="normal">
+            Users</ph>
+      </p>
+      <p>If you change any password in an <ph keyref="HA_s"/> environment, be sure to repeat the
+         same change procedure on the corresponding VM on the second node in the <ph keyref="HA_s"/>
+         cluster.</p>
+   </conbody>
+</concept>

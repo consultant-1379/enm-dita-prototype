@@ -1,0 +1,94 @@
+<referable-content id="4359a9a826e72858e71d1284d2ec007d" xml:lang="en-US">
+<title>STOLEN_HARDWARE_USED Ref Con</title>
+<rcbody>
+        <p id="p_N10011_N1000E_N10001">
+            <table colsep="1" frame="all" id="table_ons_yb3_jkb" rowsep="1">
+                <tgroup cols="2">
+                    <colspec colname="col1" colnum="1" colwidth="1*"/>
+                    <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                    <thead>
+                        <row>
+                            <entry nameend="col2" namest="col1">
+                                <p>Alarm Attributes</p>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <p>Record Type</p>
+                            </entry>
+                            <entry>
+                                <p>ERROR_MESSAGE</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Event Type</p>
+                            </entry>
+                            <entry>
+                                <p>equipmentAlarm</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Probable cause</p>
+                            </entry>
+                            <entry>
+                                <p>equipmentMalfunction</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Specific Problem</p>
+                            </entry>
+                            <entry>
+                                <p>STOLEN_HARDWARE_USED</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Severity</p>
+                            </entry>
+                            <entry>
+                                <p>MAJOR</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Managed Object Class</p>
+                            </entry>
+                            <entry>
+                                <p>HwItem</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Problem Text</p>
+                            </entry>
+                            <entry>
+                                <p>Hardware Item - "&lt;HARDWARE_ITEM_FDN>" with Serial Number
+                                    "&lt;SERIAL_NO>" reported as stolen was found on Node -
+                                    &lt;NODE_NAME>.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Technical Area</entry>
+                            <entry>
+                                <p>SHM</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p>Stateful /Stateless</p>
+                            </entry>
+                            <entry>
+                                <p>Stateless</p>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </p>
+    </rcbody>
+</referable-content>

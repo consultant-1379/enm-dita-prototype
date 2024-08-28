@@ -1,0 +1,18 @@
+<concept id="eb598d8176e4df2c31ecad93172f2d92" xml:lang="en-US">
+   <title>Security Logging</title>
+   <prolog>
+      <source>ST4 ID: 16343883275</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The security logging functionality is used in <ph keyref=""/> Web Services that
+         interact with sensitive data. It logs the instances when users access any resource of one
+         of the web services. It also logs which piece of data they wanted to access and when (the
+         timestamp of the data). For more information, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#qea1571257023091?title=Security%20User%20Guide" scope="external">Security Logging</xref> section in the Security and Privacy User
+         Guide.</p>
+   </conbody>
+</concept>

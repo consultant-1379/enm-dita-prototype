@@ -1,0 +1,76 @@
+<task id="109f1ec2f51f271c6920bfd537fbd98d" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for TOSCA-O Schema ID: toscao</title><prolog><source>ST4 ID: 13577148555</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_N100F3_N100F0_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <filepath>toscao</filepath> ID is the owner of the TOSCA-O schema in <ph keyref="edbDatabase"/>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul><li>
+               <p>Allowable special characters for this ID are: <ph keyref="passwordCharacterSet_B"/>
+               </p>
+            </li><li>
+               <p>For the <ph keyref="GR_s"/> deployments, repeat all these procedures on the
+                  standby site.</p>
+            </li></ul>
+      </context><steps><step id="step_N1017E_N10165_N100F0_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on as <option keyref="loginID"/> to the
+                  </ph><ph keyref="CoreVM"/>. </cmd>
+            <info/>
+         </step><step id="step_N101B0_N10165_N100F0_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command:</ph>
+            </cmd><info>
+               <codeblock>
+ sudo /app/ecm/tools/envs/change_toscao_password.sh --password '&lt;New_Password>'
+</codeblock>
+            </info></step><step id="step_N10138_N100F5_N100A5_N10001x"><cmd>
+               <ph>Enter the password <option>enterprisedb</option> user.</ph></cmd></step><step id="step_N10138_N100F5_N100A5_N10001">
+            <cmd>
+               <ph>Restart <ph keyref="TOSCA_O_s"/>:</ph></cmd>
+            <info>
+               <p>
+                  <codeblock>sudo systemctl restart toscao</codeblock>
+               </p>
+            </info>
+         </step><step id="step_N1014D_N100F5_N100A5_N10001">
+            <cmd>
+               <ph>Check the status of </ph><ph keyref="TOSCA_O_s"/><ph>, then execute the following
+                  command:</ph></cmd>
+            <info>
+               <p>
+                  <codeblock>sudo systemctl status toscao</codeblock>
+               </p>
+               <p>Result:</p>
+               <p>
+                  <codeblock>● toscao.service - Ericsson TOSCA Orchestration
+Loaded: loaded (/usr/lib/systemd/system/toscao.service; disabled; vendor preset: disabled)
+Active: active (exited) since Thu 2019-04-01 10:10:00 UTC; 60s ago
+Process: 454 ExecStop=/app/ecm/toscao-svc/toscao.py stop (code=exited, status=0/SUCCESS)
+Process: 4877 ExecStart=/app/ecm/toscao-svc/toscao.py start (code=exited, status=0/SUCCESS)
+Main PID: 4877 (code=exited, status=0/SUCCESS)</codeblock>
+               </p>
+            </info>
+         </step><step id="step_N1016F_N100F5_N100A5_N10001">
+            <cmd>
+               <ph>For an <ph keyref="HA_s"/> deployment, log in as <option keyref="loginID"/> to the secondary <ph keyref="CoreVM"/>.</ph></cmd>
+         </step><step id="step_N10180_N100F5_N100A5_N10001"><cmd>
+               <ph>Execute the following command:</ph></cmd><info>
+               <p>
+                  <codeblock>sudo /app/ecm/tools/envs/change_toscao_password.sh --config-only --password '&lt;New_Password>'</codeblock>
+               </p>
+            </info></step><step id="step_N10195_N100F5_N100A5_N10001">
+            <cmd>
+               <ph>Restart </ph><ph keyref="TOSCA_O_s"/><ph>:</ph></cmd>
+            <info>
+               <p>
+                  <codeblock>sudo systemctl restart toscao</codeblock>
+               </p>
+            </info>
+         </step><step id="step_N101AA_N100F5_N100A5_N10001">
+            <cmd>
+               <ph>Check the status of </ph><ph keyref="TOSCA_O_s"/><ph>, then execute the following
+                  command:</ph></cmd>
+            <info>
+               <p>
+                  <codeblock>sudo systemctl status toscao</codeblock>
+               </p>
+            </info>
+         </step></steps></taskbody></task>

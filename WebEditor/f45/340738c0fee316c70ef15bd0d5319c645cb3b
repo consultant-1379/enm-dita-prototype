@@ -1,0 +1,17 @@
+<concept id="0b0bc011a7a6bbfd366aa6abb8efdb60" xml:lang="en-US">
+   <title>Typographic Conventions</title>
+   <prolog>
+      <source>ST4 ID: 5125139083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>For information about the different typographic conventions, see <cite>Typographic
+            Conventions</cite> in <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Customer_Product_Information_Overview"/>.</p>
+      <p>For information about abbreviations and terms used throughout this document, see <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Glossary_of_Terms_and_Acronyms"/>.</p>
+   </conbody>
+</concept>

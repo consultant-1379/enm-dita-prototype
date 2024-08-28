@@ -1,0 +1,5 @@
+<referable-content id="c2e73278f2e4b5388f80e3cb8c3e92b4" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Schema ID - Process Engine - Change Pwd</title>
+   <rcbody>
+      <note id="tb12438324619" type="note">There are two (2) instances of the <filepath>username</filepath> attribute. It is imperative that the <filepath>password</filepath> for both instances of the <filepath>username</filepath> is changed. The changed <filepath>password</filepath> must be identical for both <filepath>username</filepath> attributes.</note>
+   </rcbody>
+</referable-content>

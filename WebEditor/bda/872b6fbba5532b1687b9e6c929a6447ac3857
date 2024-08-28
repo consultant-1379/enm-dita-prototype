@@ -1,0 +1,17 @@
+<concept id="0db69d7acbcace1061d76319739b89d1" xml:lang="en-US">
+   <title>Adapter</title>
+   <prolog>
+      <source>ST4 ID: 16331187339</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>This section describes the configuration of the Adapter component.</p>
+      <p>Adapters are used between network data sources and the Event Stream Cache. Their purpose is to do data format changes, data enrichment and filtering. Adapter components can be set up in single or multi-<ph keyref=""/> configuration. The multi-<ph keyref=""/> setup provides high availability to some extent.</p>
+      <p>For more information on the Adapters, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#ttw1571256801541?title=Expert%20Analytics" scope="external">Adapters</xref>.</p>
+   </conbody>
+</concept>

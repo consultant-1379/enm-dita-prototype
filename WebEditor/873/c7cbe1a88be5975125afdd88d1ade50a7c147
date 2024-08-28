@@ -1,0 +1,166 @@
+<task id="23644b4f8a3fe59c56cf6b5a494b5482" xml:lang="en-US">
+   <title>Apply Changes for Service Alert Loader</title>
+   <prolog>
+      <source>ST4 ID: 16343228171</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      
+      <change-historylist>
+         <change-item>
+            <change-person>ZFUZTAM</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX92098</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-11-08</change-completed>
+            <change-summary>EEAEPP-32967, Extended topic with input from EGBOBDI, input: 20191014</change-summary>
+            <data>platform wheel group, two notes, SAL stop and start commands, jboss cluster restart</data>
+         </change-item>
+         
+         
+         <change-item>
+            <change-person>ztthrtx</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX92098</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-11-18</change-completed>
+            <change-summary>EEAEPP-32967, clarified procedure with input from: EJANRLT; EZVARKA; ERBEMUL</change-summary>
+            <data>removed jboss cluster restart; restructured end of procedure; more info about schema change</data>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-37576</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-06-02</change-completed>
+            <change-summary>EEAEPP-43974 - tableName parameter removed from Service Alert Loader.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-06-03</change-completed>
+            <change-summary>EEAEPP-43148 - tableName-related steps removed.</change-summary>
+            <data/>
+         </change-item>
+         
+         
+      </change-historylist>
+      
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                                 <context id="context_N1002B_N10028_N10001">
+                                    <p>Perform the following procedure after making changes to the schema or certain parameters to apply them:</p>
+                                    <note id="note_N10033_N1002B_N10028_N10001">
+                                       <p>This procedure requires
+               <option>eea_platform_wheel</option>
+               privileges.</p>
+                                    </note>
+                                 </context>
+                                 <steps>
+         <step id="step_N10040_N1003D_N10028_N10001">
+            <cmd> Stop the Service Alert Loader and the Impala Loader applications, by executing the
+               following commands on the ARK Master node, with a user from the
+                  <option>eea_platform_wheel</option> user group:</cmd>
+            
+            <info>
+               <codeblock>arkpkgmgr stop service-alert-loader</codeblock>
+            </info>
+            
+            <info>
+               <codeblock>arkpkgmgr stop impala-loader</codeblock>
+            </info>
+         </step>
+         <stepsection outputclass="st4mig_bridge">
+            <p>
+               <ph importance="normal">If the schema was changed:</ph>
+            </p>
+            
+            <note id="note_N100E3_N100D4_N1006F_N10050_N10001">
+               <p>A schema change is triggered by changing the enrichment parameters in the
+                  Correlator
+                  configuration.
+                  The schema is created based on the enrichment settings with a different schema
+                  name for enriched data and not enriched
+                  data.</p>
+            </note>
+            
+         </stepsection>
+         <step id="step_N10096_N1003D_N10028_N10001">
+            <cmd>Change the <parmname>outputPath</parmname> parameter in
+                  <filepath>service-alert-loader.properties</filepath> accordingly.</cmd>
+            
+            <info>
+               <p>Set a different output folder for each schema.</p>
+            </info>
+            
+         </step>
+         <step id="step_N100AC_N1003D_N10028_N10001" otherprops="EEAEPP-37576_exclude">
+            <cmd>Change the <parmname>tableName</parmname> parameter in
+                  <filepath>service-alert-loader.properties</filepath> accordingly.</cmd>
+         </step>
+         <step id="step_N100C2_N1003D_N10028_N10001">
+            <cmd>Change the <parmname>storage_hdfs_path</parmname> parameter in
+                  <filepath>sa_loading_descriptor.xml</filepath> accordingly.</cmd>
+         </step>
+         <step id="step_N100D8_N1003D_N10028_N10001">
+            <cmd>Modify the <parmname>dimensions</parmname> parameter in
+                  <filepath>/eea_aggregated_data_service/insights_sa/aggregator.json</filepath>
+               accordingly.</cmd>
+         </step>
+         <step id="step_N100EE_N1003D_N10028_N10001">
+            <cmd>Set the newly created Impala table, by changing the schema name in
+                  <filepath>/eea_aggregated_data_service/insights_sa/aggregator.json</filepath>,
+               which is stored in ZooKeeper.</cmd>
+            <info>
+               <note id="note_N100FB_N100F8_N100E8_N1003D_N10028_N10001">
+                  <p>This ensures that the Web Service can query from the new Impala table.</p>
+               </note>
+            </info>
+         </step>
+         
+         <step id="finalization_step">
+            <cmd>Finalize the changes:</cmd>
+            <substeps id="substeps_p2m_vcr_tjb">
+               <substep>
+                  <cmd>Start the Service Alert Loader and the Impala Loader applications, by
+                     executing the following commands on the ARK Master node, with a user from the
+                        <apiname>eea_platform_wheel</apiname> user group:</cmd>
+                  <info>
+                     <codeblock>arkpkgmgr start service-alert-loader</codeblock>
+                  </info>
+                  <info>
+                     <codeblock>arkpkgmgr start impala-loader</codeblock>
+                  </info>
+               </substep>
+               <substep>
+                  <cmd>Restart the Aggregator Web Service, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#gve1571256928696?title=Processing%20Layer%20Configuration%20Guide" scope="external">Restart EI Aggregator After Updating the Data Store</xref>.
+                  </cmd>
+               </substep>
+               <substep>
+                  <cmd>Update the schema name and the HDFS path in the
+                        <apiname>/eea_config/retention/service-alert-retention.xml</apiname> file.
+                  </cmd>
+               </substep>
+               <substep>
+                  <cmd>Restart the Input Adapter Cleaner application:</cmd>
+                  <info>
+                     <codeblock>arkpkgmgr restart Inputadapter-Cleaner</codeblock>
+                  </info>
+               </substep>
+            </substeps>
+         </step>
+         
+         
+         
+      </steps>
+                              </taskbody>
+</task>

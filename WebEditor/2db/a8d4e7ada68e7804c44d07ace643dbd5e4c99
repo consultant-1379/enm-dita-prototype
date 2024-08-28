@@ -1,0 +1,88 @@
+<task id="701f52b92c35241a51ebf3ba3f3617d9" xml:lang="en-US">
+   <title>Change Password for <ph keyref="nsoProductName"/> Database ID: nso_admin</title>
+   <prolog>
+      <source>ST4 ID: 13577155979</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N10087_N10084_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>This section provides instructions for changing the password for
+            the <ph keyref="nsoProductName_s"/> database ID, <option outputclass="st4mig_function">nso_admin</option>.</p>
+                              <note conkeyref="c9c9b9bfa89164a15fcf10da03cdc041/st4tb12404841867" id="note_N10099_N10087_N10084_N10001"/>
+                              <p>
+                                 <ph importance="normal">Considerations:</ph>
+                              </p>
+                              <ul>
+            <li>
+                                    <p conkeyref="e161fbb6e4a4ce5a9b79219449e83bbc/st4tb12334118539"/>
+                                 </li>
+            <li>
+                                    <p conkeyref="a4108f29141d661101b871d606245fde/st4tb12331477259"/>
+                                 </li>
+            <li>
+                                    <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_A"/>
+                                    </p>
+                                 </li>
+         </ul>
+                           </context>
+                           <steps>
+                              <step id="step_N100CB_N100C8_N10084_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on to the <ph keyref="edbVM"/> (the master <ph keyref="edbVM"/> for an <ph keyref="HA_s"/> deployment) as the
+                     <userinput>enterprisedb</userinput> user (superuser).</ph>
+            </cmd>
+         </step>
+                              <step id="step_N100E5_N100C8_N10084_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to connect to the database:</ph></cmd><info><p><ph>
+
+                                    <userinput>psql -p 5432 sodb1</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N100FE_N100C8_N10084_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to change the password for the <userinput>nso_admin</userinput> database ID:</ph>
+            </cmd>
+            <info>
+               <codeblock>alter user nso_admin with password '&lt;<ph importance="low">New_Password</ph>>';</codeblock>
+               <note id="note_N10119_N1010C_N100FC_N100C8_N10084_N10001">
+                                    <p>The single quotes are required, as shown.</p>
+                                 </note>
+            </info>
+                                 
+                                 
+                              </step>
+                              <step id="step_N10127_N100C8_N10084_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Exit out of <option outputclass="st4mig_function">psql</option> by entering <userinput>\q</userinput>, followed by pressing the
+                  </ph><uicontrol>Enter</uicontrol>
+               <ph outputclass="st4mig_cmd-para">key.</ph>
+            </cmd>
+         </step>
+                              <step id="step_N10143_N100C8_N10084_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">To verify the change of password for the
+                     <uicontrol>nso_admin</uicontrol> ID, log on with the new password:</ph>
+            </cmd>
+            <info>
+               <codeblock>psql  -p  5432  -U  nso_admin  sodb1
+Password for user nso_admin: &lt;<ph importance="low">New_Password</ph>> 
+</codeblock>
+            </info>
+            <stepresult>
+               <p>A response similar to the following is displayed:</p>
+               <codeblock>psql.bin (9.5.13.19)
+Type "help" for help.
+sodb1=>
+</codeblock>
+            </stepresult>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

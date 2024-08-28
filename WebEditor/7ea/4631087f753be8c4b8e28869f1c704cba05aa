@@ -1,0 +1,97 @@
+<concept id="241598bdc7ffa83f3fb7e81b8ed8d92e" xml:lang="en-US">
+    <title>CICA Command Line Options</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-16</change-completed>
+                <change-summary>EEAEPP-45863, Created section, https://gerrit.ericsson.se/#/c/7782900</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zbozviv</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-20</change-completed>
+                <change-summary>EEAEPP-45863, Updated section, https://gerrit.ericsson.se/#/c/7794832</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-10</change-completed>
+                <change-summary>EEAEPP-45863, Updated config options, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-13</change-completed>
+                <change-summary>EEAEPP-45863, Options codeblock updated, input from EGBOJEN</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id/>
+                </change-request-reference>
+                <change-completed>2021-02-01</change-completed>
+                <change-summary>EEAEPP-55640 Added -c option, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The following options are available for using CICA:</p>
+        <note id="note_N10058_N10051_N10001">
+            <p>All commands must be executed on the Correlator host.</p>
+        </note>
+        <codeblock>  -h [ --help ]                                    print this message
+  -n [ --cluster-name ] arg (=cica_{DATE})         cluster name to request user port from pag
+  -o [ --output-dir ] arg                          set output directory
+  -l [ --logfile ] arg (={HOMEDIRECTORY}/cica.log) set the path and name of your log file
+  -j [ --thread-count ] arg (=1)                   worker thread count
+  -m [ --min-ts ] arg (=0)                         set min timestamp
+  -M [ --max-ts ] arg (=0)                         set max timestamp (!=0)
+  -t [ --timeout ] arg (=5)                        set timeout
+  -s [ --source ] arg                              set chosen sources
+  -i [ --imsi ] arg                                set whitelisted IMSIs
+  -e [ --excludedImsi ] arg                        set blacklisted IMSIs
+  -a [ --anonymization ]                           set anonymization
+  -w [ --whitelist ] arg                           set IMSI whitelist file path
+  -b [ --blacklist ] arg                           set IMSI blacklist file path
+  -c [ --maxeventnumber ] arg (=1000)              set max number of events in a file</codeblock>
+        <ul id="ul_v5m_fw1_qmb">
+            <li>
+                <p><parmname>-n</parmname> - Custom name used by CICA to request a push port from
+                    the ESC.</p>
+            </li>
+            <li>
+                <p><parmname>-t</parmname> - The maximum amount of time for which the tool waits to
+                    receive events from the ESC.</p>
+            </li>
+        </ul>
+    </conbody>
+</concept>

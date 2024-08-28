@@ -1,0 +1,89 @@
+<task id="96b9e93a92e9b0b0aff08d2eca92fc49" xml:lang="en-US">
+   <title>Change Password for <ph keyref="ECM"/> ID: cloudAnalytics</title>
+   <prolog>
+      <source>ST4 ID: 13577140875</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N100A3_N100A0_N10001" outputclass="st4mig_beforeProcedure">
+                                 <p>The <option>cloudAnalytics</option> user is used for internal <ph keyref="ECM_short"/> operations. The following procedure describes how to change the password for this user. This user is only present when the <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/> is present.</p>
+                                 <p>Allowable special characters for this ID are: <ph keyref="passwordCharacterSet_A"/>
+         </p>
+                              </context>
+                              <steps>
+                                 <step id="step_N100C8_N100C5_N100A0_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">As an administrator on the  <ph keyref="CoreVM"/>,
+                  reset the <option>cloudAnalytics</option> password with the following
+                  command:</ph>
+            </cmd>
+            <info>
+               <note id="note_N100E3_N100E0_N100C8_N100C5_N100A0_N10001">
+                  <p>For <ph keyref="HA_s"/> deployments, perform on both <ph keyref="CoreVM"/>s.</p>
+               </note>
+               <p>
+                  <option keyref="sudo"/><userinput>/app/ecm/security/openAm/ds/userstore/bin/ldappasswordmodify  -h
+                     $host -p $port -D "$bindDN" -w "$bindPassword" -a $USER_DN -n
+                     "$NEW_PASSWORD"</userinput>
+               </p>
+               <p>Sample variable values for the command:</p>
+               <codeblock>
+export host=127.0.0.1
+export port=2389
+export bindDN="cn=Directory Manager"
+export bindPassword=<varname>OpenDJ_Admin_Password</varname>
+export USER_DN="dn:uid=cloudAnalytics,ou=People,o=ECM,dc=ecm,dc=ericsson,dc=com"
+export NEW_PASSWORD='NEW_Password_246$'
+</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N1010F_N100C5_N100A0_N10001">
+                                    <cmd>
+                                       <ph outputclass="st4mig_cmd-para">On the <ph keyref="ECACoreVM"/>, open the following properties file as user <userinput>root</userinput>:</ph>
+            </cmd>
+            <info>
+               <p>
+                                       <filepath>/home/sentilla/sentilla/revisions/current/etc/ecm.conf</filepath>
+                                    </p>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10135_N100C5_N100A0_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Update the password parameter with the new password from Step 1:</ph>
+            </cmd>
+            <info>
+               <p>SAMPLE:</p>
+               <p>
+                                       <userinput>ecm.user = cloudAnalytics</userinput></p><p><userinput>
+ecm.password = <varname>&lt;new_password></varname>
+                                       </userinput>
+                                    </p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N1015C_N100C5_N100A0_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Restart JBoss:</ph>
+            </cmd>
+            <info>
+               <p>
+                                       <filepath>sudo systemctl restart jboss-eap</filepath>
+                                    </p>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10176_N100C5_N100A0_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Perform steps 2 through 4 on both </ph><ph keyref="ECACoreVM"/><ph outputclass="st4mig_cmd-para">s in an </ph><ph keyref="HA_s"/><ph outputclass="st4mig_cmd-para"> deployment.</ph>
+            </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

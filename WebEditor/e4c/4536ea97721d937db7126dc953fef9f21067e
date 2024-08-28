@@ -1,0 +1,244 @@
+<concept id="a17c4d71b3f16d31393f2ad221ac9de3" xml:lang="en-US">
+   <title>Data Usage HBase Loader Configuration</title>
+   <prolog>
+      <source>ST4 ID: 16343032203</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The Data Usage HBase Loader configuration is set during installation, so manual modification of this file is only required if it is incorrect.</p>
+      <p>The Data Usage HBase Loader can be configured with the following parameters:</p>
+      <table>
+         <tgroup cols="3">
+                                    <colspec colname="1" colwidth=""/>
+                                    <colspec colname="2" colwidth=""/>
+                                    <colspec colname="3" colwidth=""/>
+                                    <thead>
+                                       <row>
+                                          <entry valign="top">
+                                             <p>Parameter Name</p>
+                                          </entry>
+                                          <entry valign="top">
+                                             <p>Default Value</p>
+                                          </entry>
+                                          <entry valign="top">
+                                             <p>Parameter Description</p>
+                                          </entry>
+                                       </row>
+                                    </thead>
+                                    <tbody>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.time.to.live</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>30d</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>This parameter specifies the time to live value of HBase cells. If the time to live value is exceeded, then the affected rows are automatically deleted from HBase</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.presplit.regions.per.regionserver</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>2</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>This determines the initial region count when the HBase table is created. (<apiname>&lt;regionserver> * &lt;value></apiname>)</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.offpeak.start.hour</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>22</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>This is the start hour of the maintenance interval when the loader may slow down to do maintenance activities</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.offpeak.end.hour</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>8</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>This is the end hour of the maintenance interval when the loader may slow down to do maintenance activities</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.maintenance.time.interval</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>10min</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Minimum wait time between two maintenances</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.compaction.major.interval</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>10d</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>The frequency of major compaction per region</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.compaction.major.initial.file.size</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>10240</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Minimal region size to trigger major compaction</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>hbase.split.sizeMB</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>51200</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Regions above this size are split</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>timezone</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>GMT</p>
+                                          </entry>
+                                          <entry>
+                                             <p>The time zone the application runs in. Useful for determining off-peak hours</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>zookeeper.flattener.ready.path</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>
+                                                <apiname>/Scheduler/Jobs/Ready/flattener_esr/Ready</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Flattener ready path in Zookeeper</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>zookeeper.processed.ready.path</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>
+                                                <apiname>/DataUsage/LastProcessedHour</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>The current status of the loader, this is where it starts the loading if there were a shutdown</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>processor.flattener.output.path</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>
+                                                <apiname>/eea_data/flatted/esr_kpi</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Flattener output path in HDFS</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>processor.waiting.time.for.fullbuckets</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>1h</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3">
+                                             <p>Maximum wait time for missing flattener buckets.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry colname="1" morerows="0" nameend="1" namest="1">
+                                             <p>
+                                                <apiname>flush.metrics.continuously</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry colname="2" morerows="0" nameend="2" namest="2">
+                                             <p>FALSE</p>
+                                          </entry>
+                                          <entry colname="3" morerows="0" nameend="3" namest="3"/>
+                                       </row>
+                                    </tbody>
+                                 </tgroup>
+      </table>
+      <p>The following is an example configuration of the Data Usage HBase Loader:</p>
+      <codeblock>hbase.time.to.live=30d
+hbase.presplit.regions.per.regionserver=2
+hbase.offpeak.start.hour=22
+hbase.offpeak.end.hour=8
+hbase.maintenance.time.interval=10min
+hbase.compaction.major.interval=10d
+hbase.compaction.major.initial.file.size=10240
+hbase.split.sizeMB=51200
+timezone=GMT
+zookeeper.flattener.ready.path=/Scheduler/Jobs/Ready/flattener_esr/Ready
+zookeeper.processed.ready.path=/DataUsage/LastProcessedHour
+processor.flattener.output.path=/eea_data/flatted/esr_kpi
+processor.waiting.time.for.fullbuckets=1h
+flush.metrics.continuously=false</codeblock>
+      <p>The application accepts numerous time zones in different formats. It is recommended to specify them relative to GMT, for example <apiname>GMT+1</apiname> or <apiname>GMT-9</apiname>
+                              </p>
+      <note type="note">
+         <p>If the specified timezone is invalid, the application writes an error message into the log files and shuts down immediately.</p>
+      </note>
+      <p>Make sure that in the <apiname>app_custom_parameters.conf</apiname> file, the <apiname>num_containers</apiname> parameter is set according to the dimensioning. The parameter can be fine-tuned according to the requirements of individual deployment and operation experiences.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,72 @@
+<task id="f7dfa724637090bc691c96b727e00e34" xml:lang="en-US">
+   <title>Unlock Account</title>
+   <prolog>
+      <source>ST4 ID: 10470077323</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                        <context id="context_N10067_N10064_N10001" outputclass="st4mig_beforeProcedure">
+                           <p>To unlock a user account managed by the <ph keyref="ECM"/>
+            <ph/> system:</p>
+                           <note id="note_N10076_N10067_N10064_N10001">
+                              <p>For user accounts managed by an <ph keyref="externalIdam"/> system, the external IdAM system administrator must unlock the account.</p>
+                           </note>
+                        </context>
+                        <steps>
+                           <step id="step_N10087_N10084_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to the </ph><ph keyref="OpenAM_s"/><ph outputclass="st4mig_cmd-para"> console on the  <ph keyref="CoreVM"/>:</ph>
+            </cmd>
+            <info>
+               <p>
+                  <userinput>https://&lt;FQDN>/openam/XUI/#login/</userinput>
+               </p>
+            </info>
+         </step>
+                           <step id="step_N100A9_N10084_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Enter login information and click
+                     <uicontrol>Login</uicontrol>. </ph>
+            </cmd>
+            <info>
+               <p>The <uicontrol>Realms</uicontrol> screen is displayed. </p>
+            </info>
+         </step>
+                           <step id="step_N100C7_N10084_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Select a realm (ECM tenant).</ph>
+            </cmd>
+         </step>
+                           <step id="step_N100D9_N10084_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Select <uicontrol>Identities</uicontrol> from the
+                  menu on the left.</ph>
+            </cmd>
+         </step>
+                           <step id="step_N100EB_N10084_N10064_N10001">
+                              <cmd>
+               <ph outputclass="st4mig_cmd-para">Select the user ID whose account is locked.</ph>
+            </cmd>
+            <info>
+               <p>The <uicontrol>Edit User</uicontrol> screen is displayed.</p>
+            </info>
+                              
+                           </step>
+                           <step id="step_N10105_N10084_N10064_N10001">
+                              <cmd>
+               <ph outputclass="st4mig_cmd-para">Change the <uicontrol>User Status</uicontrol> from <uicontrol>Inactive</uicontrol> to <uicontrol>Active</uicontrol>.</ph>
+            </cmd>
+                           </step>
+                           <step id="step_N1011F_N10084_N10064_N10001">
+                              <cmd>
+               <ph outputclass="st4mig_cmd-para">Select <uicontrol>Save</uicontrol>. </ph>
+            </cmd>
+                           </step>
+                        </steps>
+                     </taskbody>
+</task>

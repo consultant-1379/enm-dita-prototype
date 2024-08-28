@@ -1,0 +1,13 @@
+<referable-content id="e78fff36f3c38f9e7fbd558b595b7938" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password/NSO--><title>restartNsoHaNonHa</title>
+   <rcbody>
+      <ul id="st4tb13545665291">
+         <li>
+                                    <p>For <ph keyref="HA_s"/> deployments: Restart the <ph keyref="nsoProductName_s"/> component on all nodes in the <ph keyref="HA_s"/>
+               cluster. </p>
+                                 </li>
+         <li>
+                                    <p>For <ph keyref="non_HA_s"/> deployments: Restart the <ph keyref="nsoProductName_s"/> component.</p>
+                                 </li>
+      </ul>
+   </rcbody>
+</referable-content>

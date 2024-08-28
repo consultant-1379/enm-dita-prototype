@@ -1,0 +1,54 @@
+define(["DomStuff","ajax","keys"],function (domStuff,ajax,keys) {
+	var directory={};
+	function initDirectory() {
+		directory={};
+	}
+
+	function load(key,xml) {
+		directory[key]=xml;
+		function traverse(node) {
+			var c=node.children;
+			if (node.nodeType==1) {
+				var id=node.getAttribute("id");
+				if (id) {
+					directory[key+"/"+id]=node;
+				}
+			}
+			if (c&&c.length) {
+				for (var i=0;i<c.length;i++) {
+					traverse(c[i]);
+				}
+			}
+		}
+		traverse(xml);		
+	}
+	function getXmlKey(keyref,scopeIndex,fn) {
+		function innerGetKeys(str) {
+			var keyrefs=keyref.split("/");
+			var file=keyrefs[0];
+			var id=keyrefs[1];
+			function getId(xml) {
+				if (directory[str]) return fn(directory[str]);
+				console.log("!Not found:"+str);
+				return fn(null);
+			}
+			var rec=directory[file];
+			if (rec) return getId(rec.xml);
+			ajax.getXmlFile(file,getId);
+		}
+		var keyrefs=keyref.split("/");
+		var ref=keys.getKey(scopeIndex,keyrefs[0]);
+		if (ref) {
+			var href=ref.getAttribute("href");
+			keyrefs[0]=href;
+			return innerGetKeys(keyrefs.join("/"));
+		}
+		return fn(null);
+	}
+
+	function getDir() {
+		return directory;
+	}
+
+	return {"initDirectory":initDirectory,"getDir":getDir,"getXmlKey":getXmlKey,"load":load};
+});

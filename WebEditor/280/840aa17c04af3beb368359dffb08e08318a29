@@ -1,0 +1,176 @@
+<referable-content id="5eba175a874d70ddd08f8640e04016e5" xml:lang="en-US">
+<title>HBase Table Properties</title>
+<rcbody>
+        <section id="section_HBase_table_conf">
+            <title>Further Configuration for applications</title>
+            <p>Each <ph keyref=""/> application that writes into HBase has a configuration
+                file which defines how the application writes data into the database. The parameters
+                in these configuration files can be edited in case the default values need to be
+                overridden. HBase Loaders modify table configurations on startup.</p>
+            <p>The HBase table can be configured with the following parameters:</p>
+            <table colsep="1" frame="all" id="table_dlt_ypc_hmb" rowsep="1">
+                <tgroup cols="4">
+                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                    <colspec colname="c3" colnum="3" colwidth="1*"/>
+                    <colspec colname="c4" colnum="4" colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>
+                                <p>Parameter Name</p>
+                            </entry>
+                            <entry>
+                                <p>Properties</p>
+                            </entry>
+                            <entry>
+                                <p>Default Value</p>
+                            </entry>
+                            <entry>
+                                <p>Parameter Description</p>
+                            </entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.attr.BLOCKCACHE</parmname></p>
+                            </entry>
+                            <entry>
+                                <p><option>true, false</option></p>
+                            </entry>
+                            <entry>
+                                <p><option>true</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter specifies whether block cache is used or not.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.attr.BLOOMFILTER</parmname></p>
+                            </entry>
+                            <entry>
+                                <p><option>NONE, ROW, ROWCOL</option></p>
+                            </entry>
+                            <entry>
+                                <p><option>ROW</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter specifies whether bloom filter is used or not.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.attr.COMPRESSION</parmname></p>
+                            </entry>
+                            <entry>
+                                <p><option>GZ, LZO, LZ4, SNAPPY, NONE</option></p>
+                            </entry>
+                            <entry>
+                                <p><option>GZ</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter specifies whether compression is used or not.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.attr.TTL</parmname></p>
+                            </entry>
+                            <entry>
+                                <p>Integer number in seconds</p>
+                            </entry>
+                            <entry>
+                                <p><option>2592000</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter specifies the time to live value of HBase cells.
+                                    If the time to live value is exceeded, the affected cells are
+                                    automatically deleted from the database.</p>
+                                <p>The drop functionality triggered when the retention time has
+                                    elapsed. The retention time is derived directly from the value
+                                    of this parameter.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.attr.VERSIONS</parmname></p>
+                            </entry>
+                            <entry>
+                                <p>Integer number</p>
+                            </entry>
+                            <entry>
+                                <p><option>1</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter specifies the maximum number of versions, which
+                                    are kept for each cell in the HBase table.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.table.conf.hbase.server.compactchecker.interval.multiplier</parmname><fn>
+                                        <p>Parameters that start with the
+                                                <parmname>hblib.table.conf</parmname> prefix are
+                                            automatically forwarded to HBase, so it is possible to
+                                            override Hbase table creation or modification
+                                            parameters. See the HBase documentation for more
+                                            information. Only the
+                                                <parmname>hblib.table.conf.hbase.server.compactchecker.interval.multiplier</parmname>
+                                            parameter has a default value. Other parameters must be
+                                            configured manually if they are needed.</p>
+                                    </fn></p>
+                            </entry>
+                            <entry>
+                                <p>Integer number</p>
+                            </entry>
+                            <entry>
+                                <p><option>1000</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter sets how frequently regions of the table are
+                                    checked by HBase to determine whether a minor compaction is
+                                    needed.</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.use.legacy.major.compaction.strategy
+                                    </parmname></p>
+                            </entry>
+                            <entry>
+                                <p>Boolean</p>
+                            </entry>
+                            <entry>
+                                <p><option>false</option></p>
+                            </entry>
+                            <entry>
+                                <p>This parameter determines whether explicit major compaction is
+                                    used or not. </p>
+                                <note id="note_N10372_N1036B_N1034C_N10240_N101FC_N101F5_N101E0_N1000E_N10001">
+                                    <p>Enabling this parameter uses a lot of resources.</p>
+                                </note>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <p><parmname>hblib.number.of.regions</parmname></p>
+                            </entry>
+                            <entry>
+                                <p>Integer number</p>
+                            </entry>
+                            <entry>
+                                <p><option>100</option></p>
+                            </entry>
+                            <entry>
+                                <p>The number of regions the splitter creates when data arrives for
+                                    a new day.</p>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <p>For more information on these parameters, see the official HBase documentation, <xref format="html" href="https://hbase.apache.org/book.html" scope="external">https://hbase.apache.org/book.html</xref>.</p>
+        </section>
+    </rcbody>
+</referable-content>

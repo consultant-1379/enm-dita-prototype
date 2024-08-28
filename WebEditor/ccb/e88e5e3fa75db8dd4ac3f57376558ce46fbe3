@@ -1,0 +1,57 @@
+<task id="7a0400a1949dc4aa704b2a894acffbda" xml:lang="en-US">
+   <title>Change the Password for the process_engine ID</title>
+   <prolog>
+      <source>ST4 ID: 14110015627</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>Use <option outputclass="st4mig_function">psql</option> to change the password for the <userinput>process_engine</userinput> ID.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10043_N10040_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Log into the master <ph keyref="edbVM"/> as the <userinput>enterprisedb</userinput> user (superuser).</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10059_N10040_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to connect to the database:</ph>
+            </cmd>
+            <info>
+               <codeblock>psql -p 5432 -U enterprisedb sodb1</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10070_N10040_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to change the password for the <userinput>process_engine</userinput> ID:</ph>
+            </cmd>
+            <info>
+               <codeblock>alter user process_engine with password '&lt;<ph importance="low">New_Password</ph>>';</codeblock>
+               <note id="note_N1008B_N1007E_N1006E_N10040_N1002B_N10001">
+                                       <p>The &lt;<ph importance="low">New_Password</ph>> is the non-encrypted version.</p><p>
+The single quotes are required, as shown.</p>
+                                    </note>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N1009E_N1002B_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                           <xref keyref="299a6f2f109ce089c15134a732aadc5d"/>
+            </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

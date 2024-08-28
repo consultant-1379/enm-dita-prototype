@@ -1,0 +1,425 @@
+<concept id="371fbec760038ab086fa087a4406c68b" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for <ph keyref="ELK_s"/> Users</title><prolog><source/><permissions view="ericsson_internal"/><metadata><keywords><keyword/></keywords><othermeta content="NA" name="workitem"/></metadata><resourceid appid="NA" ux-source-priority="topic-and-map"/></prolog><conbody>
+            <p>
+                <ph importance="normal">Considerations:</ph>
+                <ul id="ul_yxv_fbg_n3b">
+                    <li>
+                        <p>Passwords must be the same on both geo-redundant sites.</p>
+                    </li>
+                    <li>
+                        <p>Password changes for these IDs must be completed on both sites before <ph keyref="GR_s"/> is set up or while <ph keyref="GR_s"/> is being
+                            decoupled.</p>
+                    </li>
+                    <li>
+                        <p>Allowable special characters for these IDs are: <ph keyref="passwordCharacterSet_B"/></p>
+                    </li>
+                </ul></p>
+        <section id="section_amv_xzl_mmb">
+            <title>Change Passwords for <ph keyref="ELK_s"/> Users via CLI</title>
+            <p>You can change passwords for the following <ph keyref="ELK_s"/> users via CLI: <ul id="ul_byg_21m_mmb">
+                    <li>
+                        <p>curator</p>
+                    </li>
+                    <li>
+                        <p>elastic</p>
+                    </li>
+                    <li>
+                        <p>kibana</p>
+                    </li>
+                    <li>
+                        <p>kibana_admin</p>
+                    </li>
+                    <li>
+                        <p>logstash_system</p>
+                    </li>
+                    <li>
+                        <p>logstash_write</p>
+                    </li>
+                </ul></p>
+            <p>To change a password:</p>
+            <ol id="ol_rz3_nwv_zmb">
+                <li>
+                    <p>Log in to the <ph keyref="CoreVM"/> 1 as <uicontrol>osadm</uicontrol>.</p>
+                </li>
+                <li>
+                    <p>Check whether <ph keyref="ELK_s"/> is reachable:</p>
+                    <codeblock>curl -k -i -u elastic:elastic_user_password -X GET https://localhost:9200/_cluster/health</codeblock>
+                </li>
+                <li>
+                    <p>Check whether the cluster status is green:</p>
+                    <codeblock>HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+content-length: 392
+
+{"cluster_name":"ECM_es_cluster","status":"green","timed_out":false,"number_of_nodes":2,"number_of_data_nodes":2,"active_primary_shards":30,"active_shards":60,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+
+</codeblock>
+                </li>
+                <li>
+                    <p>Change the password:</p>
+                    <ol id="ol_gb3_2cq_cnb">
+                        <li>
+                            <p>Log in to both <ph keyref="CoreVM"/>s as
+                                <uicontrol>osadm</uicontrol>.</p>
+                        </li>
+                        <li>
+                            <p>Run the commands:</p>
+                            <table colsep="1" frame="all" id="table_hvv_x1m_mmb" rowsep="1">
+                                <tgroup cols="3">
+                                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                                    <colspec colname="c3" colnum="3" colwidth="1*"/>
+                                    <thead>
+                                        <row>
+                                            <entry>
+                                                <p>Username</p>
+                                            </entry>
+                                            <entry>
+                                                <p>Command</p>
+                                            </entry>
+                                            <entry>
+                                                <p>Notes</p>
+                                            </entry>
+                                        </row>
+                                    </thead>
+                                    <tbody>
+                                        <row>
+                                            <entry>
+                                                <p>curator</p>
+                                            </entry>
+                                            <entry>
+                                                <ol id="ol_aqd_qjw_lnb">
+                                                  <li><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/curator/_password
+                                                  -d
+                                                  '{"password":"&lt;new_curator_passwd>"}'</cmdname></li>
+                                                  <li><cmdname>rm
+                                                  /home/ecm_admin/.curator</cmdname></li>
+                                                  <li><cmdname>echo "curator:{{ new_curator_passwd
+                                                  }}" | python /app/ecm/tools/.enc-util/isibalo.py
+                                                  -f /home/ecm_admin/.curator -m
+                                                  create</cmdname></li>
+                                                  <li><cmdname>chmod 600
+                                                  /home/ecm_admin/.curator</cmdname></li>
+                                                  <li><cmdname>chown ecm_admin:ecm_admin
+                                                  /home/ecm_admin/.curator</cmdname></li>
+                                                </ol>
+                                            </entry>
+                                            <entry>
+                                                <ul id="ul_ncc_3yq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_curator_passwd></parmname> is
+                                                  a new password for the <uicontrol>curator
+                                                  </uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>elastic</p>
+                                            </entry>
+                                            <entry><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/elastic/_password
+                                                  -d
+                                                  '{"password":"&lt;new_elastic_passwd>"}'</cmdname></entry>
+                                            <entry>
+                                                <ul id="ul_nrg_3yq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_elastic_passwd></parmname> is
+                                                  a new password for the <uicontrol>elastic
+                                                  </uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>kibana_admin</p>
+                                            </entry>
+                                            <entry><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/kibana_admin/_password
+                                                  -d
+                                                  '{"password":"&lt;new_kibana_admin_passwd>"}'</cmdname></entry>
+                                            <entry>
+                                                <ul id="ul_ssk_3yq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_kibana_admin_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>kibana_admin</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>kibana</p>
+                                            </entry>
+                                            <entry>
+                                                <ol id="ol_b2m_nxv_zmb">
+                                                  <li><cmdname>sudo docker exec kibana bash -l -c
+                                                  'kibana-keystore remove
+                                                  elasticsearch.password'</cmdname></li>
+                                                  <li><cmdname>sudo docker exec kibana bash -l -c
+                                                  'kibana-keystore remove
+                                                  xpack.monitoring.elasticsearch.password'</cmdname></li>
+                                                  <li><cmdname>sudo docker exec kibana bash -l -c
+                                                  'echo &lt;new_kibana_passwd> | kibana-keystore add
+                                                  elasticsearch.password --stdin'</cmdname></li>
+                                                  <li><cmdname>sudo docker exec kibana bash -l -c
+                                                  'echo &lt;new_kibana_passwd> | kibana-keystore add
+                                                  xpack.monitoring.elasticsearch.password
+                                                  --stdin'</cmdname></li>
+                                                </ol>
+                                            </entry>
+                                            <entry>
+                                                <ul id="ul_jds_cbm_mmb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_kibana_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>kibana</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>logstash_system</p>
+                                            </entry>
+                                            <entry>
+                                                <ol id="ol_jcb_pxv_zmb">
+                                                  <li><cmdname>sudo docker exec logstash bash -l -c
+                                                  'logstash-keystore remove
+                                                  es_system_passwd'</cmdname></li>
+                                                  <li><cmdname>sudo docker exec logstash bash -l -c
+                                                  'echo &lt;new_logstash_system_passwd> |
+                                                  logstash-keystore add
+                                                  es_system_passwd'</cmdname></li>
+                                                </ol>
+                                            </entry>
+                                            <entry>
+                                                <ul id="ul_dfp_dbm_mmb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_logstash_system_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>logstash_system</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>logstash_write</p>
+                                            </entry>
+                                            <entry>
+                                                <ol id="ol_pc5_sxv_zmb">
+                                                  <li><cmdname>sudo docker exec logstash bash -l -c
+                                                  'logstash-keystore remove
+                                                  es_writer_passwd'</cmdname></li>
+                                                  <li><cmdname>sudo docker exec logstash bash -l -c
+                                                  'echo &lt;new_logstash_writer_passwd> |
+                                                  logstash-keystore add
+                                                  es_writer_passwd'</cmdname></li>
+                                                </ol>
+                                            </entry>
+                                            <entry>
+                                                <ul id="ul_h4s_dbm_mmb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_logstash_writer_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>logstash_writer</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                    </tbody>
+                                </tgroup>
+                            </table>
+                        </li>
+                        <li>
+                            <p>Log in to the <ph keyref="CoreVM"/> 1 as
+                                <uicontrol>osadm</uicontrol>.</p>
+                        </li>
+                        <li>
+                            <p>Run the command:</p>
+                            <table colsep="1" frame="all" id="table_cmb_qdq_cnb" rowsep="1">
+                                <tgroup cols="3">
+                                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                                    <colspec colname="c3" colnum="3" colwidth="1*"/>
+                                    <thead>
+                                        <row>
+                                            <entry>
+                                                <p>Username</p>
+                                            </entry>
+                                            <entry>
+                                                <p>Command</p>
+                                            </entry>
+                                            <entry>
+                                                <p>Notes</p>
+                                            </entry>
+                                        </row>
+                                    </thead>
+                                    <tbody>
+                                        <row>
+                                            <entry>
+                                                <p>kibana</p>
+                                            </entry>
+                                            <entry><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/kibana/_password
+                                                  -d
+                                                  '{"password":"&lt;new_kibana_passwd>"}'</cmdname></entry>
+                                            <entry>
+                                                <ul id="ul_emb_qdq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_kibana_passwd></parmname> is
+                                                  a new password for the <uicontrol>kibana
+                                                  </uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>logstash_system</p>
+                                            </entry>
+                                            <entry><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/logstash_system/_password
+                                                  -d
+                                                  '{"password":"&lt;new_logstash_system_passwd>"}'</cmdname></entry>
+                                            <entry>
+                                                <ul id="ul_gmb_qdq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_logstash_system_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>logstash_system</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                        <row>
+                                            <entry>
+                                                <p>logstash_write</p>
+                                            </entry>
+                                            <entry><cmdname>curl -i -k -u
+                                                  elastic:&lt;elastic_passwd> -H
+                                                  "content-type:application/json" -X POST
+                                                  https://ecmapp:9200/_security/user/logstash_writer/_password
+                                                  -d
+                                                  '{"password":"&lt;new_logstash_writer_passwd>"}</cmdname></entry>
+                                            <entry>
+                                                <ul id="ul_imb_qdq_cnb">
+                                                  <li>
+                                                  <p><parmname>&lt;elastic_passwd></parmname> is
+                                                  a password for the <uicontrol>elastic</uicontrol>
+                                                  user</p>
+                                                  </li>
+                                                  <li>
+                                                  <p><parmname>&lt;new_logstash_writer_passwd></parmname>
+                                                  is a new password for the
+                                                  <uicontrol>logstash_writer</uicontrol> user</p>
+                                                  </li>
+                                                </ul>
+                                            </entry>
+                                        </row>
+                                    </tbody>
+                                </tgroup>
+                            </table>
+                        </li>
+                    </ol>
+                </li>
+                <li><p>Restart the <ph keyref="ELK_s"/> containers from all <ph keyref="CoreVM"/>s:
+                        </p><cmdname>sudo docker restart elasticsearch logstash kibana</cmdname><note id="note_N10339_N10329_N100A5_N10058_N10025_N10001">
+                        <p>After the container reboot, a cluster will have the red status. Once the
+                            first site becomes active, the cluster status will turn yellow. Once a
+                            cluster forms a pair, the cluster status will turn green.</p>
+                    </note><p>Example:<codeblock># curl -k -i -u elastic:password -H "content-type:application/json" -X POST https://localhost:9200/_security/user/curator/_password -d '{"password":"newpassword"}'
+HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+content-length: 2</codeblock></p></li>
+                <li>
+                    <p>Re-check whether the cluster status is green: </p>
+                    <codeblock>HTTP/1.1 200 OK
+content-type: application/json; charset=UTF-8
+content-length: 392
+
+{"cluster_name":"ECM_es_cluster","status":"green","timed_out":false,"number_of_nodes":2,"number_of_data_nodes":2,"active_primary_shards":30,"active_shards":60,"relocating_shards":0,"initializing_shards":0,"unassigned_shards":0,"delayed_unassigned_shards":0,"number_of_pending_tasks":0,"number_of_in_flight_fetch":0,"task_max_waiting_in_queue_millis":0,"active_shards_percent_as_number":100.0}
+</codeblock>
+                </li>
+            </ol>
+        </section>
+        <section id="section_hvf_1dm_mmb">
+            <title>Change Password for kibana_admin User via GUI</title>
+            <ol id="steps_mqj_hcm_mmb">
+                <li id="step_N10050_N1004D_N10031_N10001">
+                    <p> Log on to Kibana Web interface with username <uicontrol>
+                            kibana_admin</uicontrol> and the default password:
+                        <codeblock>https://&lt;fully_qualified_host_name>/kibana/ </codeblock></p>
+                </li>
+                <li id="step_N10040_N1002F_N10021_N10001">
+                    <p>In the upper-right corner, click the <option>kibana_admin</option> avatar
+                        with letter <uicontrol>K</uicontrol>. </p>
+                </li>
+                <li id="step_N10051_N1002F_N10021_N10001">
+                    <p>Click <uicontrol>Edit profile</uicontrol>. </p>
+                </li>
+                <li id="step_N1005E_N1002F_N10021_N10001">
+                    <p>Select the <uicontrol>Change password</uicontrol> section. </p>
+                </li>
+                <li id="step_N1006B_N1002F_N10021_N10001">
+                    <p>Enter the new password. </p>
+                </li>
+                <li id="step_N10074_N1002F_N10021_N10001">
+                    <p>Click <uicontrol>Save</uicontrol>. </p>
+                </li>
+            </ol>
+        </section></conbody></concept>

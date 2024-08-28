@@ -1,0 +1,240 @@
+<task id="0ca19acdb4539d3c9db002787f129634" xml:lang="en-US">
+   <title>Change Password for Postgres DB (<ph keyref="ecaProductName"/>)</title>
+   <prolog>
+      <source>ST4 ID: 13577140107</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10035_N10032_N10001" outputclass="st4mig_beforeProcedure">
+                                 <p>The <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/> includes two (2) predefined user IDs for connections to the <ph keyref="edbDatabase"/>:</p>
+                                 <ul>
+            <li>
+                                       <p>bluebox</p>
+                                    </li>
+            <li>
+                                       <p>root</p>
+                                    </li>
+         </ul>
+                                 <p>Each ID comes with a default password. To change a password,
+            follow the procedure below. Note that this can involve changes in more than one file
+            where a password is stored.</p>
+                                 <p>
+                                    <ph importance="normal">Considerations</ph> 
+                                 </p>
+                                 <p>Note the following considerations:</p>
+                                 <ul>
+            <li>
+                                       <p>Changing the password for these IDs results in a brief
+                  system downtime for the several seconds it takes restart <ph keyref="ecaProductname_s"/>.</p>
+                                    </li>
+            <li>
+               <p>If you change any password in an <ph keyref="HA_s"/> environment, be sure to repeat the same change procedure on the corresponding VM on the second node in the <ph keyref="HA_s"/> cluster.</p>
+                                    </li>
+            <li>
+                                       <p>For geo-redundant deployments, you must change the passwords for these IDs on both the active site (Site A) and the standby site (Site B).</p>
+                                    </li>
+            <li>
+                                       <p>Allowable special characters for these IDs <ph keyref="passwordCharacterSet_A"/>
+                                       </p>
+                                    </li>
+         </ul>
+                              </context>
+                              <steps>
+                                 <step id="step_N1009F_N1009C_N10032_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on to the master <ph keyref="edbVM"/> as the
+                     <userinput>enterprisedb</userinput> user (superuser).</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N100B5_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Connect to Postgres by typing the command:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                          <p>For the <userinput>root</userinput> password enter: </p>
+                                          <codeblock>psql -p 5432 bluebox</codeblock>
+                                       </li>
+                  <li>
+                                          <p>For the <userinput>bluebox</userinput> password enter: </p>
+                                          <codeblock>psql -p 5432 -U bluebox bluebox</codeblock>
+                                       </li>
+               </ul>
+               <p>The remaining steps are the same for each user ID, unless otherwise noted.</p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N100F1_N1009C_N10032_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Change the password with the command
+                     <uicontrol>alter user "&lt;userID>" with password
+                     '&lt;New_Password>';</uicontrol>. Note that double and single quotes are
+                  required, as shown.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N10103_N1009C_N10032_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">If you change any of the IDs above, update the
+                     <filepath>.pgpass</filepath> files. To do this, as
+                  <userinput>osadm</userinput>, log on to both <ph keyref="ECACoreVM"/>s and update the password(s) on each, in the following files:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>
+                        <filepath>/root/.pgpass</filepath>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <filepath>/home/sentilla/.pgpass</filepath>
+                     </p>
+                  </li>
+               </ul>
+               <p>When you change the <userinput>bluebox</userinput> or <userinput>root</userinput>
+                  user passwords, you must also complete the steps that follow. </p>
+            </info>
+         </step>
+                                 <step id="step_N10149_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Run the command:</ph>
+            </cmd>
+            <info>
+               <codeblock>cd /opt/jboss-eap-7.2</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10160_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Determine the JBoss AS product version by executing the following command:</ph></cmd>
+            <info><p><ph>
+                     <option keyref="sudo"/><userinput>-u sentilla
+                        /opt/jboss-eap-7.2/bin/jboss-cli.sh --connect version</userinput></ph>
+               </p>
+               <p>Sample output: </p>
+               <codeblock outputclass="condensed">JBoss Admin Command-line Interface
+
+JBOSS_HOME: /opt/jboss-eap-7.2
+
+Release: 6.0.30.Final-redhat-00001
+
+Product: JBoss EAP 7.2.9.GA
+
+JAVA_HOME: null
+
+java.version: 1.8.0_261
+
+java.vm.vendor: Oracle Corporation
+
+java.vm.version: 25.261-b12
+
+os.name: Linux
+
+os.version: 3.10.0-957.58.2.el7.x86_64</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N1018D_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para"> Determine the version of the Picketbox JAR this JBoss release uses. To do this, execute the following command:</ph>
+            </cmd>
+            <info>
+               <codeblock outputclass="condensed">ls modules/system/layers/base/.overlays/layer-base-jboss-eap-7.2.9.CP/org/picketbox/main</codeblock>
+               <p>Be sure the <filepath>layer-base-jboss-eap</filepath> version (in bold) reflects the one discovered in the previous step.</p>
+               <p>This directory contains one JAR file version; for example:</p><p>
+                  <option outputclass="st4mig_function">'picketbox-5.0.3'</option>
+               </p>
+               <p> Perform the encryption by typing the command below. The command must include the
+                  correct JBboss and Picketbox patch-level versions discovered above. Using the same
+                  examples from above:</p>
+               <codeblock outputclass="condensed">java -cp ./modules/system/layers/base/.overlays/layer-base-jboss-eap-7.2.9.CP/org/picketbox/main/picketbox-5.0.3.Final-redhat-00006.jar org.picketbox.datasource.security.SecureIdentityLoginModule '&lt;<ph importance="low">New_Password</ph>>'</codeblock>
+            </info>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N101CB_N1009C_N10032_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Open the file
+                     <filepath>/opt/jboss-eap-7.2/standalone/configuration/standalone-full.xml</filepath>
+                  in a text editor, and update the encrypted password value (for example, "2559c6 .
+                  . . ") in the &lt;module-option name="password"> element. For the <ph importance="normal">bluebox</ph> user, this element is in the <option outputclass="st4mig_function">&lt;security-domain
+                     name="postgres-bluebox"></option> section. For the <ph importance="normal">root</ph> user, it is in the <option outputclass="st4mig_function">&lt;security-domain name="postgres-root"></option> section.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N101F1_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para"> Perform the same update password edit as in the previous step, on both Collection nodes:</ph>
+            </cmd>
+            <info>
+               <codeblock>/root/ca_collection/collection1/configuration/standalone-full.xml
+/root/ca_collection/collection2/configuration/standalone-full.xml</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10208_N1009C_N10032_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para"> Restart <ph keyref="ecaProductname_s"/>:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                          <p>In a <ph keyref="non_HA_s"/> deployment, run the commands:</p>
+                                          <ul>
+                        <li>
+                                             <p>
+                                                <userinput>ca stop</userinput>
+                                             </p>
+                                          </li>
+                        <li>
+                                             <p>
+                                                <userinput>ca start</userinput>
+                                             </p>
+                                          </li>
+                        <li>
+                                             <p>
+                                                <userinput>ca status</userinput>
+                                             </p>
+                                          </li>
+                     </ul>
+                                          
+                                          
+                                       </li>
+                  <li>
+                                          <p>In an <ph keyref="HA_s"/> deployment, run the commands:</p>
+                                          <ul>
+                        <li>
+                                             <p>
+                                                <userinput>caha stop</userinput>
+                                             </p>
+                                          </li>
+                        <li>
+                                             <p>
+                                                <userinput>caha start</userinput>
+                                             </p>
+                                          </li>
+                        <li>
+                                             <p>
+                                                <userinput>caha status</userinput>
+                                             </p>
+                                          </li>
+                     </ul>
+                                          
+                                          
+                                       </li>
+               </ul>
+            </info>
+                                    
+                                 </step>
+                              </steps>
+                           </taskbody>
+</task>

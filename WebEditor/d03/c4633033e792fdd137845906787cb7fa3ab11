@@ -1,0 +1,80 @@
+<task id="4fe3b334ae48dc5f7a7c3e6eb21f301c" xml:lang="en-US">
+    <title>Change Password for Linux Bootloader</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p><ph importance="normal">Considerations:</ph><ul id="ul_wng_scx_lnb">
+                    <li>
+                        <p>Changing the password for this ID does not require system downtime.</p>
+                    </li>
+                    <li>
+                        <p>Verification of the successful password change for this ID requires VM
+                            downtime.</p>
+                    </li>
+                    <li>
+                        <p>Password change for this ID applies irrespective of whether a deployment
+                            is <ph keyref="GR_s"/>.</p>
+                    </li>
+                    <li>
+                        <p>Allowable special characters for this ID are % - ! + = _ </p>
+                    </li>
+                </ul></p>
+            <note id="note_N1006D_N10036_N10031_N10001">
+                <p>This step is applicable to all <ph keyref="ECM_short"/> VMs except for <ph keyref="LB_VM_s"/>s, where bootloader is not protected with a password.</p>
+            </note>
+        </context>        
+        <steps>
+            <step id="step_N10082_N1007F_N10031_N10001">
+                <cmd>Log in as <option>osadm</option> to the appropriate VM.</cmd>
+            </step>
+            <step id="step_N1008F_N1007F_N10031_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>grub2-setpassword</cmdname></info>
+            </step>
+            <step id="step_N1009E_N1007F_N10031_N10001">
+                <cmd>Specify a new password as prompted and confirm it.</cmd>
+            </step>
+            <step id="step_N100A7_N1007F_N10031_N10001">
+                <cmd>Reboot the VM to verify that the password has been changed successfully.</cmd>
+            </step>
+            <step id="step_N10078_N10075_N10031_N10001">
+                <cmd>Wait for the bootloader menu to appear and press the <uicontrol>e</uicontrol>
+                    key.</cmd>
+                <info><fig id="fig_j41_h4w_lnb">
+                        <title>Bootloader Menu</title>
+                        <image id="image_tzq_m4w_lnb" keyref="69aec9bc8d86c238532a514835b6c67c"/>
+                    </fig></info>
+            </step>
+            <step id="step_N100CE_N1007F_N10031_N10001">
+                <cmd>Log in as the <option>root</option> user with a new bootloader <option>
+                        root</option> password.</cmd>
+            </step>
+            <step id="step_N100DF_N1007F_N10031_N10001">
+                <cmd>Verify that the boot parameters starting with the
+                        <userinput>setparams</userinput> directive are displayed.</cmd>
+                <info><fig id="fig_v1z_b2x_lnb">
+                        <title>Boot Parameters</title>
+                        <image id="image_rtm_j2x_lnb" keyref="622148f6d06044deb095b79580a6305f"/>
+                    </fig><note id="note_N100F5_N100E5_N100DA_N1007F_N10031_N10001">
+                        <p>If the password is incorrect, the bootloader menu will appear again.</p>
+                    </note></info>
+            </step>
+            <step id="step_N100CD_N10075_N10031_N10001">
+                <cmd>Press <uicontrol>Ctrl+x</uicontrol> to continue boot.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

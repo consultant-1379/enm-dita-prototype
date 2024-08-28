@@ -1,0 +1,20 @@
+<concept id="6d1f0156ccf47d033bffbc7183e97050" xml:lang="en-US">
+   <title>Start and Stop</title>
+   <prolog>
+      <source>ST4 ID: 16333587851</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>To start the Adapter cluster, execute the following command:</p>
+      <codeblock>besr_cluster start adapters</codeblock>
+      <p>To stop the Adapter cluster, execute the following command:</p>
+      <codeblock>besr_cluster stop adapters</codeblock>
+      <p>To check whether the Adapter cluster is running, execute the following command:</p>
+      <codeblock>besr_cluster status adapters</codeblock>
+   </conbody>
+</concept>

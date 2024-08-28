@@ -1,0 +1,78 @@
+<task id="79060fabf42955a100ededd85a8dc28c" xml:lang="en-US">
+    <title>Start and Stop Job Scheduler</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-06</change-completed>
+                <change-summary>EEAEPP-29996, New topic: Start and Stop Job Scheduler, input from ERELMHA</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>ZMENNOR</change-person>
+                <change-request-reference>
+                    <change-request-system>TR</change-request-system>
+                    <change-request-id>HY13009</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-20</change-completed>
+                <change-summary>EEAEPP-35454, corrected /mapr/ paths, input from ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <steps-informal id="steps-informal_s34_xfh_qjb">
+            <p>All commands in this section require <option>admin</option> user.</p>
+            <ol id="ol_cbq_2hh_qjb">
+                <li>
+                    <p>Enter the Oozie scripts directory:</p>
+                    <codeblock>docker exec -it mapr bash
+cd /opt/ericsson/eea/resource/oozie-workflow-<varname>version</varname>-resource/scripts</codeblock>
+                </li>
+            </ol>
+            <ul id="ul_ivh_2hh_qjb">
+                <li>
+                    <p>Start or restart the <ph keyref=""/>
+                        <ph keyref=""/> Loader job:</p>
+                </li>
+            </ul>
+            <p>
+                <codeblock>bash startSqmEiLoader.sh [coordinator prop file path]</codeblock>
+            </p>
+            <p><filepath>[coordinator prop file path]</filepath> is a compulsory parameter for
+                specifying the corresponding Coordinator property file path that contains the
+                configuration for the Coordinator jobs and applications to be run. The
+                    <filepath>StartSqmEiLoader.sh</filepath> script will stop the Coordinator jobs
+                if there are any running or preparatory Coordinator jobs related to the SQM EI
+                Loader, and then restart the Coordinator job with a new start and end date. The
+                usual scripts path for <filepath>[coordinator prop file path]</filepath> is the
+                following:</p>
+            <p><filepath>/opt/ericsson/eea/resource/oozie-workflow-<varname>version</varname>-resource/configfiles/sqm_ei_loader_coordinator.properties</filepath></p>
+            <ul id="ul_h15_gxs_rjb">
+                <li>
+                    <p>To stop the <ph keyref=""/>
+                        <ph keyref=""/> Loader job:</p>
+                </li>
+            </ul>
+            <p>
+                <codeblock>bash stopSqmEiLoader.sh</codeblock>
+            </p>
+            <p>For more information about monitoring the Job Scheduler, see <xref keyref="7e3dbca9ed7cef87782dbcac46eb3222"/>.</p>
+            <p>For more information about Job Scheduler Logging, see <xref keyref="4a1dd64050ce66046c63d1a7c05f8bba"/>.</p>
+        </steps-informal>
+    </taskbody>
+</task>

@@ -1,0 +1,74 @@
+<task id="c4632b1f0f6a45914d715b0bf809872b" xml:lang="en-US">
+   <title>Update the users.properties File</title>
+   <prolog>
+      <source>ST4 ID: 14125469067</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>Use this procedure to update the <filepath>users.properties</filepath> file.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N1003E_N1003B_N1002B_N10001">
+            <cmd>Log in as <option keyref="loginID"/>. </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p> Non-HA Deployment: <ph keyref="CoreVM"/>
+                     </p>
+                  </li>
+                  <li>
+                     <p> HA Deployment: <ph keyref="CoreVM"/> of Node 1</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 <step id="step_N1007A_N1003B_N1002B_N10001">
+            <cmd>Change directories: </cmd>
+            <info>
+               <codeblock outputclass="condensed">cd /app/ecm/tools</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N10091_N1003B_N1002B_N10001">
+            <cmd>Edit the <filepath>users.properties</filepath> file to change the password for the
+                  <option>cmdb</option> user:</cmd>
+            <info>
+               <p>
+                  <codeblock outputclass="condensed"> <ph keyref="sudo"/> <userinput>vi users.properties</userinput></codeblock>
+               </p>
+               <note conkeyref="f5c41d828e60060f2a69bbceb586dd9d/tb13442524427" id="note_N100B3_N100A2_N1008F_N1003B_N1002B_N10001"/>
+               <codeblock outputclass="condensed">
+<userinput>cmdb_user_password='<varname>&lt;new password></varname>'</userinput></codeblock>
+               <note id="note_N100C4_N100A2_N1008F_N1003B_N1002B_N10001">
+                  <ul>
+                     <li>
+                        <p>HA deployment: </p>
+                        <p>Update the <option>cmdb</option> user password also on the <ph keyref="CoreVM"/> on node 2.</p>
+                     </li>
+                     <li>
+                        <p>Geo-Redundant deployment: </p>
+                        <p>Update the <option>cmdb</option> user password on both primary site and
+                           standby site in <ph keyref="CoreVM"/>s Node 1 and Node 2.</p>
+                     </li>
+                  </ul>
+               </note>
+            </info>
+         </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N10100_N1002B_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="a80ec3a6750ed87e40887ea48da8b164"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

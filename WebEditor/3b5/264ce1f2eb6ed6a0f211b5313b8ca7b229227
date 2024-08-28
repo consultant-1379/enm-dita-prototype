@@ -1,0 +1,40 @@
+<task id="7e016d82e12b326813217370d1cb4824" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Check Other Internal Certificates</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10035_N1002E_N10001">
+            <p>Perform the following step to check certificates used internally by Activation
+                modules other than Puppet, on <option>node-1</option>.</p>
+        </context>
+        <steps id="steps_nxv_33k_kjb">
+            <step id="step_N10042_N1003E_N1002E_N10001">
+                <cmd>Execute the following command as an <userinput>administrator</userinput>
+                    user:</cmd>
+                <info>
+                    <p><userinput>$ /opt/dve/bin/renew_certificates.sh --check</userinput></p>
+                    <p>An example of output without expiration date warning:</p>
+                    <codeblock>>>> /etc/puppetlabs/code/modules/cassandra/ssl/secure_keystore_internal.jks has expiry date: 2029.
+>>> /etc/puppetlabs/code/modules/cassandra/ssl/secure_cassandra_keystore.jks has expiry date: 2029.
+>>> /opt/ericsson/activation/bootloader/ssl/keystore_slr.jks has expiry date: 2029.
+>>> Internal certificates will expire in 2+ years.
+</codeblock>
+                    <p>An example of output with expiration date warning:</p>
+                    <codeblock>>>> /etc/puppetlabs/code/modules/cassandra/ssl/secure_keystore_internal.jks found to expire in less then 2 years! Expiry date: 2020
+>>> /etc/puppetlabs/code/modules/cassandra/ssl/secure_cassandra_keystore.jks found to expire in less then 2 years! Expiry date: 2020 
+>>> /opt/ericsson/activation/bootloader/ssl/keystore_slr.jks found to expire in less then 2 years! Expiry date: 2020
+</codeblock>
+                </info>
+            </step>
+        </steps>
+    </taskbody>
+</task>

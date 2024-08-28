@@ -1,0 +1,69 @@
+<reference id="0672f6de4cb82ca6ddcf897fa5e43be5" xml:lang="en-US">
+    <title>Roles for Activation GUI Users</title>
+    <shortdesc>As part of <ph keyref="moduleName"/>, the system contains predefined roles for
+        Activation GUI users.</shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <refbody>
+        <section id="section_usq_hc2_b3b">
+            <title>Default Role</title>
+            <p>Role for every user on this system. This role must only contain scopes that you are
+                sure everyone has access to. </p>
+        </section>
+        <section id="section_lvf_mc2_b3b">
+            <title>Management and Logs</title>
+            <p>User role for processing logs, interface, operation and management functions,
+                activation clients and resource management. </p>
+        </section>
+        <section id="section_ytc_pc2_b3b">
+            <title>System Setup Manager</title>
+            <p>Users of this role only have access to manage users and roles and must only be used
+                at first-time setup.</p>
+            <p>The default User Role assignment follows:</p>
+            <p>
+                <table id="table_x1z_vpd_b3b">
+                    <title>Role Assignments</title>
+                    <tgroup cols="2">
+                        <colspec colname="c1" colnum="1" colwidth="1*"/>
+                        <colspec colname="c2" colnum="2" colwidth="1*"/>
+                        <thead>
+                            <row>
+                                <entry>UUID</entry>
+                                <entry>
+                                    <p>User Role</p>
+                                </entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <p>eoadmin@admin.local</p>
+                                </entry>
+                                <entry>
+                                    <p>Management and logs, Default Role</p>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <p>admin</p>
+                                </entry>
+                                <entry>
+                                    <p>System setup manager, Default Role</p>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </p>
+        </section>
+    </refbody>
+</reference>

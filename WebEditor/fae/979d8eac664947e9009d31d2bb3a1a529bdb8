@@ -1,0 +1,36 @@
+<referable-content id="678938bdf79fa9936f1c2fad8d5103ff" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/Password Policies--><title>Password Criteria</title>
+   <rcbody>
+      <ul id="st4tb10953405835">
+         <li>
+                                 <p>Password must not contain the username.</p>
+                              </li>
+         <li>
+                                 <p>Password must not be a reverse of the username.</p>
+                              </li>
+         <li>
+                                 <p>Length of the password must be at least eight characters.</p>
+                              </li>
+         <li>
+                                 <p>Password must contain at least three of the following
+               elements:</p>
+                                 <ul>
+               <li>
+                                    <p>one lowercase character</p>
+                                 </li>
+               <li>
+                                    <p>one upper case character</p>
+                                 </li>
+               <li>
+                                    <p>one numeric character</p>
+                                 </li>
+               <li>
+                                    <p>one special character</p>
+                                 </li>
+            </ul>
+                                 
+                                 
+                                 
+                              </li>
+      </ul>
+   </rcbody>
+</referable-content>

@@ -1,0 +1,125 @@
+<referable-content id="974d56c8fb7c05003a9536aeadac5733" xml:lang="en-US">
+<title>PostgreSQL File System Usage Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_cyc_vpy_dhb" outputclass="condensed" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Processing Error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>Storage Capacity Problem</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>PostgreSQL File System Usage</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_x5h_h4p_q3b">
+                                    <li>
+                                        <p>MINOR</p>
+                                    </li>
+                                    <li>
+                                        <p>MAJOR</p>
+                                    </li>
+                                    <li>
+                                        <p>CRITICAL</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>PostgreSQL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_h5f_wcg_53b">
+                                    <li>
+                                        <p><filepath>/ericsson/postgres/data</filepath> has > 50%
+                                            Used - &lt;DB Name > has the largest table
+                                            (&lt;tableName> - Size in MB) - and is between 10% to
+                                            25% of &lt;Size in GB> of Available space.</p>
+                                    </li>
+                                    <li>
+                                        <p><filepath>/ericsson/postgres/data</filepath> has > 50%
+                                            Used and the largest table (&lt;tableName> - Size in
+                                            MB)- and is between 25% to 50% of &lt;Size in GB> of
+                                            leftover space.</p>
+                                    </li>
+                                    <li>
+                                        <p><filepath>/ericsson/postgres/data</filepath> has > 50%
+                                            Used - and the largest table (&lt;tableName> - Size in
+                                            MB)- and is > 50% of &lt;Size in GB> of leftover
+                                            space.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>PostgreSQL </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

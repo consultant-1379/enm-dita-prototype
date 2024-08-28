@@ -1,0 +1,184 @@
+<task id="a699ccbc8147c260acb4eaad7addf9ef" xml:lang="en-US">
+   <title>Change Password for <ph keyref="ActiveMQ_s"/> User: system</title>
+   <prolog>
+      <source>ST4 ID: 13577143947</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N100D7_N100D4_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>The <ph keyref="ActiveMQ_s"/>
+            <filepath>system</filepath> ID is used by <ph keyref="ECM"/>'s <ph keyref="ActiveMQ_s"/>
+            client.</p>
+                              <p>
+                                 <ph importance="normal">Considerations:</ph> 
+                              </p>
+                              <ul>
+            <li>
+                                    <p conkeyref="4911b66ffc16eb672b18c2efc7e815f8/st4tb12331396619"/>
+                                 </li>
+            <li>
+                                    <p>This ID requires special considerations for geo-redundant
+                  deployments since it requires certain processes to be active. Once <ph keyref="GR_l"/> is configured, certain processes become inactive on the standby
+                  site. Consider the following:</p>
+                                    <ul>
+                  <li>
+                                       <p>This procedure must be performed only on the active site.</p>
+                                    </li>
+                  <li>
+                                       <p>It is recommended to change this password <ph importance="low">before</ph>
+                        <ph keyref="GR_l"/> is configured because all required processes are active
+                        on both <ph keyref="HA_s"/> nodes at this time. Once <ph keyref="GR_l"/> is
+                        configured, certain processes become inactive on the standby site.</p>
+                                    </li>
+                  <li>
+                                       <p>Once <ph keyref="GR_l"/> has been configured, you must
+                        failover to the standby site, which makes it the new active site, to change
+                        the password. For this reason, it is highly recommended to schedule password
+                        changes for this ID during a scheduled maintenance period.</p>
+                                    </li>
+               </ul>
+                                    
+                                    
+                                 </li>
+            <li>
+                                    <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_A"/>
+                                    </p>
+                                 </li>
+         </ul>
+                              <p>To change the password for the <ph keyref="ECM"/> 
+                                 <filepath>system</filepath> ID:</p>
+                           </context>
+                           <steps>
+                              <step id="step_N10142_N1013F_N100D4_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/> to the  <ph keyref="CoreVM"/>, then execute the following command:</ph></cmd>
+            <info>
+               <p><ph>
+                     <userinput>sudo -s</userinput>
+                  </ph>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N10167_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command from the <filepath>/root</filepath> directory to shut down <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <p>
+                                    <userinput>./</userinput><option keyref="ecmShutdownScript"/> 
+                                 </p>
+               <p>The following message is displayed when the shutdown is complete:  <option keyref="ecmShutdownScriptMsg"/> 
+                                 </p>
+            </info>
+                                 
+                                 
+                              </step>
+                              <step id="step_N10194_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Change directories:</ph>
+            </cmd>
+            <info>
+               <p>
+                                    <userinput>cd /app/ecm/tools/envs/</userinput>
+                                 </p>
+            </info>
+                                 
+                              </step>
+                              <step id="step_N101AE_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following script:</ph>
+            </cmd>
+            <info>
+               <codeblock>./change_activemq_system_pass.sh --new-password '&lt;<ph importance="low">New_Password</ph>>'</codeblock>
+            </info>
+                                 
+                              </step>
+                              <step id="step_N101CA_N1013F_N100D4_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Restart the </ph><ph keyref="ActiveMQ_s"/><ph outputclass="st4mig_cmd-para"> service:</ph>
+            </cmd>
+            <info>
+               <p>
+                  <userinput>systemctl restart activemq</userinput>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N101E4_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Change the directory before you run the startup script:</ph></cmd><info><p><ph>
+
+                                    <userinput>cd ~</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N101FD_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Restart <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <codeblock>./<ph keyref="ecmStartupScript"/>
+                                 </codeblock>
+               <p>The following message is displayed when the startup is complete: <option keyref="ecmStartupScriptMsg"/> All procedures required to change the password
+                  for the <ph keyref="ActiveMQ_s"/>
+                  <filepath>admin</filepath> ID are complete.</p>
+            </info>
+                                 
+                                 
+                              </step>
+                              <step id="step_N10228_N1013F_N100D4_N10001">
+                                 <cmd>
+                                    <ph outputclass="st4mig_cmd-para">Log in to the <ph keyref="NS_LCM_VM_s"/> as the  <option keyref="loginID"/>  user, then execute the following command:</ph></cmd><info><p><ph>
+
+                                    <userinput>sudo -s</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N10249_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Change to the directory:</ph></cmd><info><p><ph>
+
+                                    <userinput>cd /opt/ericsson/do/svcorch-svc/jboss_extensions/modules/system/layers/base/com/ericsson/configuration/main</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N10262_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Edit the file: <filepath>nso-jms-config.properties</filepath> 
+                                 </ph>
+            </cmd>
+                              </step>
+                              <step id="step_N10274_N1013F_N100D4_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Enter the new password as the value for the property: <option outputclass="st4mig_function">brokerPassword</option>
+                                    </ph></cmd><info><p><ph>
+Save and close the file.</ph>
+            </p></info>
+                              </step>
+                              <step id="step_N1028E_N1013F_N100D4_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">For </ph><ph keyref="HA_s"/><ph outputclass="st4mig_cmd-para"> and <ph keyref="GR_s"/> deployments:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>
+                        <ph importance="normal"><ph keyref="HA_s"/> deployment:</ph> Repeat this procedure on the
+                        secondary <ph keyref="CoreVM"/> and <ph keyref="NS_LCM_VM_s"/> in the <ph keyref="HA_s"/> cluster.</p>
+                  </li>
+                  <li>
+                     <p>
+                        <ph importance="normal">Geo-redundant deployment:</ph> Failover to the
+                        standby site so that it becomes the active site. Then, repeat these
+                        procedures on the new active site.</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

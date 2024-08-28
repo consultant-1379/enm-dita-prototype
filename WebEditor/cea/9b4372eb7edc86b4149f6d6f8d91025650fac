@@ -1,0 +1,76 @@
+<task id="3bd9da496e5ed74ebae80e68e37b52d2" xml:lang="en-US">
+   <title>Shut Down and Restart <ph keyref="ECM"/>
+                           </title>
+   <prolog>
+      <source>ST4 ID: 14126190859</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1004F_N1004C_N10001">
+                                 <p>Use this procedure to shut down and restart <ph keyref="ECM"/>.</p>
+                                 <note id="note_N1005B_N1004F_N1004C_N10001" type="note">Perform the following procedure on <ph keyref="CoreVM"/> node 1 in an HA cluster. Then complete the procedure on <ph keyref="CoreVM"/> node 2 in the HA cluster.</note>
+                              </context>
+                              <steps>
+                                 <step id="step_N1006D_N1006A_N1004C_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Login as  <option keyref="loginID"/>  to the <ph keyref="CoreVM"/>.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10083_N1006A_N1004C_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to shut down <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <p>
+                                        <option keyref="sudo"/><userinput>/root/</userinput><option keyref="ecmShutdownScript"/> 
+                                    </p>
+               <p>The following message is displayed when the shutdown is complete:  <option keyref="ecmShutdownScriptMsg"/> 
+                                    </p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N100AF_N1006A_N1004C_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to restart ActiveMQ:</ph>
+            </cmd>
+            <info>
+               <p>
+                                        <option keyref="sudo"/><userinput>systemctl restart activemq</userinput>
+                                    </p>
+               <p>The stopping and starting of the ActiveMQ broker is complete when the <systemoutput>#</systemoutput> prompt is displayed.</p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N100D4_N1006A_N1004C_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to restart <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <p>
+                                        <option keyref="sudo"/><userinput>/root/</userinput><option keyref="ecmStartupScript"/> 
+                                    </p>
+               <p>The following message is displayed when the startup is complete:  <option keyref="ecmStartupScriptMsg"/>  All procedures required to change the password for the ActiveMQ <filepath>admin</filepath> ID are complete.</p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N10100_N1004C_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="0deaef38f7d17f1f7da151abdf446019"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

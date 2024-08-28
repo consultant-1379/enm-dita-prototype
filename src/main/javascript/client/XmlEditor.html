@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+  <head>
+    <title>XmlEditor</title>
+	<script data-main="scripts/main" src="scripts/require.js"></script>
+ 	<link rel="stylesheet" type="text/css" href="style/theme.css">
+	<link rel="stylesheet" type="text/css" href="style/menu.css">
+
+  </head>
+  <!--
+  ph|varname|codeph|filepath|cite|keyword|apiname|option|parmname|cmdname|msgph|systemoutput|userinput|uicontrol|term|sup|sub|tm|
+  dl|ol|ul|sl|menucascade|xref|fn|draft-comment
+
+  fig|imagemap|image|
+  table|
+  note|hazardstatement|pre|codeblock|msgblock|
+  -->
+  <body>
+		<div class="docpanel" id="docslot" style="position:fixed; top:50pt; left:40pt; height=calc(100%-50pt); width=calc(100%-40pt);"></div>
+		<div class="filenav" id="filenav"><button id="buttonFile">File</button></div>
+		<div class="topnav" id="topnav"></div>
+		<div class="sidenav" id="sidenav">
+			<button class="hoverButton" fordiv="sidenavTOC" id="hoverButtonTOC"><img style="height:24pt;width:20pt;" src="resources/menu.svg" /></button>
+			<button class="hoverButton" fordiv="sidenavSDI" id="hoverButtonSDI">SDI</button>
+		</div>
+		<div class="sidenavTOC" id="sidenavTOC"></div>
+		<div class="sidenavSDI" id="sidenavSDI"></div>
+		<div class="elementDialog" id="elementDialog">
+			<div id="elementDialogDiv">
+			</div>
+		    <menu>
+			  <button id="elementDialogCancel">Cancel</button>
+			  <button id="elementDialogOK">OK</button>
+			  <button id="elementDialogRemove">Remove</button> 
+			  <button id="elementDialogRename">Rename</button>
+			  <select id="elementDialogRenameSelection"></select>
+			</menu>
+		</div>
+		<div class="filedialog" id="filedialog"></div>
+  </body>
+</html>

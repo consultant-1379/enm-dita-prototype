@@ -1,0 +1,74 @@
+<concept id="31a5133ca1c6d45b36c4ad2c2f349ad2" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change the F5 Certificates</title>
+   <prolog>
+      <source>ST4 ID: 13476295691</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>Change the F5 certificates for one of the following reasons:</p>
+      <ul id="ul_ohl_jgn_dpb">
+         <li>
+            <p>The certificate has expired.</p>
+         </li>
+         <li>
+            <p>You want to use a custom certificate from an external certificate authority.</p>
+         </li>
+      </ul>
+      <p>In a <ph keyref="GR_s"/> deployment, change the certificates on both sites. The <ph keyref="GR_s"/> deployment can function if the certificates are not in sync, but both
+         sites should be updated with new certificates. There are different procedures for bare
+         metal KVM and <ph keyref="ECM_short"/> on OpenStack deployments.</p>
+      <p>SSL certificate issued by a trusted certificate authority (CA) must meet the following
+         requirements:</p>
+      <p>
+         <ul id="ul_rhj_yb2_flb">
+            <li>
+               <p>The certificate must have a Subject Name value that consists of the following
+                  components:</p>
+               <ul id="ul_shj_yb2_flb">
+                  <li>
+                     <p>A Common Name (<userinput>CN</userinput>) attribute must contain the access
+                        FQDN for <ph keyref="ECM_short"/>.</p>
+                     <note id="note_N10071_N10062_N1005E_N1005B_N10057_N10054_N1002B_N10001">
+                        <p>For <ph keyref="HA_s"/> deployments, this corresponds to the
+                              <userinput>APPLICATION_DOMAIN</userinput> variable value in
+                              <filepath>baseenv.HA</filepath>.</p>
+                     </note>
+                  </li>
+                  <li>
+                     <p>An Organization (<userinput>O</userinput>) attribute and an Organizational
+                        Unit (<userinput>OU</userinput>) attribute.</p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p>The certificate used must include a <userinput>keyUsage</userinput> attribute with
+                  value <userinput>digitalSignature, keyEncipherment</userinput>.</p>
+            </li>
+            <li>
+               <p>The certificate used must include an <userinput>extendedKeyUsage</userinput>
+                  attribute with value <userinput>serverAuth, clientAuth</userinput>.</p>
+            </li>
+            <li>
+               <p>The certificate used must include a Subject Alternative Name
+                     (<userinput>subjectAltName</userinput>) attribute that has the following
+                  value.</p>
+               <ul id="ul_thj_yb2_flb">
+                  <li>
+                     <p>DNS: must contain the access FQDN for <ph keyref="ECM_short"/>.</p>
+                     <note id="note_N100CE_N100C3_N100BF_N100B4_N10057_N10054_N1002B_N10001">
+                        <p>For <ph keyref="HA_s"/> deployments, this corresponds to the
+                              <userinput>APPLICATION_DOMAIN</userinput> variable value in
+                              <filepath>baseenv.HA</filepath>.</p>
+                     </note>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </p>
+   </conbody>
+</concept>

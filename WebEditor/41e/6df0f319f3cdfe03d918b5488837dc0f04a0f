@@ -1,0 +1,24 @@
+<referable-content id="4ac55a1dd078b07220015e6722a4d03d" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Encrypt Password List</title>
+   <rcbody>
+      <ul id="st4tb13638139659">
+         <li>
+                                    <p>
+                                       <ph importance="normal">cmdb</ph>
+                                    </p>
+                                    <p>Security Domain Name: encrypted-cmdb</p>
+                                 </li>
+         <li>
+                                    <p>
+                                       <ph importance="normal">ecm</ph>
+                                    </p>
+                                    <p>Security Domain Name: encrypted-ecm</p>
+                                 </li>
+         <li>
+                                    <p>
+               <ph importance="normal">cw20</ph>
+            </p>
+                                    <p>Security Domain Name: encrypted-cw</p>
+                                 </li>
+      </ul>
+   </rcbody>
+</referable-content>

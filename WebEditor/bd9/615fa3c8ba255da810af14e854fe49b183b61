@@ -1,0 +1,755 @@
+<concept id="cb3c52ebbb1bb6e02eb83b6f30b482aa" xml:lang="en-US">
+   <title>Application Component Descriptions</title>
+   <prolog>
+      <source>ST4 ID: 16356664203</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+         <change-historylist>
+         <change-item>
+            <change-person>zmennor</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-26436</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-03-25</change-completed>
+            <change-summary>EEAEPP-39382, Added disclaimers about SLI being deprecated and replaced with NSLI, and added NSLI components in the Application Component Descriptions section.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zmennor</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-04-28</change-completed>
+            <change-summary>EEAEPP-31038, In the scope of the E-DCR Correlator removal, deleted the E-DCR Correlator row from the Application Component Descriptions section.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-06-22</change-completed>
+            <change-summary>EEAEPP-39272 - EI Aggregator changed to Aggregator</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-08-04</change-completed>
+            <change-summary>EEAEPP-41477 - Variants corrected to PosgreSQL Reference Database</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-09-07</change-completed>
+            <change-summary>EEAEPP-32928 - Removed links to support only documents.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zbozviv</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-38895</change-request-id>
+            </change-request-reference>
+            <change-completed>2021-03-16</change-completed>
+            <change-summary>EEAEPP-57134 - Stream Aggreagator added.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following table shows the <ph keyref=""/> Application components and their
+         description.</p>
+      <table id="table_N10033_N10028_N10001">
+         <title>Application Component Descriptions</title>
+         <tgroup cols="2">
+            <colspec colname="col1" colwidth="0.80*"/>
+            <colspec colname="COLSPEC1" colwidth="1.28*"/>
+            <thead>
+               <row>
+                  <entry valign="top">
+                     <p>Component</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Description</p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <option>aggregator-app-&lt;version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>A collection of aggregators which aggregate <ph keyref=""/>, <ph keyref=""/>, and related incident data flows.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>aggregator-services-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>A collection of helper components used by <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>aggregator-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side GUI component of the Aggregator that supplies data to the <ph keyref=""/> and the <ph keyref=""/> GUIs.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>anomaly-detection-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Preprocesses data for <ph keyref=""/>, based on flattened <ph keyref=""/>s and <ph keyref=""/>s and their
+                        incidents.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>anomaly-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Provides data for the <ph keyref=""/> GUI.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ark-core-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is a core library of the <ph keyref=""/> framework.
+                        It is essential to run applications on an <ph keyref=""/>
+                        cluster.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ark-egg-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is a core library of the <ph keyref=""/> framework.
+                        It is essential to run applications on an <ph keyref=""/>
+                        cluster.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ark-encryption-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The <option>ark-encryption</option> library is used for the decryption and
+                        encryption of strings, block-sized digits. It provides an
+                        encryption/decryption wrapper for IMSI, IMEISV, IMEISNR, MSISND number
+                        formats, stored in block-size digits.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ark-sparklib-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is a core library of the <ph keyref=""/> framework.
+                        It is essential to run applications on an <ph keyref=""/>
+                        cluster.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>automated-expert-insights-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The GUI of the <ph keyref=""/> Value Package.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>avro-lib-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component encodes and decodes the AVRO messages.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>billing-info-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>call-browser-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side GUI component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>config-store-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The <option>config-store</option> in this component is where the
+                        configuration of the client and web-services is placed.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>data-usage-hbase-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>HBase loader component for data usage.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>data-usage-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>drill-offline-&lt;current-version>-resource</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>View and Queries to support exporting of offline data (<ph keyref=""/>s, <ph keyref=""/>s, Incidents) to
+                        client specific data repository.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>edcr-hbase-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>HBase loader component for <ph keyref=""/>s.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>edcr-incident-hbase-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p> HBase loader component for <ph keyref=""/> incidents generated
+                        by <ph keyref=""/>s (<ph keyref=""/>s).</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>edcr-input-adapter-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The version of the Input Adapter that handles <ph keyref=""/>
+                        data.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>edcr-profiler-services-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Profiler component handling the <ph keyref=""/> data. The
+                        profile attributes generated by the Profiler are used by the Marketing
+                        Dashboard.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>eea_callbrowser-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Client side GUI component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>eea-common-libs-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is a collection of 3PPs that are used by <ph keyref=""/> core libraries.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>eea-gui-authentication-client-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Common client-side login module for YMER GUIs to authenticate the user. For
+                        the list of YMER GUIs, contact Ericsson personnel.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>eea_launcher-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Client side GUI component that serves as the entry point and the selection
+                        screen for all <ph keyref=""/> GUIs.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>engineering-insights-client-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Client side GUI component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>esr-hbase-bulkloader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>HBase loader component for <ph keyref=""/>s.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>esr-incident-hbase-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>HBase loader component for <ph keyref=""/> incidents generated by
+                           <ph keyref=""/>s (<ph keyref=""/>s).</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>esr-input-adapter-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The version of the Input Adapter that handles <ph keyref=""/>
+                        data.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>esr-profiler-services-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Profiler component handling the <ph keyref=""/> data. The profile
+                        attributes generated by the Profiler are used by the Marketing
+                        Dashboard.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>etl-pipeline-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Workflow engine that is used by Custom Insights to fetch reference data from
+                        the PostgreSQL Reference Database to HDFS and to decrypt or anonymize <ph keyref=""/> data files.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>fdi-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Platform Library to support Flexible Data Ingestion (FDI) modules.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>fdi-common-data-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Platform Library to support FDI common data entities and DTO
+                        information.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>fdi-field-dictionary-populator-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Platform Library to support FDI connectivity to Database.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>field-dictionary-populator-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Platform Library to support FDI metadata mapping to tables.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>input-adapter-cleaner-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Cleaner for all Input Adapter components that removes <ph keyref=""/> and <ph keyref=""/> files from HDFS,
+                        once they have been processed and the retention period has passed.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>licenseRestApi-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>API to interface with Sentinel License Server.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>logCollector-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component to collect client side logs from YMER based
+                        applications.</p>
+                  </entry>
+               </row>
+               <row otherprops="EEAEPP-26436">
+                  <entry>
+                     <p><option>network-sli-aggregator</option></p>
+                  </entry>
+                  <entry>
+                     <p>Calculates the NSLI value from the service usage ratio and the service quality.</p>
+                  </entry>
+               </row>
+               <row otherprops="EEAEPP-26436">
+                  <entry>
+                     <p><option>network-sli-avg-counter</option></p>
+                  </entry>
+                  <entry>
+                     <p>Counts used KPIs grouped by their values for NSLI calculations.</p>
+                  </entry>
+               </row>
+               <row otherprops="EEAEPP-26436">
+                  <entry>
+                     <p><option>network-sli-incremental</option></p>
+                  </entry>
+                  <entry>
+                     <p>Calculates the midday KPI sums for NSLI calculations.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>oam-lib-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Operation and Maintenance (Fault Management, Alarm Proxy, Alarm Sending,
+                        Licensing, Logging) library.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>oozie-tasks-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>An Oozie Java action that can be used to start <ph keyref=""/>
+                        applications.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>oozie-workflow-&lt;current-version>-resource</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Oozie workflows and start/stop scripts that support SLI loading to
+                        Impala.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ref-data-lib-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is the client in-memory reference data interface used by
+                        background components such as RE, to enrich network data with reference
+                        data, such as CRM, cell location information, device information, and
+                        others.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ref-data-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component loads and synchronizes the reference data (for example, Cell
+                        Location, CRM, and IMEITAC) from the PostgreSQL Reference Database to Redis
+                        in the <ph keyref=""/> cluster.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>ref-data-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component that handles the reference data need of web services,
+                        such as Cell Location, CRM, and IMEITAC.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>rule-engine-edcr&lt;current-version>-suite</option>
+                     </p>
+                     <p>
+                        <option>rule-engine-esr&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ph keyref=""/> (<ph keyref=""/>)
+                        component that creates Incidents whenever there is degradation in the
+                        customer experience or network performance.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>session-browser-client-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Client side GUI component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>session-browser-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>sli-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Main component of SLI that manages SLI production.</p>
+                     <note conkeyref="206626c214f9b90e5d78fbd9304d8b69/note_SLIDeprecated" id="note_N1006D_N1006A_N10001" otherprops="EEAEPP-26436"><p/></note>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>sli-calibration-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component handles SLI KPI Statistics and Trace Reports.</p>
+                     <note conkeyref="206626c214f9b90e5d78fbd9304d8b69/note_SLIDeprecated" id="note_N1065F_N10658_N10649_N10086_N1005E_N10056_N1004B_N10001" otherprops="EEAEPP-26436"><p/></note>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>sli-group-mapper-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This is the SLI Group Mapper component.</p>
+                     <note conkeyref="206626c214f9b90e5d78fbd9304d8b69/note_SLIDeprecated" id="note_N1067F_N10678_N10669_N10086_N1005E_N10056_N1004B_N10001" otherprops="EEAEPP-26436"><p/></note>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>sli-scheduler-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component is responsible for starting SLI calculations when data is
+                        received from the <ph keyref=""/> Input Adapter.</p>
+                     <note conkeyref="206626c214f9b90e5d78fbd9304d8b69/note_SLIDeprecated" id="note_N106A3_N10698_N10689_N10086_N1005E_N10056_N1004B_N10001" otherprops="EEAEPP-26436"><p/></note>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p otherprops="EEAEPP-20091">
+                        <draft-comment>
+                           <p>pnstart@number = "EEAEPP-20091_20190723"</p>
+                        </draft-comment>
+                        <option>sqm-ei-loader-&lt;current-version>-suite</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p otherprops="EEAEPP-20091">A job that transform <ph keyref=""/> PM
+                        data, so it can be used by <ph keyref=""/>.<draft-comment>
+                           <p>pnend@number = "EEAEPP-20091_20190723"</p>
+                        </draft-comment>
+                     </p>
+                  </entry>
+               </row>
+               <row otherprops="EEAEPP-38895">
+                  <entry>
+                     <p><option>stream-aggregator-&lt;version>-suite</option></p>
+                  </entry>
+                  <entry>
+                     <p>A collection of aggregators that aggregate metrics and incidents for the
+                        Operator Incidents dataflow.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>subscriber-analytics-&lt;current-version>-webclient</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Client side GUI component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>subscriber-analytics-web-service-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component of the <ph keyref=""/>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>userAuthorizationRestApi-&lt;current-version>-webservice</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Server side component for the Launcher GUI and the YMER GUIs to authorize
+                        the configured user roles for the users. For the list of YMER GUIs, contact
+                        Ericsson personnel.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>util-lib-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This component contains various utility classes for <ph keyref=""/>
+                        components.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <option>zk-concurrent-&lt;current-version>-library</option>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Platform Library to support FDI for scalability.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </conbody>
+</concept>

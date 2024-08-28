@@ -1,0 +1,129 @@
+<referable-content id="65789029796d4b3ffe7a33eda6aaf32d" xml:lang="en-US">
+<title>CBRS Domain Proxy: Unable to send messages to SAS Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_qvk_3cr_dgb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Alarm</p>
+                        </entry>
+                        <entry>
+                            <p>NON_SYNCHABLE_ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Domain Proxy Service: SAS CPAS</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>SAS connection issue, for example:</p>
+                            <p>
+                                <ul id="ul_hnn_dps_rkb">
+                                    <li>
+                                        <p>Hostname lookup failure</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <ul id="ul_kfz_dps_rkb">
+                                    <li>
+                                        <p>No route to host</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <ul id="ul_axp_2ps_rkb">
+                                    <li>
+                                        <p>Connection closed by peer</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <ul id="ul_wlf_fps_rkb">
+                                    <li>
+                                        <p>Connection time-out</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>SAS security certification issue</p>
+                            <p>
+                                <ul id="ul_uy3_cps_rkb">
+                                    <li>
+                                        <p>The keystore or truststore is not valid.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>Faults in the SAS</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>CBRS Domain Proxy: Unable to send messages to SAS</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object</p>
+                        </entry>
+                        <entry>
+                            <p>SAS_URL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Configuration Management</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

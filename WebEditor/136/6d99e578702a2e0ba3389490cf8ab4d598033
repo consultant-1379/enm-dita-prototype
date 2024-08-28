@@ -1,0 +1,17 @@
+<map id="1f34cdd5ec3c3307a868b01e673a3bd2" xml:lang="en-US">
+   <title>Variable Key Map ARK</title>
+   <keydef keys="ARK_name">
+      <topicmeta>
+         <keywords>
+            <keyword>ARK</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="ARKplatform_name">
+      <topicmeta>
+         <keywords>
+            <keyword>ARK Platform</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

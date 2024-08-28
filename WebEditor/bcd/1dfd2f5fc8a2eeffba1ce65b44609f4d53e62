@@ -1,0 +1,242 @@
+<task id="6c079fc85d2a1282594a4437f52b2515" xml:lang="en-US">
+   <title>Convert Existing Tenants to a Single <ph keyref="externalIdam_initialCap"/>
+   </title>
+   <prolog>
+      <source>ST4 ID: 11276662795</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N1004E_N1004B_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>All existing tenants can be converted to a single <ph keyref="externalIdam"/> system (specified as the default) using the <ph keyref="ECM_short"/>
+            <ph keyref="externalIdam"/> conversion script. The conversion script is used to assign
+            one active <ph keyref="externalIdam"/> for all the active tenants or subtenants, except
+            for the <ph keyref="ECM_short"/> tenant. If the <ph keyref="externalIdam"/> provided for
+            conversion is not active, the conversion results in an error. Conversion of tenants or
+            subtenants can be done to only one <ph keyref="externalIdam"/> even if there is more
+            than one <ph keyref="externalIdam"/> configured. Tenants that have been converted to an
+               <ph keyref="externalIdam"/> can be reconverted to use a local authentication by
+            running this utility and setting the <parmname>-idamID</parmname> parameter to
+               <option>LOCAL</option>.</p>
+                              <note id="note_N1007F_N1004E_N1004B_N10001">
+                                 <ul>
+               <li>
+                                       <p>Local users are not migrated since <ph keyref="ECM_short"/> does not manage or manipulate the <ph keyref="externalIdam"/>s. </p>
+                                    </li>
+               <li>
+                                       <p>To assign or update an <ph keyref="externalIdam"/> system
+                     to a single tenant, or <ph keyref="ECM_short"/> tenant, see <xref keyref="e3d80e95a03c41b4d6e1353d83ee378b"/>.</p>
+                                    </li>
+            </ul>
+                              </note>
+                              <div outputclass="st4mig_titled-block">
+                                 <p outputclass="st4mig_titled-block-title">
+                                    <ph keyref="externalIdam_initialCap"/> Conversion Script Usage</p>
+                                 <table id="table_N100B8_N100AB_N1004E_N1004B_N10001">
+               <tgroup cols="2">
+                                       <colspec colname="col1"/>
+                                       <colspec colname="col2"/>
+                                       <tbody>
+                                          <row>
+                                             <entry>
+                                                <p>Script Name: </p>
+                                             </entry>
+                                             <entry>
+                                                <p><filepath>ecm_idam_converter.sh</filepath>
+                           </p>
+                                             </entry>
+                                          </row>
+                                          <row>
+                                             <entry>
+                                                <p>Location: </p>
+                                             </entry>
+                                             <entry>
+                                                <p>
+                                                   <filepath>/app/ecm/tools/envs/ecm-rest-util</filepath>
+                                                </p>
+                                             </entry>
+                                          </row>
+                                          <row>
+                                             <entry>
+                                                <p>Login: </p>
+                                             </entry>
+                                             <entry>
+                                                <p><option>ecm_admin</option>
+                           </p>
+                                             </entry>
+                                          </row>
+                                          <row>
+                        <entry>
+                                                <p>Use:  </p>
+                                             </entry>
+                                             <entry>
+                                                <p><userinput>ecm_idam_converter.sh -idamID
+                                    <varname>idamID</varname> -userId <varname>userId</varname>
+                                 -password <varname>password</varname> -logLevel
+                                 &lt;OFF|ERROR|WARN|INFO|DEBUG|TRACE></userinput>
+                           </p>
+                                             </entry>
+                                          </row>
+                                          <row>
+                                             <entry>
+                                                <p>Example: </p>
+                                             </entry>
+                                             <entry>
+                                                <p><userinput>/ecm_idam_converter.sh -idamID
+                                 8adab6c4-e0b7-44e5-99d3-bd1272e3f887 -userId ecmadmin -password
+                                 dsuhfehfu -traceLevel debug</userinput>
+                           </p>
+                                             </entry>
+                                          </row>
+                                          <row>
+                                             <entry>
+                                                <p>Debug Information: </p>
+                                             </entry>
+                                             <entry>
+                                                <p><filepath>/app/ecm/tools/envs/ecm-rest-util/logs</filepath>
+                           </p>
+                                             </entry>
+                                          </row>
+                                       </tbody>
+                                    </tgroup>
+            </table>
+                              </div>
+                           </context>
+                           <steps>
+                              <step id="step_N1018F_N1018C_N1004B_N10001">
+            <cmd>Log in to the <ph keyref="CoreVM"/> as <option>ecm_admin</option>. </cmd>
+         </step>
+                              <step id="step_N101A2_N1018C_N1004B_N10001">
+            <cmd>Access the following directory: </cmd>
+            <info>
+               <p><filepath>/app/ecm/tools/envs/ecm-rest-util</filepath>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N101BC_N1018C_N1004B_N10001">
+            <cmd>Enter the following command with the appropriate parameters: </cmd>
+            <info>
+               <p>
+                  <codeblock outputclass="condensed pgwide">ecm_idam_converter.sh -idamID <varname>idamID</varname> -userId <varname>userId</varname> -password <varname>password</varname> -traceLevel &lt;logLevel> </codeblock>
+               </p>
+            </info>
+            <info>
+               <table id="table_act_ydt_3gb">
+                  <tgroup cols="2">
+                     <colspec colname="col1"/>
+                     <colspec colname="col2"/>
+                     <thead>
+                        <row>
+                           <entry>
+                              <p>Parameter </p>
+                           </entry>
+                           <entry>Description</entry>
+                        </row>
+                     </thead>
+                     <tbody>
+                        <row>
+                           <entry><parmname>-idamID</parmname>
+                           </entry>
+                           <entry>
+                              <p>Required: The external IdAM system Universally Unique Identifier
+                                 (UUID) to be assigned to tenants or subtenants. </p>
+                              <p>Set the external IdAM system UUID to "LOCAL" to unassign external
+                                 IdAM systems from tenants or subtenants.</p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry><parmname>-userId</parmname>
+                           </entry>
+                           <entry>
+                              <p>Optional: The <ph keyref="ECM_short"/> tenant admin user ID. The
+                                 default user ID is <option>ecmadmin</option>
+                              </p>
+                              <note id="note_N1023A_N10233_N10228_N1020D_N101E5_N101E1_N101DE_N101BA_N1018C_N1004B_N10001">
+                                 <p>Only a provider administrator or tenant administrator (or
+                                    another role with the same permissions) can manage
+                                    configurations for external IdAM systems.</p>
+                              </note>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry><parmname>-password</parmname>
+                           </entry>
+                           <entry>
+                              <p>Required: The Cloud Manager tenant admin user password </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry><parmname> -logLevel</parmname>
+                           </entry>
+                           <entry>
+                              <p>Optional: The logger trace level. The default tracing level is
+                                    <option>INFO</option>. </p>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+            </info>
+            <stepxmp>
+               <p>
+                  <codeblock outputclass="condensed pgwide">/ecm_idam_converter.sh -idamID a2cfa2df-3e06-42e8-b3df-f8b804065313-userId ecmadmin -password dsuhfehfu -traceLevel INFO</codeblock>
+               </p>
+            </stepxmp>
+            <stepresult>
+               <p>Output similar to the following is displayed:</p>
+               <codeblock outputclass="condensed">The following parameters will be used for processing:
+         LOGLEVEL=INFO
+         IDAMID=a2cfa2df-3e06-42e8-b3df-f8b804065313
+         USERID=ecmadmin
+Do you want to continue (y/n)?
+</codeblock>
+            </stepresult>
+         </step>
+                              <step id="step_N1028F_N1018C_N1004B_N10001">
+            <cmd>Enter <userinput>y</userinput> to run the script at the prompt to continue. </cmd>
+            <stepresult>
+               <p>Output similar to the following is displayed:</p>
+               <codeblock outputclass="condensed">Continuing with given parameters...
+15:01:51.928 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Number of tenants: 82.
+15:01:51.933 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing tenant: guiVmAdminTenant.
+15:01:52.277 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiVmAdminTenant.
+15:01:52.649 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved configuration information for tenant: guiVmAdminTenant.
+15:01:54.539 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Tenant guiVmAdminTenant successfully updated.
+15:01:54.539 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing tenant: guiVimTenant.
+15:01:54.857 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiVimTenant.
+15:01:55.222 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved configuration information for tenant: guiVimTenant.
+15:01:56.550 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Tenant guiVimTenant successfully updated.
+15:01:56.970 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing subtenant: guiVimTenant/guiVimSubtenant1.
+15:01:57.294 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiVimTenant.
+15:01:57.852 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Subtenant guiVimTenant/guiVimSubtenant1 successfully updated.
+15:01:57.852 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing subtenant: guiVimTenant/guiVimSubtenant2.
+15:01:58.202 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiVimTenant.
+15:01:58.592 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Subtenant guiVimTenant/guiVimSubtenant2 successfully updated.
+15:01:58.592 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing tenant: guiServerTemplatesTenant.
+15:01:58.854 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiServerTemplatesTenant.
+15:01:59.126 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved configuration information for tenant: guiServerTemplatesTenant.
+15:02:00.468 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Tenant guiServerTemplatesTenant successfully updated.
+15:02:00.808 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing subtenant: guiServerTemplatesTenant/guiServerTemplatesSubtenant1.
+15:02:01.141 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiServerTemplatesTenant.
+15:02:01.695 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Subtenant guiServerTemplatesTenant/guiServerTemplatesSubtenant1 successfully updated.
+15:02:01.695 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Processing tenant: guiVnTenant.
+15:02:02.044 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved details for tenant: guiVnTenant.
+15:02:02.337 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Retrieved configuration information for tenant: guiVnTenant.
+15:02:03.726 [main] INFO  c.e.e.t.security.ldap.IdamConverter - Tenant guiVnTenant successfully updated.
+</codeblock>
+            </stepresult>
+         </step>
+                              <step id="step_N102AA_N1018C_N1004B_N10001">
+            <cmd>Restart <ph keyref="OpenAM_s"/>  and <ph keyref="OpenDJ_s"/> when the script is
+               complete. </cmd>
+         </step>
+                              <step id="step_N102B8_N1018C_N1004B_N10001">
+            <cmd>Log out of the <ph keyref="CoreVM"/>. </cmd>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

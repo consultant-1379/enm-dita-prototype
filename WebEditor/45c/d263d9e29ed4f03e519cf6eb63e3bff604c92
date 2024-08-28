@@ -1,0 +1,54 @@
+<task id="e67e5d07a61da55edf58e15d72f036a2" xml:lang="en-US">
+    <title>Verify Application Suite Status</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-04</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: New topic: Verify Application Suite Status
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10058_N10053_N10001">
+            <p>To verify the <ph keyref=""/>
+                <ph keyref=""/> Loader application suite status: </p>
+        </context>
+        <steps>
+            <step id="step_N10064_N10061_N10053_N10001">
+                <cmd> Run the following command as <option>admin</option> user on the <ph keyref=""/> Master <ph keyref=""/>:</cmd>
+                <info>
+                    <codeblock>arkpkgmgr -v status sqm-ei-loader</codeblock>
+                </info>
+            </step>
+        </steps>
+        <example id="example_N10077_N10053_N10001">
+            <title>Output</title>
+            <codeblock>Connecting to zookeeper.eea:5181
+Zookeeper connection established, state: CONNECTED
+sqm-ei-loader-1.0  Succeeded
+Closing connection to zookeeper.eea:5181
+Zookeeper session lost, state: CLOSED</codeblock>
+            <p>If <ph keyref=""/>
+                <ph keyref=""/> Loader was started by Oozie at least once, it must
+                have a status of either <option>Succeeded</option> or <option>Running</option>.</p>
+        </example>
+    </taskbody>
+</task>

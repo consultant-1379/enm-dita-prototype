@@ -1,0 +1,248 @@
+<concept id="618c735177ffce23746666217ed0df6e" xml:lang="en-US">
+    <title>The ark-dashboard Tool</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zgrahle</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-23994</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-02-26</change-completed>
+                <change-summary>EEAEPP-38385. The ark-dashboard Tool. Section Created. Input from ZSHMAND. 20200225</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zbozviv</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-23994</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-03-27</change-completed>
+                <change-summary>EEAEPP-38385. The ark-dashboard Tool. Section updated. </change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zgrahle</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-23994</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-04-01</change-completed>
+                <change-summary>EEAEPP-38385. The ark-dashboard Tool. Updated states description. Input from ZSHMAND. 20200227</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zmennor</change-person>
+                <change-request-reference>
+                    <change-request-system>TR</change-request-system>
+                    <change-request-id>HY48836</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-02</change-completed>
+                <change-summary>EEAEPP-45939, Added example log output in The ark-dashboard Tool section. </change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>This tool performs the following functions:</p>
+        <ul id="ul_bjd_xdp_vkb">
+            <li>
+                <p>Starts, stops and displays status of <ph keyref=""/> application.</p>
+            </li>
+            <li>
+                <p>Updates <ph keyref=""/> application manifest settings:</p>
+                <ul id="ul_b43_b2p_vkb">
+                    <li>
+                        <p>Arguments</p>
+                    </li>
+                    <li>
+                        <p>Memory</p>
+                    </li>
+                    <li>
+                        <p>Vcores</p>
+                    </li>
+                    <li>
+                        <p>Number of running containers</p>
+                    </li>
+                    <li>
+                        <p>Main class</p>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Locates and views <ph keyref=""/> application logs.</p>
+            </li>
+            <li>
+                <p>Uploads and downloads <ph keyref=""/> application dependencies and
+                    executable files.</p>
+            </li>
+        </ul>
+        <section id="section_yhy_j2p_vkb">
+            <title>The <cmdname>ark-dashboard</cmdname> command</title>
+            <p>The following subcommands are available to manage applications:</p>
+            <note id="note_N100CE_N100BD_N10054_N10001">
+                <p>The tool must be used as <option>root</option> user.</p>
+            </note>
+            <ul id="ul_kwy_cfp_vkb">
+                <li><cmdname>start</cmdname></li>
+                <li><cmdname>stop</cmdname></li>
+                <li><cmdname>status</cmdname></li>
+                <li><cmdname>config</cmdname></li>
+                <li><cmdname>details</cmdname></li>
+                <li><cmdname>logs</cmdname></li>
+                <li><cmdname>dumplog</cmdname></li>
+                <li><cmdname>download</cmdname></li>
+                <li><cmdname>upload</cmdname></li>
+            </ul>
+            <p>The <cmdname>ark-dashboard status</cmdname> command returns the list of <ph keyref=""/> applications. Each of them has the following possible
+                states:</p>
+            <ul id="ul_ab2_vfp_vkb">
+                <li>
+                    <p><systemoutput>Stopped</systemoutput>: When the <ph keyref=""/>
+                        application is stopped.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Failed</systemoutput>: When the <ph keyref=""/>
+                        application is rejected due to insufficient resources, an exception, or the
+                        retry count exceeds the maximum retry count, it is in a failed state.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Running</systemoutput>: When the <ph keyref=""/>
+                        application is in a running state.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Succeeded</systemoutput>: When the <ph keyref=""/>
+                        application is in a succeeded state.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Submitted</systemoutput>: When the <ph keyref=""/>
+                        application is submitted to the cluster.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Accepted</systemoutput>: When the <ph keyref=""/>
+                        application is picked up for execution from the queue, it is in an accepted
+                        state.</p>
+                </li>
+                <li>
+                    <p><systemoutput>Killed</systemoutput>: When the user sends a kill signal, the
+                            <ph keyref=""/> application is updated to a killed state.</p>
+                </li>
+            </ul>
+            <p>For more details on the subcommands, use the CLI help as follows:</p>
+            <p><userinput>ark-dashboard --help</userinput></p>
+            <p><userinput>ark-dashboard <varname>subcommand</varname> --help</userinput></p>
+            <ul id="ul_odz_t3p_vkb">
+                <li>
+                    <p>The following is an example of an <option>ark-dashboard</option> command that
+                        lists the status of all installed <ph keyref=""/> applications:</p>
+                    <p><userinput>ark-dashboard status</userinput></p>
+                </li>
+                <li>
+                    <p>Start <ph keyref=""/> application:</p>
+                    <p><userinput>ark-dashboard start -a
+                        <varname>ARK_application</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Stop <ph keyref=""/> application:</p>
+                    <p><userinput>ark-dashboard stop -a
+                        <varname>ARK_application</varname></userinput></p>
+                </li>
+                <li>
+                    <p>List log files location, container id, log file name for <ph keyref=""/> application:</p>
+                    <p><userinput>ark-dashboard logs -a
+                        <varname>ARK_application</varname></userinput></p>
+                    <p>The following is an example output:</p>
+                    <codeblock> Log files for application: edcr-anomaly-detection-learning-1-1.15.cpkg.b0e54f9
+ Container ID Machine Logfile
+ ------------------------------------------------------------------------
+ spark-client mgr stdout
+ spark-client mgr stderr
+ spark-client mgr spark_driver.log
+ container_e04_1592871000789_1651_01_000001 eea-esxi-530 stderr
+ container_e04_1592871000789_1651_01_000001 eea-esxi-530 stdout
+ container_e04_1592871000789_1651_01_000001 eea-esxi-530 monitor.log
+ container_e04_1592871000789_1651_01_000001 eea-esxi-530 app.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 h2o_10.216.187.128_54325-6-fatal.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 h2o_10.216.187.128_54325-5-error.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 h2o_10.216.187.128_54325-4-warn.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 stderr
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 h2o_10.216.187.128_54325-3-info.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 h2o_10.216.187.128_54325-httpd.log
+ container_e04_1592871000789_1651_01_000002 eea-esxi-529 stdout</codeblock>
+                </li>
+                <li>
+                    <p>Dump the log file for <ph keyref=""/> application into
+                        <option>stdout</option>:</p>
+                    <p><userinput>ark-dashboard dumplog -a <varname>ARK_application</varname> -c
+                        <varname>container_ID</varname> -f
+                        <varname>log_file_name</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Show <ph keyref=""/> application settings:</p>
+                    <p><userinput>ark-dashboard details -a
+                        <varname>ARK_application</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Update <ph keyref=""/> application memory settings:</p>
+                    <p><userinput>ark-dashboard config -a <varname>ARK_application</varname> -m
+                        <varname>RAM_size_in_MB</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Update <ph keyref=""/> application number of running containers
+                        settings:</p>
+                    <p><userinput>ark-dashboard config -a <varname>ARK_application</varname> -c <varname>number_of_running_containers</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Update <ph keyref=""/> application number of Vcores
+                        settings:</p>
+                    <p><userinput>ark-dashboard config -a <varname>ARK_application</varname> -v <varname>number_of_Vcores</varname></userinput></p>
+                </li>
+                <li>
+                    <p>Update <ph keyref=""/> application arguments settings. Wrap arguments
+                        in single quotes:</p>
+                    <p><userinput>ark-dashboard config -a <varname>ARK_application</varname> -r '<varname>arguments</varname>'</userinput></p>
+                </li>
+                <li>
+                        <p>Update <ph keyref=""/> application main class name settings. Wrap
+                        class name in single quotes:</p>
+                        <p><userinput>ark-dashboard config -a <varname>ARK_application</varname> -C '<varname>main_class</varname>'</userinput></p>
+                    </li>
+                    <li>
+                        <p>Upload or replace <ph keyref=""/> application dependency file:</p>
+                        <p><userinput>ark-dashboard upload -a <varname>ARK_application</varname> -f
+                            <varname>file_name</varname> -p
+                            <varname>path_to_file_on_local_system</varname></userinput></p>
+                    </li>
+                    <li>
+                        <p>Replace <ph keyref=""/> application executable jar-file:</p>
+                        <p><userinput>ark-dashboard upload -a <varname>ARK_application</varname> -f <varname>jar_file_name</varname> -p <varname>path_to_the_jar_file_on_the_local_system</varname> --executable</userinput></p>
+                    </li>
+                    <li>
+                        <p>Download <ph keyref=""/> application dependency file:</p>
+                        <p><userinput>ark-dashboard download -a <varname>ARK_application</varname> -f
+                            <varname>file_name</varname> -d
+                            <varname>path_to_directory_to_store_file</varname></userinput></p>
+                    </li>
+                    <li>
+                        <p>Run <option>ark-dashboard</option> in graphical mode:</p>
+                        <p><userinput>ark-dashboard</userinput></p>
+                        <note id="note_N10255_N10244_N10177_N100BD_N10054_N10001">
+                            <p>Graphical mode has limited functionality. This mode can only start, stop
+                                and view the status of <ph keyref=""/> applications.</p>
+                        </note>
+                    </li>
+            </ul>
+        </section>
+    </conbody>
+</concept>

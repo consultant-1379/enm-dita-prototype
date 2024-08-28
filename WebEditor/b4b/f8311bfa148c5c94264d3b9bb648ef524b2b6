@@ -1,0 +1,666 @@
+<concept id="7aa6940684aa9b0fc8bf6482247b3e51" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Security Certificates</title>
+   <prolog>
+      <source>ST4 ID: 13577124235</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>The following table lists the certificates used in <ph keyref="ECM_short"/> components.</p>
+      <note id="note_N100C8_N100B8_N10001">
+                        <ul>
+            <li>
+                              <p>For production systems, it is recommended to replace certificates to external clients or callers with certificates from a trusted Certificate Authority (CA). </p>
+                           </li>
+            <li>
+                              <p>Whenever a security certificate is changed, system downtime is required.</p>
+                           </li>
+            <li>
+               <p>It is recommended that the expiration dates of certificates be tracked so that
+                  they can be updated before they expire.</p>
+            </li>
+         </ul>
+                     </note>
+      <table id="table_N100DF_N100B8_N10001">
+         <title>Certificates Used by External Clients</title>
+         
+         <tgroup cols="7">
+            <colspec colname="col1" colwidth="1.02*"/>
+            <colspec colname="col2" colwidth="1.01*"/>
+            <colspec colname="col3" colwidth="0.68*"/>
+            <colspec colname="col4" colwidth="1.16*"/>
+            <colspec colname="newCol5" colwidth="0.75*"/>
+            <colspec colname="newCol6" colwidth="1.25*"/>
+            <colspec colname="col5" colwidth="1.16*"/>
+            <thead>
+               <row>
+                  <entry valign="top">
+                     <p>Component and VM</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Owner</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Port</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Purpose</p>
+                  </entry>
+                  <entry>
+                     <p>Expiry of Shipped Certificate</p>
+                  </entry>
+                  <entry>
+                     <p>How to Check Expiry</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Notes/Instructions</p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Component: F5 Load Balancer</p>
+                     <p>VM: F5 (both <ph keyref="LB_VM_s"/>s in the HA cluster)</p>
+                  </entry>
+                  <entry>
+                     <p>F5</p>
+                  </entry>
+                  <entry>
+                     <p>443</p>
+                  </entry>
+                  <entry>
+                     <p>Encrypts communication between the F5 and all external callers for HA
+                        deployments.</p>
+                  </entry>
+                  <entry>
+                     <p>One year self-signed.</p>
+                     <p>This value may be changed to <option>lifetime</option> when configuring the
+                        self-signed certificate during installation and when changing to a
+                        certificate from a trusted authority.</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_dy1_fms_k3b">
+                           <li><p>Log in to the
+                                 F5.</p>https://<filepath><varname>F5_IP</varname>//tmui/Control/jspmap/tmui/locallb/ssl_certificate/properties.jsp?certificate_name=%2FCommon%2Fecmssl</filepath><p>where
+                                    <varname>F5_IP</varname> is the IP address of the F5.</p></li>
+                           <li>
+                              <p>Go to <menucascade>
+                                    <uicontrol>System</uicontrol>
+                                    <uicontrol>Certificate Management</uicontrol>
+                                    <uicontrol>Traffic Certificate Management</uicontrol>
+                                    <uicontrol>SSL Certificate List</uicontrol>
+                                 </menucascade></p>
+                           </li>
+                           <li>
+                              <p>Check the column <uicontrol>Expiration</uicontrol>.</p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Applicable to <ph keyref="HA_s"/> deployments only.</p>
+                     <p>
+                        <xref keyref="31a5133ca1c6d45b36c4ad2c2f349ad2"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: GUI</p>
+                     <p>VM: <ph keyref="CoreVM"/>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Apache HTTPD on Linux</p>
+                  </entry>
+                  <entry>
+                     <p>443</p>
+                  </entry>
+                  <entry>
+                     <p>Secures communication between the <ph keyref="ECM"/> and external clients
+                        for non-HA deployments.</p>
+                  </entry>
+                  <entry>
+                     <p> October 2023</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_qyd_rwq_k3b">
+                           <li>
+                              <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                                 execute the following command:</p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Enter the command:</p>
+                              <p><cmdname>openssl s_client -connect &lt;Core-OAM-IP>:443 -showcerts
+                                    | openssl x509 -text -noout</cmdname></p>
+                              <p>where <varname>Core-OAM-IP</varname> is the IP address of the core
+                                 node.</p>
+                           </li>
+                           <li>
+                              <p>Check field <uicontrol>Validity</uicontrol>.</p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Applicable to <ph keyref="non_HA_s"/> deployments only.</p>
+                     <p>
+                        <xref keyref="96a98ddbada1a85e51c4d13e83a2d02b"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: AM 6.5</p>
+                     <p>VM: <ph keyref="CoreVM"/>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>AM 6.5</p>
+                  </entry>
+                  <entry>
+                     <p>636</p>
+                  </entry>
+                  <entry>
+                     <p>Encrypts communication between AM 6.5 and <ph keyref="externalIdam"/>.</p>
+                  </entry>
+                  <entry>
+                     <p>non-HA: October 2023</p>
+                     <p>HA: November 2030</p>
+                  </entry>
+                  <entry>
+                     <ol id="ol_w3j_cxq_k3b">
+                        <li>
+                           <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                              execute the following command:</p>
+                           <p><cmdname>sudo -s</cmdname></p>
+                        </li>
+                        <li>
+                           <p>Change directories:</p>
+                           <p><userinput>cd
+                                 /app/ecm/security/docker-compose/eocm-security</userinput></p>
+                        </li>
+                        <li>
+                           <p>Execute the following:</p>
+                           <p>Check <codeph>admin.keystore</codeph>:</p>
+                           <p><userinput>keytool -list -keystore tomcat-ssl-keystore.p12 -v
+                                 -storepass $(cat .admin-keystore.pin)</userinput></p>
+                        </li>
+                     </ol>
+                  </entry>
+                  <entry>
+                     <p>Applicable to <ph keyref="HA_s"/> and <ph keyref="non_HA_s"/> deployments
+                        for <ph keyref="externalIdam"/>. <ph keyref="ECM"/> does not provide a
+                        certificate, instead it recommends obtaining a certificate from a trusted
+                        Certificate Authority.</p>
+                     <p>This certificate may not be changed.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: OpenStack (Glance)</p>
+                     <p>VM: <ph keyref="CoreVM"/>(s)</p>
+                  </entry>
+                  <entry>
+                     <p>JBoss</p>
+                  </entry>
+                  <entry>
+                     <p>443</p>
+                  </entry>
+                  <entry>
+                     <p>Secures communication between the VIM and the  <ph keyref="CoreVM"/>s for
+                        the OpenStack Image Service (Glance).</p>
+                  </entry>
+                  <entry>
+                     <p>The installation date plus 1085 days</p>
+                  </entry>
+                  <entry>
+                     <ol id="ol_z2s_nxq_k3b">
+                        <li>
+                           <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                              execute the following command:</p>
+                           <p><cmdname>sudo -s</cmdname></p>
+                        </li>
+                        <li>
+                           <p>Launch command line:</p>
+                           <p><userinput>openssl x509 -in /etc/pki/tls/certs/ecm_ssl.crt -noout
+                                 -text |grep After</userinput></p>
+                        </li>
+                     </ol>
+                  </entry>
+                  <entry>
+                     <p>Applicable for <ph keyref="EOO_s"/> <ph keyref="non_HA_s"/> and <ph keyref="HA_s"/> deployments only.</p>
+                     <p>
+                        <xref keyref="d87e41e102b93771ac8ddc3fbe78485a"/>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <table id="table_N10243_N100B8_N10001">
+         <title>Certificates Used Internally for Communication within CM Components</title>
+         <tgroup cols="7">
+            <colspec colname="col1" colwidth="1.02*"/>
+            <colspec colname="col2" colwidth="1.01*"/>
+            <colspec/>
+            <colspec colname="col3" colwidth="1.16*"/>
+            <colspec colname="newCol5" colwidth="0.75*"/>
+            <colspec colname="newCol6" colwidth="1.25*"/>
+            <colspec colname="col4" colwidth="1.16*"/>
+            <thead>
+               <row>
+                  <entry valign="top">
+                     <p>Component and VM</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Owner</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Port</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Purpose</p>
+                  </entry>
+                  <entry>
+                     <p>Expiry of Shipped Certificate</p>
+                  </entry>
+                  <entry>
+                     <p>How to Check Expiry</p>
+                  </entry>
+                  <entry valign="top">
+                     <p/>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Component: Security</p>
+                     <p>VM: <ph keyref="CoreVM"/> (<ph keyref="CoreVM"/>-1 for HA deployments)</p>
+                  </entry>
+                  <entry>
+                     <p>Java - <ph keyref="OpenDJ_s"/> RSA</p>
+                  </entry>
+                  <entry>
+                     <p>8989</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>These secures the replication channel between <ph keyref="OpenAM_s"/> on the <ph keyref="CoreVM"/>-1 and <ph keyref="OpenAM_s"/> on the <ph keyref="CoreVM"/>-2.</p>
+                  </entry>
+                  <entry>
+                     <p>November 2030</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_wcq_lzq_k3b">
+                           <li>
+                              <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                                 execute the following command: </p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Change directories:</p>
+                              <p><userinput>cd
+                                    /app/ecm/security/docker-compose/eocm-security</userinput></p>
+                           </li>
+                           <li>
+                              <p>Execute the following:</p>
+                              <p>Check <codeph>ads-truststore</codeph></p>
+                              <p><userinput>keytool -list -keystore ds-ssl-keystore.p12 -v
+                                    -storepass $(cat .admin-keystore.pin)</userinput></p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>
+                        <xref keyref="5de2be9ee2883b418d9e3281eeb0710b"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>Not
+                     <p>Component: Security</p>
+                     <p>VM:<ph keyref="CoreVM"/>-2</p>
+                  </entry>
+                  <entry>
+                     <p>Java - <ph keyref="OpenDJ_s"/> RSA</p>
+                  </entry>
+                  <entry>
+                     <p>58989</p>
+                  </entry>
+                  <entry>
+                     <p>November 2030</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_tfd_xjf_wnb">
+                           <li>
+                              <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                                 execute the following command: </p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Change directories:</p>
+                              <p><userinput>cd
+                                    /app/ecm/security/docker-compose/eocm-security</userinput></p>
+                           </li>
+                           <li>
+                              <p>Execute the following:</p>
+                              <p>Check <codeph>ads-truststore</codeph></p>
+                              <p><userinput>keytool -list -keystore ds-ssl-keystore.p12 -v
+                                    -storepass $(cat .admin-keystore.pin)</userinput></p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: Security</p>
+                     <p>VM: <ph keyref="CoreVM"/> (<ph keyref="CoreVM"/>-1 for HA deployments)</p>
+                  </entry>
+                  <entry>
+                     <p>Java - Administration Connector RSA </p>
+                  </entry>
+                  <entry>
+                     <p>6444</p>
+                  </entry>
+                  <entry>
+                     <p>This certificate secures communication over Port 6444, which is used for
+                        <ph keyref="OpenDJ_s"/> administrative traffic on the <ph keyref="CoreVM"/>. For HA
+                        deployments, it also secures administrative traffic between the <ph keyref="OpenDJ_s"/>
+                        instance on node 1 and the <ph keyref="OpenDJ_s"/> instance on node 2. </p>
+                  </entry>
+                  <entry>
+                     <p>November 2030</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_ol5_yjf_wnb">
+                           <li>
+                              <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                                 execute the following command: </p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Change directories:</p>
+                              <p><userinput>cd
+                                    /app/ecm/security/docker-compose/eocm-security</userinput></p>
+                           </li>
+                           <li>
+                              <p>Execute the following:</p>
+                              <p>Check <codeph>ads-truststore</codeph></p>
+                              <p><userinput>keytool -list -keystore ds-ssl-keystore.p12 -v
+                                    -storepass $(cat .admin-keystore.pin)</userinput></p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <xref keyref="5c37d657c6e555ac3a46b0bd268acf66"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: Security</p>
+                     <p>VM: <ph keyref="CoreVM"/>-2 </p>
+                  </entry>
+                  <entry>
+                     <p>Java - Administration Connector RSA </p>
+                  </entry>
+                  <entry>
+                     <p>7444</p>
+                  </entry>
+                  <entry>
+                     <p>This certificate secures communication over Port 7444, which is used for
+                        <ph keyref="OpenDJ_s"/> administrative traffic on the <ph keyref="CoreVM"/>. For <ph keyref="HA_s"/>
+                        deployments, it also secures administrative traffic between the <ph keyref="OpenDJ_s"/>
+                        instance on node 2 and the <ph keyref="OpenDJ_s"/> instance on node 1.</p>
+                  </entry>
+                  <entry>
+                     <p>November 2030</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <ol id="ol_fzl_1kf_wnb">
+                           <li>
+                              <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                                 execute the following command: </p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Change directories:</p>
+                              <p><userinput>cd
+                                    /app/ecm/security/docker-compose/eocm-security</userinput></p>
+                           </li>
+                           <li>
+                              <p>Execute the following:</p>
+                              <p>Check <codeph>ads-truststore</codeph></p>
+                              <p><userinput>keytool -list -keystore ds-ssl-keystore.p12 -v
+                                    -storepass $(cat .admin-keystore.pin)</userinput></p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Applicable to HA deployments only.</p>
+                     <p>
+                        <xref keyref="5c37d657c6e555ac3a46b0bd268acf66"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: Service Catalog</p>
+                     <p>VM: <ph keyref="CoreVM"/>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Java - Service Catalog</p>
+                  </entry>
+                  <entry>
+                     <p>10009</p>
+                  </entry>
+                  <entry>
+                     <p>Access to the Service Catalog from internal <ph keyref="ECM_short"/>
+                        components</p>
+                  </entry>
+                  <entry>
+                     <p>December 2033</p>
+                  </entry>
+                  <entry>
+                     <ol id="ol_dfd_x22_yjb">
+                        <li>
+                           <p>Log in to the <ph keyref="CoreVM"/> as <codeph>osadm</codeph> and
+                              execute the following command:</p>
+                           <p><cmdname>sudo -s</cmdname></p>
+                        </li>
+                        <li>
+                           <p>Enter the command:</p>
+                           <p><filepath>openssl s_client -connect
+                                    <varname>&lt;Core-OAM-IP></varname>:10009 -showcerts | openssl
+                                 x509 -text -noout -enddate</filepath></p>
+                           <p>where <varname>&lt;Core-OAM-IP></varname> is the IP address of the
+                              core node.</p>
+                        </li>
+                        <li>
+                           <p>Check field <uicontrol>notAfter</uicontrol>.</p>
+                        </li>
+                     </ol>
+                  </entry>
+                  <entry>
+                     <p>The certificate can be customized using the procedures described in the
+                           <cite>Catalog Security</cite> section of the <xref keyref="referenceList/16">Ericsson Catalog Manager System
+                           Configuration User Guide</xref></p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: Activation</p>
+                     <p>VM: <ph keyref="ActivationVM"/>-1 (<ph keyref="HA_s"/> deployments VM-1,
+                        VM-2, and VM-3)</p>
+                  </entry>
+                  <entry>
+                     <p>Java</p>
+                  </entry>
+                  <entry>
+                     <p>8181</p>
+                  </entry>
+                  <entry>
+                     <p>Secures communication between internal activation micro services</p>
+                  </entry>
+                  <entry>
+                     <p>September 2030</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>
+                        <ol id="ol_stt_2cr_k3b">
+                           <li>
+                              <p>Log in to the <ph keyref="ActivationVM"/> as <codeph>osadm</codeph>
+                                 and execute the following command:</p>
+                              <p><cmdname>sudo -s</cmdname></p>
+                           </li>
+                           <li>
+                              <p>Verify the validity of the certificates on each of the ports as
+                                 required.</p>
+                              <p><userinput>openssl s_client -connect &lt;VIP-OAM-IP>: &lt;port>
+                                    | openssl x509 -noout -text | grep -A 2 Validity</userinput></p>
+                              <p>VIP-OAM-IP is the external IP of the Activation VM.</p>
+                           </li>
+                        </ol>
+                     </p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>
+                        <xref keyref="382cb0cbdab9e4bab19201128c0e2546"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: Activation</p>
+                     <p>VM: <ph keyref="ActivationVM"/>-1 (<ph keyref="HA_s"/> deployments VM-1,
+                        VM-2, and VM-3)</p>
+                  </entry>
+                  <entry>
+                     <p>Tomcat</p>
+                  </entry>
+                  <entry>
+                     <p>8383</p>
+                  </entry>
+                  <entry>
+                     <p>Secures communication between the <ph keyref="ECM_short"/>REST layer and the
+                        Activation component. </p>
+                  </entry>
+                  <entry>
+                     <p>November 2030</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The following table lists the certificates used by the <ph keyref="ecaProductname_s"/>
+         optional feature.</p>
+      <table id="table_N10436_N100B8_N10001">
+         <title>
+            <ph keyref="ecaProductname_s"/> Certificates</title>
+         <tgroup cols="7">
+            <colspec colname="col1" colwidth="1.02*"/>
+            <colspec colname="col2" colwidth="1.01*"/>
+            <colspec colname="COLSPEC0" colwidth="0.68*"/>
+            <colspec colname="col3" colwidth="1.16*"/>
+            <colspec colname="newCol5" colwidth="0.75*"/>
+            <colspec colname="newCol6" colwidth="1.25*"/>
+            <colspec colname="col4" colwidth="1.16*"/>
+            <thead>
+               <row>
+                  <entry valign="top">
+                     <p>Component and VM</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Owner</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Port</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Purpose</p>
+                  </entry>
+                  <entry>
+                     <p>Expiry of Shipped Certificate</p>
+                  </entry>
+                  <entry>
+                     <p>How to Check Expiry</p>
+                  </entry>
+                  <entry valign="top">
+                     <p>Instructions</p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Component: <ph keyref="ecaProductname_s"/>
+                     </p>
+                     <p>VM: 
+                        <ph keyref="ECACoreVM"/>(s)</p>
+                  </entry>
+                  <entry>
+                     <p>HTTPD</p>
+                  </entry>
+                  <entry>
+                     <p>443</p>
+                  </entry>
+                  <entry>
+                     <p>Secures API traffic over the <ph keyref="ecaProductname_s"/> NBI.</p>
+                  </entry>
+                  <entry>
+                     <p>April 2118</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>Enter the following:</p>
+                     <p><userinput>keytool -list -v -keystore keystore.jks</userinput></p>
+                     <p><userinput>keytool -list -v -keystore cacerts.jks</userinput></p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>
+                        <xref keyref="9113314c035823800ae471c7eb6237c7"/>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Component: <ph keyref="ecaProductname_s"/>
+                     </p>
+                     <p>VM: <ph keyref="ECACoreVM"/>(s)</p>
+                  </entry>
+                  <entry>
+                     <p>JBoss</p>
+                  </entry>
+                  <entry>
+                     <p>8181</p>
+                  </entry>
+                  <entry>
+                     <p>Secures monitoring traffic over the <ph keyref="ecaProductname_s"/> NBI, between JBoss and the F5 node(s).</p>
+                  </entry>
+                  <entry>
+                     <p>April 2118</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </conbody>
+</concept>

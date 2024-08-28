@@ -1,0 +1,175 @@
+<concept id="0cfb2990e83ec4ce0324cfe2782aa63c" xml:lang="en-US">
+    <title>HBase Manager</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>ztthrtx</change-person>
+                <change-request-reference>
+                    <change-request-system>TR</change-request-system>
+                    <change-request-id>HX86294</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-06-29</change-completed>
+                <change-summary>Section created for HBase Manager application based on EEAEPP-37968
+input from: EMRTSTE</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>ztthrtx</change-person>
+                <change-request-reference>
+                    <change-request-system>TR</change-request-system>
+                    <change-request-id>HX86294</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-06</change-completed>
+                <change-summary>Small corrections based on EEAEPP-37968
+input from: ETHEGB</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The HBase Manager application handles requests from HBase-related <ph keyref=""/>
+            applications to split and drop regions (continuous slices of tables) in HBase. It
+            handles incoming requests in a multi-threaded way and processes each request in a queued
+            manner so that only one request is processed at a time for a given operation and table.
+            Region splitting happens whenever an application requests it. Usually, this happens at
+            midnight (UTC) for the next two days.</p>
+        <p>The drop functionality is performed for data after the retention period is elapsed using
+            major compaction and merging of compacted empty regions.</p>
+        <p>HBase Manager cannot fix any inconsistencies in the underlying HBase database, the
+            inconsistencies must be fixed manually. For more information, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#ico1571256742277?title=Troubleshooting%20Guide" scope="external">Troubleshooting Guide</xref>.</p>
+        <p>HBase Manager cleaner and splitter applications must run in order for <ph keyref=""/> applications to work properly.</p>
+        <p>HBase Manager and <ph keyref=""/> applications communicate through Zookeeper to
+            properly prepare HBase for data loading. The interface consists of the following
+            operations that are available for applications:</p>
+        <ul id="ul_fnv_s4m_dmb">
+            <li>
+                <p>Clean (drop)</p>
+            </li>
+            <li>
+                <p>Split</p>
+            </li>
+            <li>
+                <p>Compact</p>
+            </li>
+        </ul>
+        <section id="section_l1f_g4m_dmb">
+            <title>Clean (Drop) Operation</title>
+            <p>Applications can perform a clean operation for a specific key prefix which is usually
+                an integer number (for example, day timestamp prefix). The interface the
+                applications communicate with is a Zookeeper node at
+                    <filepath>/HBaseMgr/drop/</filepath>.</p>
+            <p>Example drop request:</p>
+            <p>Node path:
+                        <filepath>/HBaseMgr/drop/request/<varname>table_name</varname>,<varname>prefix</varname></filepath></p>
+            <p>The node data is the following:</p>
+            <dl>
+                <dlentry>
+                    <dt><varname>table_name</varname></dt>
+                    <dd>
+                        <p>The name of the table.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><varname>prefix</varname></dt>
+                    <dd>
+                        <p>The row key prefix to be dropped.</p>
+                    </dd>
+                </dlentry>
+            </dl>
+            <p>When a clean operation is successful, it creates nodes under
+                    <filepath>/HBaseMgr/drop/ready</filepath> with the same name the request was
+                created with and for all previous non-existent ready nodes are created for previous
+                drop requests. The drop operation is best effort: when a drop request is made the
+                Hbase Manager software tries to drop all the requested regions and all the previous
+                regions, but only succeeds at regions where the retention has elapsed. The retention
+                is elapsed when the physical timestamp (the date and time when the last writing took
+                place into the region) is over by the retention period. When the region is dropped,
+                nodes for previous requests are also created. The existence of a ready node means
+                that the HBase Manager tried to drop the regions but the regions remain if the TTL
+                has not elapsed for them. The remaining regions are dropped when another drop
+                request is received after TTL elapsed.</p>
+        </section>
+        <section id="section_wtt_slh_2mb" outputclass="static">
+            <title>Split Operation</title>
+            <p>Applications can perform a split operation for a specific key prefix which is usually
+                an integer number (for example, day timestamp prefix) and the number of regions. The
+                number of regions is configurable for each application. The interface the
+                applications communicate with is a Zookeeper node at
+                    <filepath>/HBaseMgr/split/</filepath>.</p>
+            <p>Example split request:</p>
+            <p>Node path:
+                        <filepath>/HBaseMgr/split/request/<varname>table_name</varname>,<varname>prefix1</varname></filepath></p>
+            <p>The node data is the following:</p>
+            <dl>
+                <dlentry>
+                    <dt><varname>table_name</varname></dt>
+                    <dd>
+                        <p>The name of the table.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><varname>prefix1</varname></dt>
+                    <dd>
+                        <p>The starting row key.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><varname>prefix2</varname></dt>
+                    <dd>
+                        <p>The ending row key.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><varname>region_number</varname></dt>
+                    <dd>
+                        <p>The number of regions to create.</p>
+                    </dd>
+                </dlentry>
+            </dl>
+            <p>When a split is successful it creates a node under
+                    <filepath>/HBaseMgr/split/ready</filepath> with the same name the request was
+                created with.</p>
+        </section>
+        <section id="section_lk4_1rh_2mb" outputclass="static">
+            <title>Compact Operation</title>
+            <note id="note_N10165_N1015C_N10054_N10001">
+                <p>This operation is deprecated.</p>
+            </note>
+            <p>Applications can perform a compact operation for a specific key prefix which is
+                usually an integer number (for example, day timestamp prefix). The interface the
+                applications communicate with is a Zookeeper node at
+                    <filepath>/HBaseMgr/compact/</filepath>.</p>
+            <p>Example compact request:</p>
+            <p>Node path:
+                        <filepath>/HBaseMgr/compact/request/<varname>table_name</varname>,<varname>prefix</varname></filepath></p>
+            <p>The node data is the following:</p>
+            <dl>
+                <dlentry>
+                    <dt><varname>table_name</varname></dt>
+                    <dd>
+                        <p>The name of the table.</p>
+                    </dd>
+                </dlentry>
+                <dlentry>
+                    <dt><varname>prefix</varname></dt>
+                    <dd>
+                        <p>The row key prefix to be dropped.</p>
+                    </dd>
+                </dlentry>
+            </dl>
+            <p>When compaction is successful it creates a node under
+                    <filepath>/HBaseMgr/compact/ready</filepath> with the same name the request was
+                created with.</p>
+        </section>
+     </conbody>
+</concept>

@@ -1,0 +1,283 @@
+<task id="2864ea07766b409ee2a8c34dc960b20e" xml:lang="en-US">
+   <title>Add and Update <ph keyref="externalIdam_initialCap"/> Entries</title>
+   <prolog>
+      <source>ST4 ID: 14234658571</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                        <context id="context_N1006B_N10068_N10001">
+                           <p>For new <ph keyref="ECM"/> installations, or when configuring an <ph keyref="externalIdam"/> for an existing deployment, the <ph keyref="externalIdam"/> must be added to <ph keyref="ECM"/> using the <option outputclass="st4mig_function">addIdam</option> REST API. </p>
+                           <p>Only a provider administrator or tenant administrator (or another role with the same permissions) can manage configurations for <ph keyref="externalIdam"/> systems.</p>
+         <p>Only the <option outputclass="st4mig_function">addIdam</option> operation to add the <ph keyref="externalIdam"/> entry is required as part of configuring an <ph keyref="externalIdam"/>. Additional operations are listed in this section in case
+            they are needed later.</p>
+                           
+                              <note conkeyref="1c976e6510a14b5859b21a7e2016d423/st4tb14315247883" id="note_N100A6_N1006B_N10068_N10001"/>
+                           
+                        </context>
+                        <steps>
+                           <step id="step_N100AF_N100AC_N10068_N10001">
+            <cmd>Use the <option outputclass="st4mig_function">addIdam</option> REST API in a curl
+               script by creating an <filepath>idam.json</filepath> file with the values defined for
+               the <ph keyref="externalIdam"/> system. </cmd>
+            <info>
+               <p>See <cite>Add External IdAM Operation</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Cloud_Service_Management_Guide"/>.</p>
+               <p>The following key information is required for the <option outputclass="st4mig_function">addIdam</option> operation:</p>
+               <ul>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">name</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">isDefault</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">type</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">primaryServer</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">primaryServerPort</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">dnToStartSearch</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">bindUserDN</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">bindUserPassword</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">protocol</option>
+                     </p>
+                     <p conkeyref="db08b5f5612ded90c06a66bb26720872/st4tb11450947083"/>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">userAttributesMapping</option>: Maps
+                        the <ph keyref="ECM"/> attribute to the associated <ph keyref="externalIdam"/> attribute.</p>
+                  </li>
+               </ul>
+               <p>The following attributes are required:</p>
+               <ul>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"uid"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"memberOf"</option>
+                     </p>
+                  </li>
+               </ul>
+               <p>The following attributes are optional:</p>
+               <ul>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"givenName"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"sn"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"inetuserstatus"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"dn"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"mail"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"telephoneNumber"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"ds-pwp-last-login-time"</option>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <option outputclass="st4mig_function">"last-login-time-format"</option> -
+                        This is conditionally required if <option outputclass="st4mig_function">"ds-pwp-last-login-time"</option> is mapped.</p>
+                  </li>
+               </ul>
+            </info>
+            <stepxmp>
+               <p> OpenLDAP Example:
+                  <codeblock outputclass="condensed">{
+  "name": "IDAM_ldaps",
+  "isDefault": "true",
+  "type":"LDAP",
+  "primaryServer":"&lt;<ph importance="normal">FQDN of LDAP server</ph>>",
+  "primaryServerPort":"636",
+  "dnToStartSearch":"dc=ecm-openldap,dc=com",
+  "bindUserDN":"cn=manager,dc=ecm-openldap,dc=com",
+  "bindUserPassword":"password",
+  "protocol":"LDAPS",
+  "userAttributesMapping": [{
+                 "ecmAttribute":"uid",
+                 "externalIdamAttribute":"uid"
+  },
+  {
+               "ecmAttribute":"memberOf",
+               "externalIdamAttribute":"memberOf"
+  }]
+}
+</codeblock></p>
+            </stepxmp>
+            <stepxmp>
+               <p> Active Directory Example:
+                  <codeblock outputclass="condensed">{
+  "name": "IDAM_AD",
+  "isDefault": "false",
+  "type":"ACTIVE DIRECTORY",
+  "primaryServer":"&lt;<ph importance="normal">FQDN of LDAP server</ph>>",
+  "primaryServerPort":"636",
+  "dnToStartSearch":"DC=ECM,DC=local",
+  "bindUserDN":"CN=ecmAdmin,CN=Users,DC=ECM,DC=local",
+  "bindUserPassword":"password",
+  "protocol":"LDAPS",
+  "userAttributesMapping": [
+    {
+      "ecmAttribute":"uid",
+      "externalIdamAttribute":"sAMaccountName"
+  },
+  {
+      "ecmAttribute":"memberOf",
+      "externalIdamAttribute":"memberOf"
+  }]
+}
+</codeblock></p>
+            </stepxmp>
+         </step>
+                           <step id="step_N10233_N100AC_N10068_N10001">
+            <cmd>There are two options to add an <ph keyref="externalIdam"/> entry to <ph keyref="ECM"/>: </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>Execute the following curl script with the <filepath>idam.json</filepath>
+                        file:</p>
+                     <p>
+                        <codeblock outputclass="condensed pgwide">curl -i -X POST --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname>' --header 'TenantId:ecm' --data @idam.json 'http://<varname>&lt;localhost></varname>:8080/ecm_service/idams' </codeblock>
+                     </p>
+                     <p>
+                        <ph importance="normal">Example:</ph>
+                     </p>
+                     <p>
+                        <userinput>curl -i -X POST --header 'Content-Type:application/json' --header
+                           'Authorization:Basic YWNtQWRtaW46Q2xvdWRBZG1pbjEyMw==' --header
+                           'TenantId:ECM' --data @idam.json
+                              'http://<varname>&lt;localhost></varname>:8080/ecm_service/idams'</userinput>
+                     </p>
+                     <p>The add operation responds with the ID for the <ph keyref="externalIdam"/>.
+                        Save the returned <ph keyref="externalIdam"/> ID since it is used in other
+                        operations except for query.</p>
+                     <p>
+                        <ph importance="normal">Example: </ph> The <ph keyref="externalIdam"/> ID is
+                        denoted in bold text in the following sample response.</p>
+                     <codeblock outputclass="condensed">{"status":{"reqStatus":"SUCCESS","credentials":"AQIC5wM2LY4SfcwnLUNCmtZr1pWbxqx4ZfQ1ovcdU9YwSc0.*AAJTSQACMDEAAlNLABQtOTA0MjgzMDQ5MjgzMDIxNTkyNwACUzEAAA..*"},
+"data":{"idam":{"id":<ph importance="normal">"306bf7a2-77f4-4566-a7df-ba417b87fe02"</ph>}}}</codeblock>
+                  </li>
+                  <li>
+                     <p>Using a REST API client, the user can populate the <option outputclass="st4mig_function">addIdam</option> REST API with the contents
+                        of the <filepath>idam.json</filepath> file and send the POST command.</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                           
+                           
+                        </steps>
+                     <postreq id="postreq_N102B3_N10068_N10001">
+                              <div outputclass="st4mig_titled-block">
+                                 <p outputclass="st4mig_titled-block-title">Additional Operations</p>
+                                 <p>This section includes additional operations that can be used at
+               another point in time after the <ph keyref="externalIdam"/> is configured. The <ph keyref="externalIdam"/> ID is required when using these operations.</p>
+                                 <ul>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Get <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X GET --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' 'http://&lt;localhost>:8080/ecm_service/idams/<varname>idam id</varname>’</userinput>
+                                       </p>
+                                    </li>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Modify <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X PUT --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' --data @idam.json 'http://&lt;localhost>:8080/ecm_service/idams/<varname>idam id</varname>’</userinput>
+                                       </p>
+                                    </li>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Delete <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X delete --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' 'http://&lt;localhost>:8080/ecm_service/idams/<varname>idam id</varname>'</userinput>
+                                       </p>
+                                    </li>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Query <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X GET --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' 'http://&lt;localhost>:8080/ecm_service/idams</userinput>
+                                       </p>
+                                    </li>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Activate <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X POST --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' 'http://&lt;localhost>:8080/ecm_service/idams/<varname>idam id</varname>/activate</userinput>
+                                       </p>
+                                    </li>
+                  <li>
+                                       <p>
+                                          <ph importance="normal">Deactivate <ph keyref="externalIdam_initialCap"/>:</ph>
+                                       </p>
+                                       <p>
+                                          <userinput>curl -i -X POST --header 'Content-Type:application/json' --header 'Authorization:Basic <varname>base64 encoded user and password</varname> ' --header 'TenantId:ECM' 'http://&lt;localhost>:8080/ecm_service/idams/<varname>idam id</varname>/deactivate</userinput>
+                                       </p>
+                                    </li>
+               </ul>
+                              </div>
+                           </postreq></taskbody>
+</task>

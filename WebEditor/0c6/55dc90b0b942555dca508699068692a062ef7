@@ -1,0 +1,5 @@
+<referable-content id="42b7f586ba0818bf63f64a598a86b7c7" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Change Password Auto Replicated - Single ID</title>
+   <rcbody>
+      <p id="st4tb12402192907">A password change for this ID is automatically replicated to the standby site in geo-redundant deployments.</p>
+   </rcbody>
+</referable-content>

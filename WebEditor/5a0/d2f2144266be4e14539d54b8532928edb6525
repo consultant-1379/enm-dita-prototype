@@ -1,0 +1,203 @@
+<concept id="8804c4ec1832d88cb71bd322927dfa61" xml:lang="en-US">
+   <title>Probe Overview</title>
+   <prolog>
+      <source>ST4 ID: 16330929931</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ZGABKIS</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id>EEAEPP-18431</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-12-16</change-completed>
+            <change-summary>EEAEPP-33850, Added iq to Probe components.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zgabkis</change-person>
+            <change-request-reference>
+               <change-request-system/>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-09-22</change-completed>
+            <change-summary>EEAEPP-45492, Added VoLTE (RTP) codecs.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The <ph keyref=""/> Probe is used to analyze traffic in mobile telecommunication networks. Data collection is done by passive monitoring of traffic on the network interfaces. The following 3GPP interfaces are supported:</p>
+      <ul>
+         <li>
+                                    <p>2G and 3G Packet Core network Gn and Gp interface.</p>
+                                    <p>Supported protocols: GTPCv1 control plane and GTPU user plane (including 3GDT).</p>
+                                 </li>
+         <li>
+                                    <p>4G Evolved Packet Core network S11, S5, S8, S1-U, Sv, S2b, and S2a interfaces.</p>
+                                    <p>Supported protocols: GTPCv2 control plane and GTPU user plane.</p>
+                                    <p>4G EPC with New Radio is also supported (5G Option 3/3a/3x).</p>
+                                    <p>IMS core network Mw interface.</p>
+                                    <p>Supported protocols: SIP.</p>
+                                 </li>
+      </ul>
+      <p>The <ph keyref=""/> Probe performs the following data processing:</p>
+      <ul>
+         <li>
+                                    <p>Analyzes control plane traffic, writes PDP and PDN signaling events.</p>
+                                 </li>
+         <li>
+                                    <p>Analyzes user plane traffic, calculates detailed performance metrics of several supported applications (for example: TCP throughput, Web browsing speed, Video freeze rate).</p>
+                                 </li>
+         <li>
+                                    <p>Analyzes user plane traffic, performs traffic classification (traffic volume of many supported applications).</p>
+                                 </li>
+         <li>
+                                    <p>Analyzes IMS SIP signaling: Registration, Session setup, Session termination.</p>
+                                 </li>
+      </ul>
+      <p>EEA GTP Probes also work in networks where Control and User Plane functions are separated (CUPS).</p>
+      <note id="note_N1008B_N10028_N10001" otherprops="CUPS_limited" type="note">
+         <p>Control and User Plane Separation support is a restricted feature and is turned off by default. Consult Ericsson personnel for more information.</p>
+      </note>
+      <p>The <ph keyref=""/> Probe handles codec information, which is available from the following sources:</p>
+      <ul>
+         <li>
+                                    <p>
+                                       <ph importance="normal">Codec identification from SIP signaling:</ph> Any kind of codec is supported from SIP signaling. The codec type can be copied.</p>
+                                 </li>
+         <li>
+                                    <p>
+               <ph importance="normal">Codec identification from RTP media analysis:</ph> The RTP
+               Probe has no additional information other than the binary media package.
+               Identification of the (fixed length) AMR packages is solved, and the RTP probe
+               supports all AMR-NB and AMR-WB codec modes and differentiates between various EVS
+               bitrates, but cannot distinguish between EVS-NB/WB/SWB.</p>
+            <p>List of supported codecs and modes:</p>
+                                    <ul>
+               <li>
+                                       <p>AMR-NB: 12.2 | 10.2 | 7.95 | 7.4 | 6.7 | 5.9 | 5.15 | 4.75</p>
+                                    </li>
+               <li>
+                                       <p>AMR-WB: 23.85 | 23.05 | 19.85 | 18.25 | 15.85 | 14.25 | 12.65 | 8.85 | 6.6</p>
+                                    </li>
+               <li>
+                                       <p>EVS: 2.8 | 7.2 | 8.0 | 9.6 | 13.2 | 16.4 | 24.4 | 32 | 48 | 64 | 96 | 128</p>
+                                    </li>
+               <li>
+                  <p>EVS AMR-WB IO: 23.85 | 23.05 | 19.85 | 18.25 | 15.85 | 14.25 | 12.65 | 8.85 |
+                     6.6</p>
+               </li>
+               <li>
+                  <p>PCMU</p>
+               </li>
+               <li>
+                  <p>PCMA</p>
+               </li>
+               <li>
+                  <p>H.264</p>
+               </li>
+            </ul>
+                                    
+                                    
+                                 </li>
+      </ul>
+      <section id="section_N100D7_N10028_N10001">
+                                 <title outputclass="st4mig_titled-block-title">Components</title>
+                                 <p>Probe functionality is organized into multiple components. The configuration is modular, the components can be enabled or disabled selectively by editing <apiname>probe_config.py</apiname>.</p>
+                                 <p>The following components are available on Probe <ph keyref=""/>s:</p>
+                                 <ul>
+            <li>
+                                       <p>cupcake</p>
+                                       <p>Capture and flow balancing function. Mandatory component that is used to handle capture cards and the base DPDK layer.</p>
+                                    </li>
+            <li>
+                                       <p>gtpc</p>
+                                       <p>GTP-C processing function. Optional. Required component in <ph keyref=""/> workflow that is used to analyze GTP-C signaling traffic and generate GTP-C events.</p>
+                                       <ul id="ul_gx4_l3z_mjb">
+                  <li>
+                     <p>Supported interfaces in 2G/3G Packet Core: Gn and Gp (GTPCv1), both Gn and
+                        Gp can be analyzed at the same time.</p>
+                  </li>
+                  <li>
+                     <p>Supported interfaces in 4G Evolved Packet Core: S11, S5/S8, Sv and S2a/S2b
+                        (GTPCv2).</p>
+                     <note id="note_N10122_N1011B_N10110_N10101_N100F2_N100D8_N10028_N10001">
+                        <p>S8 is used for roaming.</p>
+                     </note>
+                  </li>
+                  <li>
+                     <p>Supported 4G interface combinations: S11 and S8, S5 and S8. S11 and S5 can
+                        not be analyzed at the same time.</p>
+                  </li>
+                  <li>
+                     <p>Mixed 2G/3G/4G/5G input is also supported.</p>
+                  </li>
+               </ul>
+               <p>Output:</p>
+               <ul id="ul_hx4_l3z_mjb">
+                  <li>
+                     <p>gtpc events streamed to the Correlator (and saved in local ESC file for
+                        backup).</p>
+                  </li>
+                  <li>
+                     <p>sv events streamed to the Correlator (and saved in local ESC file for
+                        backup).</p>
+                  </li>
+               </ul>
+                                       
+                                       
+                                       <p>This component saves its internal state (PDP/PDN contexts of mobile subscribers) in a local Redis database and restores it automatically in case of restart.</p>
+                                    </li>
+            <li>
+                                       <p>uplane</p>
+                                       <p><ph otherprops="EEAEPP-18431_exclude">GTP-U</ph><ph otherprops="EEAEPP-18431">User plane</ph> processing function. Optional.
+                  Required component in <ph keyref=""/> workflow that is used to analyze
+                  user plane traffic, generates various events.</p>
+                                       <p>The uplane component has the following subcomponents:</p>
+                                       <ul>
+                  <li>
+                                          <p>uplane.perf</p>
+                                          <p>Service and resource KPI processing function that is used to analyze user plane traffic performance and generate perf events. Perf events contain detailed performance metrics on TCP protocol and several supported applications (for example: video and web browsing), and RTP voice quality for VoLTE and VoWiFi.</p>
+                                          <p>Output: perf events streamed to the Correlator (and saved in local ESC file for backup).</p>
+                                       </li>
+                  <li>
+                                          <p>uplane.dnstlsperf</p>
+                                          <p>Service and resource KPI processing function, defined specifically for the DNS and TLS_SSL modules. It is used to analyze user plane traffic performance and generate perf events.</p>
+                                          <p>Output: perf events streamed to the Correlator (and saved in a local ESC file for backup).</p>
+                                       </li>
+                  <li>
+                                          <p>uplane.traf</p>
+                                          <p>Traffic classification function. It is used to analyze user plane traffic and generate traf events. Traf events contain traffic classification information (traffic volume of many supported applications).</p>
+                                          <p>Output: traf events streamed to the Correlator (and saved in local ESC file for backup).</p>
+                                       </li>
+               </ul>
+                                       
+                                       
+                                    </li>
+            <li>
+                                       <p>ims</p>
+                                       <p>IMS analysis function. Optional. Required component in <ph keyref=""/> workflow. It is used to analyze IMS core network traffic (Mw interface SIP signaling), generates various events.</p>
+                                       <p>IMS and GTP Probe components cannot be co-located on the same server. They are running on different servers depending on the location of the measurement point (GGSN / IMS data centers), and on the data volume to be processed.</p>
+                                    </li>
+            <li otherprops="EEAEPP-18431">
+                  <p>iq</p>
+                  <p>Iq analysis function. Optional. Required component in IMS (Mb + Iq)
+                     deployments. It is used to correlate user plane data collected from the Mb
+                     interface with SIP signaling. It does not generate any events which appear on
+                     the <ph keyref=""/> or <ph keyref=""/> output.</p>
+               </li>
+            <li>
+                                       <p>dumper</p>
+                                       <p>Optional. Additional component in <ph keyref=""/> workflow. Writes the raw packets into pcap files (in libpcap format) after applying filtering on the input traffic.</p>
+                                       <p>The config contains three dumper instances, one is for GTPC signaling traffic, another is for GTPU user plane traffic, and one is for IMS signaling. All of them are disabled by default.</p>
+                                    </li>
+         </ul>
+                              </section>
+   </conbody>
+</concept>

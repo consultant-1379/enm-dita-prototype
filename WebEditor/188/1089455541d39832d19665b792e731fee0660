@@ -1,0 +1,141 @@
+<task id="64bfff75ab533a5b4e5e505c7a405aca" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for the Security Component ID: Directory Manager</title>
+   <prolog>
+      <source>ST4 ID: 13577141643</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <prereq id="prereq_ts2_yz4_cjb">
+         <p>
+            <ul id="ul_evw_yz4_cjb">
+               <li>
+                  <p>For <ph keyref="non_HA_s"/> deployments:<ul id="ul_bpx_hbp_cjb">
+                        <li>
+                           <p>Verify that passwordless communication between nodes has been
+                              configured by using SSH keys. (See <xref keyref="6957512d1aa034c0ea595a76a1060c2e"/>)</p>
+                        </li>
+                        <li>
+                           <p>Verify that <ph keyref="OpenAM_s"/> is running on <ph keyref="CoreVM"/> 1:</p>
+                           <ol id="ol_owy_jwt_3nb">
+                              <li>
+                                 <p>Log in as<option> ecm_admin</option> to the <ph keyref="CoreVM"/> 1.</p>
+                              </li>
+                              <li>
+                                 <p>Run the commands:
+                                    <codeblock>systemctl status am
+
+systemctl status userstore
+
+systemctl status configstore</codeblock></p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ul></p>
+               </li>
+               <li>
+                  <p>For <ph keyref="HA_s"/> deployments:<ul id="ul_nlm_5wt_3nb">
+                        <li>
+                           <p>Verify that <ph keyref="OpenAM_s"/> is running on <ph keyref="CoreVM"/> 2:</p>
+                           <ol id="ol_xjj_vwt_3nb">
+                              <li>
+                                 <p>Log in as<option> ecm_admin</option> to the <ph keyref="CoreVM"/> 2.</p>
+                              </li>
+                              <li>
+                                 <p>Run the commands:
+                                    <codeblock>systemctl status am
+
+systemctl status userstore
+
+systemctl status configstore</codeblock></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Verify that passwordless communication between <ph keyref="CoreVM"/> 1
+                              and <ph keyref="CoreVM"/> 2 is setup.</p>
+                        </li>
+                     </ul></p>
+               </li>
+               <li>
+                  <p>For <ph keyref="GR_s"/> deployments:</p>
+                  <ul id="ul_wfh_pxt_3nb">
+                     <li>
+                        <p>Perform all steps on Site A and Site B.</p>
+                     </li>
+                     <li>
+                        <p>Decouple <ph keyref="GR_s"/>  as described in <cite>Stopping
+                              Geo-Redundant Replication</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/>.</p>
+                     </li>
+                     <li>
+                        <p>Couple <ph keyref="GR_s"/> on Site A and Site B as described in <cite>Set
+                              Up Geo-Redundancy</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/>.</p>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </p>
+      </prereq>
+                           <context id="context_N1004B_N10048_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>The Directory Manager ID binds all <ph keyref="ECM"/> tenants to
+            the users stored in the <ph keyref="OpenDJ_s"/> Security component. This password is
+            used when configuring password policies and validators for <ph keyref="ECM"/>
+            application users.</p>
+                              <p>The special characters that are allowed for this ID are <ph keyref="passwordCharactersSet_C"/>. </p>
+                              <note id="note_N10064_N1004B_N10048_N10001" type="note">
+            <p>Changing the password for the <option>Directory Manager</option> ID automatically
+               restarts certain internal components and, therefore, causes a short interruption of
+               service of less than five minutes.</p>
+            <p conkeyref="a759fa3eefa2780bf455485bdd709300/p_N10011_N1000E_N10001"/>
+         </note>
+                              <p>To change the password for <option>Directory Manager</option>:</p>
+                           </context>
+                           <steps>
+         <step id="step_N1011A_N1009B_N10064_N10001">
+            <cmd>Log in as <option>ecm_admin</option> to the <ph keyref="CoreVM"/> 1. </cmd>
+         </step>
+                              <step id="step_N1012A_N10077_N10048_N10001">
+            <cmd>Change directories: </cmd>
+            <info>
+               <codeblock outputclass="condensed">cd /app/ecm/security/openAm/sso-tools/scripts/ds/</codeblock>
+            </info>
+         </step>
+                              <step id="step_N10141_N10077_N10048_N10001">
+            <cmd>Execute the following script: </cmd>
+            <info>
+               <codeblock outputclass="condensed">./change-password.py</codeblock>
+            </info>
+         </step>
+                              <step id="step_N10158_N10077_N10048_N10001">
+            <cmd>Follow the script prompts to change the password. </cmd>
+            <info>
+               <note id="note_N101B5_N101B2_N101AA_N10170_N10048_N10001">
+                  <p>The following characters are not allowed at the start or the end of a new
+                     password: ^ $</p>
+               </note>
+            </info>
+            <stepresult>
+               <codeblock>Success: 'Execution ran successfully'.</codeblock>
+               <p>Once all information has been provided, <ph keyref="ECM"/> makes the required
+                  changes and restarts the required components. The restart interrupts the service
+                  for about 5 minutes. There is no need to make any changes to the second <ph keyref="CoreVM"/> in an <ph keyref="HA_s"/> deployment.</p>
+            </stepresult>
+         </step>
+                              <step id="step_N10172_N10077_N10048_N10001">
+            <cmd>Verify that the password change was successful by using the <ph keyref="ECM"/> GUI
+               or the <filepath>createTenant</filepath> API to create a sample tenant.  </cmd>
+            <stepresult>
+               <p>If you are able to create the tenant successfully, the Directory Manager password
+                  change was successful. </p>
+            </stepresult>
+         </step>
+         <step id="step_N1018F_N10123_N10048_N10001">
+            <cmd>Delete the sample tenant.</cmd>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

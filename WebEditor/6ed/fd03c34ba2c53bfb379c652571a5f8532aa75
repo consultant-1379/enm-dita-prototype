@@ -1,0 +1,42 @@
+<task id="c485758b6b11c00388c73ad36c1565f5" xml:lang="en-US">
+   <title>Starting the Adapter Load Balancer</title>
+   <prolog>
+      <source>ST4 ID: 16335268107</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <taskbody>
+                                    <context id="context_N1002B_N10028_N10001">
+                                       <p>To start Keepalived, issue the following commands:</p>
+                                    </context>
+                                    <steps>
+                                       <step id="step_N10037_N10034_N10028_N10001">
+                                          <cmd>
+               <ph outputclass="st4mig_cmd-para">Enable Keepalived:</ph>
+            </cmd>
+            <info>
+               <codeblock>systemctl enable keepalived</codeblock>
+            </info>
+                                          
+                                       </step>
+                                       <step id="step_N1004E_N10034_N10028_N10001">
+                                          <cmd>
+               <ph outputclass="st4mig_cmd-para">Start Keepalived the first time without rebooting:</ph>
+            </cmd>
+            <info>
+               <codeblock>systemctl start keepalived</codeblock>
+            </info>
+                                          
+                                       </step>
+                                    </steps>
+      <postreq id="postreq_jnq_xcd_mjb">
+         <div outputclass="st4mig-add-info">
+            <p>To perform health check on the Adapter Load Balancer, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#wrw1571256779171?title=Health%20Check%20Guide" scope="external">Adapter Load Balancer</xref>.</p>
+         </div>
+      </postreq>
+                                 </taskbody>
+</task>

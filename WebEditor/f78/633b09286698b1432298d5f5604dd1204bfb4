@@ -1,0 +1,103 @@
+<concept id="f83de880274e53beede79e224286a448" xml:lang="en-US">
+   <title>Configure Job Scheduler</title>
+   <prolog>
+      <source>ST4 ID: 16363601291</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <note id="note_N1002B_N10028_N10001">
+                        <p>Execute the commands below on the <ph keyref=""/> Master <ph keyref=""/>, with <apiname>root</apiname> user.</p>
+                     </note>
+      <p>The following applications have to be started in any environment where the user wants to use SLI:</p>
+      <note conkeyref="206626c214f9b90e5d78fbd9304d8b69/note_SLIDeprecated" id="note_N10044_N10028_N10001" otherprops="EEAEPP-26436">
+         <p/>
+      </note>
+      <ul>
+         <li>
+                           <p>sli_coordinator</p>
+                        </li>
+         <li>
+                           <p>sli_cleanup_coordinator</p>
+                        </li>
+         <li>
+                           <p>GroupMapper_coordinator</p>
+                        </li>
+      </ul>
+      <p>The following application is for backup purposes only:</p>
+      <ul>
+         <li>
+                           <p>sli_backup_coordinator</p>
+                        </li>
+      </ul>
+      <p>The scripts used in this section and the associated properties files can be found in the following directory in the MapR container:</p>
+      <codeblock>docker exec -it mapr bash
+cd /opt/ericsson/eea/resource/oozie-workflow-&lt;version>-resource/</codeblock>
+      <p>Each Coordinator job has its configuration file. These files contain all the properties to be passed to the coordinators or Hadoop applications to be run. The following configuration files are used by the Coordinators:</p>
+      <ul>
+         <li>
+                           <p>
+                              <apiname>sli_coordinator.properties</apiname> is the configuration file name for SLI_Persistance Coordinator.</p>
+                           <p>The file can be used without modification. It is used as a parameter to be passed for the script to start or restart the flow.</p>
+                           <p>
+                              <apiname>sli_coordinator</apiname> is responsible for calling the SLI_Persistance application once a day to output SLI data to HDFS. The SLI_Persistance application is invoked in the Hadoop cluster. The application can be used if the customer is using the SLI feature.</p>
+                           <p>To start or restart the SLI_Persistance Coordinator, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/startSLIPersistance.sh &lt;coordinator prop file path></userinput></codeblock>
+                           <p>Here, the coordinator prop file path is a mandatory parameter to be passed, which is <apiname>sli_coordinator.properties</apiname>.</p>
+                           <p>To stop the SLI Persistence job, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/stopSLIPersistance.sh</userinput></codeblock>
+                        </li>
+         <li>
+                           <p>
+                              <apiname>sli_cleanup_coordinator.properties</apiname> is the configuration file name for SLI_Cleanup Coordinator.</p>
+                           <p>The file can be used without modification. It is used as a parameter to be passed for the script to start or restart the flow.</p>
+                           <p>The SLI_Cleanup Coordinator is responsible for calling the SLI_MemDB_Cleanup application once a day which removes outdated SLI raw session scoring information for each subscriber from memory redis. SLI_MemDB_Cleanup is invoked in the Hadoop cluster. The application can be used if the customer is using the SLI feature.</p>
+                           <p>To start or restart the SLI_Cleanup Coordinator, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/startSLICleanup.sh &lt;coordinator prop file path></userinput></codeblock>
+                           <p>Here, the coordinator prop file path is a mandatory parameter to be passed, which is <apiname>sli_Cleanup_cordinator.properties</apiname>.</p>
+                           <p>To stop the SLI Cleanup job, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/stopSLICleanup.sh</userinput></codeblock>
+                        </li>
+         <li>
+                           <p>
+                              <apiname>GroupMapper_coordinator.properties</apiname> is the configuration file name for GroupMapper Coordinator.</p>
+                           <p>The file can be used without modification or some of the Hadoop configurations can be changed like number of reducers or mappers. It is used as a parameter to be passed for the script to start or restart the flow.</p>
+                           <p>
+                              <apiname>GroupMapper_coordinator</apiname> is responsible for calling the SLI_group-mapper application to generate user groupings for SLI calculations The application can be used if the customer is using the SLI feature.</p>
+                           <p>To start or restart the GroupMapper Coordinator, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/startGroupMapper.sh &lt;coordinator prop file path></userinput></codeblock>
+                           <p>Here, the coordinator prop file path is a mandatory parameter to be passed, which is <apiname>GroupMapper_coordinator.properties</apiname>.</p>
+                           <p>To stop the GroupMapper job, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/stopGroupMapper.sh</userinput></codeblock>
+                        </li>
+         <li>
+                           <p>
+                              <apiname>sli_backup_coordinator.properties</apiname> is the configuration file name for SLI_Backup Coordinator.</p>
+                           <p>The file can be used without modification. It is used as a parameter to be passed for the script to start or restart the flow.</p>
+                           <p>
+                              <apiname>sli_backup_coordinator</apiname> is responsible for calling the SLI_Backup_State application once a day which backs up SLI raw session scoring information for each subscriber from memory to HDFS for backup purposes. SLI_Backup_State is invoked in the Hadoop cluster. The application can be used if the customer is using the SLI feature.</p>
+                           <p>To start or restart the SLI_Backup Coordinator execute the following command:</p>
+                           <codeblock><userinput>bash scripts/startSLIBackup.sh &lt;coordinator prop file path></userinput></codeblock>
+                           <p>Here, the coordinator prop file path is a mandatory parameter to be passed which is <apiname>sli_backup_coordinator.properties</apiname>.</p>
+                           <p>To stop the SLI Backup job, execute the following command:</p>
+                           <codeblock><userinput>bash scripts/stopSLIBackup.sh</userinput></codeblock>
+                        </li>
+      </ul>
+      <p>The configuration parameters defined in the configuration files are as follows:</p>
+      <ul>
+         <li>
+                           <p>Environmental Parameters: nameNode, jobTracker, queueName, arkMaster and system.lib path</p>
+                        </li>
+         <li>
+                           <p>Application specific configuration parameters: appName, appClass, timeZone, coordinator start time/end time, coordinator frequency, timeout, and so on</p>
+                        </li>
+      </ul>
+      <p>While environmental parameters remain the same for all the applications that run through Oozie, application parameters can vary depending on the application.</p>
+      <note id="note_N10171_N10028_N10001">
+                        <p>The configuration settings needed at post-deployment time are the following:<apiname>timeZone</apiname>, <apiname>startTime</apiname>, and <apiname>endTime</apiname>. For an explanation on how these parameters can be set, see the Datetime, Frequency and Time-Period Representation section of the <xref keyref="647566fd0469491c0d09333f933299d6">Oozie Coordinator Specification</xref>.</p>
+                     </note>
+   </conbody>
+</concept>

@@ -1,0 +1,89 @@
+<task id="f192c60511dc17f9f9548aacfb37c7f6" xml:lang="en-US">
+   <title>Change the <ph keyref="ECM"/> admin ID</title>
+   <prolog>
+      <source>ST4 ID: 14126117899</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001">
+                                 <p>Use this procedure to change the password for the <ph keyref="ECM"/> 
+                                    <filepath>admin</filepath> ID.</p>
+                                 <note id="note_N10042_N10032_N1002F_N10001" type="note">Perform the following steps on both <ph keyref="CoreVM"/>s in an HA deployment.</note>
+                              </context>
+                              <steps>
+                                 <step id="step_N10050_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Decide on a new password. Changing the <userinput>admin</userinput> password requires changes in several locations, so it is suggested to type the new password in an electronic editor or notepad so that you can copy and paste it. This will ensure that the password remains identical as you change it in multiple locations. </ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10062_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Login as <userinput>activemq</userinput> on the <ph keyref="CoreVM"/>.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10078_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Change directories:</ph>
+            </cmd>
+            <info>
+               <codeblock>cd /opt/activemq/conf</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N1008F_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Edit the <filepath>jetty-realm.properties</filepath> file and replace the old password with the new password in the <filepath>admin</filepath> line. For example:</ph>
+            </cmd>
+            <info>
+               <codeblock>admin: <varname>New_Password</varname>, admin</codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N100B2_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Save and close the <filepath>jetty-realm.properties</filepath> file.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N100C4_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Edit the <filepath>jmx.password</filepath> file and replace the old password with the new password in the <filepath>admin</filepath> line. For example: </ph>
+            </cmd>
+            <info>
+               <codeblock>admin <varname>NewPassword</varname>
+                                    </codeblock>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N100E7_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Save and close the <filepath>jmx.password</filepath> file.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N100F9_N1004D_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Edit the <filepath>credentials.properties</filepath> file and replace the old password with the new password in the <option outputclass="st4mig_function">admin.password</option> line. For example: </ph>
+            </cmd>
+            <info>
+               <codeblock>admin.password=<varname>NewPassword</varname>
+                                    </codeblock>
+            </info>
+                                    
+                                 </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N10115_N1002F_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="e89b6ba58b7351e0767a91e9e63038e7"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

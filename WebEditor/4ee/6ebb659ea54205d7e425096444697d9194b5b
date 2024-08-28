@@ -1,0 +1,28 @@
+<concept id="62bca64f4c8f321afca12a90b0a015e6" xml:lang="en-US">
+   <title>Kafka</title>
+   <prolog>
+      <source>ST4 ID: 16335710603</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zmennor</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-04-09</change-completed>
+            <change-summary>EEAEPP-31038, Removed E-DCR Correlator from the Kafka section.</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>Kafka is a distributed streaming platform used by the <ph keyref=""/> HBase
+         Loader, the Flexible Event Ingestion and the Flexible KPI Framework.</p>
+      <p>For component-specific instructions, see <xref keyref="f5ebc7f7bbd3b5a441be829d560dc2f7"/>.</p>
+   </conbody>
+</concept>

@@ -1,0 +1,94 @@
+<referable-content id="bf6d6fcc192fe540080891f0962db8c5" xml:lang="en-US">
+<title>Elasticsearch current day index reached its limit 100G Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_ons_yb3_jkb" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>ALARM</entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Processingerror</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>Storage Capacity Problem</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Elasticsearch current day index reached its limit 100G</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>Elasticsearch</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>This is triggered when the elasticsearch current day index size has
+                                reached the 100G limit. Post triggering this alarm, update the
+                                current day index to read only mode and will remain same till the
+                                end of the day. This prevents the elasticsearch filesystem getting
+                                filled up and in turn prevents crashing elasticsearch service.</p>
+                            <p>In this scenario no more logs are written to elasticsearch till the
+                                end of the day.</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>Technical Area</entry>
+                        <entry>
+                            <p>User Administration Applications</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful /Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

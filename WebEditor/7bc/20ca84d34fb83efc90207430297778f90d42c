@@ -1,0 +1,41 @@
+<task id="ab62d0e118376a8a56419785db53f8b8" xml:lang="en-US">
+    <title>Change the SAML Request and Response Bindings</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>By default, <ph keyref="OpenAM_s"/> expects a request to be sent via redirection and
+                a response to be obtained via HTTP artifact. If your IdP supports a different way of
+                the request and response bindings follow the steps.</p>
+        </context>        
+        <steps>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N10046_N10043_N10031_N10001" id="step_N10046_N10043_N10031_N10001"><cmd/></step>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N10057_N10043_N10031_N10001" id="step_N1004D_N10043_N10031_N10001"><cmd/></step>
+            <step id="step_N10054_N10043_N10031_N10001">
+                <cmd>Select <menucascade>
+                        <uicontrol>Authentication → Modules</uicontrol>
+                    </menucascade> in the left menu.</cmd>
+            </step>            
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N100A9_N10043_N10031_N10001" id="step_N10065_N10043_N10031_N10001"><cmd/></step>
+            <step id="step_N1006C_N10043_N10031_N10001">
+                <cmd>Specify <uicontrol>Request Binding</uicontrol>. </cmd>
+            </step>
+            <step id="step_N10079_N10043_N10031_N10001">
+                <cmd>Specify <uicontrol>Response Binding</uicontrol>. </cmd>
+            </step>
+            <step conkeyref="b9eb40a376f9de34a485d86d1ecca7d4/step_N100D0_N10043_N10031_N10001" id="step_N10086_N10043_N10031_N10001"><cmd/></step>
+        </steps> 
+    </taskbody>
+</task>

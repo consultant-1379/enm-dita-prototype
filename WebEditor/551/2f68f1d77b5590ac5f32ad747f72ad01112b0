@@ -1,0 +1,7 @@
+<referable-content id="36fd545084e342671f7c0fcd35822eb7" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Change Password Downtime - Multiple IDs</title>
+   <rcbody>
+      <p id="st4tb12331441931">Changing the password for these IDs requires system downtime. For
+         more information about restricting system access, refer to <cite>Restricting Access for
+            Administrative Procedures</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>.</p>
+   </rcbody>
+</referable-content>

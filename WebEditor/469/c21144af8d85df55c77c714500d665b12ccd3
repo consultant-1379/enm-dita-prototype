@@ -1,0 +1,20 @@
+<task id="f578fe9c12146f578adfaee43d927d32" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for <ph keyref="ECM"/> ID: ecmadmin</title><prolog><source>ST4 ID: 13850190347</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_N100BF_N100BC_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <userinput>ecmadmin</userinput> user is the <ph keyref="ECM"/> application
+            administrator ID. This ID is the default "superuser" for the <ph keyref="ECM"/> GUI and
+            REST APIs.</p>
+      </context><steps>
+         <step id="step_N10183_N1011A_N100BC_N10001">
+            <cmd>Refer to the <xref keyref="2031ebc582d704784274087867d8a92e"/> section for instructions on how to
+               change the password for the <userinput>ecmadmin</userinput> user. This procedure must
+               be completed on both <ph keyref="CoreVM"/>s on an HA deployment.</cmd>
+            <info>
+               <p>
+                  <note id="note_N1005B_N10058_N10055_N10041_N1003E_N10027_N10001">
+                     <p>For DCGW, the password is changed separately. See the steps in the section
+                           <cite>Set Provideradmin Password for DCGW Communication</cite> in the
+                           <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Configuration_Guide"/>.</p>
+                  </note>
+               </p>
+            </info>
+         </step>
+      </steps></taskbody></task>

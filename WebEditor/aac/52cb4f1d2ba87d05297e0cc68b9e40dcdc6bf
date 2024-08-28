@@ -1,0 +1,56 @@
+<task id="96a98ddbada1a85e51c4d13e83a2d02b" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change the <ph keyref="ECM"/> Certificate on Ports 443 and 1443 on the <ph keyref="CoreVM"/>
+   </title><prolog><source>ST4 ID: 13577128075</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_N1008B_N10088_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>These certificates are applicable to <ph keyref="non_HA_s"/>
+            deployments only. It secures communication between the <ph keyref="ECM_short"/> and
+            external clients.</p>
+                              <p>To change these certificates to a new self-signed certificate:</p>
+                           </context><steps><step id="step_N100A0_N1009D_N10088_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/> to the <ph keyref="CoreVM"/>, then execute the following command:</ph></cmd>
+            <info>
+               <p><ph>
+                     <userinput>sudo -s</userinput>
+                  </ph>
+               </p>
+            </info>
+         </step><step id="step_N100C1_N1009D_N10088_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Stop the Apache service:</ph></cmd><info><p><ph>
+
+                                    <userinput>systemctl stop httpd</userinput>
+                                 </ph>
+            </p></info></step><step id="step_N100DA_N1009D_N10088_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Change to the following directory:</ph>
+            </cmd><info>
+               <codeblock>cd /etc/httpd/conf/</codeblock>
+            </info></step><step id="step_N100F1_N1009D_N10088_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following script:</ph></cmd><info><p><ph>
+                     <userinput>./gencert.sh <varname>&lt;hostname></varname>
+                     </userinput></ph> ecm</p>
+               <p><ph>
+                     <userinput>./gencert.sh <varname>&lt;hostname></varname>: 1443 am
+                     </userinput></ph></p><p><ph>
+Where <userinput>
+                                       <varname>&lt;hostname></varname>
+                                    </userinput> is the fully qualified domain name of the <ph keyref="CoreVM"/>.</ph>
+            </p></info></step><step id="step_N1011F_N1009D_N10088_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Move the generated certificate and key to the proper directories:</ph></cmd><info><p><ph>
+
+                                    <userinput>mv /etc/httpd/conf/ecm_ssl.key /etc/pki/tls/private/</userinput>
+                                    </ph></p><p><ph>
+
+                                    <userinput>mv /etc/httpd/conf/ecm_ssl.crt /etc/pki/tls/certs/</userinput>
+                                 </ph>
+            </p>
+               <p><ph>
+                     <userinput>mv /etc/httpd/conf/am_ssl.key /etc/pki/tls/private/</userinput>
+                  </ph>
+               </p>
+               <p><ph>
+                     <userinput>mv /etc/httpd/conf/am_ssl.crt /etc/pki/tls/certs/</userinput>
+                  </ph>
+               </p></info></step><step id="step_N10141_N1009D_N10088_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Start the Apache service:</ph></cmd><info><p><ph>
+
+                                    <userinput>systemctl start httpd</userinput>
+                                 </ph>
+            </p></info></step></steps></taskbody></task>

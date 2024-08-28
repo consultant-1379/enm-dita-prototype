@@ -1,0 +1,135 @@
+<task id="5c37d657c6e555ac3a46b0bd268acf66" xml:lang="en-US">
+   <title>Change the Security Component - Administration Connector RSA Certificates</title>
+   <prolog>
+      <source>ST4 ID: 14032775947</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N10067_N10064_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>There are two certificates used to secure administrative traffic on the <ph keyref="CoreVM"/>(s) for the Security component. These certificates also secure administrative traffic between the OpenDJ instance on node 1 and the OpenDJ instance on node 2: </p>
+                              <ul>
+            <li>
+                                    <p>Port 6444 Certificate- Secures administrative traffic for the Security component on the <ph keyref="CoreVM"/>. (For HA deployments, this certificate is located on the <ph keyref="CoreVM"/> on node 1.)</p>
+                                 </li>
+            <li>
+                                    <p>Port 7444 Certificate - Secures administrative traffic for the Security component on the second <ph keyref="CoreVM"/> (node 2). This certificate is applicable only for HA deployments.</p>
+                                 </li>
+         </ul>
+                              <p>To change these certificates:</p>
+                           </context>
+                           <steps>
+                              <step id="step_N1009C_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">For HA deployments - Verify that passwordless communication between nodes has been configured via SSH keys. (<xref keyref="6957512d1aa034c0ea595a76a1060c2e"/>).</ph>
+            </cmd>
+                              </step>
+                              <step id="step_N100AE_N10099_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on as <userinput>ecm_admin</userinput> to the
+                     <ph keyref="CoreVM"/>. (The <ph keyref="CoreVM"/> on node 1 changes the Port
+                  6444 certificate; the <ph keyref="CoreVM"/> on node 2 changes the Port 7444
+                  certificate.)</ph>
+            </cmd>
+         </step>
+                              <step id="step_N100CC_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Change directories:</ph>
+            </cmd>
+            <info>
+               <codeblock>cd /app/ecm/security/openAm/sso-tools/scripts/</codeblock>
+            </info>
+                                 
+                              </step>
+                              <step id="step_N100E3_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following script:</ph>
+            </cmd>
+            <info>
+               <codeblock>./changeDjAdminCert</codeblock>
+               <p>The following is displayed:</p>
+               <codeblock>NOTE: Existing certificates will be removed automatically from admin keystore and truststore!
+RUNNING in : HA mode &lt;&lt;Note - This line  indicates the mode - either HA or non-HA>> 
+1. [ OpenDJ ] Generate new Admin Self-signed certificate
+2. [ OpenDJ ] Create certificate signing request
+3. [ OpenDS ] Generate new Admin Self-signed certificate
+4. [ OpenDS ] Create certificate signing request
+ *. Quit
+</codeblock>
+               <ul>
+                  <li>
+                                       <p>Option <uicontrol>1</uicontrol>: Changes the current
+                        certificate to a new, self-signed certificate (required).</p>
+                                    </li>
+                  <li>
+                                       <p>Options <uicontrol>1</uicontrol> and <uicontrol>2
+                        </uicontrol>: Changes the current certificate and generates the signing
+                        request required by a trusted Certificate Authority (CA).</p>
+                                       <note id="note_N1011B_N1010C_N100FD_N100EC_N100E0_N10099_N10064_N10001">
+                                          <p>Options <uicontrol>1</uicontrol> and <uicontrol>2</uicontrol> do not need to be performed at the same time; however, do not use Option <uicontrol>2</uicontrol> without first completing Option <uicontrol>1</uicontrol>.</p>
+                                          <p>When changing the certificate, the following files for the existing certificate are saved as a backup in the <filepath>/app/ecm/security/openAm/opendj/config</filepath> directory. </p>
+                                          <ul>
+                           <li>
+                                                <p>
+                                                   <filepath>admin-keystore.orig</filepath>
+                                                </p>
+                                             </li>
+                           <li>
+                                                <p>
+                                                   <filepath>admin-truststore.orig</filepath>
+                                                </p>
+                                             </li>
+                        </ul>
+                                       </note>
+                                    </li>
+               </ul>
+            </info></step>
+                              <step id="step_N1015F_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Select Option <uicontrol>1</uicontrol>
+                                 </ph>
+            </cmd>
+            <info>
+               <p>A log of actions being performed is displayed on the screen. When the script completes, the existing certificate is replaced with a new, self-signed certificate and the following message is displayed:</p>
+               <codeblock>The Directory Server has started successfully.</codeblock>
+               <p>If you do not require a certificate from a trusted CA, no further action is required. If you want to use a certificate from a trusted CA, proceed to the next step.</p>
+            </info>
+                                 
+                                 
+                                 
+                              
+                                 
+                                 
+                                 
+                                 
+                              </step>
+                              <step id="step_N10182_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Select Option <uicontrol>2</uicontrol> if you want to replace the self-signed certificate with one from a trusted CA. (optional)</ph>
+            </cmd>
+            <info>
+               <p>A sign request file (<filepath>admin-cert-sign-req.csr</filepath>) is generated. Use this file to receive the following from a trusted CA.</p>
+               <ul>
+                  <li>
+                                       <p>CA chain</p>
+                                    </li>
+                  <li>
+                                       <p>Signed certificate</p>
+                                    </li>
+               </ul>
+            </info>
+                                 
+                                 
+                              </step>
+                              <step id="step_N101B4_N10099_N10064_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Follow the procedures provided by the trusted CA to import the signed certificate and CA chain in to <filepath>admin-truststore</filepath> file.</ph>
+            </cmd>
+                              </step>
+                           </steps>
+                        </taskbody>
+</task>

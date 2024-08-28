@@ -1,0 +1,132 @@
+<task id="e015d9293040ce735ade1a9353a65b3c" xml:lang="en-US">
+    <title>Change the Certificates for Security Component Replication on Ports 58989 </title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>The security certificates on port 58989 secure the communication replication channel
+                between the OpenAM Configstore instances on the <ph keyref="CoreVM"/> on nodes 1 and
+                2.</p>
+        </context>
+        <prereq id="prereq_N10043_N10031_N10001">
+            <p/>
+        </prereq>
+        <steps id="steps_ihf_cgw_b4b">
+            <step id="step_N1003E_N1003B_N1002A_N10001">
+                <cmd>
+                    <ph outputclass="st4mig_cmd-para">Log on as <userinput>ecm_admin</userinput> to
+                        the <ph keyref="CoreVM"/> on node 1.</ph>
+                </cmd>
+            </step>
+            <step id="step_N10058_N1003B_N1002A_N10001">
+                <cmd>
+                    <ph outputclass="st4mig_cmd-para">Change directories:</ph>
+                </cmd>
+                <info>
+                    <codeblock>cd /app/ecm/security/openAm/ds/configstore/data/db/ads-truststore/</codeblock>
+                </info>
+            </step>
+            <step id="step_N1006F_N1003B_N1002A_N10001">
+                <cmd> Get the MD5 hash from the current certificate installed on the keystore
+                    ads-truststore: </cmd>
+                <info>
+                    <p>
+                        <codeblock>keytool -list -storetype jks -keystore ads-truststore -v -storepass:file ads-truststore.pin -alias ads-certificate | grep MD5 | sed 's/://g'</codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N10093_N1003B_N1002A_N10001">
+                <cmd> Copy the MD5 hash output into the previous command to the
+                        <uicontrol>ds-cfg-key-id=XXXXXX</uicontrol> field to delete the previous
+                    certificate from the keystore. </cmd>
+                <info>
+                    <codeblock>cd /app/ecm/security/openAm/ds/configstore/bin
+./ldapdelete --port 50389 --bindDN "cn=Directory Manager" --bindPassword &lt;password> "ds-cfg-key-id=XXXXX,cn=instance keys,cn=admin data"
+</codeblock>
+                </info>
+            </step>
+            <step id="step_N100B2_N1003B_N1002A_N10001">
+                <cmd> Create a backup of the keystore and keystore.pin: </cmd>
+                <info>
+                    <p>
+                        <codeblock>cd /app/ecm/security/openAm/ds/configstore/data/db/ads-truststore/
+mkdir bkp
+cp ads-truststore* bkp/</codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N100C8_N1003B_N1002A_N10001">
+                <cmd> Remove the current keystore: </cmd>
+                <info>
+                    <codeblock>rm -rf ads-truststore</codeblock>
+                </info>
+            </step>
+            <step id="step_N100DF_N1003B_N1002A_N10001">
+                <cmd> Create new PrivateKeyEntry and trustedCertEntry truststore entries changing
+                    the <uicontrol>CN=XXXXX</uicontrol> field with the FQDN of the <ph keyref="CoreVM"/> node: </cmd>
+                <info>
+                    <codeblock>keytool -genkeypair -alias ads-certificate -keyalg RSA -validity 7300 -keysize 2048 -storetype JKS -keystore ads-truststore -storepass:file ads-truststore.pin -keypass:file ads-truststore.pin -dname "CN=XXXXXXX, O=OpenDJ RSA Certificate"</codeblock>
+                </info>
+            </step>
+            <step id="step_N100E9_N1004B_N10031_N10001">
+                <cmd>Create a Certificate Signing Request (CSR) from the above certificate:</cmd>
+                <info>
+                    <p>
+                        <codeblock>keytool -certreq -alias ads-certificate -keystore ads-truststore -storepass:file ads-truststore.pin -keypass:file ads-truststore.pin -file ads-cert.pem</codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N100FF_N1004B_N10031_N10001">
+                <cmd>Export the certificate to create a trusted certificate entry:</cmd>
+                <info>
+                    <p>
+                        <codeblock>keytool -export -alias ads-certificate -keystore ads-truststore -storepass:file ads-truststore.pin -keypass:file ads-truststore.pin -file ads-cert.crt
+export md5hash=`keytool -printcert -file ads-cert.crt | grep MD5 | awk '{print $2}' | tr [:upper:] [:lower:] | sed "s/://g"</codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N10115_N1004B_N10031_N10001">
+                <cmd>Import and overwrite the certificate created. Type <userinput>yes</userinput>
+                    when requested</cmd>
+                <info>
+                    <p>
+                        <codeblock>keytool -import -trustcacerts -alias $md5hash -keystore ads-truststore -storepass:file ads-truststore.pin -keypass:file ads-truststore.pin -file ads-cert.crt </codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N1012F_N1004B_N10031_N10001">
+                <cmd>Re-check the certificate in the ads-truststore and confirm if the CN field is
+                    using the correct FQDN of the server:</cmd>
+                <info>
+                    <p>
+                        <codeblock>keytool -list -storetype jks -keystore ads-truststore -v -storepass:file ads-truststore.pin | grep CN=</codeblock>
+                    </p>
+                </info>
+            </step>
+            <step id="step_N10145_N1004B_N10031_N10001">
+                <cmd>Log on as <userinput>ecm_admin</userinput> to the <ph keyref="CoreVM"/> on node
+                    2 and repeat the same steps from <cite>step 5</cite>.</cmd>
+            </step>
+            <step id="step_N1015A_N1004B_N10031_N10001">
+                <cmd>Restart userstore service on both VMs:</cmd>
+                <info>
+                    <p>
+                        <codeblock>systemctl restart userstore</codeblock>
+                    </p>
+                </info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

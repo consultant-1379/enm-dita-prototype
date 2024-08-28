@@ -1,0 +1,16 @@
+<concept id="fcc72ac6f6004e1eb017c4fac1ef83e7" xml:lang="en-US">
+   <title>Adapter Load Balancer</title>
+   <prolog>
+      <source>ST4 ID: 16333991307</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The following sections describe the configuration options of the Adapter Load Balancer.</p>
+      <p>For further information, see <xref format="html" href="http://www.keepalived.org/manpage.html" scope="external">http://www.keepalived.org/manpage.html</xref>.</p>
+   </conbody>
+</concept>

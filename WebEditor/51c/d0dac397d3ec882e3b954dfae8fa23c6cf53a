@@ -1,0 +1,23 @@
+<concept id="0df3ca4e631626ef8c5248695fc87caf" xml:lang="en-US">
+  <title>Configure Authentication Rules of Activation GUI Users</title>
+  <prolog>
+    <source/>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA"/>
+  </prolog>
+  <conbody>
+    <p>This section describes how to configure authentication rules for Activation GUI users,
+      including:</p>
+    <ul>
+      <li>
+        <p>Password rules that must be fulfilled when setting a password for GUI users</p>
+      </li>
+      <li>
+        <p>Input parameters of Brute Force Protection Algorithm</p>
+      </li>
+    </ul>
+  </conbody>
+</concept>

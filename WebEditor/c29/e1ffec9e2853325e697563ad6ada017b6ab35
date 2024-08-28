@@ -1,0 +1,31 @@
+<map id="780c4d209a0c82975742b8c06bcb1c8d" xml:lang="en-US">
+   <title>Variable Key Map Product name</title>
+   <keydef keys="EEA_fullName">
+      <topicmeta>
+         <keywords>
+            <keyword>Ericsson Expert Analytics</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EEA_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>EEA</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EEA_article">
+      <topicmeta>
+         <keywords>
+            <keyword>an</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EEA_releaseNum">
+      <topicmeta>
+         <keywords>
+            <keyword>18.7</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

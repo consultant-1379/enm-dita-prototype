@@ -1,0 +1,84 @@
+<task id="2bad0dcc8ea7670db6bd768654b65e68" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for the Camunda Cockpit ID: svcorchadm</title>
+   <prolog>
+      <source>ST4 ID: 13950443659</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N1004B_N10048_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>This ID is used to log in to the <uicontrol>Camunda
+               Cockpit</uicontrol> on the <ph keyref="NS_LCM_VM_s"/>. Password changes for this ID
+            do not require changes on the standby site in a geo-redundant deployment. </p>
+                              <note id="note_N10058_N1004B_N10048_N10001" type="note">In an <ph keyref="HA_s"/> deployment, complete this procedure on the <ph keyref="NS_LCM_VM_s"/>
+            1.</note>
+                           </context>
+                           <steps>
+                              <step id="step_N10066_N10063_N10048_N10001">
+            <cmd>Launch the <uicontrol>Camunda Cockpit</uicontrol> GUI: </cmd>
+            <info>
+               <p>Enter the correct URL in a browser from the O&amp;M network. The convention for
+                  this URL is: </p>
+               <p>
+                  <filepath>http://[fully_qualifiled_network_service_lcm_host_name]:8080/camunda</filepath>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N10084_N10063_N10048_N10001">
+            <cmd>Log in to the <option>Camunda</option> GUI with the <option>svcorchadm</option> ID.  </cmd>
+            <info>
+               <note id="note_N1009A_N10097_N10087_N10067_N10048_N10001">
+                  <p>Initial password for this ID is listed in the
+                        <filepath>/ecm-umi/install/.ecm_passwords</filepath> file on the ABCD
+                     VM.</p>
+               </note>
+            </info>
+            <stepresult>
+               <p>The <uicontrol>Camunda Tasklist</uicontrol> page is displayed after you
+                  successfully log in.</p>
+            </stepresult>
+         </step>
+                              <step id="step_N100A7_N10063_N10048_N10001">
+            <cmd>Click the <uicontrol>Change password</uicontrol> link on the right side of the page
+               in the <uicontrol>Profile</uicontrol> section. </cmd>
+         </step>
+                              <step id="step_N100BD_N10063_N10048_N10001">
+            <cmd>Provide the old and new password and click <uicontrol>Change Password</uicontrol>.
+            </cmd>
+         </step>
+         <step id="step_N10042_N1003F_N1002F_N10001">
+            <cmd>Log in as <option keyref="loginID"/>: </cmd>
+            <info>
+               <ul id="ul_er5_lsr_rgb">
+                  <li>
+                     <p> <ph keyref="non_HA_s"/> Deployment: <ph keyref="NS_LCM_VM_s"/></p>
+                  </li>
+                  <li>
+                     <p>
+                        <ph keyref="HA_s"/> Deployment:  <ph keyref="NS_LCM_VM_s"/> for Node 1 and
+                        Node 2</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+         <step id="step_N1007E_N1003F_N1002F_N10001">
+            <cmd>Execute the following command to start the <ph keyref="NS_LCM_VM_s"/>: </cmd>
+            <info>
+               <codeblock outputclass="condensed"><ph keyref="sudo"/> /root/<ph keyref="nsoStartupScript"/></codeblock>
+               <p> </p>
+            </info>
+            <stepresult>
+               <p>The following message is displayed when the startup is complete: <option keyref="nsoStartupScriptMsg"/></p>
+            </stepresult>
+         </step>
+                              
+                              
+                           </steps>
+                        <postreq id="postreq_N100CB_N10048_N10001">
+                                 <p>For more information, refer to Camunda documentation.</p>
+                              </postreq></taskbody>
+</task>

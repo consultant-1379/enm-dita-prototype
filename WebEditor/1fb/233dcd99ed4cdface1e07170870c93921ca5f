@@ -1,0 +1,229 @@
+<task id="c34c9fbf02f246a78612cd60f010b4c5" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Check and Renew Puppet Certificates on Master Node</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10033_N1002E_N10001"> </context>
+        <prereq id="prereq_czw_mnk_kjb">
+            <p>Go to the <filepath>/etc/puppetlabs/puppet/ssl/certs</filepath> location and check
+                the validity of the existing certificates:<ul id="ul_r2f_mfg_kjb">
+                    <li>
+                        <codeblock># openssl x509 -in ca.pem -text -noout</codeblock>
+                    </li>
+                    <li>
+                        <codeblock># openssl x509 -in puppetmaster.pem -text -noout</codeblock>
+                    </li>
+                    <li>
+                        <codeblock># openssl x509 -in <varname>hostname</varname>.pem -text -noout</codeblock>
+                    </li>
+                </ul></p>
+        </prereq>
+        <steps id="steps_yn5_pyj_kjb">
+            <step id="step_N1003D_N10039_N10031_N10001">
+                <cmd>To renew Puppet certificates, go to <option>node-1</option> and check if both
+                    Puppet master and agents are running:</cmd>
+                <info>
+                    <codeblock># systemctl status puppetserver.service | grep -i running</codeblock>
+                </info>
+                <info>
+                    <codeblock># systemctl status puppet.service | grep -i running</codeblock>
+                </info>
+            </step>
+            <step id="step_N10046_N10039_N10031_N10001">
+                <cmd>Stop ESA to avoid auto starts:</cmd>
+                <info>
+                    <codeblock># 3ppmon stopesa</codeblock>
+                </info>
+            </step>
+            <step id="step_N10092_N10066_N1002E_N10001">
+                <cmd>Stop Puppet master and Puppet agent:</cmd>
+                <info>
+                    <codeblock># puppet resource service puppetserver ensure=stopped</codeblock>
+                </info>
+                <info>
+                    <codeblock># puppet resource service puppet ensure=stopped</codeblock>
+                </info>
+            </step>
+            <step id="step_N100AD_N10066_N1002E_N10001">
+                <cmd>Ensure that no Puppet-related processes are running:</cmd>
+                <info>
+                    <codeblock># ps -ef | grep -i puppet</codeblock>
+                </info>
+            </step>
+            <step id="step_N100BF_N10066_N1002E_N10001">
+                <cmd>Take backup of the <filepath>/etc/puppetlabs/puppet/puppet.conf</filepath> file
+                    and add <option>ca_ttl = 20y</option> in the [master] section of the
+                        <filepath>/etc/puppetlabs/puppet/puppet.conf</filepath> file.</cmd>
+                <info>
+                    <p>Sample output:</p>
+                </info>
+                <info>
+                    <codeblock>             [main] 
+                            
+                  reports = none 
+                            
+                  # The Puppet log directory. 
+                            
+                  # The default value is '$vardir/log'. 
+                            
+                  logdir = /var/log/puppet 
+                            
+                            
+                  # Where Puppet PID files are kept. 
+                            
+                  # The default value is '$vardir/run'. 
+                            
+                  rundir = /var/run/puppet 
+                            
+                            
+                  # Where SSL certificates are kept. 
+                            
+                  # The default value is '$confdir/ssl'. 
+                            
+                  ssldir = $vardir/ssl 
+                            
+                  certificate_revocation = false 
+                            
+                            
+             [master] 
+                            
+                  autosign = true
+                            
+                  dns_alt_names = puppetmaster
+                            
+                  certname = puppetmaster
+                            
+                  ca_ttl = 20y
+                            
+                            
+             [agent] 
+                            
+                  # The file in which puppetd stores a list of the classes 
+                            
+                  # associated with the retrieved configuratiion.  Can be loaded in 
+                            
+                  # the separate ``puppet`` executable using the ``--loadclasses`` 
+                            
+                  # option. 
+                            
+                  # The default value is '$confdir/classes.txt'. 
+                            
+                  classfile = $vardir/classes.txt 
+                            
+                            
+                  # Where puppetd caches the local configuration.  An 
+                            
+                  # extension indicating the cache format is added automatically. 
+                            
+                  # The default value is '$confdir/localconfig'. 
+                            
+                  localconfig = $vardir/localconfig 
+                            
+                  runinterval = 30 
+                            
+                  waitforcert = 25 
+                            
+                  server = puppetmaster</codeblock>
+                </info>
+            </step>
+            <step id="step_N100DD_N10066_N1002E_N10001">
+                <cmd>Delete the existing Puppet server and agent certificates:</cmd>
+                <info>
+                    <codeblock># sudo rm -r /etc/puppetlabs/puppet/ssl/*</codeblock>
+                </info>
+                <info>Ensure that the <filepath>/etc/puppetlabs/puppet/ssl</filepath> is empty
+                    now.</info>
+            </step>
+            <step id="step_N100F7_N10066_N1002E_N10001">
+                <cmd>Check if the Puppet master node (<option>node-1</option>) is set to up:</cmd>
+                <info>
+                    <codeblock># 3ppmon status</codeblock>
+                </info>
+            </step>
+            <step id="step_N1010D_N10066_N1002E_N10001">
+                <cmd>Regenerate the CA:</cmd>
+                <info>
+                    <codeblock># puppet cert list -a</codeblock>
+                </info>
+                <stepresult>
+                    <p>Notice: Signed certificate request for ca.</p>
+                </stepresult>
+            </step>
+            <step id="step_N10127_N10066_N1002E_N10001">
+                <cmd>Generate the new certificates for Puppet master:</cmd>
+                <info>
+                    <codeblock># puppet master --no-daemonize --verbose</codeblock>
+                </info>
+                <info>
+                    <codeblock>Output:</codeblock>
+                </info>
+                <info>
+                    <p>Notice: Starting Puppet master <varname>&lt;your Puppet
+                        version></varname>, type <userinput>CTRL + C</userinput>.</p>
+                </info>
+            </step>
+            <step id="step_N10152_N10066_N1002E_N10001">
+                <cmd>Start ESA:</cmd>
+                <info>
+                    <codeblock># 3ppmon startesa</codeblock>
+                </info>
+                <info>
+                    <note id="note_N1015E_N1015B_N1014B_N10066_N1002E_N10001">
+                        <p>This automatically starts the Puppet.</p>
+                    </note>
+                </info>
+            </step>
+            <step id="step_N10171_N10066_N1002E_N10001">
+                <cmd>Wait and verify that both the Puppet master and agent are up as listed in the
+                    first step.</cmd>
+                <info>
+                    <codeblock># ps -ef | grep puppet</codeblock>
+                </info>
+            </step>
+            <step id="step_N10183_N10066_N1002E_N10001">
+                <cmd>Verify that the renewed CA, master, and Puppet agent certificates are renewed
+                    with 20-year expiry date in <option>node-1</option>:</cmd>
+                <info>
+                    <codeblock># cd /etc/puppetlabs/puppet/ssl/certs</codeblock>
+                </info>
+                <info>
+                    <codeblock># openssl x509 -in ca.pem -text -noout</codeblock>
+                </info>
+                <info>
+                    <codeblock># openssl x509 -in puppetmaster.pem -text -noout</codeblock>
+                </info>
+                <info>
+                    <codeblock outputclass="pgwide"># openssl x509 -in <varname>&lt;hostname></varname>.pem -text -noout</codeblock>
+                </info>
+                <info>
+                    <note id="note_N101B0_N101AD_N1017A_N10066_N1002E_N10001"> All certificates are
+                        now valid for the next 20 years.</note>
+                </info>
+            </step>
+            <step id="step_N101C1_N10066_N1002E_N10001">
+                <cmd>Ensure that the Puppet agent is working correctly:</cmd>
+                <info>
+                    <codeblock># sudo service puppet status</codeblock>
+                </info>
+                <info>
+                    <codeblock># 3ppmon status</codeblock>
+                </info>
+            </step>
+        </steps>
+        <result id="result_rh4_pdl_kkb">
+            <p>After you have performed this procedure, the validity of puppet certificates is
+                confirmed.</p>
+            <p>You must also check and renew certificates on standby nodes, which is described in
+                    <xref keyref="bc889c6409148a059ff351574f0c7ef3"/></p>
+        </result>
+    </taskbody>
+</task>

@@ -1,0 +1,171 @@
+<task id="a111498f44fb4fff4d0fda1bfa512b37" xml:lang="en-US">
+   <title>Change Passwords for <ph keyref="ECM"/> Orchestration Component User IDs</title>
+   <prolog>
+      <source>ST4 ID: 14077226123</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10032_N1002F_N10001">
+         <p>If changes are made to the user ID <option>ecmadmin</option>, the following user IDs and
+            passwords must be changed in the <ph keyref="ECM_short"/> Orchestration Component:</p>
+         <ul>
+            <li>
+               <p><option>WEB_HOOK_API_AUTHORIZATION</option>
+               </p>
+            </li>
+         </ul>
+      </context>
+      <steps id="steps_1">
+         <step id="step1">
+            <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option>.</cmd>
+         </step>
+         <step id="step2">
+            <cmd>Generate an encoded password by entering the command:</cmd>
+            <info>
+               <codeblock outputclass="condensed"><varname>base64 &lt;NEWPASSWORD></varname>'))</codeblock>
+            </info>
+         </step>
+         <step id="step_N10094_N10068_N1002F_N10001">
+            <cmd>Copy the encoded password to a file or the clipboard.</cmd>
+         </step>
+         <step id="step_N1009D_N10068_N1002F_N10001">
+            <cmd>Change the password in the <filepath>users.properties</filepath> file. </cmd>
+            <info>
+               <p>In the <filepath>users.properties</filepath> file, enter the base64 encoded user
+                  password for the <option outputclass="st4mig_function">ecmadmin user</option>.</p>
+            </info>
+            <substeps id="substeps_t4w_knk_cjb">
+               <substep id="a">
+                  <cmd>Log in to the <ph keyref="CoreVM"/> (<ph keyref="CoreVM"/> Node 1 for <ph keyref="HA_s"/>
+                     configurations) as <option keyref="loginID"/>. If password change is for user
+                     ID <option>ecmadmin</option>, execute the following command:</cmd>
+                  <info>
+                     <p><userinput>sudo -s </userinput></p>
+                  </info>
+               </substep>
+               <substep id="b">
+                  <cmd>Change to the tools directory.</cmd>
+                  <info>
+                     <codeblock outputclass="condensed">cd /app/ecm/tools</codeblock>
+                  </info>
+               </substep>
+               <substep id="c">
+                  <cmd>Edit the <filepath>users.properties</filepath> file:</cmd>
+                  <info>
+                     <p>Change the password for <userinput>ecmadmin</userinput> to the one entered
+                        in the preceding steps:</p>
+                     <p>
+                        <option outputclass="st4mig_function">ecm_rest_authorization=</option><ph importance="normal"><option outputclass="st4mig_function">'&lt;new_base64
+                              encoded_password>'</option></ph>
+                     </p>
+                  </info>
+               </substep>
+               <substep>
+                  <cmd>Repeat <xref keyref="a111498f44fb4fff4d0fda1bfa512b37/a"/> to <xref keyref="a111498f44fb4fff4d0fda1bfa512b37/c"/> on Core VM node 2 in an <ph keyref="HA_s"/>
+                     environment.</cmd>
+               </substep>
+            </substeps>
+         </step>
+         <step id="step_N10121_N10068_N1002F_N10001">
+            <cmd>Open a browser window and navigate to the <ph keyref="ECM_short"/> Orchestration
+               Component GUI URL: </cmd>
+            <choicetable frame="all" id="choicetable_jtm_34k_cjb" relcolwidth="1* 1*">
+               <chhead>
+                  <choptionhd>Deployment Type</choptionhd>
+                  <chdeschd>URL</chdeschd>
+               </chhead>
+               <chrow>
+                  <choption>
+                     <p>Non-HA </p>
+                  </choption>
+                  <chdesc><filepath>https://&lt;Cloud_Manager_IP>/cwf</filepath></chdesc>
+               </chrow>
+               <chrow>
+                  <choption>
+                     <p>HA</p>
+                  </choption>
+                  <chdesc><filepath>https://&lt;GUI_FQDN>/cwf</filepath></chdesc>
+               </chrow>
+            </choicetable>
+         </step>
+         <step id="step_N10166_N10068_N1002F_N10001">
+            <cmd>Log in as <option>upadmin</option> to the <ph keyref="ECM_short"/> Orchestration
+               Component GUI. </cmd>
+            <stepresult>
+               <p>The dashboard for the <ph keyref="ECM_short"/> Orchestration Component GUI is
+                  displayed. </p>
+            </stepresult>
+         </step>
+         <step id="step_N10183_N10068_N1002F_N10001">
+            <cmd>Click on the <uicontrol>System Configuration</uicontrol> box to display the
+               Configuration page. </cmd>
+         </step>
+         <step id="step_N10190_N10068_N1002F_N10001">
+            <cmd>Click on the <uicontrol>System</uicontrol> icon on the top of the page to display
+               the list of services. </cmd>
+         </step>
+         <step id="step_N1019D_N10068_N1002F_N10001">
+            <cmd>Click on the <uicontrol>Config Variables</uicontrol> tab. </cmd>
+         </step>
+         <step id="step_N101AA_N10068_N1002F_N10001">
+            <cmd>Click in the <uicontrol>Value</uicontrol> column for the WEB_HOOK_API_AUTHORIZATION
+               row. </cmd>
+         </step>
+         <step id="step_N101BB_N10068_N1002F_N10001">
+            <cmd>Highlight the value.</cmd>
+         </step>
+         <step id="step_N101C8_N10068_N1002F_N10001">
+            <cmd>Paste a new base-64 password, that was generated in <xref keyref="a111498f44fb4fff4d0fda1bfa512b37/step2"/>, on the <uicontrol>Encrypted
+                  Variables</uicontrol> section of the page as a new value after word <varname>Basic
+               </varname> as per following example: Basic ZWNtYWRtaW46YWNjZXNzMTIz.. </cmd>
+         </step>
+         <step id="step_N101EE_N10068_N1002F_N10001">
+            <cmd>Click outside of the <uicontrol>Value</uicontrol></cmd>
+         </step>
+         <step id="step_N101FB_N10068_N1002F_N10001">
+            <cmd>If you want to cancel the change, click the <uicontrol>Back</uicontrol> button in
+               the browser. column to save the new value.
+            </cmd>
+         </step>
+         <step id="step_N10208_N10068_N1002F_N10001">
+            <cmd>Click the <uicontrol>Save</uicontrol> icon at the top of the page to save the
+               password change. </cmd>
+            <info> </info>
+         </step>
+         <step id="step_N10219_N10068_N1002F_N10001">
+            <cmd>Click the <uicontrol>Save and Propagate</uicontrol> icon. </cmd>
+            <info>
+               <p>The following figure identifies the difference between the
+                     <uicontrol>Save</uicontrol> and the <uicontrol>Save and Propagate</uicontrol>
+                  icons: </p>
+               <p><fig id="fig_tdj_3qk_cjb">
+                     <image id="image_udj_3qk_cjb" keyref="64dc77bf7042ed0bb1c61e98f44d089e"/>
+                  </fig></p>
+            </info>
+            <stepresult>
+               <p>A dialog window is displayed listing each of the nodes.</p>
+            </stepresult>
+         </step>
+         <step id="step_N1024B_N10068_N1002F_N10001">
+            <cmd>Click the check box for each of the nodes to apply the change.</cmd>
+            <info>
+               <note id="note_N10246_N10243_N1023C_N10068_N1002F_N10001">
+                  <p> If all nodes are desired, click the <uicontrol>Node Name</uicontrol> column to save the new value.check box
+                     to select all nodes. </p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N10265_N10068_N1002F_N10001">
+            <cmd>Click the <uicontrol>Select</uicontrol> button to apply the changes. </cmd>
+         </step>
+         <step id="step_N10272_N10068_N1002F_N10001">
+            <cmd>Log out of the <ph keyref="ECM"/> Orchestration Component GUI. </cmd>
+         </step>
+      </steps>
+   </taskbody>
+</task>

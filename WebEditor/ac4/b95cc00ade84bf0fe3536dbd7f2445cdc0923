@@ -1,0 +1,65 @@
+<task id="267aeaabfb1e65a38e94a8bf28971f25" xml:lang="en-US">
+    <title>Restore the Password Manager</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>If the <ph keyref="ABCDVM"/> was altered or replaced during the major upgrade or
+                applying ICP or EP, the Password Manager configuration must be restored.</p>
+        </context>        
+        <steps>
+            <step id="step_N10046_N10043_N10031_N10001x">
+                <cmd>Log in to the <ph keyref="ABCDVM"/> as <option>root</option>.</cmd>
+            </step>
+            <step id="step_N10046_N10043_N10031_N10001">
+                <cmd>Restore the <filepath>baseenv</filepath> and <filepath>ca_baseenv</filepath>
+                    (optional) files for the actual installation type (see the Installation guide
+                    for the current release to find a specific name) in the in
+                        <filepath>/ecm-umi/operations/password-manager</filepath>/ directory.</cmd>
+            </step>
+            <step id="step_N1005B_N10043_N10031_N10001">
+                <cmd>Run the command: </cmd>
+                <info><cmdname>cd /ecm-umi/operations/password-manager/</cmdname></info>
+            </step>
+            <step id="step_N1006A_N10043_N10031_N10001">
+                <cmd>Run the script</cmd>
+                <info><cmdname>./prepare.sh</cmdname></info>
+            </step>
+            <step id="step_N10079_N10043_N10031_N10001">
+                <cmd>Choose the installation type:</cmd>
+                <info>
+                    <codeblock>------------------------------
+Choose your installation type
+------------------------------
+1) KVM
+2) EOO
+
+------------------------------
+q) Quit
+
+------------------------------
+Please type a menu option and hit Enter
+------------------------------</codeblock>
+                </info>
+            </step>
+            <step id="step_N1008B_N10043_N10031_N10001">
+                <cmd>Wait for the script to finish.</cmd>
+            </step>
+            <step id="step_N10094_N10043_N10031_N10001">
+                <cmd>Select <option>q</option> to quit.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

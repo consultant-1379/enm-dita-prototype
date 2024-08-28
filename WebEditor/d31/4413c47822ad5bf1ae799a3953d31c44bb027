@@ -1,0 +1,106 @@
+<task id="99851b9bfaf9f617359b2342653178e7" xml:lang="en-US">
+    <title>Change JBoss Vault Password (<ph keyref="ecaProductname_s"/>)</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N1003A_N10035_N10001">
+            <p>JBoss Vault is a vault of the JAVA java keystore with the aliases, which stores <ph importance="normal">catelemetry</ph> and the<ph keyref="ActiveMQ_s"/> admin
+                passwords.</p>
+            <p>
+                <ph importance="normal">Considerations</ph>
+                <ul id="ul_dr3_1n4_snb">
+                    <li>
+                        <p>Changing these passwords results in a brief system downtime, for the
+                            period while JBoss is shut down.</p>
+                    </li>
+                    <li>
+                        <p>If you change any password in an <ph keyref="HA_s"/> environment, be sure
+                            to repeat the same change procedure on the corresponding VM on the
+                            second node in the <ph keyref="HA_s"/> cluster.</p>
+                    </li>
+                    <li>
+                        <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_F"/>
+                        </p>
+                    </li>
+                    <li>
+                        <p>For geo-redundant deployments, you must change these passwords on both
+                            the active site (Site A) and the standby site (Site B).</p>
+                    </li>
+                </ul></p>
+        </context>        
+        <steps>
+            <step id="step_N10083_N10080_N10035_N10001">
+                <cmd>Log in to <ph keyref="ECACoreVM"/> as <userinput>osadm</userinput>.</cmd>
+            </step>
+            <step id="step_N10094_N10080_N10035_N10001">
+                <cmd>Run the command: </cmd>
+                <info><cmdname>sudo -s</cmdname></info>
+            </step>
+            <step id="step_N100A3_N10080_N10035_N10001">
+                <cmd>Verify that JBoss is running:</cmd>
+                <info><cmdname>systemctl status jboss-eap</cmdname></info>
+                <stepresult>
+                    <p>Active: active (running)</p>
+                </stepresult>
+            </step>
+            <step id="step_N100BA_N10080_N10035_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>cd $JBOSS_HOME/vault</cmdname></info>
+            </step>
+            <step id="step_N100C9_N10080_N10035_N10001">
+                <cmd>Run the script:</cmd>
+                <info><cmdname>./change_password.sh</cmdname></info>
+            </step>
+            <step id="step_N100D8_N10080_N10035_N10001">
+                <cmd>Choose the <option>Change JBoss vault password</option> option.</cmd>
+            </step>
+            <step id="step_N100E5_N10080_N10035_N10001">
+                <cmd>Follow the prompts.</cmd>
+            </step>
+            <stepsection>
+                <p>For <ph keyref="HA_s"/> deployments</p>
+            </stepsection>
+            <step id="step_N100FA_N10080_N10035_N10001">
+                <cmd>Repeat Steps 2-7 on the second <ph keyref="ECACoreVM"/>.</cmd>
+            </step>
+            <step id="step_N10107_N10080_N10035_N10001">
+                <cmd>Log in to the first Collection VM as <userinput>osadm</userinput>.</cmd>
+            </step>
+            <step id="step_N10114_N10080_N10035_N10001">
+                <cmd>Run the command: </cmd>
+                <info><cmdname>sudo -s</cmdname></info>
+            </step>
+            <step id="step_N10123_N10080_N10035_N10001">
+                <cmd>Check the Docker containers (at least two must be running):</cmd>
+                <info><cmdname>docker ps</cmdname></info>
+                <stepresult>
+                    <codeblock>CONTAINER ID                                                         IMAGE                                                                                         COMMAND               CREATED            STATUS                 PORTS                                    NAMES
+5e482b113fbb      sekidocker.rnd.ki.sw.ericsson.se/proj-eca/cloudanalytics.collection:&lt;snapshot version>      "/opt/jboss-eap-7...."      3 weeks ago      Up 3 weeks      8080/tcp, 9990/tcp      &lt;collection FQDN>-collection2
+7b22e44ca8a1      sekidocker.rnd.ki.sw.ericsson.se/proj-eca/cloudanalytics.collection:&lt;snapshot version>      "/opt/jboss-eap-7...."      3 weeks ago      Up 3 weeks      8080/tcp, 9990/tcp      &lt;collection FQDN>-collection1</codeblock>
+                </stepresult>
+            </step>
+            <step id="step_N1013B_N10080_N10035_N10001">
+                <cmd>Run the command: </cmd>
+                <info><cmdname>cd /root/ca_collection/vault</cmdname></info>
+            </step>
+            <step id="step_N1014A_N10080_N10035_N10001">
+                <cmd>Repeat Steps 5-7. </cmd>
+            </step>
+            <step id="step_N10153_N10080_N10035_N10001">
+                <cmd>Repeat Steps 10-12 on the second Collection VM. </cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

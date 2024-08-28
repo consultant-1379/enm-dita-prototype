@@ -1,0 +1,567 @@
+<task id="6f1938cdc56da137da68fbcf96ee4b56" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Configure <ph keyref="ECM"/> for an <ph keyref="externalIdam_initialCap"/> System</title>
+   <prolog>
+      <source>ST4 ID: 11240597643</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                        <context id="context_N10050_N1004D_N10001">
+                           <p>The following procedure is used to configure <ph keyref="ECM_short"/> to use an <ph keyref="externalIdam"/> system for user authentication and authorization.</p>
+                           <note id="note_N10060_N10050_N1004D_N10001">
+                              <p>We recommend scheduling the <ph keyref="externalIdam"/>
+          configuration during a planned maintenance window.</p>
+                           </note>
+                        </context>
+                        <steps>
+      <step id="step_N10071_N1006E_N1004D_N10001">
+        <cmd>Enable the <ph keyref="externalIdam"/> feature when the installation or upgrade of <ph keyref="ECM_short"/> is complete using the <option outputclass="st4mig_function">createConfigData</option> operation as a <option>Provider Administrator</option>. </cmd>
+        <info>
+          <p>Set the following system level configuration parameters for external authentication:
+              <ul id="ul_xzj_2ts_w3b">
+              <li>
+                <p><parmname>scopeType</parmname>: <userinput>"system"</userinput>
+                </p>
+              </li>
+              <li>
+                <p><parmname>scopeName</parmname>: <userinput/>
+                </p>
+              </li>
+              <li>
+                <p><parmname>paramName</parmname>: <userinput>"externalAuthentication"</userinput>
+                </p>
+              </li>
+              <li>
+                <p><parmname>paramDataType</parmname>: <userinput>"Boolean"</userinput>
+                </p>
+              </li>
+              <li>
+                <p><parmname>paramValue</parmname>: <userinput>"true"</userinput>
+                </p>
+              </li>
+            </ul></p>
+          <p>See <cite>Create Configuration Data Operation</cite> in <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Cloud_Service_Management_Guide"/>.</p>
+        </info>
+      </step>
+      <step id="step_N100F6_N1006E_N1004D_N10001">
+        <cmd>If needed, configure the template files for OpenLDAP and Active Directory, as
+            <option>ecm_admin</option> on the Core VM, using the sample template files in the
+          following list. </cmd>
+        <info>
+          <p>Except as noted below, all attributes specified in the OpenLDAP template file apply to
+            all OpenLDAP <ph keyref="externalIdam"/> systems. Similarly, all attributes specified in
+            the Active Directory template file apply to all Active Directory <ph keyref="externalIdam"/> systems.</p>
+          <p><ph keyref="externalIdam"/> systems. Do not change the values for these attributes in
+            the template files.Values for the following attributes are provided during the Add IdAM
+            operation and could be different for different </p>
+          <ul>
+            <li>
+              <p><parmname>primaryLdapServer</parmname>
+              </p>
+            </li>
+            <li>
+              <p><parmname>userSearchAttributes</parmname>
+              </p>
+            </li>
+            <li>
+              <p><parmname>userSearchFilter</parmname>
+              </p>
+            </li>
+            <li>
+              <p><parmname>userBindDN</parmname>
+              </p>
+            </li>
+            <li>
+              <p><parmname>userProfileRetrievalAttribute</parmname>
+              </p>
+            </li>
+            <li>
+              <p><parmname>userBindPassword</parmname>
+              </p>
+            </li>
+          </ul>
+          <p>The <parmname>userSearchStartDN</parmname>Values for the following attributes are
+            provided during the Add IdAM operation and attribute is used to specify the node in the
+            directory tree of the <ph keyref="externalIdam"/> system to start searching for this
+            user. If the <codeph>_SSDN_</codeph> variable is not used, then the value of this
+            attribute is provided by the user when the tenant or subtenant is assigned to an <ph keyref="externalIdam"/> system.</p>
+          <p>The <codeph>_SSDN_</codeph> variable allows the value in the template file to be
+            combined with the value provided by the user when the tenant or subtenant is assigned to
+            an <ph keyref="externalIdam"/> system. The user-provided value is inserted where the
+              <codeph>_SSDN_</codeph> variable appears in the string in the template file.</p>
+          <p>For example, if the <option outputclass="st4mig_function">userSearchStartDN</option>
+            value provided by the user when the tenant or subtenant is assigned to an <ph keyref="externalIdam"/> system is set to <option>"cn=anything"</option>. Then:</p>
+          <ul>
+            <li>
+              <p>If <option outputclass="st4mig_function">"userSearchStartDN":
+                  [“cn=Users,_SSDN_,cn=Local”]</option>, then the final result is <option outputclass="st4mig_function">“userSearchStartDN”:
+                  [“cn=Users,cn=anything,cn=Local”]</option>
+              </p>
+            </li>
+            <li>
+              <p>If <option outputclass="st4mig_function">“userSearchStartDN”:
+                  [“cn=Users,o=ecm,o=local”]</option>, then the final result is <option outputclass="st4mig_function">“userSearchStartDN”: [“cn=anything”]</option>
+              </p>
+            </li>
+          </ul>
+          <div outputclass="st4mig_expandable">
+            <p outputclass="st4mig_expandable-title">OpenLDAP Template File</p>
+            <p>
+              <note id="note_N101C1_N101BE_N101B5_N100FB_N100EF_N1006F_N1004E_N10001">
+                <p>The descriptions for the fields in this template file can be found in the OpenAM
+                  documentation.</p>
+              </note>
+            </p>
+            <p>The <filepath>default_open_ldap_authentication_module.json</filepath> template is a
+              configurable file which specifies various parameter values used when the OpenAM system
+              connects to any OpenLDAP <ph keyref="externalIdam"/> system.</p>
+            <ul>
+              <li>
+                <p>
+                  <filepath>$JBOSS_HOME/modules/com/ericsson/configuration/main/default_open_ldap_authentication_module.json</filepath>
+                </p>
+                <p>Where <filepath>$JBOSS_HOME</filepath> is the JBoss home directory, for example
+                    <filepath>/app/ecm/appserver/jboss-eap-7.2</filepath>.</p>
+              </li>
+            </ul>
+            <codeblock outputclass="condensed">{
+  "authenticationLevel": 0,
+  "operationTimeout": 0,
+  "userSearchStartDN": [
+    "ou=People,_SSDN_"
+  ],
+  "trustAllServerCertificates": false,
+  "minimumPasswordLength": "0",
+  "userBindPassword": "SOME_PASSWORD",
+  "connectionHeartbeatTimeUnit": "SECONDS",
+  "userBindDN": "cn=Directory Manager",
+  "openam-auth-ldap-connection-mode": "LDAP",
+  "_id": "OpenLDAP",
+  "primaryLdapServer": [
+    "SOME_IP:SOME_PORT"
+  ],
+  "secondaryLdapServer": [],
+  "beheraPasswordPolicySupportEnabled": true,
+  "userProfileRetrievalAttribute": "uid",
+  "searchScope": "ONELEVEL",
+  "connectionHeartbeatInterval": 10,
+  "returnUserDN": true,
+  "userSearchFilter": "SOME_FILTER",
+  "profileAttributeMappings": [],
+  "userSearchAttributes": [
+    "uid"
+  ]
+}</codeblock>
+          </div>
+          <div outputclass="st4mig_expandable">
+            <p outputclass="st4mig_expandable-title">Active Directory Template Files</p>
+            <p>
+              <note id="note_N10206_N10203_N101FA_N100FB_N100EF_N1006F_N1004E_N10001">
+                <p>The descriptions for the fields in this template file can be found in the OpenAM
+                  documentation.</p>
+              </note>
+            </p>
+            <p>The <filepath>default_active_directory_authentication_module.json</filepath> template
+              is a configurable file which specifies various parameter values used when the OpenAM
+              system connects to any Active Directory <ph keyref="externalIdam"/> system.</p>
+            <ul>
+              <li>
+                <p>
+                  <filepath>$JBOSS_HOME/modules/com/ericsson/configuration/main/default_active_directory_authentication_module.json</filepath>
+                </p>
+                <p> Where <filepath>$JBOSS_HOME</filepath> is the JBoss home directory, for example
+                    <filepath>/app/ecm/appserver/jboss-eap-7.2</filepath>.</p>
+              </li>
+            </ul>
+            <codeblock outputclass="condensed">
+  "returnUserDN": true,
+  "primaryLdapServer": [
+    "SOME_IP:SOME_PORT"
+  ],
+  "operationTimeout": 0,
+  "searchScope": "ONELEVEL",
+  "userSearchAttributes": [
+    "sAMaccountName"
+  ],
+  "connectionHeartbeatInterval": 1,
+  "trustAllServerCertificates": false,
+  "profileAttributeMappings": [],
+  "connectionHeartbeatTimeUnit": "MINUTES",
+  "userSearchFilter": "SOME_FILTER",
+  "userBindDN": "cn=ecmadmin,cn=Users,dc=ECM,dc=local",
+  "authenticationLevel": 0,
+  "secondaryLdapServer": [],
+  "userProfileRetrievalAttribute": "sAMaccountName",
+  "openam-auth-ldap-connection-mode": "LDAP",
+  "userSearchStartDN": [
+    "cn=Users,_SSDN_"
+  ],
+  "_id": "ActiveDirectory",
+  "userBindPassword": "SOME_PASSWORD"
+}</codeblock>
+          </div>
+        </info>
+      </step>
+      <step id="step_N10240_N1006E_N1004D_N10001">
+        <cmd>The following files are used for the configuration of the data stores in OpenAM. </cmd>
+        <info>
+          <p>These files contain variables (such as <codeph>_LDAP_USERS_SEARCH_FILTER_</codeph>,
+              <codeph>_LDAP_PRIMARY_SERVER_AND_PORT_</codeph>) that follow the pattern of
+            underscore, upper case description, underscore. Do not change these variables unless
+            directed by Ericsson. </p>
+          <p>Changes are made only by <option>ecm_admin</option> on the Core VM. The configuration
+            files are located in the following directory:
+              <filepath>/app/ecm/appserver/jboss-eap-7.2/modules/com/ericsson/configuration/main</filepath>
+          </p>
+          <p>The attribute descriptions in these files can be found in the OpenAM documentation.</p>
+          <div outputclass="st4mig_expandable">
+            <p outputclass="st4mig_expandable-title">adDatastoreTemplate.json</p>
+            <codeblock outputclass="condensed">{
+    "groupconfig": {
+        "sun-idrepo-ldapv3-config-groups-search-attribute": "cn",
+        "sun-idrepo-ldapv3-config-uniquemember": "member",
+        "sun-idrepo-ldapv3-config-groups-search-filter": "(objectclass=group)",
+        "adRecursiveGroupMembership": false,
+        "sun-idrepo-ldapv3-config-group-container-value": "users",
+        "sun-idrepo-ldapv3-config-group-attributes": [
+            "sAMAccountName",
+            "sAMAccountType",
+            "member",
+            "name",
+            "distinguishedName",
+            "dn",
+            "cn",
+            "objectclass",
+            "objectCategory"
+        ],
+        "sun-idrepo-ldapv3-config-group-container-name": "cn",
+        "sun-idrepo-ldapv3-config-group-objectclass": [
+            "top",
+            "group"
+        ]
+    },
+    "userconfig": {
+        "sun-idrepo-ldapv3-config-auth-kba-attempts-attr": [
+            "kbaInfoAttempts"
+        ],
+        "sun-idrepo-ldapv3-config-user-objectclass": [
+            "top",
+            "person",
+            "organizationalPerson",
+            "user"
+        ],
+        "sun-idrepo-ldapv3-config-active": "544",
+        "sun-idrepo-ldapv3-config-people-container-name": "cn",
+        "sun-idrepo-ldapv3-config-user-attributes": [
+            "sunIdentityServerPPLegalIdentityLegalName",
+            "sunIdentityServerPPSignKey",
+            "iplanet-am-user-password-reset-question-answer",
+            "mail",
+            "iplanet-am-user-alias-list",
+            "iplanet-am-auth-configuration",
+            "assignedDashboard",
+            "sunIdentityServerDiscoEntries",
+            "dn",
+            "sunIdentityServerPPCommonNameFN",
+            "iplanet-am-user-password-reset-options",
+            "objectclass",
+            "sunIdentityServerPPLegalIdentityVATIdValue",
+            "createTimestamp",
+            "employeeNumber",
+            "userpassword",
+            "sunIdentityServerPPEmergencyContact",
+            "kbaActiveIndex",
+            "sunIdentityServerPPAddressCard",
+            "sunIdentityServerPPLegalIdentityVATIdType",
+            "sunIdentityServerPPDemographicsTimeZone",
+            "iplanet-am-session-quota-limit",
+            "userAccountControl",
+            "iplanet-am-user-auth-config",
+            "sunIdentityServerPPCommonNameSN",
+            "sun-fm-saml2-nameid-infokey",
+            "sunIdentityMSISDNNumber",
+            "devicePrintProfiles",
+            "sunAMAuthInvalidAttemptsData",
+            "iplanet-am-user-password-reset-force-reset",
+            "sunIdentityServerPPLegalIdentityMaritalStatus",
+            "iplanet-am-user-federation-info-key",
+            "sAMAccountName",
+            "givenName",
+            "memberOf",
+            "iplanet-am-session-get-valid-sessions",
+            "sunIdentityServerPPEncryPTKey",
+            "sunIdentityServerPPCommonNameCN",
+            "sunIdentityServerPPInformalName",
+            "sunIdentityServerPPLegalIdentityAltIdValue",
+            "userPrincipalname",
+            "iplanet-am-user-account-life",
+            "postalAddress",
+            "preferredtimezone",
+            "iplanet-am-user-admin-start-dn",
+            "oath2faEnabled",
+            "name",
+            "preferredlanguage",
+            "sun-fm-saml2-nameid-info",
+            "sunIdentityServerPPFacadeWebSite",
+            "sunIdentityServerPPFacadeNamePronounced",
+            "sunIdentityServerPPDemographicsBirthDay",
+            "iplanet-am-session-service-status",
+            "telephoneNumber",
+            "sunIdentityServerPPDemographicsDisplayLanguage",
+            "iplanet-am-session-max-idle-time",
+            "displayName",
+            "sunIdentityServerPPCommonNamePT",
+            "distinguishedName",
+            "iplanet-am-session-destroy-sessions",
+            "kbaInfoAttempts",
+            "modifyTimestamp",
+            "iplanet-am-user-success-url",
+            "unicodePwd",
+            "kbaInfo",
+            "sunIdentityServerPPEmploymentIdentityOrg",
+            "iplanet-am-user-auth-modules",
+            "objectGUID",
+            "sn",
+            "sunIdentityServerPPEmploymentIdentityAltO",
+            "sunIdentityServerPPMsgContact",
+            "preferredLocale",
+            "iplanet-am-user-federation-info",
+            "sunIdentityServerPPCommonNameMN",
+            "iplanet-am-session-max-session-time",
+            "sunIdentityServerPPLegalIdentityGender",
+            "sunIdentityServerPPCommonNameAltCN",
+            "cn",
+            "sunIdentityServerPPLegalIdentityAltIdType",
+            "sunIdentityServerPPDemographicsAge",
+            "sunIdentityServerPPFacadegreetmesound",
+            "oathDeviceProfiles",
+            "webauthnDeviceProfiles",
+            "iplanet-am-user-login-status",
+            "sunIdentityServerPPEmploymentIdentityJobTitle",
+            "sunIdentityServerPPFacadeMugShot",
+            "pushDeviceProfiles",
+            "sunIdentityServerPPLegalIdentityDOB",
+            "push2faEnabled",
+            "sunIdentityServerPPDemographicsLanguage",
+            "sunIdentityServerPPFacadeGreetSound",
+            "iplanet-am-user-failure-url",
+            "iplanet-am-session-max-caching-time"
+        ],
+        "sun-idrepo-ldapv3-config-auth-kba-attr": [
+            "kbaInfo"
+        ],
+        "sun-idrepo-ldapv3-config-createuser-attr-mapping": [
+            "cn",
+            "sn"
+        ],
+        "sun-idrepo-ldapv3-config-isactive": "userAccountControl",
+        "sun-idrepo-ldapv3-config-users-search-attribute": "cn",
+        "sun-idrepo-ldapv3-config-auth-kba-index-attr": "kbaActiveIndex",
+        "sun-idrepo-ldapv3-config-users-search-filter": "(objectclass=person)",
+        "sun-idrepo-ldapv3-config-inactive": "546",
+        "sun-idrepo-ldapv3-config-people-container-value": "users"
+    },
+    "ldapsettings": {
+        "sun-idrepo-ldapv3-config-connection_pool_min_size": 1,
+        "sun-idrepo-ldapv3-config-connection_pool_max_size": 10,
+        "sun-idrepo-ldapv3-config-authid": "cn=ecmadmin,cn=Users,dc=ECM,dc=local",
+        "openam-idrepo-ldapv3-heartbeat-interval": 10,
+        "sun-idrepo-ldapv3-config-ldap-server": [
+            "userstore:389"
+        ],
+        "openam-idrepo-ldapv3-heartbeat-timeunit": "SECONDS",
+        "sun-idrepo-ldapv3-config-organization_name": "dc=ECM,dc=local",
+        "sun-idrepo-ldapv3-config-max-result": 1000,
+        "sun-idrepo-ldapv3-config-connection-mode": "LDAP",
+        "sun-idrepo-ldapv3-config-search-scope": "SCOPE_ONE",
+        "sun-idrepo-ldapv3-config-time-limit": 10,
+        "sun-idrepo-ldapv3-config-authpw": "SOMEPassword"
+    },
+    "persistentsearch": {
+        "sun-idrepo-ldapv3-config-psearchbase": "dc=ECM,dc=local",
+        "sun-idrepo-ldapv3-config-psearch-scope": "SCOPE_ONE"
+    },
+    "cachecontrol": {
+        "sun-idrepo-ldapv3-dncache-enabled": false,
+        "sun-idrepo-ldapv3-dncache-size": 1500
+    },
+    "pluginconfig": {
+        "sunIdRepoClass": "org.forgerock.openam.idrepo.ldap.DJLDAPv3Repo",
+        "sunIdRepoAttributeMapping": [
+            "userPassword=unicodePwd"
+        ],
+        "sunIdRepoSupportedOperations": [
+            "realm=read,service",
+            "group=read",
+            "user=read,service"
+        ]
+    },
+    "authentication": {
+        "sun-idrepo-ldapv3-config-auth-naming-attr": "cn"
+    },
+    "errorhandling": {
+        "com.iplanet.am.ldap.connection.delay.between.retries": 1000
+    },
+    "_type": {
+        "_id": "LDAPv3ForAD",
+        "name": "Active Directory",
+        "collection": true
+    }
+}
+</codeblock>
+          </div>
+          <div outputclass="st4mig_expandable">
+            <p outputclass="st4mig_expandable-title">ldapDatastoreTemplate.json</p>
+            <codeblock outputclass="condensed">{
+    "groupconfig": {
+        "sun-idrepo-ldapv3-config-groups-search-attribute": "cn",
+        "sun-idrepo-ldapv3-config-group-container-value": "groups",
+        "sun-idrepo-ldapv3-config-group-attributes": [
+            "ou",
+            "description",
+            "dn",
+            "uniqueMember",
+            "cn",
+            "objectclass"
+        ],
+        "sun-idrepo-ldapv3-config-group-container-name": "ou",
+        "sun-idrepo-ldapv3-config-uniquemember": "uniqueMember",
+        "sun-idrepo-ldapv3-config-groups-search-filter": "(objectclass=groupOfUniqueNames)",
+        "sun-idrepo-ldapv3-config-memberurl": "memberUrl",
+        "sun-idrepo-ldapv3-config-group-objectclass": [
+            "top",
+            "groupofuniquenames"
+        ]
+    },
+    "userconfig": {
+        "sun-idrepo-ldapv3-config-user-objectclass": [
+            "inetUser",
+            "top",
+            "organizationalPerson",
+            "person",
+            "inetorgperson"
+        ],
+        "sun-idrepo-ldapv3-config-isactive": "inetuserstatus",
+        "sun-idrepo-ldapv3-config-users-search-attribute": "uid",
+        "sun-idrepo-ldapv3-config-users-search-filter": "(objectclass=person)",
+        "sun-idrepo-ldapv3-config-active": "Active",
+        "sun-idrepo-ldapv3-config-people-container-value":"People",
+        "sun-idrepo-ldapv3-config-people-container-name":"ou",
+        "sun-idrepo-ldapv3-config-user-attributes": [
+            "userPassword",
+            "telephoneNumber",
+            "mail",
+            "manager",
+            "givenName",
+            "authorityRevocationList",
+            "objectClass",
+            "adminRole",
+            "distinguishedName",
+            "dn",
+            "cn",
+            "employeeNumber",
+            "uid",
+            "userCertificate",
+            "postalAddress",
+            "preferredlanguage",
+            "inetUserStatus",
+            "sn",
+            "memberOf",
+            "caCertificate"
+          ],
+        "sun-idrepo-ldapv3-config-createuser-attr-mapping": [
+            "cn",
+            "sn"
+        ],
+        "sun-idrepo-ldapv3-config-inactive": "Inactive"
+    },
+    "cachecontrol": {
+        "sun-idrepo-ldapv3-dncache-enabled": false,
+        "sun-idrepo-ldapv3-dncache-size": 1500
+    },
+    "ldapsettings": {
+        "sun-idrepo-ldapv3-config-connection_pool_max_size": 10,
+        "openam-idrepo-ldapv3-behera-support-enabled": true,
+        "sun-idrepo-ldapv3-config-max-result": 1000,
+        "sun-idrepo-ldapv3-config-search-scope": "SCOPE_ONE",
+        "sun-idrepo-ldapv3-config-authid": "cn=manager,dc=ecm-openldap,dc=com",
+        "sun-idrepo-ldapv3-config-time-limit": 10,
+        "sun-idrepo-ldapv3-config-connection_pool_min_size": 1,
+        "openam-idrepo-ldapv3-heartbeat-interval": 10,
+        "sun-idrepo-ldapv3-config-ldap-server": [
+            "ecm240x129.ete.ka.sw.ericsson.se:389"
+        ],
+        "openam-idrepo-ldapv3-heartbeat-timeunit": "SECONDS",
+        "sun-idrepo-ldapv3-config-organization_name": "dc=ecm-openldap,dc=com",
+        "sun-idrepo-ldapv3-config-connection-mode": "LDAP",
+        "sun-idrepo-ldapv3-config-authpw": "1qaz2wsx"
+    },
+    "pluginconfig": {
+        "sunIdRepoSupportedOperations": [
+            "realm=read,service",
+            "group=read",
+            "user=read,service"
+        ],
+        "sunIdRepoAttributeMapping": [
+        ],
+        "sunIdRepoClass": "org.forgerock.openam.idrepo.ldap.DJLDAPv3Repo"
+    },
+    "persistentsearch": {
+        "sun-idrepo-ldapv3-config-psearch-scope": "SCOPE_ONE",
+        "sun-idrepo-ldapv3-config-psearch-filter": "(objectclass=*)",
+        "sun-idrepo-ldapv3-config-psearchbase": "dc=ecm-openldap,dc=com"
+    },
+    "errorhandling": {
+        "com.iplanet.am.ldap.connection.delay.between.retries": 1000
+    },
+    "authentication": {
+        "sun-idrepo-ldapv3-config-auth-naming-attr": "uid"
+    },
+    "_type": {
+        "_id": "LDAPv3",
+        "name": "Generic LDAPv3",
+        "collection": true
+    }
+}
+</codeblock>
+          </div>
+        </info>
+      </step>
+      <step id="step_N102D8_N1006F_N1004E_N10001">
+        <cmd>Change the <filepath>idam_config.properties</filepath> to set the correct LDAP search
+          filter for users.</cmd>
+        <substeps id="substeps_xym_yjh_s3b">
+          <substep>
+            <cmd>Go to the <filepath>idam_config.properties</filepath> location:</cmd>
+            <info>
+              <p><filepath># cd $JBOSS_HOME/modules/com/ericsson/configuration/main</filepath></p>
+              <p><filepath>$JBOSS_HOME</filepath> is the JBoss home directory:
+                /app/ecm/appserver/jboss-eap-7.2</p>
+            </info>
+          </substep>
+          <substep>
+            <cmd>Replace <option>_LDAP_USERS_SEARCH_FILTER_</option> for your LDAP configuration and
+              save the file:</cmd>
+            <info>
+              <p><filepath># vi idam_config.properties</filepath></p>
+              <p><filepath>optionalUserAttributes=givenName,sn,inetuserstatus,dn,mail,telephoneNumber,ds-pwp-last-login-time,last-login-time-format</filepath></p>
+              <p><filepath>requiredUserAttributes=uid,memberOf</filepath></p>
+              <p><filepath>tenantUserSeachFilter={OPEN_DJ:'',OPEN_LDAP:'(&amp;(objectClass=person)(memberOf=cn=ECM_TENANT_%s,<option>_LDAP_USERS_SEARCH_FILTER_</option>))',ACTIVE_DIRECTORY:'(&amp;(objectClass=person)(memberOf=CN=ECM_TENANT_%s,<option>_LDAP_USERS_SEARCH_FILTER_</option>))'}</filepath></p>
+              <p><filepath>tenantSubTenantUserSeachFilter={OPEN_DJ:'',OPEN_LDAP:'(&amp;(objectClass=person)(memberOf=cn=ECM_TENANT_%s$%s,<option>_LDAP_USERS_SEARCH_FILTER_</option>))',ACTIVE_DIRECTORY:'(&amp;(objectClass=person)(memberOf=CN=ECM_TENANT_%s$%s,<option>_LDAP_USERS_SEARCH_FILTER_</option>))'}</filepath></p>
+            </info>
+          </substep>
+        </substeps>
+      </step>
+      <step id="step_N1035E_N1006F_N1004E_N10001">
+        <cmd>Restart JBoss:</cmd>
+        <info>
+          <p><userinput># systemctl restart jboss-eap</userinput></p>
+        </info>
+      </step>
+    </steps>
+                     </taskbody>
+</task>

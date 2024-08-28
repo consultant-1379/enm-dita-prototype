@@ -1,0 +1,44 @@
+<task id="e8076bb03d830af93bc05b30785c36b0" xml:lang="en-US">
+    <title>Populate a Realm with Users</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>To pre-populate a federation realm with the users follow the steps.</p>
+            <note id="note_N1003E_N10036_N10031_N10001">
+                <p>This step is not necessary for a fresh installation.</p>
+            </note>
+        </context>        
+        <steps>
+            <step conkeyref="c2e94fab1cd5e2ac8a18fd0531c3e2d4/step_N10042_N1003F_N10031_N10001" id="step_N1004B_N10048_N10031_N10001">
+                <cmd/>
+            </step>
+            <step conkeyref="c2e94fab1cd5e2ac8a18fd0531c3e2d4/step_N10053_N1003F_N10031_N10001" id="step_N10054_N10048_N10031_N10001">
+                <cmd/>
+            </step>
+            <step id="step_N1005D_N10048_N10031_N10001">
+                <cmd>Run the script:</cmd>
+                <info><cmdname>./populate_federation_realm.sh --realm
+                        &lt;realm></cmdname><p>Where <parmname>&lt;realm></parmname> is a
+                        federation realm name specified in <xref keyref="b549bb8cdf0820fa64954550dadd5bae"/>.</p><p>This script will gather data about existing <ph keyref="ECM_short"/> users and store their copies in a federation realm to use them for the
+                        SSO log-in.</p><note id="note_N10079_N10062_N1005B_N10048_N10031_N10001">
+                        <p>For security reasons, users with the <option>Tenant Admin</option> role
+                            and the <option>ecmadmin</option> users will not be added to a
+                            federation realm.</p>
+                    </note></info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

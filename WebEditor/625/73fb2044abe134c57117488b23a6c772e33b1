@@ -1,0 +1,138 @@
+<referable-content id="acb0abacac3b65e20425bc747d9d7a7c" xml:lang="en-US">
+<title>Neo4j cluster not in a healthy state Ref Con</title>
+<rcbody>
+        <table colsep="1" frame="all" id="table_cyc_vpy_dhb" outputclass="condensed" rowsep="1">
+            <tgroup cols="2">
+                <colspec colname="c1" colnum="1" colwidth="1*"/>
+                <colspec colname="c2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="c2" namest="c1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>Processing Error</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable Cause</p>
+                        </entry>
+                        <entry>
+                            <p>Application Subsystem Failure </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j cluster not in a healthy state</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_x5h_h4p_q3b">
+                                    <li>
+                                        <p>CRITICAL</p>
+                                    </li>
+                                    <li>
+                                        <p>MAJOR</p>
+                                    </li>
+                                    <li>
+                                        <p>MINOR</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul id="ul_kw1_wnp_q3b">
+                                    <li>
+                                        <p>Critical event on Neo4j Cluster, Leader instance has been
+                                            unavailable for more than one hour. This compromises HA
+                                            and also disallows any writes to the DB. This will
+                                            result in services going faulted.</p>
+                                    </li>
+                                    <li>
+                                        <p>Major event on Neo4j Cluster, one Neo4j follower Node has
+                                            been unavailable for more than three hours. No data loss
+                                            but HA is compromised.</p>
+                                    </li>
+                                    <li>
+                                        <p>Critical event on Neo4j Cluster, two Neo4j follower Nodes
+                                            have been unavailable for more than one hour . This
+                                            compromises HA and also disallows any writes to the DB.
+                                            This will result in services going faulted.</p>
+                                    </li>
+                                    <li>
+                                        <p>Critical event on Neo4j Instance, Neo4j has been
+                                            unavailable for more than one hour. This compromises HA
+                                            and also disallows any writes to the DB. This will
+                                            result in services going faulted. </p>
+                                    </li>
+                                    <li>
+                                        <p>Neo4j leader instance has been unavailable for
+                                            &lt;count> attempts.</p>
+                                    </li>
+                                    <li>
+                                        <p>Two Neo4j follower instances have been unavailable for
+                                            &lt;count> attempts. </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>Neo4j</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

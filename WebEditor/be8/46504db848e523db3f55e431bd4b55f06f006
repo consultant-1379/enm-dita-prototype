@@ -1,0 +1,167 @@
+<task id="e89b6ba58b7351e0767a91e9e63038e7" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change the Password in <ph keyref="ECM"/> Orchestration Component</title>
+   <prolog>
+      <source>ST4 ID: 14234611723</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N1006B_N10068_N10001">
+         <p>Use this procedure to change the password in the <ph keyref="ECM_short"/> Orchestration
+            Component.</p>
+      </context>
+      <steps>
+         <step id="step_N1007B_N10078_N10068_N10001">
+            <cmd>
+               Open a browser window and navigate to the <ph keyref="ECM_short"/> Orchestration Component GUI
+                  URL: 
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>
+                        <ph importance="normal"><ph keyref="non_HA_s"/> deployment</ph>:
+                           <filepath>https://&lt;Cloud_Manager_IP>/cwf</filepath>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <ph keyref="HA_s"/><ph importance="normal"> deployment</ph>:
+                           <filepath>https://&lt;GUI_FQDN>/cwf</filepath>
+                     </p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+         <step id="step_N100B7_N10078_N10068_N10001">
+            <cmd> Log in as <filepath>upadmin</filepath> to the <ph keyref="ECM_short"/>
+               Orchestration Component GUI. </cmd>
+            <info>
+               <p>The dashboard for the <ph keyref="ECM_short"/> Orchestration Component GUI is
+                  displayed. </p>
+            </info>
+         </step>
+         <step id="step_N100D9_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>System
+                     Configuration</uicontrol> box to display the Configuration page. </ph>
+            </cmd>
+         </step>
+         <step id="step_N100EB_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>Services</uicontrol> icon,
+                  located on the top of the page, the display the list of services. </ph>
+            </cmd>
+         </step>
+         <step id="step_N100FD_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Expand the <uicontrol>CmdbSyncRequestService
+                     (ecm_ns)</uicontrol> item in the Services list and highlight the
+                     <uicontrol>CmdbSyncRequestMessageQueue</uicontrol> item to display its
+                  configuration on the right side of the page. For example: <image keyref="a0f5e40dcd5746acd351beb5466915ca" placement="inline"/>
+               </ph>
+            </cmd>
+         </step>
+         <step id="step_N10118_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Type the new password in the <uicontrol>JNDI
+                     Password</uicontrol> field, highlighted in the picture above.</ph>
+            </cmd>
+         </step>
+         <step id="step_N100FA_N10058_N1004A_N10001">
+            <cmd> Click the <uicontrol>Binding </uicontrol>icon to view the current binding.</cmd>
+         </step>
+         <step id="step_N100FF_N10058_N1004A_N10001">
+            <cmd>Expand current binding and select child message.</cmd>
+            <info><note id="note_N10107_N10104_N100FF_N10058_N1004A_N10001">
+                  <p>Ensure that Input and Output properties have <uicontrol>Use JNDI
+                        Credential</uicontrol> checkbox selected.</p>
+               </note><image id="image_otp_hd4_dhb" keyref="3f48dc07bb7a14d779aabae17eb99825">
+                  <alt>Use_JNDI_Credentials.jpg</alt>
+               </image></info>
+         </step>
+         <step id="step_N10131_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>Save</uicontrol> icon, located
+                  in the top, left of the page. For example:</ph>
+            </cmd>
+            <info>
+               <p>
+                  <image keyref="64dc77bf7042ed0bb1c61e98f44d089e" placement="inline"/>
+               </p>
+            </info>
+         </step>
+         <step id="step_N10150_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Using the same process as above, type the new
+                  password in the <uicontrol>JNDI Password</uicontrol> field. Remember to click the
+                     <uicontrol>Save</uicontrol> icon (top, left) after each password change. </ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>
+                        <uicontrol>ConsumerMgrMessaging (ecm_ns)</uicontrol> ==>
+                           <uicontrol>ConsumerMgrMessageQueue</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>WorkflowListenerService (ecm_ns)</uicontrol> ==>
+                           <uicontrol>WorkflowListener</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>WorkflowListenerService (ecm_ns)</uicontrol> ==>
+                           <uicontrol>WorkflowSubscriptionListener</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>SyncExternalResouresService (ecm_ns)</uicontrol> ==>
+                           <uicontrol>SyncExternalResoures</uicontrol>
+                     </p>
+                  </li>
+                  <li>
+                     <p>
+                        <uicontrol>ReconcileVnfService (ecm_ns))</uicontrol> ==>
+                           <uicontrol>ReconcileVnf</uicontrol>
+                     </p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+         <step id="step_N101A2_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>Save and Propagate</uicontrol>
+                  icon to display the Select Node(s) dialog..</ph>
+            </cmd>
+         </step>
+         <step id="step_N101B4_N10078_N10068_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click in the check-box next to the node name and
+                  click the <uicontrol>Select</uicontrol> button. </ph>
+            </cmd>
+         </step>
+         <step id="step_N101C6_N10078_N10068_N10001">
+            <cmd> Log out of the <ph keyref="ECM_short"/><ph outputclass="st4mig_cmd-para">
+                  Orchestration Component GUI. </ph>
+            </cmd>
+         </step>
+      </steps>
+      <postreq id="postreq_N101CE_N10068_N10001">
+         <div outputclass="st4mig-add-info">
+            <!--
+			4015 add-info/title: Next Step:-->
+            <p>
+               <xref keyref="3bd9da496e5ed74ebae80e68e37b52d2"/>
+            </p>
+         </div>
+      </postreq>
+   </taskbody>
+</task>

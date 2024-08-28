@@ -1,0 +1,24 @@
+<map id="1d8c58e0cc8ac25971d1a2e260ac2436" xml:lang="en-US">
+   <title>Variable Key Map DCR</title>
+   <keydef keys="DCR_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Detailed Call Record</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="DCR_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>DCR</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="DCR_Correlator">
+      <topicmeta>
+         <keywords>
+            <keyword>DCR Correlator</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

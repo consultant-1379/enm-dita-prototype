@@ -1,0 +1,83 @@
+<concept id="13cfe2be2b1276b05474b8beebd3cef1" xml:lang="en-US">
+   <title>Parameters for Licensing</title>
+   <prolog>
+      <source>ST4 ID: 16341877003</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p otherprops="EEAEPP-25965_exclude">A tool is available for querying relevant parameters of the deployed <ph keyref=""/>. This is installed on every <ph keyref=""/> 
+                                 <ph keyref=""/> at <apiname>/opt/ericsson/eea/ark/bin/report_nodecount.py</apiname>. It can be used for showing the numbers of the following:</p>
+      <ul otherprops="EEAEPP-25965_exclude">
+         <li>
+                                    <p>Hadoop servers running MapR,</p>
+                                 </li>
+         <li>
+                                    <p>Hadoop servers running Impala,</p>
+                                 </li>
+         <li>
+                                    <p>cores running JBoss.</p>
+                                 </li>
+      </ul>
+      <p otherprops="EEAEPP-25965_exclude">Running the script with <apiname>sudo</apiname>, it outputs to the file <apiname>/opt/ericsson/eea/log/ark/licensing_nodecount.log</apiname> as below:</p>
+      <codeblock otherprops="EEAEPP-25965_exclude">Number of servers running MapR 41
+Number of servers running Impala 13
+Number of cores running JBoss 120
+&lt;jboss_host1> 40
+&lt;jboss_host2> 40
+&lt;jboss_host3> 40
+</codeblock>
+      <p otherprops="EEAEPP-25965_exclude">For scheduling the query to run at certain intervals, for example, daily, create the file <apiname>/etc/cron.d/licensing_nodecount</apiname> as <apiname>root</apiname> with the following content on one of the <ph keyref=""/>s of the <ph keyref=""/> cluster:</p>
+      <codeblock otherprops="EEAEPP-25965_exclude">37 3 * * * root /opt/ericsson/eea/ark/bin/report_nodecount.py &amp;> /dev/null</codeblock>
+      <p otherprops="EEAEPP-25965_exclude">If <ph keyref=""/> Master <ph keyref=""/> is to run the script, top of the hour times are to be avoided. An example can be seen above.</p>
+      <p otherprops="EEAEPP-25965_exclude">The latest information becomes available in <apiname>/opt/ericsson/eea/log/ark/licensing_nodecount.log</apiname>.</p>
+      <p otherprops="EEAEPP-25965">The following tools can be used to query parameters relevant to licensing.</p>
+      <section id="section_N100A6_N10028_N10001" otherprops="EEAEPP-25965">
+                                 <title outputclass="st4mig_titled-block-title">Number of MapR, Impala Servers and JBoss Core</title>
+                                 <p>A tool is available for querying relevant parameters of the deployed <ph keyref=""/>. This is installed on every <ph keyref=""/> 
+                                    <ph keyref=""/> at <apiname>/opt/ericsson/eea/ark/bin/report_nodecount.py</apiname>. It can be used for showing the numbers of the following:</p>
+                                 <ul>
+            <li>
+                                       <p>Hadoop servers running MapR,</p>
+                                    </li>
+            <li>
+                                       <p>Hadoop servers running Impala,</p>
+                                    </li>
+            <li>
+                                       <p>Cores running JBoss.</p>
+                                    </li>
+         </ul>
+                                 <p>Running the script with <apiname>sudo</apiname>, it outputs to the file <apiname>/opt/ericsson/eea/log/ark/licensing_nodecount.log</apiname> as below:</p>
+                                 <codeblock>Number of servers running MapR 41
+Number of servers running Impala 13
+Number of cores running JBoss 120
+&lt;jboss_host1> 40
+&lt;jboss_host2> 40
+&lt;jboss_host3> 40
+</codeblock>
+                              </section>
+      <section id="section_N100F3_N10028_N10001" otherprops="EEAEPP-25965">
+                                 <title outputclass="st4mig_titled-block-title">Number of Cells</title>
+                                 <p>The <apiname>report_numof_cells.py</apiname> script can be used to query the number of cells in the <ph keyref=""/> database. It is installed under <apiname>/opt/ericsson/eea/ark/bin/report_numof_cells.py</apiname> and can be run on any <ph keyref=""/> 
+                                    <ph keyref=""/>.</p>
+                                 <p>Running the script with <apiname>sudo</apiname> generates an output file under<apiname>/opt/ericsson/eea/log/ark/licensing_cell_number.log</apiname> with the following content:</p>
+                                 <codeblock>Number of cells: 14704</codeblock>
+                              </section>
+      <section id="section_N10128_N10028_N10001" otherprops="EEAEPP-25965">
+                                 <title outputclass="st4mig_titled-block-title">Creating Scheduled Job for Reporting</title>
+                                 <p>For scheduling the query to run at certain intervals, for example, daily; create the file <apiname>/etc/cron.d/&lt;name_of_logfile></apiname> as <apiname>root</apiname> with the following content on one of the <ph keyref=""/>s of the <ph keyref=""/> cluster:</p>
+                                 <codeblock>37 3 * * * root /opt/ericsson/eea/ark/bin/&lt;name_of_script> &amp;> /dev/null</codeblock>
+                                 <p>If <ph keyref=""/> Master <ph keyref=""/> is to run the script, top of the hour times are to be avoided. An example can be seen above.</p>
+                                 <p>The latest information becomes available in the given log files.</p>
+                              </section>
+      <section id="section_N1015D_N10028_N10001"><!-- section wrapper added --><title outputclass="st4mig_titled-block-title"/>
+                                 <note id="note_N10166_N1015D_N10028_N10001" otherprops="EEAEPP-25965">
+                                    <p>For manually auditing number of subscribers processed in <ph keyref=""/>, use <ph keyref=""/> Healthcheck service, as
+               described in <xref keyref="a73349611209f360fe529c4f3e3100b5"/>.</p>
+                                 </note>
+                              </section>
+   </conbody>
+</concept>

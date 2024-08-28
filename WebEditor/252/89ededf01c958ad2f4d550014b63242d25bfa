@@ -1,0 +1,26 @@
+<concept id="dc933f83048a52d644157ffbadf0501b" xml:lang="en-US">
+   <title>Target Groups</title>
+   <prolog>
+      <source>ST4 ID: 7603005579</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The target groups for this document are:</p>
+      <ul>
+         <li>
+                           <p>Provider Administrators</p>
+                        </li>
+         <li>
+                           <p>Tenant Administrators</p>
+                        </li>
+         <li>
+                           <p>Subtenant Administrators</p>
+                        </li>
+      </ul>
+   </conbody>
+</concept>

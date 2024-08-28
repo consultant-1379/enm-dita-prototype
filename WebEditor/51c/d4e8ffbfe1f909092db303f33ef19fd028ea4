@@ -1,0 +1,71 @@
+<concept id="d9970d6696d057c6578dfd530b4a60f1" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for Service Catalog Application</title>
+   <prolog>
+      <source>ST4 ID: 12678143243</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>To change the <option>upadmin</option>, <option>scadmin</option>, or
+            <option>catmainrestapi</option> user password, log in to the <ph keyref="edbVM"/> and
+         execute the following commands.</p>
+      <p><ph importance="normal">Considerations:</ph>
+      </p>
+      <ul>
+         <li>
+                              <p>On an HA deployment, log in to the master <ph keyref="edbVM"/> to
+               change the password. For more information about checking the <ph keyref="edbVM"/>,
+               see <cite>Change Password for Service Catalog Application</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/> .</p>
+                           </li>
+         <li>
+                              <p conkeyref="3aba124a706e6ff0e3bc5fb093cac947/st4tb12334115211"/>
+                           </li>
+         <li>
+                              <p>Password changes for these IDs are automatically replicated to the standby site in geo-redundant deployments.</p>
+                           </li>
+      </ul>
+      <note id="note_N100AC_N10064_N10001" type="note">
+         <p>Passwords are case-sensitive. </p>
+         <p>Passwords can contain single-byte characters, multibyte characters, special characters,
+            or any combination of these, from your database character set.</p>
+      </note>
+      <section id="section_N100B5_N10064_N10001" outputclass="static">
+                           <title outputclass="st4mig_titled-block-title">To Change the
+               <option>upadmin</option> User Password:</title>
+                           <codeblock outputclass="condensed"># <userinput>psql -d ecmdb1 -U upadmin</userinput>
+Password for user upadmin: <userinput><varname>&lt;Current_Password></varname></userinput>
+psql.bin (11.6.13)
+Type "help" for help.
+ecmdb1=> <userinput>ALTER USER upadmin WITH PASSWORD '<varname>&lt;New_Password></varname>';</userinput>
+ALTER ROLE
+ecmdb1=> <userinput>quit</userinput></codeblock>
+                        </section>
+      <section id="section_N100DA_N10064_N10001" outputclass="static">
+                           <title outputclass="st4mig_titled-block-title"><option>scadmin</option> User Password:</title>
+                           <codeblock outputclass="condensed"># <userinput>psql -d ecmdb1 -U scadmin</userinput>
+Password for user scadmin: <userinput><varname>&lt;Current_Password></varname></userinput>
+psql.bin (11.6.13)
+Type "help" for help.
+ecmdb1=> <userinput>ALTER USER scadmin WITH PASSWORD '<varname>&lt;New_Password></varname>';</userinput>
+ALTER ROLE
+ecmdb1=> <userinput>quit</userinput>
+                           </codeblock>
+                        </section>
+      <section id="section_N10100_N10064_N10001" outputclass="static">
+                           <title outputclass="st4mig_titled-block-title">To Change the
+               To Change the
+               <option>catmainrestapi</option> User Password:</title>
+                           <codeblock outputclass="condensed"># <userinput>psql -d ecmdb1 -U catmainrestapi</userinput>
+Password for user catmainrestapi: <userinput><varname>To Change the&lt;Current_Password></varname></userinput>
+psql.bin (11.6.13)
+Type "help" for help.
+ecmdb1=> <userinput>ALTER USER catmainrestapi WITH PASSWORD '<varname>&lt;New_Password></varname>';</userinput>
+ALTER ROLE
+ecmdb1=> <userinput>quit</userinput></codeblock>
+                        </section>
+   </conbody>
+</concept>

@@ -1,0 +1,82 @@
+<concept id="69befa12335903a85372f3b31848a185" xml:lang="en-US">
+   <title>ESR HBase Bulkloader Configuration</title>
+   <prolog>
+      <source>ST4 ID: 16342702219</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ztthrtx</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX86294</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-09</change-completed>
+            <change-summary>Added section describing further configuration options based on EEAEPP-37968, input from: ETHEGB</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zvardan</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HX86294</change-request-id>
+            </change-request-reference>
+            <change-completed>2020-07-14</change-completed>
+            <change-summary>Removed parameters from ESR HBase Bulkloader config: retentionInDays, phoenixJDBCConnString, and sqlCreateViewQuery, additionally, cfTTL and hbaseNumberOfRegions are now deprecated parameters, based on review comments by ETHEGB (20200713)</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>After installation or upgrade, the <ph keyref=""/> HBase bulkloader has to be
+         configured. The number of containers for the <ph keyref=""/> HBase bulkloader
+         ARK application has to be set to match the <ph keyref=""/> data volume.</p>
+      <p>The peak <ph keyref=""/> 5-minute data volume on HDFS (JSON) determines the
+         required amount of <ph keyref=""/> HBase bulkloader instances. Every GB of <ph keyref=""/> data volume requires one <ph keyref=""/> HBase
+         bulkloader instance. In addition, the <parmname>hblib.number.of.regions</parmname>
+         parameter has to be set to the same value in the application configurations.</p>
+      <note id="note_N10095_N1006A_N10001">
+         <p>The <parmname>hbaseNumberOfRegions</parmname> parameter is deprecated, use
+               <parmname>hblib.number.of.regions</parmname> instead, which is specific for each <ph keyref=""/> application. <parmname>hblib.number.of.regions</parmname>
+            overrides any value configured for <parmname>hbaseNumberOfRegions</parmname>.</p>
+      </note>
+      <p>For example, if the <ph keyref=""/> data is approximately 200 GB for the peak
+         5-minute period, then the number of <ph keyref=""/> HBase bulkloader instances
+         has to be set to 200. In addition, the <parmname>hblib.number.of.regions</parmname>
+         parameter in the configuration file of each application also has to be set to 200.</p>
+      <p>The required memory per <ph keyref=""/> HBase bulkloader instance is 10 GB,
+         which is the default setting.</p>
+      <p>In case of manual configuration, the following values can be adapted to the installed
+         system:</p>
+      <ul>
+         <li>
+            <p><parmname>cfTTL</parmname></p>
+            <note id="note_N100D8_N100CD_N100CA_N1006A_N10001">
+               <p>The <parmname>cfTTL</parmname> parameter is deprecated, use
+                     <parmname>hblib.table.attr.TTL</parmname> instead, which is specific for each
+                     <ph keyref=""/> application. <parmname>hblib.table.attr.TTL</parmname>
+                  overrides any value configured for <parmname>cfTTL</parmname>.</p>
+            </note>
+         </li>
+         <li>
+            <p><parmname>zkHost</parmname></p>
+         </li>
+         <li>
+            <p><parmname>zkPort</parmname></p>
+         </li>
+         <li>
+            <p><parmname>pgConnString</parmname></p>
+         </li>
+      </ul>
+      <note id="note_N100C6_N1004B_N10001" outputclass="st4mig_attention" type="note">
+         <p>Do not change any other values in the configuration.</p>
+      </note>
+      <section conkeyref="5eba175a874d70ddd08f8640e04016e5/section_HBase_table_conf" id="section_h42_g4d_hmb">
+         <title/>
+         <p/>
+      </section>
+   </conbody>
+</concept>

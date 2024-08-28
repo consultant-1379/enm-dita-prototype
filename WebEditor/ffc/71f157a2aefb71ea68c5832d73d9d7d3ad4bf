@@ -1,0 +1,99 @@
+<task id="b1b3a119c0ab408e3e63fbcbdf7f8ad1" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for <ph keyref="edbVM"/> ID: replication</title>
+   <prolog>
+      <source>ST4 ID: 13577157515</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N10083_N10080_N10001" outputclass="st4mig_beforeProcedure">
+         <p>This section provides instructions for changing the password for the <ph keyref="edbVM"/> administrative ID, <option outputclass="st4mig_function">replication</option>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="36fd545084e342671f7c0fcd35822eb7/st4tb12331441931"/>
+            </li>
+            <li>
+               <p conkeyref="b613408a3438e50320749f473ab706fb/st4tb12331484427"/>
+            </li>
+            <li>
+               <p>Allowable special characters for this ID are <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li>
+         </ul>
+         <p>To change the password for this <ph keyref="edbVM"/> ID:</p>
+      </context>
+      <steps>
+         <step id="step_N100CA_N100C7_N10080_N10001">
+            <cmd>Log in to the <ph keyref="edbVM"/> (the master <ph keyref="edbVM"/> for an <ph keyref="HA_s"/> deployment) as <option keyref="loginID"/> user. </cmd>
+         </step>
+         <step id="step_N100E4_N100C7_N10080_N10001">
+            <cmd>Execute the following command to connect to the database: </cmd>
+            <info>
+               <codeblock outputclass="condensed">
+<ph keyref="sudo"/>psql -p 5432 -U enterprisedb edb</codeblock>
+            </info>
+         </step>
+         <step id="step_N100FF_N100C7_N10080_N10001">
+            <cmd>Change the password for the <option>replication</option> ID with the following
+               command: </cmd>
+            <info>
+               <codeblock outputclass="condensed">alter user replication with password '<varname>New_Password</varname>';</codeblock>
+               <note id="note_N1011A_N1010D_N100FD_N100C7_N10080_N10001">
+                  <p>The single quotes are required, as shown.</p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N1012C_N100CB_N10084_N10001">
+            <cmd>Exit out of <option>psql</option>.</cmd>
+         </step>
+         <step id="step_N10128_N100C7_N10080_N10001">
+            <cmd>Run the following command on the <ph keyref="edbVM"/> and edit the password in
+                  <filepath>.pgpass</filepath> file for correct processing of additional scripts. </cmd>
+            <info>
+               <codeblock outputclass="condensed">
+<ph keyref="sudo"/>vi ~enterprisedb/.pgpass</codeblock>
+            </info>
+         </step>
+         <step id="step_N100FC_N10079_N10032_N10001">
+            <cmd>Enter the following command on the <ph keyref="edbVM"/> to verify that the previous
+               edit was completed successfully. If a mistake was made when completing the previous
+               step, the response returns an error.</cmd>
+            <info>
+               <codeblock outputclass="condensed">sudo su - enterprisedb -c "psql -U replication -p 5432 edb -c 'select 1 dual;'"</codeblock>
+            </info>
+            <stepresult>
+               <codeblock outputclass="condensed">dual
+  ------
+      1
+  (1 row)
+</codeblock>
+               <note id="note_N10167_N1015F_N10128_N100C7_N10080_N10001">
+                  <p>For an <ph keyref="HA_s"/> deployment, execute this step for each <ph keyref="edbVM"/>. In a
+                     <ph keyref="GR_s"/> deployment, this step must also be executed on the standby
+                     site.</p>
+               </note>
+            </stepresult>
+         </step>
+         <step id="step_N10154_N100C7_N10080_N10001">
+            <cmd>Log in with the new password to verify the change of password for the
+                  <option>replication</option> ID.  </cmd>
+            <info>
+               <codeblock outputclass="condensed">psql -U replication edb
+Password for user replication: 
+<varname>&lt;New_Password></varname>
+psql.bin (11.6.13)
+Type "help" for help.
+edb =>
+</codeblock>
+            </info>
+         </step>
+      </steps>
+   </taskbody>
+</task>

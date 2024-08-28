@@ -1,0 +1,6 @@
+<referable-content id="4911b66ffc16eb672b18c2efc7e815f8" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Change Password Downtime - Single ID</title>
+   <rcbody>
+      <p id="st4tb12331396619">Changing the password for this ID requires system downtime. For more
+         information about restricting system access, see <xref keyref="f1783f885ae901fb3513101034240d8f">Restricting Access for Administrative Procedures</xref>.</p>
+   </rcbody>
+</referable-content>

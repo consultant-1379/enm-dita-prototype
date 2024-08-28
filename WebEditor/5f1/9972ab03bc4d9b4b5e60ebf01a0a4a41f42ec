@@ -1,0 +1,53 @@
+<task id="fac584d38d7dd214f03656f6243f3bdb" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Synchronize F5 Nodes</title>
+   <prolog>
+      <source>ST4 ID: 14109473547</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10067_N10064_N10001">
+                                 <p>This procedure will ensure that the changes made on the active F5 node are also transmitted to the backup node.</p>
+                              </context>
+                              <steps>
+         <step id="step_N10085_N10070_N10064_N10001x">
+            <cmd>Log in to the (F5) GUI, and identify the primary (Active) Load Balancer:</cmd>
+            <info>
+               <p><image id="image_zhy_gxy_ylb" keyref="27123978bc903d73fd59112ba85f9472" scalefit="yes">
+                     <alt>F5 GUI</alt>
+                  </image></p>
+            </info>
+         </step>
+         <step id="step_N100A4_N10070_N10064_N10001">
+            <cmd>Navigate to <uicontrol>Device Management</uicontrol> >
+                  <uicontrol>Overview</uicontrol>.</cmd>
+         </step>
+                                 <step id="step_N10085_N10070_N10064_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Select the current node and click <uicontrol>Sync</uicontrol>.</ph>
+            </cmd>
+            <info>
+               <p><ph outputclass="st4mig_cmd-para">At this point, both BIG-IP F5s are synced.
+                     Device Management > Overview</ph></p>
+               <note id="note_N1009F_N10095_N10084_N10070_N10064_N10001">
+                  <p>If two F5 instances are already in sync state, then there is no
+                        <uicontrol>Sync</uicontrol> button. However, when changes to one of the F5
+                     nodes are made, there is an option to pull the group's configuration to the
+                     device or push the device configuration to the group. Select the relevant
+                     option depending on the target.</p>
+               </note>
+            </info>
+                                 </step>
+                                 <step id="step_N10097_N10070_N10064_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Check the status near the F5 logo at the top left
+                  of the window. If there are any synchronization issues, see <xref keyref="804779e3005e8302c3644c5f92b2dd70"/>.</ph>
+            </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

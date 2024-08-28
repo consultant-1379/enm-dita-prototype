@@ -1,0 +1,133 @@
+<concept id="e3d80e95a03c41b4d6e1353d83ee378b" xml:lang="en-US">
+   <title>Assign and Update Tenants to an <ph keyref="externalIdam_initialCap"/> System</title>
+   <prolog>
+      <source>ST4 ID: 11276643083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>After configuring an <ph keyref="externalIdam"/> system, tenants can be created and
+         assigned to an <ph keyref="externalIdam"/> system, or existing tenants can be updated to
+         use an <ph keyref="externalIdam"/> system using the <ph keyref="ECM"/> GUI or API
+         operations. </p>
+      <note id="note_N10063_N1004C_N10001">
+                           <p>The <ph keyref="ECM"/>
+            <ph keyref="externalIdam"/> conversion script can be used to convert all existing
+            tenants to a single <ph keyref="externalIdam"/> system (specified as the default). See
+               <xref keyref="6c079fc85d2a1282594a4437f52b2515"/> for additional information.</p>
+                        </note>
+      <section id="section_N1007B_N1004C_N10001">
+                           <title outputclass="st4mig_titled-block-title">Create a Tenant and Assign the New <ph keyref="externalIdam_initialCap"/> System</title>
+                           <p>Create a tenant and assign the new <ph keyref="externalIdam"/> system to the tenant using either of the following methods:</p>
+                           <table id="table_N10091_N1007B_N1004C_N10001">
+            <tgroup cols="3">
+                                 <colspec colname="col1"/>
+                                 <colspec colname="col2"/>
+                                 <colspec colname="col3"/>
+                                 <thead>
+                                    <row>
+                                       <entry valign="top">
+                                          <p>Method</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Procedure</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Reference</p>
+                                       </entry>
+                                    </row>
+                                 </thead>
+                                 <tbody>
+                                    <row>
+                                       <entry>
+                                          <p>
+                                             <ph importance="normal"> 
+                                                <ph keyref="ECM"/> GUI</ph>
+                                          </p>
+                                       </entry>
+                                       <entry>
+                                          <p>Choose the new <ph keyref="externalIdam"/> system in the <uicontrol>Identify and Access Management System</uicontrol> data field on the <uicontrol>Create Tenant</uicontrol> page on the <ph keyref="ECM"/> GUI.</p>
+                                       </entry>
+                                       <entry>
+                                          <p><cite>Create a Tenant</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>
+                        </p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry>
+                                          <p>
+                                             <ph importance="normal">API Operation</ph>
+                                          </p>
+                                       </entry>
+                                       <entry>
+                                          <p>Use the <option outputclass="st4mig_function">addTenant</option> operation to choose the new <ph keyref="externalIdam"/> system when creating the new tenant.</p>
+                                       </entry>
+                                       <entry>
+                                          <p>
+                           <cite>Create Tenant Operation</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Overview_Guide"/></p>
+                                       </entry>
+                                    </row>
+                                 </tbody>
+                              </tgroup>
+         </table>
+                        </section>
+      <section id="section_N1013A_N1004C_N10001">
+                           <title outputclass="st4mig_titled-block-title">Update an Existing Tenant with a New <ph keyref="externalIdam_initialCap"/> System</title>
+                           <p>Update an existing tenant with a new <ph keyref="externalIdam"/> system using either of the following methods:</p>
+                           <table id="table_N10151_N1013B_N1004C_N10001">
+            <tgroup cols="3">
+                                 <colspec colname="col1"/>
+                                 <colspec colname="col2"/>
+                                 <colspec colname="col3"/>
+                                 <thead>
+                                    <row>
+                                       <entry valign="top">
+                                          <p>Method</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Procedure</p>
+                                       </entry>
+                                       <entry valign="top">
+                                          <p>Reference</p>
+                                       </entry>
+                                    </row>
+                                 </thead>
+                                 <tbody>
+                                    <row>
+                                       <entry>
+                                          <p>
+                                             <ph importance="normal">
+                                                <ph keyref="ECM"/> GUI</ph>
+                                          </p>
+                                       </entry>
+                                       <entry>
+                                          <p>Choose the new <ph keyref="externalIdam"/> system in the <uicontrol>Identify and Access Management System</uicontrol> data field on the <uicontrol>Tenant Details</uicontrol> page on the <ph keyref="ECM"/> GUI.</p>
+                                       </entry>
+                                       <entry>
+                        <p><cite>Modify a Tenant or Subtenant</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>
+                        </p>
+                                       </entry>
+                                    </row>
+                                    <row>
+                                       <entry>
+                                          <p>
+                                             <ph importance="normal">API Operation</ph>
+                                          </p>
+                                       </entry>
+                                       <entry>
+                                          <p>Use the <option outputclass="st4mig_function">modifyTenant</option> operation to choose the new <ph keyref="externalIdam"/> system when updating the existing tenant.</p>
+                                       </entry>
+                                       <entry>
+                                          <p><cite>Modify Tenant Operation</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Overview_Guide"/></p>
+                                       </entry>
+                                    </row>
+                                 </tbody>
+                              </tgroup>
+         </table>
+                        </section>
+   </conbody>
+</concept>

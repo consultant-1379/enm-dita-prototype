@@ -1,0 +1,15 @@
+<concept id="d2584ebb34d8714ef6c725495859d8e7" xml:lang="en-US">
+   <title>Password and Security Administration</title>
+   <prolog>
+      <source>ST4 ID: 10258766347</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>There are several different types of IDs associated with the administration of <ph keyref="ECM"/>.</p>
+   </conbody>
+</concept>

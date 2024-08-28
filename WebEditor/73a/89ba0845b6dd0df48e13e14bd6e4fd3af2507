@@ -1,0 +1,26 @@
+<referable-content id="66194a719aec68f0badfd3669990f8e7" xml:lang="en-US">
+<title>Change Password for georedadmin</title>
+<rcbody>
+        <steps id="steps_qrn_zzz_kmb">
+            <step id="step_N10052_N1004F_N10031_N10001">
+                <cmd>Log in to any <ph keyref="CoreVM"/> on the active site as an <option keyref="loginID"/> user.</cmd>
+            </step>
+            <step id="step_N10063_N1004F_N10031_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>sudo /usr/local/bin/gradm config password admin</cmdname></info>
+            </step>
+            <step id="step_N10072_N1004F_N10031_N10001">
+                <cmd>Specify a new password as prompted.</cmd>
+            </step>
+            <step id="step_N1007B_N1004F_N10031_N10001">
+                <cmd>Run the manual replication on the active site (propagating changes to the
+                    standby site) and check the results:</cmd>
+                <info>
+                    <codeblock>   /usr/local/bin/grctl run strategy --name replication
+   /usr/local/bin/grctl show job running
+   /usr/local/bin/grctl show job history</codeblock>
+                </info>
+            </step>
+        </steps>
+    </rcbody>
+</referable-content>

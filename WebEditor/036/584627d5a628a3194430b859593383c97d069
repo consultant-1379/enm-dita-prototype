@@ -1,0 +1,40 @@
+<concept id="c015f4695c44f569f40de0af38dd53f5" xml:lang="en-US"><!--{"comments":[{"comment":"qwewqe","timestamp":1625490847032,"editedOn":null,"resolved":{"resolvedOn":null,"resolvedBy":null},"reopened":{"reopenedOn":null,"reopenedBy":null},"user":"emoejin","innerComments":[]},{"comment":"eqwewq","timestamp":1625490870960,"editedOn":null,"resolved":{"resolvedOn":null,"resolvedBy":null},"reopened":{"reopenedOn":null,"reopenedBy":null},"user":"emoejin","innerComments":[]}],"id":"c015f4695c44f569f40de0af38dd53f5"}-->
+   <title>Architectural Overview</title>
+   <prolog>
+      <source>ST4 ID: 16330835083</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The following figure shows a <uicontrol><mark cid="c015f4695c44f569f40de0af38dd53f5_0" start="c015f4695c44f569f40de0af38dd53f5_0_start">functional vie</mark>w</uicontrol> of the <ph keyref=""/> application:</p>
+      <fig id="fig_N10033_N10028_N10001">
+         <title>Functional View</title>
+         <image keyref="cecef597c3fe7309a5753613b560d7f8" scalefit="yes"/>
+      </fig>
+      <p>The following figure shows a deployment view of the <ph keyref=""/> application:</p><p>This is a para.</p>
+      <note id="note_N1004A_N10028_N10001">
+                        <p>The following third <mark cid="c015f4695c44f569f40de0af38dd53f5_1" start="c015f4695c44f569f40de0af38dd53f5_1_start">party s</mark>torage components are shown on the functional view with their functional names, but appear on the deployment view with their third party product names:</p>
+                        <ul>
+            <li>
+                              <p>Key-Value Store - HBase</p>
+                           </li>
+            <li>
+                              <p>Distributed File System - MapR-FS</p>
+                           </li>
+            <li>
+                              <p>SQL Query Engine - Impala</p>
+                           </li>
+         </ul>
+                     </note>
+      <fig id="fig_N1006E_N10028_N10001">
+         <title>Deployment View</title>
+         <image keyref="f2aeb4834c960e18fa35d231c0b32e3b" scalefit="yes"/>
+      </fig>
+      <p>For Value Package-based data flow views of the architecture, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#sek1571256799872?title=Expert%20Analytics" scope="external">EEA Value Packages</xref>.</p><fig><title>Title</title><p>Text</p><image keyref="d9589eb4f0f7087a79621256416c0249"/></fig>
+      <p>For configuration information about the input, output, and use of each component, see <xref keyref="db65cecada1602940bc3e3e77f63b20c">Component Configuration and Use</xref>.</p>
+   </conbody>
+</concept>

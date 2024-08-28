@@ -1,0 +1,51 @@
+<task id="45e508da755105970e5a88af38fb5568" xml:lang="en-US">
+    <title>Create a Trust Store to Store Certificate Roots</title>
+    <shortdesc/>
+    <prolog>
+        <permissions view="ericsson_internal"/>
+		<metadata/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10021_N1001C_N10001">
+            <p/>
+        </context>        
+        <steps>
+            <step id="step_N1002C_N10029_N1001C_N10001">
+                <cmd>Log in to <ph keyref="CoreVM"/> as <option>ecm_admin</option> user.</cmd>
+            </step>
+            <step id="step_N1003D_N10029_N1001C_N10001">
+                <cmd>Change directory to </cmd>
+                <info><cmdname>/app/ecm/appserver/jboss-eap-7.2/standalone/configuration</cmdname></info>
+            </step>
+            <step id="step_N1004C_N10029_N1001C_N10001">
+                <cmd>Create a trusted store by using keytool. </cmd>
+                <info><cmdname>$ keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024
+                        -keystore truststore.jks -dname "CN=&lt;Application domain>" -storetype
+                        PKCS12 </cmdname><note id="note_N1006B_N10066_N1005F_N10029_N1001C_N10001">
+                        <p><parmname>PKCS#12 </parmname>is the standardized file format for storing
+                            cryptography objects, such as keypairs and certificates.</p>
+                    </note></info>
+                <substeps id="substeps_ffz_3pr_hpb">
+                    <substep>
+                        <cmd>Provide a password for a keystore when prompted.</cmd>
+                        <info>
+                            <note id="note_N10054_N10051_N1004A_N10029_N1001C_N10001">
+                                <p>Note down the keystore password to be assigned to a trust
+                                    store.</p>
+                            </note>
+                        </info>
+                    </substep>
+                    <substep>
+                        <cmd>Specify the application domain of the deployment in the command.</cmd>
+                    </substep>
+                </substeps>
+            </step>
+            <step id="step_N1007C_N10029_N1001C_N10001">
+                <cmd>For the <ph keyref="HA_s"/> deployments, copy a trust store to the second <ph keyref="CoreVM"/> under the same directory as
+                    <option>ecm_admin</option>.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

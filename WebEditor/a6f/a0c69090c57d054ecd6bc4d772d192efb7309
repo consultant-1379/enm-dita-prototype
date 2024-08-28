@@ -1,0 +1,30 @@
+<concept id="c2cb197dd35aabd995a59b8c11d34fa3" xml:lang="en-US">
+   <title>Probe Related Files</title>
+   <prolog>
+      <source>ST4 ID: 16331022603</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>All Probe components write their output on the local disk into the <apiname>/data</apiname> directory. This is not configurable. SNMP disk monitoring on the Probe checks <apiname>/</apiname> (the root file system) and <apiname>/data</apiname> mount points.</p>
+      <p>The types of output files are as follows:</p>
+      <ul>
+         <li>
+                                    <p>Log files</p>
+                                    <p>Log files contain the status and progress information of the components. Log files are generated under the <apiname>/data/&lt;component_name>/log/</apiname> directories of each component. Log files are under log rotation control, see <apiname>/etc/logrotate.d/cea-probe-logrotate</apiname>.</p>
+                                 </li>
+         <li>
+                                    <p>ESC data files</p>
+                                    <p>ESC data files are used as a backup copy to store Probe output events. ESC data files are stored under the <apiname>/data/&lt;component_name>/data_pag/&lt;pag id>/</apiname> directories. See <apiname>/etc/cron.hourly/cea-probe-cleanup</apiname> for cleanup configuration.</p>
+                                 </li>
+         <li>
+                                    <p>Coredump files</p>
+                                    <p>A coredump file is generated whenever a Probe process crashes. Coredump files are stored under the <apiname>/data/coredumps</apiname> directory. See <apiname>/etc/cron.hourly/cea-probe-cleanup</apiname> for cleanup configuration.</p>
+                                 </li>
+      </ul>
+   </conbody>
+</concept>

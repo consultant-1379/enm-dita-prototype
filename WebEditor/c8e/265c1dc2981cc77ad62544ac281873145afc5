@@ -1,0 +1,37 @@
+<concept id="924fdcdaed1cb8d4645add8a2bbd9819" xml:lang="en-US">
+   <title>Starting and Stopping PostgreSQL Reference Database</title>
+   <prolog>
+      <source>ST4 ID: 14610874379</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <note id="note_N1002B_N10028_N10001">
+                                 <p>The commands in this section have to be executed as
+               <option>root</option> user.</p>
+                              </note>
+      <ul id="ul_tws_plx_1lb">
+         <li>
+            <p>To start the database:</p>
+            <p><userinput>arkctl start refdata-pgsql-master refdata-pgsql-slave</userinput></p>
+         </li>
+         <li>
+            <p>To stop the database:</p>
+            <p><userinput>arkctl stop refdata-pgsql-master refdata-pgsql-slave</userinput></p>
+         </li>
+         <li>
+            <p>If <filepath>pg_hba.config</filepath> and <filepath>postgresql.conf</filepath> files
+               need to be reloaded, execute the following command on the Reference Database master
+                  <ph keyref=""/>:</p>
+            <codeblock>docker exec refdata-pgsql-master /bin/sudo -u postgres /usr/pgsql-9.5/bin/pg_ctl reload -D /local/pgsql
+                              </codeblock>
+            <p>This option reloads the <filepath>pg_hba.conf</filepath> files and the runtime
+               parameters of the <filepath>postgresql.conf</filepath> files, but does not shut down
+               the Database array.</p>
+         </li>
+      </ul>
+   </conbody>
+</concept>

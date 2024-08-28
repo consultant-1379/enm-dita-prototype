@@ -1,0 +1,147 @@
+<task id="766e4832627b5777c048e38fdc2f2adc" xml:lang="en-US">
+   <title>Change Password in the Orchestration Component</title>
+   <prolog>
+      <source>ST4 ID: 14130012043</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>Use this procedure to change the password in the <ph keyref="ECM_short"/> Orchestration Component.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N1003E_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to </ph><ph keyref="CoreVM"/><ph outputclass="st4mig_cmd-para"> as <userinput>ecm_admin</userinput> and generate an
+                  encoded password. Enter the command:</ph></cmd>
+            <info>
+               <p><ph>
+                     <userinput>base64 &lt;((echo -n
+                           'cmdbsync:<varname>&lt;NEWPASSWORD></varname>'))</userinput>
+                  </ph></p>
+               <p><ph> Copy the encoded password to a file or the clipboard.</ph>
+               </p>
+            </info>
+         </step>
+                                 <step id="step_N10064_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Open a browser window and navigate to the </ph><ph keyref="ECM_short"/><ph outputclass="st4mig_cmd-para"> Orchestration Component GUI
+                  URL: </ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p>For <ph keyref="non_HA_s"/> deployments:
+                           <filepath>https://&lt;Cloud_Manager_IP>/cwf</filepath>
+                     </p>
+                  </li>
+                  <li>
+                     <p>For <ph keyref="HA_s"/> deployments: <filepath>https://&lt;GUI_FQDN>/cwf</filepath>
+                     </p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 <step id="step_N10096_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <filepath>upadmin</filepath> to the
+                  </ph><ph keyref="ECM_short"/><ph outputclass="st4mig_cmd-para"> Orchestration
+                  Component GUI.</ph>
+            </cmd>
+            <info>
+               <p>The dashboard for the <ph keyref="ECM_short"/> Orchestration Component GUI is
+                  displayed. </p>
+            </info>
+         </step>
+                                 <step id="step_N100B8_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>System
+                     Configuration</uicontrol> box to display the Configuration page. </ph>
+            </cmd>
+         </step>
+                                 <step id="step_N100CA_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>System</uicontrol> icon,
+                  located on the top of the page, the display the list of services. </ph>
+            </cmd>
+         </step>
+                                 <step id="step_N100DC_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>Config Variables</uicontrol>
+                  tab.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N100EE_N1003B_N1002B_N10001">
+            <cmd> Click in the <uicontrol>Encrypted Value</uicontrol> column for the
+                  <uicontrol>CMDB_SYNC_REST_API_AUTHORIZATION</uicontrol> row on the<uicontrol>
+                  Encrypted Variables</uicontrol> section of the page.</cmd>
+         </step>
+                                 <step id="step_N10104_N1003B_N1002B_N10001">
+            <cmd> Paste a new base-64 password, that was generated in Step 1, as a new value after
+               word <varname>Basic</varname> as per following example: Basic
+               ZWNtYWRtaW46YWNjZXNzMTIz.. </cmd>
+            <info>
+               <fig id="fig_N1010C_N10109_N100FD_N1003B_N1002B_N10001">
+                  <image keyref="52908fe46b0b247e8362cca2ca7524ea" scalefit="yes"/>
+               </fig>
+            </info>
+         </step>
+                                 <step id="step_N10121_N1003B_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Click outside of the <uicontrol>Value</uicontrol> column to save the new value. To cancel the change, click the <uicontrol>Back</uicontrol> button in the browser.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10137_N1003B_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Click the <uicontrol>Save</uicontrol> icon, located at the top of the page, to save the password change. Then, click the <uicontrol>Save and Propagate</uicontrol> icon. The following figure identifies the difference between the <uicontrol>Save</uicontrol> and the <uicontrol>Save and Propagate</uicontrol> icons:</ph>
+            </cmd>
+            <info>
+               <fig id="fig_N1014D_N1014A_N1012E_N1003B_N1002B_N10001">
+                  <image keyref="64dc77bf7042ed0bb1c61e98f44d089e" scalefit="yes"/>
+               </fig>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10164_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">A dialog window is displayed listing each of the
+                  nodes. Select the check box for each of the nodes to apply the change. If all
+                  nodes are desired, select the check box for <uicontrol>Node Name</uicontrol> to
+                  select all nodes.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N10176_N1003B_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">After selecting the nodes, click the <uicontrol>Select</uicontrol> button to apply the changes.</ph>
+            </cmd>
+                                 </step>
+                                 <step id="step_N10188_N1003B_N1002B_N10001">
+            <cmd> Log off of the <ph keyref="ECM_short"/> Orchestration Component GUI. </cmd>
+         </step>
+                                 <step id="step_N1019A_N1003B_N1002B_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to the <ph keyref="CoreVM"/> as
+                     <userinput>ecm_admin</userinput>.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N101B0_N1003B_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Restart the service for the new password to take effect:</ph>
+            </cmd>
+            <info>
+               <p>
+                                       <userinput>sudo systemctl restart jboss-eap</userinput>
+                                    </p>
+               <note id="note_N101C8_N101BD_N101B0_N1003B_N1002B_N10001">
+                  <p>For an <ph keyref="HA_s"/> deployment, this step must be done on both <ph keyref="CoreVM"/>s.</p>
+               </note>
+            </info>
+                                    
+                                 </step>
+                              </steps>
+                           </taskbody>
+</task>

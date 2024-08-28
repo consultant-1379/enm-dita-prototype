@@ -1,0 +1,83 @@
+<task id="ce43b4fcecb6f93404f499d42e2ed41d" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for the Activation Client User: ecmAct</title><prolog><source>ST4 ID: 12996469771</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_N101D3_N101D0_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <userinput>ecmAct</userinput> user is used within <ph keyref="ECM"/> for sending
+            provisioning requests towards the activation component.</p>
+         <note id="note_N101E4_N101D3_N101D0_N10001" type="note">
+            <ul id="ul_q5k_zzn_lhb"><li>
+                  <p>For geo-redundant deployments, repeat these procedures on the standby site
+                     (Site B) with one exception: You do not need to shut down and restart JBoss on
+                     the standby site.</p>
+               </li><li>
+                  <p>The <userinput>eoadmin@admin.local</userinput> password is required when
+                     changing the <userinput>ecmAct</userinput> password. It is required to log in
+                     with <userinput>eoadmin@admin.local</userinput> at least once, to replace the
+                     default password.</p>
+                  <p>See <xref keyref="bd45e00637c2729fe7f32d53be2b5179"/></p>
+               </li></ul>
+         </note>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul><li>
+               <p conkeyref="4911b66ffc16eb672b18c2efc7e815f8/st4tb12331396619"/>
+            </li><li>
+               <p>For HA deployments, perform the following procedures on <ph keyref="CoreVM"/>-1
+                  and <ph keyref="CoreVM"/>-2 in the HA cluster.</p>
+            </li><li>
+               <p>Change the password on both sites of a geo-redundant deployment.</p>
+            </li><li>
+               <p>Allowable special characters for this user: <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li></ul>
+         <p>To change the <userinput>ecmAct</userinput> password, follow these steps:</p>
+      </context><steps><step id="step_N1022F_N1022C_N101D0_N10001"><cmd>Log on to the Core VM as <userinput>ecm_admin</userinput>.  </cmd></step><step id="step_N10241_N1022C_N101D0_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following script:</ph>
+            </cmd><info>
+               <p>
+                  <userinput>/app/ecm/tools/envs/change_activation_password.sh</userinput>
+               </p>
+            </info></step><step id="step_N10273_N1022C_N101D0_N10001">
+            <cmd>At the prompts, enter the <filepath>eoadmin@admin.local</filepath> and
+                  <uicontrol>cw20</uicontrol> passwords.</cmd>
+         </step>
+         <step id="step_N100D4_N100A1_N10023_N10001">
+            <cmd>Type the new password at the next prompt, and press
+               <uicontrol>Enter</uicontrol>.</cmd>
+         </step>
+         <step id="step_N100E1_N100A1_N10023_N10001">
+            <cmd>Restart JBoss. </cmd>
+            <stepxmp>
+               <p>
+                  <codeblock>This script is used to change the password of user ecmAct. Passwords for both eoadmin@admin.local and cw20 will be required.
+Password for eoadmin@admin.local:
+&lt;eoadmin password>
+Authentication OK!
+Password for cw20:
+&lt;cw20 password>
+Authentication OK!
+Provide new password for ecmAct user:
+&lt;new password>
+Re-enter the new password:
+&lt;new password>
+Changing password for user ecmAct, this might take a few minutes...
+#################### (100%)
+
+Activation password changed successfully
+JBoss needs to be restarted for the changes to take effect
+Do you wish to restart JBoss?
+1) Yes
+2) No
+#? 1
+Restarting JBoss, this will take a few minutes...
+
+JBoss has restarted successfully</codeblock>
+               </p>
+            </stepxmp>
+         </step><step id="step_N10295_N1022C_N101D0_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Repeat these procedures on Core VM-2 in the HA
+                  cluster.</ph>
+            </cmd></step></steps><postreq id="postreq_N102F8_N101D0_N10001">
+         <p> If the Network Service LCM optional feature is installed, update the Network Service
+            LCM configuration data on the RDB VM by following the procedure in <xref keyref="9aaed630316ff754c73a618c71a92e92"/>
+         </p>
+         <div outputclass="st4mig-add-info"/>
+      </postreq></taskbody></task>

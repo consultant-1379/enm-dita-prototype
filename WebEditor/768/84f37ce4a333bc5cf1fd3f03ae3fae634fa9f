@@ -1,0 +1,31 @@
+<map id="64c5151c8b54ff1ed369f11d5186209a" xml:lang="en-US">
+   <title>Variable Key Map E-DCR</title>
+   <keydef keys="EDCR_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Enhanced Detailed Call Record</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="EDCR_Correlator">
+      <topicmeta>
+         <keywords>
+            <keyword>E-DCR Correlator</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="E-DCR_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>E-DCR</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="LIMITED_EDCR_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>EDCR</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

@@ -1,0 +1,15 @@
+<concept id="b2d3f01d6f2e8881c5754c2a7456521e" xml:lang="en-US">
+   <title>Correlator Use and Maintenance</title>
+   <prolog>
+      <source>ST4 ID: 16331141771</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The following sections describe the use, fault and performance management, and maintenance of the Correlators.</p>
+   </conbody>
+</concept>

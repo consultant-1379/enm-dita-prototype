@@ -1,0 +1,82 @@
+<task id="5a8302f758617734ff5da865365d71a9" xml:lang="en-US">
+   <title>Additional Instructions for <ph keyref="Custom_WF_VM_l"/>s in a <ph keyref="GR_s"/> Deployment</title>
+   <prolog>
+      <source>ST4 ID: 14110640779</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>Perform the following additional instructions for a
+            geo-redundant deployments.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N1003A_N10037_N1002B_N10001">
+            <cmd>Log in as <option keyref="loginID"/> to the <ph keyref="Custom_WF_VM_s"/> on Node 1
+               of the standby site (typically, Site B).</cmd>
+         </step>
+         <step id="step_N10047_N10037_N1002B_N10001">
+            <cmd>Execute the following command:</cmd>
+            <info><userinput>sudo -s</userinput>
+            </info>
+         </step>
+                                 <step id="step_N10057_N10037_N1002B_N10001">
+            <cmd>Change directories: </cmd>
+            <info>
+               <codeblock outputclass="condensed">cd  /opt/ericsson/do/custwf-svc/jboss_extensions/configuration</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N1006A_N10037_N1002B_N10001">
+            <cmd> Edit the <filepath>standalone-full.xml</filepath> file. </cmd>
+         </step>
+                                 <step id="step_N10077_N10037_N1002B_N10001">
+            <cmd>Search for the <parmname>username</parmname> attribute for the
+                  <option>custwf_process_engine</option> ID, and change the value in its associated
+                  <parmname>password</parmname> attribute. </cmd>
+            <stepxmp outputclass="pgwide">
+               <p>
+                  <codeblock outputclass="condensed">&lt;security-domain name="postgres-root">
+                    &lt;authentication>
+                        &lt;login-module code="org.picketbox.datasource.security.SecureIdentityLoginModule" flag="required">
+                            &lt;module-option name="username" value="custwf_process_engine"/>
+                            &lt;module-option name="password" value="-f84467d58d92dc604c715c1eb777ff193298f75c2764086"/>
+                            &lt;module-option name="managedConnectionFactoryName" value="jboss.jca:name=ProcessEngine,service=LocalTxCM"/>
+                        &lt;/login-module>
+                    &lt;/authentication>
+                &lt;/security-domain>
+</codeblock>
+               </p>
+            </stepxmp>
+         </step>
+                                 <step id="step_N1009B_N10037_N1002B_N10001">
+            <cmd>Search for the <parmname>username</parmname> attribute for the
+                  <option>custom_workflow</option> ID, and change the value in its associated
+                  <filepath>password</filepath> attribute.</cmd>
+            <stepxmp outputclass="pgwide">
+               <p>
+                  <codeblock outputclass="condensed">&lt;security-domain name="postgres-custwf">
+                    &lt;authentication>
+                       &lt;login-module code="org.picketbox.datasource.security.SecureIdentityLoginModule" flag="required">
+                            &lt;module-option name="username" value="custom_workflow"/>
+                            &lt;module-option name="password" value="-423ee77090b64a7d83efaec75fad4ecb"/>
+                            &lt;module-option name="managedConnectionFactoryName" value="jboss.jca:name=custwf,service=LocalTxCM"/>
+                        &lt;/login-module>
+                    &lt;/authentication>
+                &lt;/security-domain>
+</codeblock>
+               </p>
+            </stepxmp>
+         </step>
+                                 <step id="step_N100BF_N10037_N1002B_N10001">
+            <cmd>Use the previous steps to change the passwords for
+                  <option>custwf_process_engine</option> and <option>custom_workflow</option> in the
+                  <filepath>standalone-full.xml</filepath> file on the <ph keyref="Custom_WF_VM_s"/>
+               on Node 2 on the standby site. </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

@@ -1,0 +1,8 @@
+<referable-content id="c9c9b9bfa89164a15fcf10da03cdc041" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/NSO--><title>SO Optional</title>
+   <rcbody>
+      <note id="st4tb12404841867">
+                              <p>This ID is only applicable with the <ph keyref="nsoProductName_s"/>
+            optional <ph keyref="valuePackage_feature"/>.</p>
+                           </note>
+   </rcbody>
+</referable-content>

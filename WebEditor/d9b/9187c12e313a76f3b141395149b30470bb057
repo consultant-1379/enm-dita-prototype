@@ -1,0 +1,51 @@
+<task id="a80ec3a6750ed87e40887ea48da8b164" xml:lang="en-US">
+   <title>Start <ph keyref="ECM"/>
+                           </title>
+   <prolog>
+      <source>ST4 ID: 14125473035</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001">
+                                 <p>Use this procedure to start <ph keyref="ECM"/>.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10042_N1003F_N1002F_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/>:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                     <p> Non-HA Deployment: <ph keyref="CoreVM"/>
+                     </p>
+                  </li>
+                  <li>
+                     <p> HA Deployment: <ph keyref="CoreVM"/> of Node 1</p>
+                  </li>
+               </ul>
+            </info>
+         </step>
+                                 <step id="step_N1007E_N1003F_N1002F_N10001">
+            <cmd>Execute the following command to start <ph keyref="ECM"/>: </cmd>
+            <info>
+               <codeblock outputclass="condensed"><ph keyref="sudo"/>/root/<ph keyref="ecmStartupScript"/>
+</codeblock>
+            </info>
+            <stepresult>
+               <p>The following message is displayed when the startup is complete: <msgph><option keyref="ecmStartupScriptMsg"/></msgph>
+               </p>
+            </stepresult>
+         </step>
+                                 <step id="step_N100A8_N1003F_N1002F_N10001">
+            <cmd>Repeat this procedure on the <ph keyref="CoreVM"/> of Node 2 for HA deployments.
+            </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

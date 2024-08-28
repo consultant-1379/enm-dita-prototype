@@ -1,0 +1,93 @@
+<task id="f8a93485a242c61ab073035f57efaf35" xml:lang="en-US">
+   <title>Back Up Configuration Files</title>
+   <prolog>
+      <source>ST4 ID: 16335668107</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zgabkis</change-person>
+            <change-request-reference>
+               <change-request-system/>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-07-27</change-completed>
+            <change-summary>EEAEPP-47053, Updated backup procedure.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zfuztam</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-08-25</change-completed>
+            <change-summary>EEAEPP-48080, Removed lz4, input from ETOTKOR</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <taskbody>
+                              <context id="context_N1002D_N1002A_N10001">
+                                 <p>For <ph keyref=""/> Probe, Adapters and Correlator components there is no automatic configuration backup solution. To create configuration backup, perform the following procedure:</p>
+                                 <note id="note_N10039_N1002D_N1002A_N10001" type="note">
+            <p>This procedure is only for configuration rollback after a failed software upgrade. Do not overwrite the configuration files after a successful upgrade procedure.</p>
+         </note>
+                              </context>
+                              <steps>
+                                 <step><cmd>My new first step</cmd></step><stepsection><p>Section</p></stepsection><step id="step_N10047_N10044_N1002A_N10001">
+                                    <note><p>This is a note</p></note><cmd>
+               <ph outputclass="st4mig_cmd-para">Create a copy of the contents of the following folders and files:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                          <p>
+                        <filepath>/opt/ericsson/eea/conf/*</filepath>
+                     </p>
+                                       </li>
+                  <li>
+                                          <p>
+                        <filepath>/opt/ericsson/eea/sconf/*</filepath>
+                     </p>
+                                       </li>
+                  <li>
+                                          <p>
+                        <filepath>/opt/ericsson/eea/security/*</filepath>
+                     </p>
+                                       </li>
+                  <li>
+                                          <p>
+                        <filepath>/etc/sysconfig/network-scripts/ifcfg-*</filepath>
+                     </p>
+                                       </li>
+                  <li>
+                     <p><filepath>/etc/sssd/sssd.conf</filepath></p>
+                  </li>
+               </ul>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N1008D_N10044_N1002A_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Create a copy of the output of the following commands:</ph>
+            </cmd>
+            <info>
+               <codeblock>yum info installed avro-c boost c-ares cea-* hiredis hyperscan ixgbe jemalloc jq libevent libgcc libquic libstdc++ libxml++ protobuf python-libconfig python-pip python-zmq rdkafka redis wireshark zeromq zlib</codeblock>
+               <codeblock>pip3 freeze</codeblock>
+               <codeblock>rpm -qa</codeblock>
+               <codeblock>ip route</codeblock>
+            </info>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                 </step>
+                              </steps><result><p>This is the result</p></result><example><title>Title</title><p>My example</p></example>
+                           </taskbody>
+</task>

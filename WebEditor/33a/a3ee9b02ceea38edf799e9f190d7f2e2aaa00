@@ -1,0 +1,43 @@
+<concept id="35d58ef6037bcbac0d47a4c160cccd7c" xml:lang="en-US">
+   <title>Materialized Views</title>
+   <prolog>
+      <source>ST4 ID: 8546049035</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The GUIs need to populate drop down menus quickly with values from a potentially large CRM
+         table. To accommodate this need, <ph keyref=""/> has a set of "Materialized
+         Views".   Therefore, a script has to be executed to create a list of values from the
+            <apiname>crm_customer_device_info</apiname> table, and store them into separate tables
+         that can be quickly accessed by the GUI. This script is implicitly called after loading CRM
+         data by the <apiname>load_tables</apiname> script, so there is no need to run it manually
+         in that case.</p>
+      <p>Initially, the following "Materialized Views" are created:</p>
+      <ul>
+         <li>
+                                       <p>
+                                          <apiname>crm_customer_type</apiname> - distinct customer types from the <apiname>crm_customer_device_info</apiname> table</p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>crm_customer_class</apiname> - distinct customer class values from the <apiname>crm_customer_device_info</apiname> table</p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>crm_plan_name</apiname> – distinct customer plan name values from the <apiname>crm_customer_device_info</apiname> table</p>
+                                    </li>
+      </ul>
+      <p>To populate the Materialized Views, execute the <apiname>refresh_cea_mvs</apiname> script:</p>
+      <codeblock>refresh_cea_mvs [-h] [-p &lt;database_password>] -a | -t &lt;table_name></codeblock>
+      <p>where:</p>
+      <codeblock>   -h                      - Help. This message.
+   -p &lt;database_password>  - Password of table owner.
+   -a                      - Refresh all tables.
+   -t &lt;table_name>         - Table to be refreshed.
+</codeblock>
+   </conbody>
+</concept>

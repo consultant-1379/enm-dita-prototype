@@ -1,0 +1,53 @@
+<task id="8a7f0747a5d92b1cb86dcb253411990f" xml:lang="en-US">
+   <title>Start and Stop Kafka Service</title>
+   <prolog>
+      <source>ST4 ID: 10135014667</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                                 <context>
+                                    <p>To issue a start, stop, or status command for the Kafka service:</p>
+                                 </context>
+                                 <steps>
+                                    <step>
+                                       <cmd>
+               <ph outputclass="st4mig_cmd-para">Navigate to <apiname>/opt/ericsson/eea/ark</apiname> on any <ph keyref=""/> 
+                                          <ph keyref=""/> by executing the following command:</ph>
+            </cmd>
+            <info>
+               <codeblock>cd /opt/ericsson/eea/ark</codeblock>
+            </info>
+                                       
+                                    </step>
+                                    <step>
+                                       <cmd>
+               <ph outputclass="st4mig_cmd-para">Perform one of the following actions as necessary:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                             <p>To start the Kafka service, execute the following command on any <ph keyref=""/> 
+                                                <ph keyref=""/>:</p>
+                                             <codeblock>arkctl start kafka</codeblock>
+                                          </li>
+                  <li>
+                                             <p>To stop the Kafka service, execute the following command on any <ph keyref=""/> 
+                                                <ph keyref=""/>:</p>
+                                             <codeblock>arkctl stop kafka</codeblock>
+                                          </li>
+                  <li>
+                                             <p>To check the status of the Kafka service, execute the following command on any <ph keyref=""/> 
+                                                <ph keyref=""/>:</p>
+                                             <codeblock>arkctl status kafka</codeblock>
+                                          </li>
+               </ul>
+            </info>
+                                       
+                                    </step>
+                                 </steps>
+                              </taskbody>
+</task>

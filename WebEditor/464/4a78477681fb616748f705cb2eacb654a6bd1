@@ -1,0 +1,64 @@
+<concept id="b6dc70889ca79032ca41424c0a4ce1c4" xml:lang="en-US">
+   <title>Change Password for <ph keyref="ActiveMQ_s"/> Administrator ID: admin</title>
+   <prolog>
+      <source>ST4 ID: 13577144715</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref="ActiveMQ_s"/>
+         <filepath>admin</filepath> ID is used for administrative purposes when managing queues.
+         Changing this password includes multiple steps, such as changing the password in several
+         files, changing the password in the Orchestration component, and stopping and restarting
+         several processes.</p>
+      <note id="note_N10187_N1017C_N10001" type="note">
+         <p>For geo-redundant deployments, you must first failover to the standby site so that it becomes the active site. Then, repeat these procedures on the new active site.</p>
+      </note>
+      <p>
+                           <ph importance="normal">Considerations:</ph> 
+                        </p>
+      <ul>
+         <li>
+                              <p conkeyref="4911b66ffc16eb672b18c2efc7e815f8/st4tb12331396619"/>
+                           </li>
+         <li>
+                              <p>This ID requires special considerations for geo-redundant
+               deployments since it requires certain processes to be active. Once <ph keyref="GR_l"/> is configured, certain processes become inactive on the standby site. Consider the
+               following:</p>
+                              <ul>
+               <li>
+                                 <p>This procedure must be performed only on the active site.</p>
+                              </li>
+               <li>
+                                 <p>It is recommended to change this password <ph importance="low">before</ph>
+                     <ph keyref="GR_l"/> is configured because all required processes are active on
+                     both <ph keyref="HA_s"/> nodes at this time. Once <ph keyref="GR_l"/> is
+                     configured, certain processes become inactive on the standby site. </p>
+                              </li>
+               <li>
+                                 <p>Once <ph keyref="GR_l"/> has been configured, you must failover
+                     to the standby site, which makes it the new active site, to change the
+                     password. For this reason, it is highly recommended to schedule password
+                     changes for this ID during a scheduled maintenance period.</p>
+                              </li>
+            </ul>
+                              
+                              
+                           </li>
+         <li>
+                              <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_D"/>
+                              </p>
+                           </li>
+      </ul>
+      <p>
+                           <ph importance="normal">Next Step:</ph>
+                        </p>
+      <p>
+                           <xref keyref="f192c60511dc17f9f9548aacfb37c7f6"/>
+                        </p>
+   </conbody>
+</concept>

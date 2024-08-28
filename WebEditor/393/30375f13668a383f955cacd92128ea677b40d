@@ -1,0 +1,61 @@
+<task id="9b8bbdc0313c7f39f41331cab9724387" xml:lang="en-US">
+   <title>Reset Password by Administrators</title>
+   <prolog>
+      <source>ST4 ID: 14109445899</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001" outputclass="st4mig_beforeProcedure">
+                                 <p>All administrators can reset passwords for users or other administrators on their own or lower levels.</p>
+                                 <p>To reset a password:</p>
+                              </context>
+                              
+                              <steps>
+                                 <step id="step_N1003F_N1003C_N1002B_N10001">
+            <cmd>Log in to the <ph keyref="ECM"/> GUI as an administrator. </cmd>
+         </step>
+                                 <step id="step_N1004C_N1003C_N1002B_N10001">
+            <cmd>Click <uicontrol>Administration</uicontrol> in the System Bar and select
+                  <uicontrol>Users</uicontrol> from the drop-down menu. </cmd>
+         </step>
+                                 <step id="step_N1005D_N1003C_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Do one of the following:</ph>
+            </cmd>
+            <info>
+               <ul>
+                  <li>
+                                          <p>Click the check box next to a user to select it.</p>
+                                       </li>
+                  <li>
+                                          <p>Click the drop-down menu next to the <uicontrol>User
+                           Name</uicontrol> to display an action menu.</p>
+                                       </li>
+               </ul>
+            </info>
+                                    
+                                 </step>
+                                 <step id="step_N10087_N1003C_N1002B_N10001">
+            <cmd>Click the <uicontrol>Reset Password</uicontrol> button. </cmd>
+         </step>
+                                 <step id="step_N10094_N1003C_N1002B_N10001">
+            <cmd>Provide and confirm the new password. </cmd>
+         </step>
+                                 <step id="step_N1009D_N1003C_N1002B_N10001">
+            <cmd>Click <uicontrol>Reset</uicontrol> to validate the new password. </cmd>
+            <info>
+               <note id="note_N100A6_N100A3_N10098_N1003C_N1002B_N10001" type="note">
+                  <p>The password is reset in <ph keyref="ECM"/> only. All users configured by an
+                        <ph keyref="externalIdam"/> system must have their password reset by the
+                     administrator of the <ph keyref="externalIdam"/> system.</p>
+               </note>
+            </info>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

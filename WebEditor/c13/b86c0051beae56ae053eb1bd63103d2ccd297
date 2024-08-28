@@ -1,0 +1,5 @@
+<referable-content id="f5c41d828e60060f2a69bbceb586dd9d" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>clearTxtUsersProps</title>
+   <rcbody>
+      <note id="tb13442524427" type="note">In the <filepath>users.properties</filepath> file, enter the password in clear text (not encrypted).</note>
+   </rcbody>
+</referable-content>

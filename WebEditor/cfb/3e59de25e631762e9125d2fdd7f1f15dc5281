@@ -1,0 +1,106 @@
+<task id="c40eb4ab0c5ea6ddd6ce5097543fdf31" xml:lang="en-US">
+   <title>Change Password for <ph keyref="Custom_WF_l"/> Schema IDs: custwf_process_engine and
+      custom_workflow</title>
+   <prolog>
+      <source>ST4 ID: 13577152907</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N1010F_N1010C_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <option>custwf_process_engine</option> ID is the owner of the
+               <option>custwf_process_engine</option> schema in <ph keyref="edbDatabase"/>. The
+               <option>custom_workflow</option> ID is the owner of the
+               <option>custom_workflow</option> schema in <ph keyref="edbDatabase"/>.</p>
+         <note conkeyref="689d9380dad5e10cbb3ce3ad9a889557/st4tb12424839691" id="note_N10130_N1010F_N1010C_N10001"/>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="36fd545084e342671f7c0fcd35822eb7/st4tb12331441931"/>
+            </li>
+            <li>
+               <p conkeyref="b613408a3438e50320749f473ab706fb/st4tb12331484427"/>
+            </li>
+            <li>
+               <p conkeyref="85133105652fe8b49ff70b082e5deeef/st4tb12331501195"/>
+            </li>
+            <li>
+               <p>The special characters that are allowed for these IDs are <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li>
+         </ul>
+      </context>
+      <steps>
+         <step id="step_N1016A_N10167_N1010C_N10001">
+            <cmd>Decide on a new password. </cmd>
+            <info>
+               <note id="note_N10097_N10094_N1008C_N10089_N1002E_N10001">
+                  <p>Changing the <filepath>custwf_process_engine</filepath> and
+                        <filepath>custom_workflow</filepath> password requires changes in several
+                     locations. We recommend that you type the new password into an electronic
+                     editor or notepad so that you can copy and paste it. This ensures that the
+                     password remains identical as you change it in multiple locations. </p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N10180_N10167_N1010C_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in as <option keyref="loginID"/> on the  <ph keyref="CoreVM"/>.</ph>
+            </cmd>
+         </step>
+         <step id="step_N1019A_N10167_N1010C_N10001">
+            <cmd>Set <option>CLASSPATH</option> to point to the latest copy of the JBoss jar files
+               for encryption by entering the following commands: </cmd>
+            <info>
+               <codeblock outputclass="condensed">export JARCLASSPATH=${JBOSS_HOME}/modules/system/layers/base/.overlays/layer-base-jboss-eap-7.2.9.CP
+
+export CLASSPATH=${JARCLASSPATH}/org/picketbox/main/picketbox-5.0.3.Final-redhat-00006.jar:/app/ecm/appserver/jboss-eap-7.2/modules/system/layers/base/org/jboss/logging/main/jboss-logging-3.3.2.Final-redhat-00001.jar</codeblock>
+               <note id="note_N101BF_N101A9_N10198_N10167_N1010C_N10001">
+                  <p>The <filepath>layer-base-jboss-eap-7.2.9.</filepath> CP contains the latest
+                     updates to the installed JBoss modules.</p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N101D1_N10167_N1010C_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to encrypt the new
+                  password:</ph>
+            </cmd>
+            <info>
+               <note conkeyref="4eca8e75ffbcbf1eb49df51d7c64b767/tb12473715211" id="note_N101DD_N101DA_N101CE_N10167_N1010C_N10001"/>
+            </info>
+            <info>
+               <p><cmdname>sudo java -cp ${CLASSPATH}
+                     org.picketbox.datasource.security.SecureIdentityLoginModule
+                     '&lt;New_Password>'</cmdname></p>
+            </info>
+
+
+            <stepresult>
+               <p> Output similar to the following is displayed:</p>
+               <p>
+                  <systemoutput>Encoded password: -f84467d58d92dc604c715c1eb777ff193298f75c2764086
+                  </systemoutput>
+               </p>
+            </stepresult>
+         </step>
+
+
+      </steps>
+      <postreq id="postreq_N101F2_N1010C_N10001">
+         <div outputclass="st4mig-add-info">
+            <!--
+			4015 add-info/title: Next Step:-->
+            <p>
+               <xref keyref="767c9bd3977268dd423ea6e6387e5abd"/>
+            </p>
+         </div>
+      </postreq>
+   </taskbody>
+</task>

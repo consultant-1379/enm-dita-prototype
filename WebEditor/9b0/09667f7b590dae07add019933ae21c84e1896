@@ -1,0 +1,36 @@
+<concept id="eeb7604dddf622986a3092de4b65611c" xml:lang="en-US">
+   <title>Audit Licensing</title>
+   <prolog>
+      <source>ST4 ID: 16364888587</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following parameters are available for license auditing purposes:</p>
+      <ul>
+         <li>
+                           <p><xref keyref="a73349611209f360fe529c4f3e3100b5"/></p>
+                        </li>
+         <li>
+                           <p><xref keyref="62047af5312a44a93491cd6bbc565e3a"/></p>
+                        </li>
+         <li>
+                           <p>Number of Cells</p>
+                        </li>
+         <li>
+                           <p>Number of Hadoop Servers Running MapR</p>
+                        </li>
+         <li>
+                           <p>Number of Hadoop Servers Running Impala</p>
+                        </li>
+         <li>
+                           <p>Number of Cores Running JBoss</p>
+                        </li>
+      </ul>
+      <p>To see the number of Cells, the number of MapR and Impala servers and JBoss Cores, use the
+            <filepath>report_nodecount.py</filepath> script as described under <xref keyref="13cfe2be2b1276b05474b8beebd3cef1">Parameters for Licensing</xref>.</p>
+   </conbody>
+</concept>

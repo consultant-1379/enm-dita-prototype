@@ -1,0 +1,239 @@
+<concept id="b5c54018d5d7eb2ffb48e5036ee9a360" xml:lang="en-US">
+   <title>Reference Data Provisioning Web Service</title>
+   <prolog>
+      <source>ST4 ID: 14750988555</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <section id="section_N1002B_N10028_N10001">
+                              <title outputclass="st4mig_titled-block-title">Managing Subscriber Data</title>
+                              <p>For more information on managing subscriber data, see the following swagger documentation:</p>
+                              <table id="table_N10039_N1002B_N10028_N10001">
+            <tgroup cols="2">
+                                    <colspec colname="col1"/>
+                                    <colspec colname="col2"/>
+                                    <thead>
+                                       <row>
+                                          <entry valign="top">
+                                             <p>Attribute</p>
+                                          </entry>
+                                          <entry valign="top">
+                                             <p>Address</p>
+                                          </entry>
+                                       </row>
+                                    </thead>
+                                    <tbody>
+                                       <row>
+                                          <entry>
+                                             <p>HTML</p>
+                                          </entry>
+                                          <entry>
+                                             <p>
+                                                <apiname>https://&lt;JBOSS_NODE>/api/refdataprovisioning/swagger.html</apiname>
+                                             </p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>JSON</p>
+                                          </entry>
+                                          <entry>
+                                             <p>
+                                                <apiname>https://&lt;JBOSS_NODE>/api/refdataprovisioning/swagger.json</apiname>
+                                             </p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>YAML</p>
+                                          </entry>
+                                          <entry>
+                                             <p>
+                                                <apiname>https://&lt;JBOSS_NODE>/api/refdataprovisioning/swagger.yml</apiname>
+                                             </p>
+                                          </entry>
+                                       </row>
+                                    </tbody>
+                                 </tgroup>
+         </table>
+                           </section>
+      <section id="section_N100B1_N10028_N10001">
+                              <title outputclass="st4mig_titled-block-title">General Information</title>
+                              <p>See the following general information below on log locations and status access:</p>
+                              <ul>
+            <li>
+                                    <p>The service can be started, stopped or restarted on the server group page in JBoss.</p>
+                                 </li>
+            <li>
+                                    <p>To see the application log, navigate to <apiname>&lt;JBOSS_NODE>:/opt/ericsson/eea/log/ref-data-provisioning-web-service.log</apiname>
+                                    </p>
+                                 </li>
+            <li>
+                                    <p>To see the security log, navigate to <apiname>&lt;JBOSS_NODE>:/opt/ericsson/eea/log/security-logs/EEA-Security_Log-Handler.log</apiname>
+                                    </p>
+                                 </li>
+            <li>
+                                    <p>To see the status of the service, navigate to the JBoss console and make sure that <apiname>ref-data-provisioning-web-service-1.0.ear</apiname> (or later) is assigned to the main server group and started.</p>
+                                 </li>
+            <li>
+                                    <p>To see the related Postgres database status, run the
+                  following commands on the Reference database <ph keyref=""/>:</p>
+                                    
+                                    
+                                       <codeblock>arkctl status refdata-pgsql-master</codeblock>
+                                       <codeblock>arkctl status refdata-pgsql-slave</codeblock>
+                                    
+                                 </li>
+         </ul>
+                           </section>
+      <section id="section_N10106_N10028_N10001">
+         <title outputclass="st4mig_titled-block-title">Performance Monitoring</title>
+         <p> Use any MBean Browser with next connection URL service:
+               <apiname>jmx:remoting-jmx://&lt;JBOSS_NODE>:4447</apiname>
+         </p>
+         <p>Performance counters for all controllers available at
+               <apiname>eea.presentation:ws=ref-data-provisioning-web-service</apiname>.</p>
+         <p>Each monitor has the same set of counters:</p>
+         <table id="table_N10125_N10107_N10028_N10001">
+            <tgroup cols="2">
+               <colspec colname="col1"/>
+               <colspec colname="col2"/>
+               <thead>
+                  <row>
+                     <entry valign="top">
+                        <p>Counter</p>
+                     </entry>
+                     <entry valign="top">
+                        <p>Description</p>
+                     </entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>RemoveFailedRequestsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Number of call of /remove endpoint that was unsuccessful</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>RemoveSuccessfulRequestsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Number of call of /remove endpoint that finished successfully</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>RemovedItemsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Total removed items</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>UpdateFailedRequestsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Number of call of /update endpoint that was unsuccessful</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>UpdateMsAverage</p>
+                     </entry>
+                     <entry>
+                        <p>Average number of milliseconds spent in /update endpoint</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>UpdateMsTotal</p>
+                     </entry>
+                     <entry>
+                        <p>Total time elapsed for /update endpoint</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>UpdateSuccessfulRequestsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Number of call of /update endpoint that finished successfully</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>UpdatedItemsCount</p>
+                     </entry>
+                     <entry>
+                        <p>Total updated items</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="section_N101F4_N10028_N10001">
+         <title outputclass="st4mig_titled-block-title">Block Provisioning</title>
+         <p> Each controller can be disabled on JBoss console through profile properties, at
+               <apiname>https://&lt;DOMAIN_CONTROLLER>:9443/console/App.html#properties</apiname>.</p>
+         <p>To disable the controller, add the following corresponding property:</p>
+         <ul>
+            <li>
+               <p>
+                  <apiname>eea.ref-data-provisioning-web-service.subscriber.enabled=false</apiname>
+               </p>
+            </li>
+            <li>
+               <p>
+                  <apiname>eea.ref-data-provisioning-web-service.cell-location.enabled=false</apiname>
+               </p>
+            </li>
+            <li>
+               <p>
+                  <apiname>eea.ref-data-provisioning-web-service.node-address.enabled=false</apiname>
+               </p>
+            </li>
+            <li>
+               <p>
+                  <apiname>eea.ref-data-provisioning-web-service.tac.enabled=false</apiname>
+               </p>
+            </li>
+            <li>
+               <p>
+                  <apiname>eea.ref-data-provisioning-web-service.mcc-mnc-map.enabled=false</apiname>
+               </p>
+            </li>
+         </ul>
+         <note id="note_N1024C_N101F6_N10028_N10001">
+            <p>This disablement is permanent and persists between restarts.</p>
+            <p>To enable the controller, remove this property.</p>
+         </note>
+      </section>
+      <section id="section_N10257_N10028_N10001">
+         <title outputclass="st4mig_titled-block-title">Block Provisioning on a Particular JBoss
+            Node</title>
+         <p>Connect the MBean browser to the JBoss <ph keyref=""/>, which you want
+            to modify and navigate to
+               <apiname>eea.presentation:ws=ref-data-provisioning-web-service,service=Enable
+               Provisioning</apiname>. Execute <apiname>setControllerEnablement</apiname> operation,
+            where the first parameter is the path of controller (<apiname>subscriber</apiname>,
+               <apiname>cell-location</apiname>, <ph keyref=""/>
+            <apiname>-address</apiname>, <apiname>tac</apiname>, <apiname>mcc-mnc-map</apiname> )
+            and the second parameter is <apiname>true</apiname> (enable) or <apiname>false</apiname>
+            (disable).</p>
+         <p>Also this MBean returns controllers with their state.</p>
+         <note id="note_N10298_N1025A_N10028_N10001">
+            <p>This disablement is not permanent and does not persist between restarts.</p>
+         </note>
+      </section>
+   </conbody>
+</concept>

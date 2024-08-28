@@ -1,0 +1,14 @@
+<concept id="cc40bcc56c9acb6735314ce185859746" xml:lang="en-US">
+   <title>Database Maintenance</title>
+   <prolog>
+      <source>ST4 ID: 14610877451</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This section describes the database maintenance details, such as partitioning.</p>
+   </conbody>
+</concept>

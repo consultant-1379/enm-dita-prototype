@@ -1,0 +1,17 @@
+<map id="245983a9f4796ef4f6be091329fcedfa" xml:lang="en-US">
+   <title>Variable Key Map Subscriber Insights</title>
+   <keydef keys="Subscriber_Insights_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Subscriber Insights</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="Subscriber_Insights_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>SI</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

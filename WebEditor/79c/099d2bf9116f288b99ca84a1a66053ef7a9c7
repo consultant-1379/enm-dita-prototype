@@ -1,0 +1,93 @@
+<task id="78c35613df34d42e4024fb5fe687e05c" xml:lang="en-US">
+   <title>Change Password for <ph keyref="nsoProductName"/> Schema ID: process_engine</title>
+   <prolog>
+      <source>ST4 ID: 13577153675</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+      <context id="context_N100F7_N100F4_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The <option>process_engine</option> ID is the owner of the
+               <option>process_engine</option> schema in the <ph keyref="edbDatabase"/>.</p>
+         <p>
+            <ph importance="normal">Considerations:</ph>
+         </p>
+         <ul>
+            <li>
+               <p conkeyref="4911b66ffc16eb672b18c2efc7e815f8/st4tb12331396619"/>
+            </li>
+            <li>
+               <p conkeyref="a4108f29141d661101b871d606245fde/st4tb12331477259"/>
+            </li>
+            <li>
+               <p conkeyref="9983354175501a4b9843781787debf9f/st4tb12331491467"/>
+            </li>
+            <li>
+               <p>The special characters that are allowed for this ID are <ph keyref="passwordCharacterSet_A"/>
+               </p>
+            </li>
+         </ul>
+      </context>
+      <steps>
+         <step id="step_N10141_N1013E_N100F4_N10001">
+            <cmd> Decide on a new password.</cmd>
+            <info>
+               <note id="note_N10097_N10094_N1008C_N10089_N1002E_N10001">
+                  <p>Changing the <filepath>process_engine</filepath> password requires changes in
+                     several locations. We recommend that you type the new password into an
+                     electronic editor or notepad so that you can copy and paste it. This ensures
+                     that the password remains identical as you change it in multiple locations.
+                  </p>
+               </note>
+            </info>
+         </step>
+         <step id="step_N10153_N1013E_N100F4_N10001">
+            <cmd>Log in as <option keyref="loginID"/> to the  <ph keyref="CoreVM"/>. </cmd>
+         </step>
+         <step id="step_N1016D_N1013E_N100F4_N10001">
+            <cmd>Set <option>CLASSPATH</option> to point to the latest copy of the JBoss jar files
+               required for encryption by entering the following commands: </cmd>
+            <info>
+               <note id="note_N1017F_N1017C_N1016B_N1013E_N100F4_N10001">
+                  <p>The <filepath>layer-base-jboss-eap-7.2.9.</filepath> CP contains the latest
+                     updates to the installed JBoss modules.</p>
+               </note>
+               <codeblock outputclass="condensed">export JARCLASSPATH=${JBOSS_HOME}/modules/system/layers/base/.overlays/layer-base-jboss-eap-7.2.9.CP
+
+export CLASSPATH=${JARCLASSPATH}/org/picketbox/main/picketbox-5.0.3.Final-redhat-00006.jar:${JBOSS_HOME}/modules/system/layers/base/org/jboss/logging/main/jboss-logging-3.3.2.Final-redhat-00001.jar</codeblock>
+            </info>
+         </step>
+         <step id="step_N1019C_N1013E_N100F4_N10001">
+            <cmd>Execute the following command to encrypt the new password: </cmd>
+            <info>
+               <codeblock outputclass="condensed">sudo java -cp ${CLASSPATH} org.picketbox.datasource.security.SecureIdentityLoginModule '<varname>New_Password</varname>'</codeblock>
+            </info>
+            <info>
+               <note conkeyref="4eca8e75ffbcbf1eb49df51d7c64b767/tb12473715211" id="note_N101AE_N101AB_N10199_N1013E_N100F4_N10001"/>
+            </info>
+            <stepresult>
+               <p> Output similar to the following is displayed:</p>
+               <p>
+                  <systemoutput>Encoded password: -f84467d58d92dc604c715c1eb777ff193298f75c2764086
+                  </systemoutput>
+               </p>
+            </stepresult>
+         </step>
+
+
+      </steps>
+      <postreq id="postreq_N101C4_N100F4_N10001">
+         <div outputclass="st4mig-add-info">
+            <!--
+			4015 add-info/title: Next Step:-->
+            <p>
+               <xref keyref="4ed3747db3e5ecf7938bc5446593d849"/>
+            </p>
+         </div>
+      </postreq>
+   </taskbody>
+</task>

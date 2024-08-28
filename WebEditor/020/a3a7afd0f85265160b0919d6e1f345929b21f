@@ -1,0 +1,77 @@
+<task id="d7152251792cb9f6deec0ddf84f5c22c" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+    <title>Renew Other Internal Certificates</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA" ux-source-priority="topic-and-map"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10033_N1002E_N10001">
+            <p>To renew the internal certificates other than the one for Puppet, perform the
+                following steps from <option>node-1</option> as an <option>administrator</option>
+                user:</p>
+            <note id="note_N10041_N10031_N1002E_N10001">
+                <p>Provisioning traffic is unavailable during internal certification renewal because
+                    the Activation application processes and Cassandra are stopped.</p>
+            </note>
+        </context>
+        <steps id="steps_uyt_1kk_kjb">
+            <step id="step_N1004F_N1004B_N1002E_N10001">
+                <cmd>Stop the Activation application processes on a complete system:</cmd>
+                <info>
+                    <codeblock>$ bootloader.py node stop --host all</codeblock>
+                </info>
+            </step>
+            <step id="step_N10061_N1004B_N1002E_N10001">
+                <cmd>Stop Cassandra.</cmd>
+                <info>
+                    <codeblock>$ 3ppmon stopcassandra --host all</codeblock>
+                </info>
+            </step>
+            <step id="step_N10073_N1004B_N1002E_N10001">
+                <cmd>Run the renew_certificates.sh script.</cmd>
+                <info>
+                    <codeblock>$ /opt/dve/bin/renew_certificates.sh --renew</codeblock>
+                </info>
+            </step>
+            <step id="step_N10085_N1004B_N1002E_N10001">
+                <cmd>If errors occurred in execution, roll back the certificates and then contact
+                    support.</cmd>
+                <info>
+                    <codeblock>$ /opt/dve/bin/renew_certificates.sh --rollback</codeblock>
+                </info>
+            </step>
+            <step id="step_N10097_N1004B_N1002E_N10001">
+                <cmd>After successful execution, verify that the certificates have increased expiry
+                    time.</cmd>
+                <info>
+                    <codeblock>$ /opt/dve/bin/renew_certificates.sh --check</codeblock>
+                </info>
+            </step>
+            <step id="step_N100A9_N1004B_N1002E_N10001">
+                <cmd>Start Cassandra.</cmd>
+                <info>
+                    <codeblock>$ 3ppmon startcassandra --host all</codeblock>
+                </info>
+            </step>
+            <step id="step_N100BB_N1004B_N1002E_N10001">
+                <cmd>Start all Activation application processes.</cmd>
+                <info>
+                    <codeblock>$ bootloader.py node start --host all</codeblock>
+                </info>
+            </step>
+            <step id="step_N100CD_N1004B_N1002E_N10001">
+                <cmd>Verify that the system is healthy.</cmd>
+                <info>
+                    <codeblock>$ healthcheck.py run -n Activation_all_Virtual</codeblock>
+                </info>
+            </step>
+        </steps>
+    </taskbody>
+</task>

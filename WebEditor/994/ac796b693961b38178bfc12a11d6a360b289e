@@ -1,0 +1,90 @@
+<concept id="35235dfc9f4f7af2af69e1035ad970f9" xml:lang="en-US">
+    <title>Correlator Input Collector Application</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-16</change-completed>
+                <change-summary>EEAEPP-45863, Created section, https://gerrit.ericsson.se/#/c/7782900</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-45265</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-08-10</change-completed>
+                <change-summary>EEAEPP-45863, section clarified, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+            <change-item>
+                <change-person>zfuztam</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id/>
+                </change-request-reference>
+                <change-completed>2021-02-01</change-completed>
+                <change-summary>EEAEPP-55640 -C Command line option added, input from EBKATSI</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The Correlator Input Collector Application (CICA) is used for collecting Correlator input
+            data for a specific Correlator configuration, using a configurable filter. This tool can
+            be found in the <codeph>cea-corr-tools</codeph> package.</p>
+        <p>The following filters are available:<ul id="ul_pgl_fvb_jmb">
+                <li>
+                    <p>Time range</p>
+                </li>
+                <li>
+                    <p>Source type</p>
+                </li>
+                <li>
+                    <p>Restricted blacklist and whitelist IMSI filters</p>
+                    <p>CICA is capable of collecting events with two IMSI filters. These filters
+                        work only on events that contain IMSI.</p>
+                    <p>When both filters are set, only the IMSIs in the whitelist filter are kept by
+                        the tool.</p>
+                </li>
+            </ul></p>
+        <p>The tool uses the different Correlator Input Adapter (CIA) sources in the
+                <filepath>/opt/ericsson/eea/conf/engine.cfg</filepath> file as input. This
+            configuration file is referenced by the <parmname>PCEP_ENGINE</parmname> environmental
+            variable.</p>
+        <p>The tool creates separate files in the output folder. This folder must have
+                <parmname>777</parmname> permissions to allow access for CICA. The application
+            collects all data from each source, and places it in the corresponding files. By
+            default, one file contains a maximum of 1000 events. The maximum number of events in a
+            file can be changed with the <option>-c</option> command line option. If set to 0, the
+            output data for one source type is written into a single file.</p>
+        <p>The use of the tool requires the privileges of the following groups:<ul id="ul_t4v_tvb_jmb">
+                <li>
+                    <p><option>eea-besr-troubleshooter</option></p>
+                </li>
+                <li>
+                    <p><option>eea-besr-config</option></p>
+                </li>
+                <li>
+                    <p><option>eea-besr-service</option></p>
+                </li>
+                <li>
+                    <p><option>eea-besr-dataviewer</option></p>
+                </li>
+            </ul></p>
+     </conbody>
+</concept>

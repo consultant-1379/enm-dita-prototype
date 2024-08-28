@@ -1,0 +1,35 @@
+<concept id="62047af5312a44a93491cd6bbc565e3a" xml:lang="en-US">
+   <title>Number of Servers Running RedHat Linux</title>
+   <prolog>
+      <source>ST4 ID: 16365106955</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ziabrrb</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HY13035</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-11-18</change-completed>
+            <change-summary>EEAEPP-35477 Changed example code, added -vault-pass. </change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The following command executed by <option>root</option> user and on the <ph keyref=""/>
+         <ph keyref=""/> returns the number of deployment hosts in the cluster based on an Ansible inventory calculation:</p>
+      <p><userinput>$ ansible -i <varname>inventory.yml</varname> -m debug -a "msg='Number of RHEL hosts in this cluster: {{ groups[\'deployment\'] | length }}'" <varname>host_of_admin_node</varname> --ask-vault-pass</userinput></p>
+      <p>The system gives the following output:</p>
+      <p>
+         <msgblock>SUCCESS => {
+  "msg": "Number of RHEL hosts in this cluster: <varname>number_of_hosts</varname>"</msgblock>
+      </p>
+      <p>An example:</p>
+      <codeblock>[root@host-1 ~]# ansible -i /opt/ericsson/eea/inventories/example/hosts.yml -m debug -a "msg='Number of RHEL hosts in this cluster: {{ groups[\'deployment\'] | length }}'" host-1 --ask-vault-pass</codeblock>
+   </conbody>
+</concept>

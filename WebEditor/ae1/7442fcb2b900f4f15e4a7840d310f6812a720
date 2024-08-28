@@ -1,0 +1,74 @@
+<task id="b786df81280220f01a9c8daa7c103ba5" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Shut Down and Restart <ph keyref="ECM"/>
+                           </title>
+   <prolog>
+      <source>ST4 ID: 14125902987</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001">
+                                 <p>Use this procedure to shut down and restart <ph keyref="ECM"/>.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10042_N1003F_N1002F_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on as <option keyref="loginID"/> to the <ph keyref="CoreVM"/>.</ph>
+            </cmd>
+         </step>
+                                 <step id="step_N10058_N1003F_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to shut down <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <codeblock><ph keyref="sudo"/>/root/<ph keyref="ecmShutdownScript"/>
+</codeblock>
+               <p>The following message is displayed when the shutdown is complete:</p>
+               <p>
+                  <option keyref="ecmShutdownScriptMsg"/>
+               </p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N10082_N1003F_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following command to restart <ph keyref="ECM"/>:</ph>
+            </cmd>
+            <info>
+               <codeblock><ph keyref="sudo"/>/root/<ph keyref="ecmStartupScript"/>
+</codeblock>
+               <p>The following message is displayed when the startup is complete:</p>
+               <p><option keyref="ecmStartupScriptMsg"/>
+               </p>
+            </info>
+                                    
+                                    
+                                 </step>
+                                 <step id="step_N100AC_N1003F_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Repeat this procedure on the second <ph keyref="CoreVM"/> in an HA cluster.</ph>
+            </cmd>
+            <info>
+               <p>All procedures required to change the password for the <filepath>cw20</filepath>
+                  ID are complete.</p>
+            </info>
+                                    
+                                 </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N100C7_N1002F_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="32c540a588f95000d95487ed49ff572f"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

@@ -1,0 +1,18 @@
+<concept id="d418d677c80ba01b87fbf80c9ce4eae7" xml:lang="en-US">
+    <title>All trademarks mentioned herein</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid id="NA"/>
+    </prolog>
+    <conbody>
+        <p>All trademarks mentioned herein are the property of their respective owners. These are
+            shown in the document <xref format="html" href="urn:x-ericsson:r2:reg-doc:*:*:*?title=Trademark%20Information" scope="external">Trademark Information</xref>.</p>
+     </conbody>
+</concept>

@@ -1,0 +1,52 @@
+<subjectScheme id="fbe1442dfde86deaab760e1ad1547c73" xml:lang="en-US">
+	<title>Imported SubjectScheme map</title>
+   <!-- Define audience,platform,product and otherprops values --><subjectdef keys="audience">
+      <subjectdef keys="_customer"/>
+      <subjectdef keys="_customer_spec"/>
+      <subjectdef keys="_development"/>
+      <subjectdef keys="_global"/>
+      <subjectdef keys="_product_catalogue"/>
+      <subjectdef keys="_support"/>
+   </subjectdef>
+   <subjectdef keys="platform">
+      <subjectdef keys=""/>
+   </subjectdef>
+   <subjectdef keys="product">
+      <subjectdef keys=""/>
+   </subjectdef>
+   <subjectdef keys="otherprops">
+      <subjectdef keys="eocm_"/>
+      <subjectdef keys="eocm_AWSphase1"/>
+      <subjectdef keys="eocm_AWSphase1_exclude"/>
+      <subjectdef keys="eocm_EO-181_vRanGranting"/>
+      <subjectdef keys="eocm_Help"/>
+      <subjectdef keys="eocm_IPv6"/>
+      <subjectdef keys="eocm_IPv6_exclude"/>
+      <subjectdef keys="eocm_Library"/>
+      <subjectdef keys="eocm_notificationEnhancement"/>
+      <subjectdef keys="eocm_or-VnfmGui_exclude"/>
+      <subjectdef keys="eocm_orVnfm_rolledBack_failedTemp"/>
+      <subjectdef keys="eocm_registerVNFM"/>
+      <subjectdef keys="eocm_Support"/>
+      <subjectdef keys="eocm_updateNS"/>
+      <subjectdef keys="eocm_updateNS_dragAndDrop"/>
+      <subjectdef keys="eocm_Future"/>
+      <subjectdef keys="eocm_Current"/>
+   </subjectdef>
+   <enumerationdef>
+      <attributedef name="audience"/>
+      <subjectdef keyref="audience"/>
+   </enumerationdef>
+   <enumerationdef>
+      <attributedef name="platform"/>
+      <subjectdef keyref="platform"/>
+   </enumerationdef>
+   <enumerationdef>
+      <attributedef name="product"/>
+      <subjectdef keyref="product"/>
+   </enumerationdef>
+   <enumerationdef>
+      <attributedef name="otherprops"/>
+      <subjectdef keyref="otherprops"/>
+   </enumerationdef>
+</subjectScheme>

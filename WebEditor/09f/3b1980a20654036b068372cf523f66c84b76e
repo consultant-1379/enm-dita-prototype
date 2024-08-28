@@ -1,0 +1,35 @@
+<concept id="db2eb00b0d5bd3eee9d73be2a773d5c5" xml:lang="en-US">
+    <title>Retention</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-05</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: new topic: Retention.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The <ph keyref=""/>
+            <ph keyref=""/> Loader retention period for the output parquet files is
+            handled by the Input Adapter Cleaner. For information on how to configure the retention
+            time, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#jma1593616175043?title=Installation%20Guide" scope="external">Input Adapter Cleaner Suite Configuration</xref>.</p>
+    </conbody>
+</concept>

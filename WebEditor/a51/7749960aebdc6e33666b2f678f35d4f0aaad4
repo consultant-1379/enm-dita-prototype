@@ -1,0 +1,67 @@
+<task id="c4cfd6e3507a71397387a67419af48ca" xml:lang="en-US">
+  <title>Restore an Authentication Parameter</title>
+  <prolog>
+    <source/>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA"/>
+  </prolog>
+  <taskbody>
+    <context id="context_N1002A_N10027_N10001">
+      <p>A parameter is restored to default value by removing the modified
+value from the <filepath>user_config</filepath> file.</p>
+      <p>To restore a parameter, do the following:</p>
+      <note id="note_N1003A_N1002A_N10027_N10001">
+        <p>All commands throughout this subsection need to be run from
+node-1.</p>
+      </note>
+    </context>
+    <steps>
+      <step id="step_N10047_N10044_N10027_N10001">
+        <cmd>Run the <filepath>bootloader.py</filepath> command
+to remove the modified value:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config remove --parameter <varname>&lt;parameterName></varname>
+          </userinput>
+        </info>
+        <info>Example of restoring <filepath>AUTHN_MAX_DAYS_TO_REMEMBER</filepath> to default value:</info>
+        <stepxmp>
+          <pre>$ bootloader.py config remove --parameter @AUTHN_MAX_DAYS_TO_REMEMBER@
+INFO - *** Removed @AUTHN_MAX_DAYS_TO_REMEMBER@ from user configuration 
+INFO - *** To activate the changed parameter, execute "bootloader.py node activate --host &lt;hostname>" command
+</pre>
+        </stepxmp>
+      </step>
+      <step id="step_N10075_N10044_N10027_N10001">
+        <cmd>Perform an activation on each node, one by one, for the
+configured parameters to take effect on all modules on the system:</cmd>
+        <info>
+          <note id="note_N10080_N1007D_N10075_N10044_N10027_N10001">
+            <p>Wait for each node to be activated before starting with the next one, otherwise
+              traffic disturbances occur. The <filepath>
+                <varname>all</varname>
+              </filepath> parameter should only be used when no provisioning traffic is running.</p>
+          </note>
+        </info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+          </userinput>
+        </info>
+        <info>
+          <filepath>&lt;hostname></filepath> is the hostname of the
+node that is to be activated.</info>
+        <info>
+          <note id="note_N100B3_N100B0_N10074_N10044_N10027_N10001">
+            <p>The restored value will take effect after this command is executed:
+                <filepath>bootloader node activate</filepath>.</p>
+            <p>GUI users can keep using their current password until expiration.</p>
+          </note>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

@@ -1,0 +1,30 @@
+<concept id="2af4fadd8a998903e6b3a1b7b527fe5c" xml:lang="en-US">
+    <title>SQM EI Loader</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-04</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: Topic created: SQM EI Loader.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody/>
+</concept>

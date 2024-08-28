@@ -1,0 +1,13 @@
+<map id="6c7b2255ac8e9eabf80b5d19d84642cd" xml:lang="en-US">
+   <title>Variable Key Map ESR</title>
+   <keydef keys="ESR_name">
+      
+   <topicmeta><keywords><keyword>End-to-end Session Record</keyword></keywords></topicmeta></keydef>
+   <keydef keys="ESR_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>ESR</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

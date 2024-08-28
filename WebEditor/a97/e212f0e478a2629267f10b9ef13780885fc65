@@ -1,0 +1,27 @@
+<concept id="68eee560cf06d27b83fd44844fcbd18d" xml:lang="en-US">
+   <title>Coredump Files</title>
+   <prolog>
+      <source>ST4 ID: 16331105547</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The coredump files of the probe processes are as follows:</p>
+      <ul>
+         <li>
+                                       <p>
+                                          <apiname>/data/coredumps/ccpp-*</apiname>
+                                       </p>
+                                    </li>
+         <li>
+                                       <p>
+                                          <apiname>/data/coredumps/Python-*</apiname>
+                                       </p>
+                                    </li>
+      </ul>
+   </conbody>
+</concept>

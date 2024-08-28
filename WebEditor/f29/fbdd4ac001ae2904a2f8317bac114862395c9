@@ -1,0 +1,60 @@
+<concept id="ef126f232af380cf705f4a110d977cdd" xml:lang="en-US">
+    <title>Job Scheduler Configuration</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-05</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: New topic: Job Scheduler Configuration.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>The scripts used in this section and the associated property files can be found by
+            accessing the following directory in the MapR container:</p>
+        <codeblock>docker exec -it mapr bash
+cd /opt/ericsson/eea/resource/oozie-workflow-&lt;version>-resource/</codeblock>
+        <p>Each Coordinator job has its own configuration file. These files contain all the
+            properties to be passed to the Coordinator jobs or Hadoop applications to be run. The
+            following configuration files are used by the Coordinator jobs:</p>
+        <ul id="ul_m45_dt1_qjb">
+            <li>
+                <p><filepath>sqm_ei_loader_coordinator.properties</filepath></p>
+                <p><filepath>sqm_ei_loader_coordinator.properties</filepath> is the configuration
+                    file name for <ph keyref=""/>
+                    <ph keyref=""/> Loader Coordinator.</p>
+                <p>The parameters <parmname>startTime</parmname> and <parmname>endTime</parmname>
+                    are automatically populated with UTC time converted from the timezone of the
+                    cluster when calling the <filepath>startSqmEiLoader.sh</filepath> script.</p>
+            </li>
+        </ul>
+        <ul id="ul_ksc_sr1_sjb">
+            <li>
+                <p><filepath>sqm_ei_loader_coordinator</filepath></p>
+                <p><filepath>sqm_ei_loader_coordinator</filepath> is responsible for calling the <ph keyref=""/>
+                    <ph keyref=""/> Loader application every five minutes to output
+                        <ph keyref=""/> data to HDFS in an <ph keyref=""/>
+                    readable format. The <ph keyref=""/>
+                    <ph keyref=""/> Loader application is invoked in the Hadoop
+                    cluster. The application can be used if the customer is using the <ph keyref=""/> and <ph keyref=""/> Value Packages.</p>
+            </li>
+        </ul>
+    </conbody>
+</concept>

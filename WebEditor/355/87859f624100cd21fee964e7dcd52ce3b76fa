@@ -1,0 +1,5 @@
+<referable-content id="a4108f29141d661101b871d606245fde" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Change Password GR - Single ID</title>
+   <rcbody>
+      <p id="st4tb12331477259">Password changes for this ID requires some changes on the standby site in a geo-redundant deployment.</p>
+   </rcbody>
+</referable-content>

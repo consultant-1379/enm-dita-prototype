@@ -1,0 +1,31 @@
+<task id="864494920487a9653c7ad3c33017cfca" xml:lang="en-US">
+    <title>Change Password for <ph keyref="ECM"/> ID: georedadmin</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N1003A_N10035_N10001">
+            <p>The <option>georedadmin</option> application user is used for internal <ph keyref="ECM"/> operations when using geo-redundant deployments. The following
+                procedure describes how to change the password for this application user which is
+                mapped to admin role. </p>
+            <p> See <cite>About the gradm Tool</cite> for details about the <option>gradm</option>
+                tool in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/>.</p>
+        </context>
+        <steps conkeyref="66194a719aec68f0badfd3669990f8e7/steps_qrn_zzz_kmb" id="steps_spy_bdg_mmb">
+            <step id="step_N10060_N1005B_N10035_N10001">
+                <cmd/>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

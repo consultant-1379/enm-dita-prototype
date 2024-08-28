@@ -1,0 +1,7 @@
+<referable-content id="4eca8e75ffbcbf1eb49df51d7c64b767" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Password in Single Quotes - Generic Note</title>
+   <rcbody>
+      <note id="tb12473715211" type="note">When running this command, all passwords must be encased
+         in single quotes. This is especially crucial if the password contains special
+         characters.</note>
+   </rcbody>
+</referable-content>

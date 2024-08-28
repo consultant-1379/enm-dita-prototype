@@ -1,0 +1,46 @@
+<task id="93730121e216fba95774bbd8676c55d9" xml:lang="en-US">
+    <title>Check Kafka Logs</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zgrahle</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-8564</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-12-10</change-completed>
+                <change-summary>EEAEPP-35503. Changed procedure for checking Kafka logs. Input from EVICZOL. 20191210</change-summary>
+                <data>Created new Task topic instead of existing Content topic.</data>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_N10058_N10055_N10001">
+            <p>To check Kafka logs:</p>
+        </context>
+        <steps>
+            <step id="step_N10064_N10061_N10055_N10001">
+                <cmd>Enter <filepath>/var/log/docker/containers/</filepath>.</cmd>
+            </step>
+            <step id="step_N10071_N10061_N10055_N10001">
+                <cmd>Open any of the
+                        <filepath>docker-kafka-<varname>container_id</varname>.log</filepath> log
+                    files.</cmd>
+                <info>
+                    <p>The timestamps indicate which of these is the most recent and which are older
+                        Kafka container logs.</p>
+                </info>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

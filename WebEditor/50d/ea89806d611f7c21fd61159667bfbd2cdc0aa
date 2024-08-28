@@ -1,0 +1,129 @@
+<task id="9b9feb793e0bb566807d20ac5da8b382" xml:lang="en-US">
+    <title> Password Manager</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p><ph keyref="ECM_short"/> allows using the Password Manager for the automated password
+                change.</p>
+            <p><ph importance="normal">Considerations</ph><ul id="ul_nqr_pzj_qnb">
+                    <li>
+                        <p>Adhere to the considerations in the password changing procedure for the
+                            required user ID. </p>
+                    </li>
+                    <li>
+                        <p>Ensure the system works properly by using the Diagnostic Tool and
+                            Healthcheck (see <cite>Diagnostic Tool Instructions and
+                                Healthcheck</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Administration_Guide"/>).</p>
+                    </li>
+                    <li>
+                        <p>The <ph keyref="ABCDVM"/> must be turned on.</p>
+                    </li>
+                    <li>
+                        <p>The Password Manager configuration must be restored, if the <ph keyref="ABCDVM"/> was altered or replaced. See <xref keyref="267aeaabfb1e65a38e94a8bf28971f25"/> for details.</p>
+                    </li>
+                    <li>If an error occurs, check the Password Manager logs and complete changing a
+                        password from the failed step by following the manual procedure applicable
+                        for a user.</li>
+                </ul></p>
+            <note id="note_N10080_N10036_N10031_N10001">
+                <p>The Password Manager has additional restrictions for Linux IDs and bootloader.
+                    After changing the password, it will be the same for these IDs on all VMs.</p>
+            </note>
+        </context>        
+        <steps>
+            <step id="step_N1011E_N10082_N10031_N10001">
+                <cmd>Log in to the <ph keyref="ABCDVM"/> as <option>root</option>.</cmd>
+            </step>
+            <step id="step_N1012F_N10082_N10031_N10001">
+                <cmd>Change directory:</cmd>
+                <info><cmdname>cd /ecm-umi/operations/password-manager</cmdname></info>
+            </step>
+            <step id="step_N1013E_N10082_N10031_N10001">
+                <cmd>Run the script:</cmd>
+                <info><cmdname>./password_manager.py</cmdname><note id="note_N10143_N1013E_N10136_N10082_N10031_N10001">
+                        <p>When you launch the script, the Password Manager menu will display the
+                            content that differs depending on the type of the deployment, for
+                            example:</p>
+                        <codeblock>    ╔═════════════════════════════════════════════════════════════════════╗
+    ║                                                                     ║
+    ║                      Ericsson Password Manager                      ║
+    ║                                                                     ║
+    ║                      Installation type: KVM HA                      ║
+    ║                                                                     ║
+    ║                                                                     ║
+    ║  This tool is used for changing Ericsson Orchestration Cloud        ║
+    ║  Manager and Ericsson Cloud Analytics passwords by executing        ║
+    ║  Ansible playbooks.                                                 ║
+    ║                                                                     ║
+    ╠═════════════════════════════════════════════════════════════════════╣
+    ║                                                                     ║
+    ║    1 - Activation Application                                       ║
+    ║    2 - Diagnostic Data Collection                                   ║
+    ║    3 - EO CM Application                                            ║
+    ║    4 - F5 Load Balancer                                             ║
+    ║    5 - Linux OS                                                     ║
+    ║    6 - Log Collector                                                ║
+    ║    7 - Queuing Application                                          ║
+    ║    8 - RDB Application                                              ║
+    ║    9 - Security Component                                           ║
+    ║   10 - Service Catalog                                              ║
+    ║   11 - Tosca O                                                      ║
+    ║   12 - WF MGMT                                                      ║
+    ║   13 - Exit                                                         ║
+    ║                                                                     ║
+    ║                                                                     ║
+    ╚═════════════════════════════════════════════════════════════════════╝
+SELECT>
+</codeblock>
+                    </note></info>
+            </step>
+            <step id="step_N1015A_N10082_N10031_N10001">
+                <cmd>Make sure the specified <uicontrol>Installation type</uicontrol> corresponds to
+                    yours.</cmd>
+            </step>
+            <step id="step_N10167_N10082_N10031_N10001">
+                <cmd>Select the required component and user.</cmd>
+                <stepresult>
+                    <p>Example of a list of users for the Service Catalog users component:</p>
+                    <codeblock>    ╔═════════════════════════════════════════════════════════════════════╗
+    ║                                                                     ║
+    ║                        Service Catalog users                        ║
+    ║                                                                     ║
+    ║                                                                     ║
+    ║    1 - Change password for application user catmainrestapi          ║
+    ║    2 - Change password for application user scadmin                 ║
+    ║    3 - Change password for application user upadmin                 ║
+    ║    4 - Exit                                                         ║
+    ║                                                                     ║
+    ║                                                                     ║
+    ╚═════════════════════════════════════════════════════════════════════╝
+    SELECT></codeblock>
+                </stepresult>
+            </step>
+            <step id="step_N1017D_N10082_N10031_N10001">
+                <cmd>Specify passwords as prompted.</cmd>
+            </step>
+            <step id="step_N10186_N10082_N10031_N10001">
+                <cmd>Wait until the password change is complete and press
+                        <uicontrol>Enter</uicontrol> when prompted.</cmd>
+            </step>
+            <step id="step_N10193_N10082_N10031_N10001">
+                <cmd>Exit the script. Check if the system works properly and a password is
+                    changed.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

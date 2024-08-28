@@ -1,0 +1,9 @@
+<referable-content id="1c976e6510a14b5859b21a7e2016d423" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/IPv6--><title>External IdAM IPv6 Restriction</title>
+   <rcbody>
+      <note id="st4tb14315247883">
+                           <p>When specifying an IPv6 endpoint for the <ph keyref="externalIdam"/>,
+            use the Fully Qualified Domain Name (FQDN) and not just the IPv6 address, to identify
+            the <ph keyref="externalIdam"/> endpoint.</p>
+                        </note>
+   </rcbody>
+</referable-content>

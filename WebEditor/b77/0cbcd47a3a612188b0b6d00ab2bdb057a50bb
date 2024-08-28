@@ -1,0 +1,29 @@
+<concept id="c0b5f5d51d64adb304d55ebda30e7aad" xml:lang="en-US">
+    <title>Trademarks Used in Library</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid id="NA"/>
+    </prolog>
+
+
+    <conbody>
+        <p>The trademarks used in this library, and their respective owners, are as follows:</p>
+        <ul id="ul_zwm_yhl_vm">
+            <!--Add each trademark below. Create a new bullet and link to the trademark identification statement in the Corporate Trademarks library.-->
+            <li>
+                <p conkeyref="ivz1454073903325/p_N10011_N1000E_N10001"/>
+            </li>
+        </ul>
+        <p conkeyref="ehn1454073903699/p_N10011_N1000E_N10001"/>
+
+
+    </conbody>
+</concept>

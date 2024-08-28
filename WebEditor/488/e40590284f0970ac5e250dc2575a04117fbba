@@ -1,0 +1,73 @@
+<task id="ea84f8762df883179987e87c188737b4" xml:lang="en-US">
+    <title>Change Password for DDC User: ddcadm</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <!-- Template instructions: 
+    How to Write Task Topics, 102/000 21-FCK 101 05-->
+        <context id="context_N10036_N10031_N10001">
+            <p>The <userinput>ddcadm</userinput> user is used by the Diagnostic Data Collection
+                (DDC) on <ph keyref="ECM"/> VMs.</p>
+            <p>
+                <ph importance="normal">Considerations:</ph>
+                <ul id="ul_yxv_fbg_n3b">
+                    <li>
+                        <p>Changing the password for this user does not require system downtime.</p>
+                    </li>
+                    <li>
+                        <p>The password must be changed in the F5 GUI first.</p>
+                    </li>
+                    <li>
+                        <p>The same password must be used when you update the
+                                <userinput>ddcadm</userinput> password in ESA VM.</p>
+                    </li>
+                </ul></p>
+        </context>        
+        <steps>
+            <step id="step_N10073_N10070_N10031_N10001">
+                <cmd>Log in to the active F5 GUI as <userinput>admin</userinput> user.</cmd>
+            </step>
+            <step id="step_N10080_N10070_N10031_N10001">
+                <cmd>Go to <menucascade>
+                        <uicontrol>System > Users > User List</uicontrol>
+                    </menucascade> and select the <userinput>ddcadm</userinput> user.</cmd>
+            </step>
+            <step id="step_N10095_N10070_N10031_N10001">
+                <cmd>The <uicontrol>Account Properties</uicontrol> page will display.</cmd>
+                <info><fig id="fig_kvf_tny_mmb">
+                        <title>Change ddcadm User Password</title>
+                    </fig><image id="image_vzp_qqy_mmb" keyref="00e79f581e56f77743780ea3453d3c54" scalefit="yes"/></info>
+            </step>
+            <step id="step_N100B2_N10070_N10031_N10001">
+                <cmd>Change the password and click <uicontrol>Update</uicontrol>.</cmd>
+            </step>
+            <step id="step_N100BF_N10070_N10031_N10001">
+                <cmd>Log in as <option keyref="loginID"/> user to <ph keyref="ECM"/> ESA VM 1.</cmd>
+            </step>
+            <step id="step_N100D0_N10070_N10031_N10001">
+                <cmd>Run the command:</cmd>
+                <info><cmdname>sudo -s</cmdname></info>
+            </step>
+            <step id="step_N100DF_N10070_N10031_N10001">
+                <cmd>To change the password for the <userinput>ddcadm</userinput> user, run the
+                    command:</cmd>
+                <info><cmdname>./update_ddcadm.sh</cmdname><note id="note_N100E9_N100E4_N100D9_N10070_N10031_N10001">
+                        <p>The password must be the same as in F5.</p>
+                    </note></info>
+            </step>
+            <step id="step_N100FA_N10070_N10031_N10001">
+                <cmd>Repeat Steps 5, 6, and 7 on ESA VM 2.</cmd>
+            </step>
+        </steps> 
+    </taskbody>
+</task>

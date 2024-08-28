@@ -1,0 +1,42 @@
+<concept id="e9bab1d6d42d3a66d0ccda333f8a5102" xml:lang="en-US">
+    <title>Check Logs</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-05</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: new topic: Check Logs.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>Log files about a running <ph keyref=""/>
+            <ph keyref=""/> Loader job instance are created under yarn application
+            directory:</p>
+        <p><filepath>cd /opt/ericsson/eea/log/yarn-nodemanager</filepath></p>
+        <p>To query the latest log file run the following command as EEA Admin User:</p>
+        <codeblock>find . -name sqm-ei-loader.log|head -1</codeblock>
+        <p>To check the log file:</p>
+        <p><filepath>./application_1562592030959_9962/container_e18_1562592030959_9962_01_000001/sqm_ei_loader.log</filepath></p>
+        <note id="note_N1007A_N10053_N10001">
+            <p>The path changes dynamically, the above is just an example.</p>
+        </note>
+    </conbody>
+</concept>

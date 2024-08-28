@@ -1,0 +1,27 @@
+<map id="4b71c8534ae43d7e08275e1d4e8fcfa7" xml:lang="en-US">
+   <title>Variable Key Map Automated Insights</title>
+   <keydef keys="AI_VP">
+      
+   <topicmeta><keywords><keyword>Automated Insights — Operations</keyword></keywords></topicmeta></keydef>
+   <keydef keys="AI_GUI">
+      <topicmeta>
+         <keywords>
+            <keyword>Automated Insights — Operations</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AI_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>AIO</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="AI_article">
+      <topicmeta>
+         <keywords>
+            <keyword>an</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

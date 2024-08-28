@@ -1,0 +1,24 @@
+<concept id="9725aeb4d4684370e1386f21442766c6" xml:lang="en-US">
+   <title>Listing Table Partitions</title>
+   <prolog>
+      <source>ST4 ID: 8546049803</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <apiname>list_tab_part</apiname> script can be used to list the current set of
+         partitions for a given table or all tables included in the
+            <apiname>partition_dict</apiname> table.</p>
+      <p>The use for this script is as follows:</p>
+      <codeblock>list_tab_part [-h] [-a | -t &lt;table_name> ] [-p &lt;db_pass>]</codeblock>
+      <p>The following options can be used in the above script:</p>
+      <codeblock>  -h                      - Help. This message.
+  -a                      - Process all tables.
+  -t &lt;table_name>         - Process specified table.
+  -p &lt;db_pass>            - Database password.
+</codeblock>
+   </conbody>
+</concept>

@@ -1,0 +1,9 @@
+<referable-content id="eea91f3b37fb729e4000f5813bee58d5" xml:lang="en-US">
+<title>SAG_UG_OLH_topics</title>
+<rcbody><ph id="register_domain_ref">Refer <cite>Register Domain</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_User_Guide"/> for register
+                              domain through the GUI</ph><div id="div_N1001C_N1000E_N10001"><ph id="set_host_threshold_ref">For more details, see <cite>Set
+                                                  Host Thresholds</cite> in the <ph keyref="ECM"/>
+                                        Online Help.</ph></div><ph id="assign_user_groups">Refer
+                                        <cite>Assign Users to User Groups</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Online_Help"/> for details
+                              (required).</ph></rcbody>
+</referable-content>

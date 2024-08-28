@@ -1,0 +1,114 @@
+<task id="126e3b719196664664e5e89055ffd09f" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Update the <ph keyref="nsoProductName"/> Configuration Data (Optional)</title>
+   <prolog>
+      <source>ST4 ID: 14130007563</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001">
+                                 <p>If the <ph keyref="nsoProductName_s"/> optional feature is
+            installed, use this procedure to update the <ph keyref="nsoProductName_s"/>
+            configuration data on the <ph keyref="edbVM"/>.</p>
+                              </context>
+                              <steps>
+         <step id="step_N1004A_N10047_N1002F_N10001">
+            <cmd>Log on to the <ph keyref="NS_LCM_VM_s"/> as the <userinput>nso_admin</userinput>
+               user.</cmd>
+         </step>
+                                 <step conkeyref="f77fc6bb4148da31e10629bb9cd8b467/st4tb12388008459" id="step_N10057_N10047_N1002F_N10001">
+                                    <cmd/>
+                                 </step>
+                                 <step id="step_N10060_N10047_N1002F_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Run the following command with the <userinput>cmdbsync</userinput> password as a parameter:</ph>
+            </cmd>
+            <info>
+               <note conkeyref="4eca8e75ffbcbf1eb49df51d7c64b767/tb12473715211" id="note_N10071_N1006E_N1005E_N10047_N1002F_N10001"/>
+            </info>
+            <info>
+               <p>
+                  <codeblock>./nso_db_config_pswd.sh --host &lt;rdb_host> --port &lt;rdb_port> --db &lt;svcorch_dbname> --user &lt;process_engine_schema_name> -p '&lt;process_engine_schema_password>' --ecmPwd '&lt;New_Password>'</codeblock>
+               </p>
+            </info>
+            <stepxmp>
+               <p>Example using sample values for the variables:</p>
+               <p>
+                  <codeblock>./nso_db_config_pswd.sh --host edb_host --port 5432 --db sodb1 --user process_engine -p process_engine --ecmPwd 'Password123'</codeblock>
+               </p>
+               <p>Example using the default values: </p>
+               <p>
+                  <codeblock>./nso_db_config_pswd.sh -p process_engine --ecmPwd 'Password123'</codeblock>
+               </p>
+            </stepxmp>
+            <info>
+               <p>Parameters and Default Values:</p>
+               <ul id="ul_h2b_zms_3gb">
+                  <li>
+                     <p>The <userinput>&lt;rdb_host></userinput> is the value of RDB Virtual IP;
+                        defaults to the value of the <userinput>edb_host</userinput> alias.</p>
+                  </li>
+                  <li>
+                     <p>The <userinput>&lt;rdb_port></userinput> is the value of RDB port; defaults
+                        to <userinput>5432</userinput>.</p>
+                  </li>
+                  <li>
+                     <p>The <userinput>&lt;svcorch_dbname></userinput> is the name of the <ph keyref="nsoProductName_s"/> database; defaults to
+                           <userinput>sodb1</userinput>.</p>
+                  </li>
+                  <li>
+                     <p>The <userinput>&lt;process_engine_schema_name></userinput> is the name of
+                        the <ph keyref="nsoProductName_s"/> process engine schema; defaults
+                           to<userinput>process_engine</userinput>.</p>
+                  </li>
+                  <li>
+                     <p>The <userinput>&lt;process_engine_schema_name_password></userinput> is
+                        the <ph keyref="nsoProductName_s"/> process engine schema password.</p>
+                  </li>
+                  <li>
+                     <p>The <userinput>'&lt;password>'</userinput> is the new unencrypted password
+                        encased in single quotes.</p>
+                  </li>
+               </ul>
+            </info>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <stepresult>
+                                       <p>The following is a sample encrypted value that is returned:</p>
+                                       <codeblock>Changing ecmAdmin to
+Changing ECM user password
+RJWHfgdP4vjVgwZlxIsuAA==
+UPDATE 1
+</codeblock>
+                                    </stepresult>
+                                 </step>
+                                 <step id="step_N10118_N10047_N1002F_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Restart the </ph><ph keyref="nsoProductName_s"/><ph outputclass="st4mig_cmd-para"> component:</ph>
+            </cmd>
+            <info>
+               <ul conkeyref="e78fff36f3c38f9e7fbd558b595b7938/st4tb13545665291">
+                  <li/>
+               </ul>
+            </info>
+         </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N10132_N1002F_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="766e4832627b5777c048e38fdc2f2adc"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

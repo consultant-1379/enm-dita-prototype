@@ -1,0 +1,301 @@
+<bookmap id="49e82feff29b6f473f6d20571654bbaa" xml:lang="en-US">
+   <booktitle>
+      <mainbooktitle>Administrator Guide</mainbooktitle>
+      <!--st4mig 01: ST4-ID of XS-Meta: 16331242123--><booktitlealt outputclass="subtitle">Ericsson Expert Analytics</booktitlealt>
+   </booktitle>
+   <bookmeta>
+      <publisherinformation>
+         <published>
+            <organization/>
+            <completed>
+               
+               
+               <year>2020</year><month>09</month><day>11</day>
+            </completed>
+         </published>
+      </publisherinformation>
+      <permissions view="ericsson_internal"/>
+      <audience othertype="all" type="other"/>
+      <bookid>
+         <edition>-</edition>
+         <booknumber>4/1553-AVA 901 36/1-5</booknumber>
+      </bookid>
+      <bookchangehistory>
+         <edited value="No">
+            <person value="xmakort">Marton Kortesi</person>
+            <organization>XSN/EEA</organization>
+         </edited>
+         <approved value="Yes">
+            <person value="xmarsze">Marton Szegheo</person>
+            <organization>XSN/EEA</organization>
+         </approved>
+         <bookevent>
+            <bookeventtype name="workflow_status" value="approved"/>
+         </bookevent>
+         <bookevent>
+            <bookeventtype name="changerecord"/>
+            <person value="zfuztam"/>
+            <revisionid>S</revisionid>
+            <completed>
+               <year>2020</year>
+               <month>05</month>
+               <day>15</day>
+            </completed>
+            <summary>Updated arkpkgmgr security information.
+            Added ark-dashboard information.
+            CUPS related mapping ratio descriptions added.
+            </summary>
+         </bookevent>
+         <bookevent>
+            <bookeventtype name="changerecord"/>
+            <!-- EEAEPP-22314 -->
+            <!-- EEAEPP-37576 -->
+            <person value="zgrahle"/>
+            <revisionid>T</revisionid>
+            <completed>
+               <year>2020</year>
+               <month>07</month>
+               <day>14</day>
+            </completed>
+            <summary>Removed the E-DCR Correlator.
+               MSISDN is available in ceratin SGSN-MME events.
+               Service Alert Loader internals have changed.
+               Added MAX_SLIDING_WINDOW_HOUR and a detailed description of the sliding window concept in the Configure SQM EI Loader section.
+               New sections for HBase Manager and HBase Manager Configuration.
+               Removed the following sections: E-DCR Incident HBase Loader Monitoring; ESR Incident HBase Loader Monitoring; E-DCR HBase Loader Monitoring. Removed Redis instances from the following sections: E-DCR Incident HBase Loader Configuration; ESR Incident HBase Loader Configuration; E-DCR HBase Loader Configuration.
+               New section for Provision HBase REST Services.
+               Log output example added to The ark-dashboard Tool section.
+               Hblib table configuration options were added to E-DCR Incident HBase Loader Configuration, E-DCR HBase Loader Configuration, ESR Incident HBase Loader Configuration and ESR HBase Bulkloader Configuration sections.</summary>
+         </bookevent>
+      </bookchangehistory>
+      <bookrights>
+         <copyrfirst>
+            <year>2019, 2020</year>
+         </copyrfirst>
+         <bookowner>
+            <organization>Ericsson AB</organization>
+         </bookowner>
+         <bookrestriction value="NA"/>
+      </bookrights>
+   </bookmeta>
+   <frontmatter>
+      <booklists><!--trademarklist keyref="esw1503989286186"/--><toc outputclass="toc2"/>
+      </booklists>
+      <preface>
+         <mapref format="ditamap" keyref="155175c8071f3888a29e2bf2dce5554c"/>
+         <!-- mapref format="ditamap" keyref="dvx1571256693387"/ -->
+         <mapref format="ditamap" keyref="414032a4147de27ca97d5167dd4e7c2c"/>
+         <mapref format="ditamap" keyref="addbd606df1eb4a54d4c672caca7cbe8"/>
+         <mapref format="ditamap" keyref="4b71c8534ae43d7e08275e1d4e8fcfa7"/>
+         <mapref format="ditamap" keyref="245983a9f4796ef4f6be091329fcedfa"/>
+         <mapref format="ditamap" keyref="43238e89d208e156a33c35b590cb1c30"/>
+         <!-- mapref format="ditamap" keyref="joz1571256694120"/ -->
+         <mapref format="ditamap" keyref="3eca010cbde6b989bde0d9582cb5d204"/>
+         <mapref format="ditamap" keyref="48a9506a2b7b06afe76d58f4f69e846c"/>
+         <mapref format="ditamap" keyref="64c5151c8b54ff1ed369f11d5186209a"/>
+         <mapref format="ditamap" keyref="1d8c58e0cc8ac25971d1a2e260ac2436"/>
+         <mapref format="ditamap" keyref="1f34cdd5ec3c3307a868b01e673a3bd2"/>
+         <mapref format="ditamap" keyref="e1899148185254adc60d090e262bbae6"/>
+         <mapref format="ditamap" keyref="6c7b2255ac8e9eabf80b5d19d84642cd"/>
+         <mapref format="ditamap" keyref="d99f28d58af4374f780b1f442aa90b01"/>
+         <mapref format="ditamap" keyref="348b1d329ab9ea9ab2578088eaa90e5c"/>
+         <mapref format="ditamap" keyref="780c4d209a0c82975742b8c06bcb1c8d"/>
+         <mapref format="ditamap" keyref="5bae0669dfab56ea072932a0baa8c1bb"/>
+         <mapref format="ditamap" keyref="6d302bb70f3fc1d823b326cdda27ba76"/>
+         <!-- mapref format="ditamap" keyref="bbc1571256695821"/ -->
+      </preface>
+   </frontmatter>
+   <chapter keyref="c015f4695c44f569f40de0af38dd53f5"/>
+   <chapter keyref="db65cecada1602940bc3e3e77f63b20c">
+      <topicref keyref="f7b9247fdf6a449acc6edd20bee4b6aa">
+         <topicref keyref="419918c3ce36b3ddbceaf9e535531345">
+            <topicref keyref="8804c4ec1832d88cb71bd322927dfa61"/>
+            <topicref keyref="b94c06137ebb050738a116d1bddcf10a">
+               <topicref keyref="0e278a408ef363334cc12c78fd5fb4f8"/>
+               <topicref keyref="072ca91b81202fbe15f9446a6d7aca70"/>
+               
+               
+            </topicref>
+            <topicref keyref="eb760b177efb0ee0133a62b336257603"/>
+            <topicref keyref="c2cb197dd35aabd995a59b8c11d34fa3">
+               <topicref keyref="65245bf6619c7b3bd756268a18e5012d"/>
+               <topicref keyref="68eee560cf06d27b83fd44844fcbd18d"/>
+               
+               
+            </topicref>
+            
+            
+            
+            
+         </topicref>
+         <topicref keyref="b6f00a9cd046c504ae423f3f7d1aad2b">
+            <topicref keyref="b2d3f01d6f2e8881c5754c2a7456521e">
+               <topicref keyref="6155a6d21de5371fc15034d66eb918dd"/>
+               
+            </topicref>
+            
+         </topicref>
+         <topicref keyref="0db69d7acbcace1061d76319739b89d1">
+            <topicref keyref="997c56974eeccd42ed91fbe8cf0feb21">
+               <topicref keyref="6d1f0156ccf47d033bffbc7183e97050"/>
+               <topicref keyref="965a736b109e190356c2611e578ea72a"/>
+               
+               
+            </topicref>
+            
+         </topicref>
+         <topicref keyref="fcc72ac6f6004e1eb017c4fac1ef83e7" otherprops="EEAEPP-13155">
+            <topicref keyref="75e622698af69d750c649bbea58741bb">
+               <topicref keyref="8046d50209a65289401485cdad6a6be2"/><topicref keyref="c485758b6b11c00388c73ad36c1565f5"/>
+               
+            </topicref>
+            
+         </topicref>
+         <topicref keyref="f8a93485a242c61ab073035f57efaf35"/>
+         <topicref keyref="901dd032d875e98ddf89ef055a703b64" otherprops="relQF"/>
+         
+         
+         
+         
+         
+         
+      </topicref>
+      <topicref keyref="41c51c835d2ce2a5183d07c09e6b91e2">
+         <topicref keyref="62bca64f4c8f321afca12a90b0a015e6">
+            <topicref keyref="8a7f0747a5d92b1cb86dcb253411990f"/>
+            <topicref keyref="59f9785c85bc778b91275cdf98ac1284" otherprops="EEAEPP-8564_exclude"/>
+            <topicref keyref="93730121e216fba95774bbd8676c55d9" otherprops="EEAEPP-8564"/><topicref keyref="6be5d2884ac05164433c78e599abcc0e"/>
+         </topicref>
+         
+         <topicref keyref="3fa9cb8c28cf9fe9f2e3896a9d9cc54e">
+            <topicref keyref="f83de880274e53beede79e224286a448"/>
+            <topicref keyref="25e4b9adcc94ee344f03ac9dc6519daf" otherprops="CDH_exclude"/>
+            
+            <topicref keyref="7e3dbca9ed7cef87782dbcac46eb3222"/>
+            <topicref keyref="4a1dd64050ce66046c63d1a7c05f8bba" otherprops="CDH_exclude"/>
+            
+         </topicref>
+         <topicref keyref="b49f6bfe84b596a19aff9818a24143ef">
+            <topicref keyref="b2da41b56812bef07aa970d9c26c47a9">
+               <topicref keyref="98bf716241e76cd7805ea5867b497b04"/>
+               <topicref keyref="cb3c52ebbb1bb6e02eb83b6f30b482aa"/>
+               
+               
+            </topicref>
+            
+            <topicref keyref="390f963811ded2e73f1bf4e36e685ccc"><topicref keyref="259c50fec89ee6a56b6bf12ce047bfdd"/></topicref>
+            
+            <topicref keyref="13cfe2be2b1276b05474b8beebd3cef1" otherprops="relSD"/>
+            
+            
+            
+            
+            
+         <topicref keyref="618c735177ffce23746666217ed0df6e" otherprops="EEAEPP-23994"/></topicref>
+         <topicref keyref="91dad1a3e52c4ad3c0b4da1bcaa8efee"><topicref keyref="0cfb2990e83ec4ce0324cfe2782aa63c"/><topicref keyref="f5ebc7f7bbd3b5a441be829d560dc2f7">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <topicref keyref="7ba1130882d7e5beb1d1d80a2653a916"/>
+            <topicref keyref="9573ddfa37f9abc0edc2abae33338c39" otherprops="EEAEPP-22314_exclude"/>
+            <topicref keyref="ab2b6ea91f8fb2b8b53d2456447a03d0"/>
+            <topicref keyref="bc76f6ef5bfa34f620bc22b207f2e48f" otherprops="EEAEPP-22314_exclude"/>
+            <topicref keyref="69befa12335903a85372f3b31848a185"/>
+            <topicref keyref="d6c1afc16e9b06066b2aa0eef7e9cac5"/>
+            <topicref keyref="b7112eae7868ddbd4d5577df6eeb820f"/>
+            <topicref keyref="cfe3c1f99df96a33d3f50d173f9b526e" otherprops="EEAEPP-22314_exclude"/>
+            <topicref keyref="a17c4d71b3f16d31393f2ad221ac9de3"/>
+            <topicref keyref="fa441e19938e9731ab50eda63bf64dd0"/>
+         </topicref><topicref keyref="8549d04d52c435c96b89fe8194b811b3"/></topicref>
+         <topicref keyref="d2554fde4930dbc84d8375721bb7d0d1">
+            <topicref keyref="23644b4f8a3fe59c56cf6b5a494b5482" otherprops="relSEA"/>
+            
+         </topicref>
+         
+         
+         
+         
+         
+         
+      </topicref>
+      
+      <topicref keyref="c3a49f00e2570acafe142722a3b85cc3">
+         <topicref keyref="0a6eb8b5ea5572b9ae888ee3bad2b6d5">
+            
+            <topicref keyref="924fdcdaed1cb8d4645add8a2bbd9819"/>
+            <topicref keyref="cc40bcc56c9acb6735314ce185859746">
+               <topicref keyref="35d58ef6037bcbac0d47a4c160cccd7c"/>
+               <topicref keyref="e5e2b27a95a926c3d76f0f4b67313784"/>
+               <topicref keyref="9725aeb4d4684370e1386f21442766c6"/>
+               <topicref keyref="98930146a56e8976de2ff1c2e3b6398a"/>
+            </topicref>
+         </topicref>
+         
+         <topicref keyref="b5c54018d5d7eb2ffb48e5036ee9a360"/>
+         
+         
+         <topicref keyref="59b1293cd30903106ef05168618d3e5d">
+            <topicref keyref="f2075b6bdc1a8fea16ac28eadbeb1b57"/>
+            <topicref keyref="608d560f6ce753e63056eb4364b9f5b6"/>
+            <topicref keyref="fe6f2fe0ad3146d0efbe32ed29d2ad1c"/>
+            <topicref keyref="a075c8d4def2da92d92e5bd0139afc6c"/>
+         </topicref>
+      </topicref><topicref keyref="7cf08a980470ab62ae65d0e5e388e874">
+         
+         
+         
+         
+      <topicref keyref="53fd75df0600e32a513a30789bd69263"/><topicref keyref="d800f7516ed3e7da42d2d8f7793a00e9"/><topicref keyref="eb598d8176e4df2c31ecad93172f2d92"/><topicref keyref="2af4fadd8a998903e6b3a1b7b527fe5c"><topicref keyref="2e614913b765b58666686858a2236d9b"/><topicref keyref="e67e5d07a61da55edf58e15d72f036a2"/><topicref keyref="339e65aa15fec72033768b0fab5ce718"><topicref keyref="ef126f232af380cf705f4a110d977cdd"/><topicref keyref="79060fabf42955a100ededd85a8dc28c"/></topicref><topicref keyref="e9bab1d6d42d3a66d0ccda333f8a5102"/><topicref keyref="db2eb00b0d5bd3eee9d73be2a773d5c5"/><topicref keyref="a4315c494e99578dda6d27ea0893a460"/><topicref keyref="7ede2fcaf83aec1705adaa3f31de9fff"/></topicref></topicref>
+      <topicref keyref="185e9b92c0b533f37d9d25339db62617"/>
+      
+      
+      
+      
+      
+   </chapter>
+   <chapter keyref="eeb7604dddf622986a3092de4b65611c" otherprops="EEAEPP-25965">
+      <topicref keyref="a73349611209f360fe529c4f3e3100b5"/>
+      <topicref keyref="62047af5312a44a93491cd6bbc565e3a"/>
+      
+      
+   </chapter>
+   
+   
+   
+   
+   <chapter keyref="647566fd0469491c0d09333f933299d6"/>
+   <backmatter>
+      <booklists>
+         <bibliolist/>
+      </booklists>
+   </backmatter>
+   <reltable>
+      <relheader>
+         <relcolspec linking="sourceonly" type="topic"/>
+         <relcolspec linking="targetonly" type="topic"/>
+      </relheader>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+      <relrow>
+         <relcell/>
+         <relcell/>
+      </relrow>
+   </reltable>
+</bookmap>

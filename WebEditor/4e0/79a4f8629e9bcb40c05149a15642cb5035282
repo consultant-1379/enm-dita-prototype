@@ -1,0 +1,126 @@
+<concept id="a73349611209f360fe529c4f3e3100b5" xml:lang="en-US">
+   <title>Number of Subscribers</title>
+   <prolog>
+      <source>ST4 ID: 16365106059</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>ziabrrb</change-person>
+            <change-request-reference>
+               <change-request-system>TR</change-request-system>
+               <change-request-id>HY10087</change-request-id>
+            </change-request-reference>
+            <change-completed>2019-11-19</change-completed>
+            <change-summary>EEAEPP-35141, Updated mapping ratio options based on https://gerrit.ericsson.se/#/c/6425007/</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zgabkis</change-person>
+            <change-request-reference>
+               <change-request-system/>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-05-11</change-completed>
+            <change-summary>https://gerrit.ericsson.se/#/c/7369034, CUPS related mapping ratio descriptions added.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zgabkis</change-person>
+            <change-request-reference>
+               <change-request-system/>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-05-28</change-completed>
+            <change-summary>https://gerrit.ericsson.se/#/c/7484891, MSISDN is available in ceratin SGSN-MME events.</change-summary>
+            <data/>
+         </change-item>
+         <change-item>
+            <change-person>zfuztam</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2020-09-09</change-completed>
+            <change-summary>EEAEPP-48822, Updated health check examples, input from EVERBAC</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>To manually audit the number of subscribers processed in <ph keyref=""/>, use
+         the <filepath>health_check</filepath> script which can be found at
+            <filepath>/opt/ericsson/eea/tools/health_check</filepath>.</p>
+      <note id="note_N1005E_N1004B_N10001">
+                           <p>Start the Healthcheck service on only one Correlator host of the
+            cluster. The <parmname>Nr of subscribers</parmname> output value corresponds with the
+            number of distinct IMSIs seen by the correlation layer, since <ph keyref=""/>
+            Correlator was last started.</p>
+                        </note>
+      <p>The script provides information about the Correlator cluster state. The latest status of
+         the cluster can be retrieved by running the script without parameters. Its logfile collects
+         the cluster status information in every running period (10 seconds), thus the status of the
+         cluster can be investigated for a longer time period by checking the log at
+            <filepath>/data/eea_log/health_check.log</filepath>.</p>
+      <p>Mapping ratios measure the mapping efficiency of the Correlator mapping layer. In general, the mapping ratio shows the percentage of mapped events of the corresponding source, the rest of the events are dropped. If the mapping ratio is 0%, it does not necessarily mean that all of the corresponding events are dropped, it can also mean that there is no related source configured. The different mapping ratios are described below:</p>
+      <ul>
+         <li>
+                              <p>4G RAN mapping ratio</p>
+                              <p>Events coming from CTR sources do not contain IMSI. Correlator tries to map them to users or IMSIs based on information gathered from other sources. This mapping ratio indicates the percentage of successful mapping.</p>
+                           </li>
+         <li>
+                              <p>VSK RTP mapping ratio</p>
+                              <p>Not used yet.</p>
+                           </li>
+         <li>
+                              <p>IMS and CDR mapping ratio</p>
+            <p>This value shows the successful MSISDN to IMSI mapping ratio. MSISDN is available in
+               SIP and CDR events, and in certain SGSN-MME events.</p>
+                           </li>
+         <li>
+            <p>GTP-U CUPS mapping ratio</p>
+            <p>In case of CUPS mode, events coming from GTP-U Probes do not contain IMSI. The
+               Correlator tries to map them to users or IMSIs based on GTP-C information. The
+               mapping ratio indicates the percentage of successful mapping. Events without
+               successful mapping are dropped.</p>
+            <note id="note_N100AC_N100A9_N100A2_N1007B_N1004B_N10001" otherprops="CUPS_limited">
+               <p>Control and User Plane Separation support is a restricted feature and is turned
+                  off by default. Consult Ericsson personnel for more information.</p>
+            </note>
+         </li>
+         <li>
+            <p>SGW and PGW mapping ratio</p>
+            <p>In case of CUPS mode, events coming from GTP-C Probes do not contain IMSI except for
+               the PDP or PDN Create Session messages. The Correlator tries to map them to users or
+               IMSIs based on GTP-C information. The mapping ratio indicates the percentage of
+               successful mapping. Events without successful mapping are dropped.</p>
+         </li>
+      </ul>
+      <p>Exact threshold for the mapping values cannot be defined, as it depends on many factors. In general it is suggested to monitor the system when it is considered healthy and note the mapping ratio numbers. If later, for some reason any of the mapping ratios goes significantly below those numbers, corrective actions are to be trigged (for example, check affected sources).</p>
+      <p>For most troubleshooting activities, investigate the output of the script below as an initial step:</p>
+      <note id="note_N100C3_N1004B_N10001">
+         <p>Executing the command requires <option>eea-besr-troubleshooter</option> group
+            membership.</p>
+      </note>
+      <codeblock>Mon Nov 18 01:12:18 PST 2019
+Corr overview
+------------
+Latency: 61.00 sec
+Processing speed: 0.99x realtime
+Nr of subscribers: 9914513
+CIA Input Rate: 38209 eps
+Corr Proc. Rate: 1558 eps
+4G RAN mapping ratio:     88.48%
+VSK RTP mapping ratio:    NA
+IMS &amp; CDR mapping ratio:  100.00%
+GTP-U CUPS mapping ratio: NA
+SGW mapping ratio:        NA</codeblock>
+      <p>The input rates and the mapping ratio are periodic values. Values are refreshed in every 10
+         seconds. The generated logfile can be found in
+            <filepath>/data/eea_log/health_check.log</filepath>. The file also contains the output
+         of the <filepath>slowest_path</filepath> script:</p>
+   </conbody>
+</concept>

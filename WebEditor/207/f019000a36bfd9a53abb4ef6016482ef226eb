@@ -1,0 +1,62 @@
+<concept id="965a736b109e190356c2611e578ea72a" xml:lang="en-US">
+   <title>System Status</title>
+   <prolog>
+      <source>ST4 ID: 16333890443</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist>
+         <change-item>
+            <change-person>zttrhrtx</change-person>
+            <change-request-reference>
+               <change-request-system>other</change-request-system>
+               <change-request-id/>
+            </change-request-reference>
+            <change-completed>2019-11-20</change-completed>
+            <change-summary>EEAEPP-33460 - Besr_cluster detailed-status information
+input from: EVERBAC</change-summary>
+            <data/>
+         </change-item>
+      </change-historylist>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The adapter status can be checked using the following command:</p>
+      <codeblock>besr_cluster status adapters</codeblock>
+      <p>Adapters status can be:</p>
+      <ul>
+         <li>
+                                       <p>active(running)</p>
+                                    </li>
+         <li>
+                                       <p>inactive(dead)</p>
+                                    </li>
+      </ul>
+      <p>For a more detailed status, execute the following command:</p>
+      <codeblock>besr_cluster statusall adapters</codeblock>
+      <p>Results can be similar to the following example:</p>
+      <codeblock>Adapter status
+---------------
+  host1: master
+  host1:daemon_sgsn_mme_ebm_download.py:local - RUNNING
+  host1:daemon_sgsn_mme_ebm_file_adapter.py: - RUNNING
+  host1:daemon_gpeh_download.py:local - RUNNING
+  host1:daemon_gpeh_file_adapter.py: - RUNNING
+  host1:daemon_pag.py:sgsn_mme_ebm:SGSN1 - RUNNING
+  host1:daemon_pag.py:sgsn_mme_ebm:SGSN2 - RUNNING
+  host1:daemon_pag.py:sgsn_mme_ebm:SGSN4 - RUNNING
+  host1:daemon_pag.py:gpeh:RNC11 - RUNNING
+  host1:daemon_pag.py:gpeh:RNC12 - RUNNING
+  host1:daemon_pag.py:gpeh:RNC13 - RUNNING
+  host1:daemon_pag.py:gpeh:RNC21 - RUNNING
+
+Source Latency
+---------------
+  : unknown</codeblock>
+      <p>In case of any failures, use the following command to print the journal log of the Adapter
+         service since its last restart:</p>
+      <p><userinput>besr_cluster detailed-status adapters</userinput></p>
+   </conbody>
+</concept>

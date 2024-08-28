@@ -1,0 +1,16 @@
+<concept id="753cf696eb04263e42a48c8353706db0" xml:lang="en-US">
+   <title>Purpose and Scope</title>
+   <prolog>
+      <source>ST4 ID: 5125134475</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This document covers the security administration, operation, and maintenance routines
+         available for <ph keyref="ECM"/>.</p>
+   </conbody>
+</concept>

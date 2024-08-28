@@ -1,0 +1,19 @@
+<concept id="445b5ecaba3666ef236b0dacc2c15a7a" xml:lang="en-US">
+    <title>Make the Activation Component Aware of the New Certificate and Password</title>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>Use this procedure to make the activation component aware of the new certificate and
+            password for the certificate on port 8383 (<xref keyref="6fd8183fecca333a16228be32c00957c"/>) and on
+            port 8181 (<xref keyref="5c5f36bef12e0dd21d6a9bc67ea502e0"/> - if used).</p>
+     </conbody>
+</concept>

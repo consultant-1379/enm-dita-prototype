@@ -1,0 +1,228 @@
+<concept id="578d85c3be8cc2e7f5ee1a52be816628" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for JBoss Keystores &amp; Certificates (<ph keyref="ecaProductName"/>)</title>
+   <prolog>
+      <source>ST4 ID: 13577137803</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>The keystores and certificates included with the <ph keyref="ecaProductname_s"/> JBoss app
+         server have default passwords, which are stored in the following locations:</p>
+      <ul>
+         <li>
+                                 <p>
+               <ph importance="normal">Certificates</ph>:
+                  <filepath>/opt/jboss-eap-7.2/standalone/configuration/cacerts.jks</filepath>
+            </p>
+                              </li>
+         <li>
+                                 <p>
+               <ph importance="normal">Key</ph>:
+                  <filepath>/opt/jboss-eap-7.2/standalone/configuration/keystore.jks</filepath>
+            </p>
+                              </li>
+      </ul>
+      <p>To change these passwords, follow the procedure below. Both files must be updated.</p>
+      <p>
+                              <ph importance="normal">Considerations</ph> 
+                           </p>
+      <p>Note the following considerations:</p>
+      <ul>
+         <li>
+            <p>The password must be the same for keystore, certificate, and for both aliases
+               (sentilla, s1as).</p>
+         </li>
+         <li>
+                                 <p>Changing these passwords results in a brief system downtime, for
+               the period while JBoss is shut down.</p>
+                              </li>
+         <li>
+                                 <p>If you change any password in an <ph keyref="HA_s"/>
+               environment, be sure to repeat the same change procedure on the corresponding VM on
+               the second node in the <ph keyref="HA_s"/> cluster.</p>
+                              </li>
+         <li>
+                                 <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_F"/>
+                                 </p>
+                              </li>
+         <li>
+                                 <p>For geo-redundant deployments, you must change these passwords on both the active site (Site A) and the standby site (Site B).</p>
+                              </li>
+      </ul>
+      <ol>
+         <li>
+            <p>Log on to the <ph keyref="CoreVM"/> 1 as <userinput>osadm</userinput>. </p>
+         </li>
+         <li>
+            <p>Execute the following command:<codeblock>sudo -s</codeblock></p>
+         </li>
+         <li>
+            <p>Update the certificate password by running the following command:</p>
+            <codeblock>keytool -storepasswd -keystore /opt/jboss-eap-7.2/standalone/configuration/cacerts.jks 
+-storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+         </li>
+         <li>
+            <p>Update the keystore password by running the following command:</p>
+            <codeblock>keytool -storepasswd -keystore /opt/jboss-eap-7.2/standalone/configuration/keystore.jks 
+-storepass &lt;oldPassword> -new &lt;myNewPassword></codeblock>
+         </li>
+         <li>
+            <p>Update the two alias passwords in <filepath>keystore.jks</filepath>, using the
+               following commands and supplying values when prompted:</p>
+            <codeblock>keytool -keypasswd -alias sentilla -keystore /opt/jboss-eap-7.2/standalone/configuration/keystore.jks
+Enter keystore password:
+Enter key password for &lt;sentilla> 
+New key password for &lt;sentilla>: 
+Re-enter new key password for &lt;sentilla>: 
+
+keytool -keypasswd -alias s1as -keystore /opt/jboss-eap-7.2/standalone/configuration/keystore.jks 
+Enter keystore password: 
+Enter key password for &lt;s1as>] 
+New key password for &lt;s1as>: 
+Re-enter new key password for &lt;s1as>:</codeblock>
+         </li>
+         <li>
+            <p>Update the <filepath>standalone-full.xml</filepath> file.</p>
+            <ul>
+               <li>
+                  <p>Open the
+                        <filepath>$JBOSS_HOME/standalone/configuration/standalone-full.xml</filepath>
+                     file. </p>
+               </li>
+               <li>
+                  <p>Update the following parameters for Keystores &amp; Certificates:</p>
+                  <ul id="ul_d1y_j3x_4mb">
+                     <li>
+                        <p>The <parmname>keystore-password</parmname> and
+                              <parmname>key-password</parmname> attributes for the
+                              <parmname>keystore</parmname> tag under
+                              <parmname>server-identities</parmname>
+                        </p>
+                     </li>
+                     <li>
+                        <p>The <parmname>credential-reference</parmname> and
+                              <parmname>clear-text</parmname> attributes under
+                              <parmname>key-stores</parmname> and
+                           <parmname>key-managers</parmname></p>
+                     </li>
+                  </ul>
+                  <p>Example:</p>
+                  <codeblock>&lt;server-identities>
+   &lt;ssl>
+      &lt;keystore path="${jboss.server.config.dir}/keystore.jks" keystore-password="[myNewPassword]" alias="sentilla" key-password="[myNewPassword]"/>
+   &lt;/ssl>
+&lt;/server-identities>
+
+&lt;key-stores>
+   &lt;key-store name="https-key-store">
+      &lt;credential-reference clear-text="[myNewPassword]"/>
+      &lt;implementation type="JKS"/>
+      &lt;file path="${jboss.server.config.dir}/keystore.jks"/>
+   &lt;/key-store>
+
+   &lt;key-store name="jbossweb-migrated-connector-https-trust-store">
+      &lt;credential-reference clear-text="[myNewPassword]"/>
+      &lt;implementation type="JKS"/>
+      &lt;file path="${jboss.server.config.dir}/cacerts.jks"/>
+   &lt;/key-store>
+&lt;/key-stores>
+
+&lt;key-managers>
+   &lt;key-manager name="jbossweb-migrated-connector-https-key-manager" key-store="https-key-store">
+      &lt;credential-reference clear-text="[myNewPassword]"/>
+   &lt;/key-manager>
+&lt;/key-managers></codeblock>
+               </li>
+               <li>
+                  <p>Restart JBoss.</p>
+               </li>
+            </ul>
+            <p conkeyref="c17a916cd7298cd1e7d9235fcb652b58/st4tb12189587211"/>
+         </li>
+         <li>
+            <p>Update the <filepath>PASSPHRASE=&lt;myNewPassword></filepath> parameter in the
+               following scripts, under the directory
+                  <filepath>/opt/sentilla/share/scripts</filepath>:</p>
+            <ul>
+               <li>
+                  <p>
+                     <filepath>GenerateAndInstallSelfSignedCertificate.sh</filepath>
+                  </p>
+                  <p> The password occurs three times in this script. Update all occurrences of the
+                     password in the script. </p>
+                  <table id="table_N10224_N10216_N10213_N10204_N10196_N1012C_N10001">
+                     <tgroup cols="2">
+                        <colspec colname="col1"/>
+                        <colspec colname="col2"/>
+                        <thead>
+                           <row>
+                              <entry valign="top">
+                                 <p>Location</p>
+                              </entry>
+                              <entry valign="top">
+                                 <p>Update to:</p>
+                              </entry>
+                           </row>
+                        </thead>
+                        <tbody>
+                           <row>
+                              <entry>
+                                 <p>
+                                    <filepath>PASSPHRASE=&lt;OldPassword></filepath>
+                                 </p>
+                              </entry>
+                              <entry>
+                                 <p>
+                                    <filepath>PASSPHRASE=&lt;myNewPassword></filepath>
+                                 </p>
+                              </entry>
+                           </row>
+                           <row>
+                              <entry>
+                                 <p>In the following line, replace the value for <ph importance="normal">-storepass</ph> with the value for the
+                                    new password.</p>
+                                 <codeblock> keytool -list -v -keystore ${CRTBASEPATH}/keystore.jks -storepass <ph importance="normal">changeit</ph> -alias ${ALIAS} > ${TMP_CRTFILELIST}</codeblock>
+                              </entry>
+                              <entry>
+                                 <p>For example:</p>
+                                 <codeblock> keytool -list -v -keystore ${CRTBASEPATH}/keystore.jks -storepass <ph importance="normal">&lt;myNewPassword></ph>
+ -alias ${ALIAS} > ${TMP_CRTFILELIST}</codeblock>
+                              </entry>
+                           </row>
+                           <row>
+                              <entry>
+                                 <p>In the following line, replace the value for <ph importance="normal">-storepass</ph> with the value for the
+                                    new password.</p>
+                                 <codeblock>CRTSIGN=$(keytool -list -v -keystore ${CRTBASEPATH}/keystore.jks -storepass <ph importance="normal">changeit</ph> -alias ${ALIAS} | grep "SHA1:" | sed -e "s#^\s*SHA1: ##g")</codeblock>
+                              </entry>
+                              <entry>
+                                 <p>For example:</p>
+                                 <codeblock>CRTSIGN=$(keytool -list -v -keystore ${CRTBASEPATH}/keystore.jks -storepass <ph importance="normal">&lt;myNewPassword></ph> -alias ${ALIAS} | grep "SHA1:" | sed -e "s#^\s*SHA1: ##g")</codeblock>
+                              </entry>
+                           </row>
+                        </tbody>
+                     </tgroup>
+                  </table>
+               </li>
+               <li>
+                  <p>
+                     <filepath>UpdateExpiredCertificate.sh</filepath>
+                  </p>
+               </li>
+               <li>
+                  <p>
+                     <filepath>ImportMultiDCCertificate.sh</filepath>
+                  </p>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>Repeat all steps for the <ph keyref="CoreVM"/> 2.</p>
+         </li>
+      </ol>
+   </conbody>
+</concept>

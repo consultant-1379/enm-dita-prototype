@@ -1,0 +1,73 @@
+<task id="d87e41e102b93771ac8ddc3fbe78485a" xml:lang="en-US">
+   <title>Configure the SSL Certificates for Glance V2</title>
+   <prolog>
+      <source>ST4 ID: 13959195915</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                           <context id="context_N1004B_N10048_N10001" outputclass="st4mig_beforeProcedure">
+                              <p>If Glance V2 is being used for the OpenStack Image Service, then
+               <ph keyref="ECM"/> SSL certificates must be configured on the VIM (on the OpenStack
+            blade where Glance V2 is running). The procedure is the same for <ph keyref="non_HA_s"/>
+            and <ph keyref="HA_s"/> deployments.</p>
+                              <note id="note_N10058_N1004B_N10048_N10001" type="note">
+            <p>Glance V2 only uploads images when the SSL certificates are set up correctly.</p>
+         </note>
+                           </context>
+                           <steps>
+                              <step id="step_N10066_N10063_N10048_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log on to the  <ph keyref="CoreVM"/> as
+                     <userinput>osadm</userinput> and execute the following command:</ph></cmd>
+            <info>
+               <p><ph>
+                     <userinput>sudo -s</userinput>
+                  </ph>
+               </p>
+            </info>
+         </step>
+                              <step id="step_N1008B_N10063_N10048_N10001">
+                                 <cmd>
+               <ph outputclass="st4mig_cmd-para">Change to the directory:</ph></cmd><info><p><ph>
+
+                                    <userinput>cd /etc/pki/tls/certs</userinput>
+                                 </ph>
+            </p></info>
+                              </step>
+                              <step id="step_N100A4_N10063_N10048_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Transfer the <filepath>ecm_ssl.crt</filepath>
+                  certificate authority file from the <ph keyref="CoreVM"/> to a directory (<userinput>
+                     <varname>&lt;VIM_DIRECTORY></varname>
+                  </userinput>) on the VIM that requires certification, using a secure transfer
+                  method such as <option outputclass="st4mig_function">sftp</option> or <option outputclass="st4mig_function">scp</option>.</ph>
+            </cmd>
+         </step>
+                              <step id="step_N100D0_N10063_N10048_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">After the certificate authority file is transferred
+                  to the VIM, install the SSL certificate on the VIM.</ph>
+            </cmd>
+            <info>
+               <p>For example, in the case of the RedHat OpenStack Platform environment:</p>
+               <p>
+                  <userinput>sudo cp <varname>&lt;VIM_DIRECTORY></varname>/ecm_ssl.crt
+                     /etc/pki/ca-trust/source/anchors/</userinput>
+               </p>
+               <p>
+                  <userinput>sudo update-ca-trust extract</userinput>
+               </p>
+               <note id="note_N100F4_N100D9_N100CD_N10063_N10048_N10001">
+                  <p>For more information on how to add the external client certificate on the VIM,
+                     see the OpenStack vendor documentation.</p>
+               </note>
+            </info>
+         </step>
+                           </steps>
+                        </taskbody>
+</task>

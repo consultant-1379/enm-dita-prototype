@@ -1,0 +1,73 @@
+<task id="3141e4e16749bc206a6e2caa7369fd16" xml:lang="en-US">
+  <title>Modify an Authentication Parameter</title>
+  <prolog>
+    <source/>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA"/>
+  </prolog>
+  <taskbody>
+    <context id="context_N10029_N10026_N10001">
+      <p>To modify the default values of these parameters, do the following:</p>
+      <note id="note_N10031_N10029_N10026_N10001">
+        <p>All commands throughout this subsection need to be run from
+node-1.</p>
+      </note>
+    </context>
+    <steps>
+      <step id="step_N1003E_N1003B_N10026_N10001">
+        <cmd>Run the <filepath>bootloader.py</filepath> command
+to set a new value for a parameter:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter <varname>&lt;parameterName></varname> --value <varname>&lt;newValue></varname>
+          </userinput>
+        </info>
+        <info>The new value is saved in the <filepath>user_config</filepath> file.</info>
+        <info>Example of setting a new value for <filepath>AUTHN_MAX_DAYS_TO_REMEMBER</filepath> as 30:</info>
+        <stepxmp>
+          <pre>$ bootloader.py config set --parameter @AUTHN_MAX_DAYS_TO_REMEMBER@ --value 30
+INFO - *** @AUTHN_MAX_DAYS_TO_REMEMBER@=30 inserted in user configuration
+INFO - *** To activate the changed parameter, execute "bootloader.py node activate --host &lt;hostname>" command
+</pre>
+        </stepxmp>
+        <info>Check <filepath>user_config</filepath> for verification:</info>
+        <info>
+          <pre>$ cat /home/bootloader/config/user_config
+@AUTHN_MAX_DAYS_TO_REMEMBER@=30</pre>
+        </info>
+      </step>
+      <step id="step_N10087_N1003B_N10026_N10001">
+        <cmd>Perform an activation on each node, one by one, for the
+configured parameters to take effect on all modules on the system:$ cat /home/bootloader/config/user_config
+@AUTHN_MAX_DAYS_TO_REMEMBER@=30
+</cmd>
+        <info>
+          <note id="note_N10094_N10091_N10089_N1003C_N10027_N10001">
+            <p>Wait for each node to be activated before starting with the next one, otherwise
+              traffic disturbances occur. The <filepath>
+                <varname>all</varname>
+              </filepath> parameter should only be used when no provisioning traffic is running.</p>
+          </note>
+        </info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+          </userinput>
+        </info>
+        <info>
+          <filepath>&lt;hostname></filepath> is the hostname of the
+node that is to be activated.</info>
+        <info>
+          <note id="note_N100C5_N100C2_N10086_N1003B_N10026_N10001">
+            <p>The new value will take effect after this command is executed: <filepath>bootloader
+                node activate</filepath>.</p>
+            <p>GUI users can keep using their current password until expiration.</p>
+          </note>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

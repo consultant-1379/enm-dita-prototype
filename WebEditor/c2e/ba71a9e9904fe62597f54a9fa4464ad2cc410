@@ -1,0 +1,34 @@
+<concept id="339e65aa15fec72033768b0fab5ce718" xml:lang="en-US">
+    <title>Job Scheduler</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>zbekcsa</change-person>
+                <change-request-reference>
+                    <change-request-system>other</change-request-system>
+                    <change-request-id>EEAEPP-20091</change-request-id>
+                </change-request-reference>
+                <change-completed>2019-11-05</change-completed>
+                <change-summary>JIRA Task: EEAEPP-29996
+Change: New topic: Job Scheduler.
+Input from: ERELMHA</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p><ph keyref=""/>
+            <ph keyref=""/> Loader depends on Oozie Job Scheduler to be executed. For
+            more information about Oozie, see <xref keyref="3fa9cb8c28cf9fe9f2e3896a9d9cc54e"/>.</p>
+    </conbody>
+</concept>

@@ -1,0 +1,20 @@
+<concept id="072ca91b81202fbe15f9446a6d7aca70" xml:lang="en-US">
+   <title>Example</title>
+   <prolog>
+      <source>ST4 ID: 16330999819</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>To change enabled Probe components on a single instance of a Probe cluster, perform the following:</p>
+      <codeblock>$ vi /opt/ericsson/eea/conf/probe_config.py
+$ besr_local force-reload</codeblock>
+      <p>Default is to execute the service operation on all enabled components. For example, perform the following to restart all components:</p>
+      <codeblock>$ besr_local restart</codeblock>
+      <p>If a component is specified, the service operation is executed only on the given component. For example, perform the following to restart the gtpc component:</p>
+      <codeblock>$ besr_local restart gtpc</codeblock>
+   </conbody>
+</concept>

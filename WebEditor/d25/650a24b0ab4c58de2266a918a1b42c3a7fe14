@@ -1,0 +1,137 @@
+<referable-content id="2f2051185d430e140574bd26e4bfe7fb" xml:lang="en-US">
+<title>EMC Cache State not Enabled Ref Con</title>
+<rcbody>
+        <table id="table_yxg_msx_vfb">
+            <tgroup cols="2">
+                <colspec colname="col1" colnum="1" colwidth="1*"/>
+                <colspec colname="col2" colnum="2" colwidth="2.56*"/>
+                <thead>
+                    <row>
+                        <entry nameend="col2" namest="col1">
+                            <p>Alarm Attributes</p>
+                        </entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>
+                            <p>Record Type</p>
+                        </entry>
+                        <entry>
+                            <p>ALARM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Event Type</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <p>EMC Storage - SP Read Cache State</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC Storage - SP Write Cache State</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC Storage - SPA Read Cache State</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC Storage - SPA Write Cache State</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC Storage - SPB Read Cache State</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC Storage - SPB Write Cache State</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Probable cause</p>
+                        </entry>
+                        <entry>
+                            <p>
+                                <ul>
+                                    <li>
+                                        <p>EMC SP Read Cache State is not Enabled</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC SP Write Cache State is not Enabled</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC SPA Read Cache State is not Enabled</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC SPA Write Cache State is not Enabled</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC SPB Read Cache State is not Enabled</p>
+                                    </li>
+                                    <li>
+                                        <p>EMC SPB Write Cache State is not Enabled</p>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>(Platform Type) &lt;esmon agent name> - (EMC Storage) Model No
+                                [Serial No]</p>
+                            <p>Example: (Linux) ms-esmon - (EMC Storage) VNX5300[CKM00123301995]</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Specific Problem</p>
+                        </entry>
+                        <entry>
+                            <p>EMC Cache State not Enabled</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Severity</p>
+                        </entry>
+                        <entry>
+                            <p>CRITICAL</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Managed Object Class</p>
+                        </entry>
+                        <entry>
+                            <p>ENM</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Problem Text</p>
+                        </entry>
+                        <entry>
+                            <p>-</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Technical Area</p>
+                        </entry>
+                        <entry>
+                            <p>ENM System Monitor</p>
+                        </entry>
+                    </row>
+                    <row>
+                        <entry>
+                            <p>Stateful/Stateless</p>
+                        </entry>
+                        <entry>
+                            <p>Stateful</p>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </rcbody>
+</referable-content>

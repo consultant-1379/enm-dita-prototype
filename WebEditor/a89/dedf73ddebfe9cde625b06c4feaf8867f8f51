@@ -1,0 +1,7 @@
+<referable-content id="f77fc6bb4148da31e10629bb9cd8b467" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password/NSO--><title>Scripts Directory</title>
+   <rcbody>
+      <step id="st4tb12388008459"><cmd>Change to the following directory:</cmd>
+	  <info><p><userinput>cd /opt/ericsson/do/db/scripts/bin</userinput></p></info>
+	  </step>
+   </rcbody>
+</referable-content>

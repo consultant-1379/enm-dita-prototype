@@ -1,0 +1,150 @@
+<concept id="bc76f6ef5bfa34f620bc22b207f2e48f" xml:lang="en-US">
+   <title>ESR Incident HBase Loader Monitoring</title>
+   <prolog>
+      <source>ST4 ID: 16342618251</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref=""/> Incident HBase Loader can be monitored using the HBase Loading Monitor application, which is installed with the <apiname>esr-incident-hbase-loader</apiname> appsuite.</p>
+      <p>The Loader application sends monitoring information to a Redis queue. From there, the Monitoring application reads and processes the information, and writes back to Redis.</p>
+      <p>The latest monitoring information regarding the <ph keyref=""/> Incident HBase Loader can be read from here, for example to be displayed on a Zabbix chart.</p>
+      <note id="note_N10043_N10028_N10001">
+                                 <p>Earlier data is overwritten with each aggregation.</p>
+                              </note>
+      <p>The aggregated data contains the timestamp of the aggregation to help to decide if it is useful or obsolete, and to avoid confusion in case there is an issue with the monitoring application or Redis.</p>
+      <p>Non-aggregated monitoring information is also logged by the <ph keyref=""/> Incident HBase Loader.</p>
+      <p>The following is an example <apiname>monitoring.properties</apiname> configuration file:</p>
+      <codeblock># This parameter determines the Redis queue from which metrics are fetched, separated by ";"
+redis.queues=esr-incident-hbase-loader
+
+# This parameter sets the Redis queue poll interval in ms
+input.poll.interval=500
+
+# This parameter sets the aggregation interval in sec
+aggregation.interval=60
+
+# This parameter sets the aggregation strategies for the counters, separated by ";"
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.eventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.processedEventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.unprocessedEventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.loadingEventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.couldntLoadedEventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.malformedEventCounter=SumStrategy;RateStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.lastProcessedIncidentEndTimestamp=NullStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.overallLatency=MaxStrategy;AvgStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.kafkaTimestamps=NullStrategy
+strategy.esr-incident-hbase-loader-suite.esr-incident-hbase-loader.Statistics.kafkaLatencies=MaxStrategy;AvgStrategy
+</codeblock>
+      <p>For more information regarding the <ph keyref=""/> Incident HBase Loader
+         monitoring parameters, see .<xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#psv1571256950271?title=Performance%20Management%20Description" scope="external">Redis Monitoring Parameters</xref></p>
+      <note id="note_N10073_N10028_N10001" type="note">The monitoring application does not start if the <apiname>redis.queues</apiname> parameter is not defined, or the configuration file contains an unimplemented strategy.</note>
+      <p>Messages are ignored if there is no corresponding appsuite, application, or strategy defined.</p>
+      <p>The following aggregation strategies are available for configuration:</p>
+      <table id="table_N10083_N10028_N10001">
+         <tgroup cols="2">
+                                    <colspec colname="col1"/>
+                                    <colspec colname="col2"/>
+                                    <thead>
+                                       <row>
+                                          <entry valign="top">
+                                             <p>Aggregation Strategy Name</p>
+                                          </entry>
+                                          <entry valign="top">
+                                             <p>Aggregation Strategy Description</p>
+                                          </entry>
+                                       </row>
+                                    </thead>
+                                    <tbody>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>NullStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy leaves the values unprocessed.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>SumStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy calculates the sum of the values.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>RateStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy calculates the sum of the values divided by the time it took to process them.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>MinStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy returns the minimum of the values.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>MaxStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy returns the maximum of the values.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>AvgStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy calculates the average of the values.</p>
+                                          </entry>
+                                       </row>
+                                       <row>
+                                          <entry>
+                                             <p>
+                                                <apiname>CountStrategy</apiname>
+                                             </p>
+                                          </entry>
+                                          <entry>
+                                             <p>This aggregation strategy calculates the number of messages containing the specified value.</p>
+                                          </entry>
+                                       </row>
+                                    </tbody>
+                                 </tgroup>
+      </table>
+      <p>Changing the configuration (for example, the strategies) requires the <ph keyref=""/> Incident HBase Loading Monitor application to be restarted. However, it is not necessary to restart the <ph keyref=""/> Incident HBase Loader.</p>
+      <p>In case of any issues with the <ph keyref=""/> Incident HBase Loading Monitor, perform the following checks:</p>
+      <ul>
+         <li>
+                                    <p>Make sure that the application is running with one container and at least two cores.</p>
+                                 </li>
+         <li>
+                                    <p>Check the status of the Redis cluster, and take appropriate action if any issues are encountered.</p>
+                                 </li>
+         <li>
+                                    <p>Check the status of the <ph keyref=""/> Incident HBase Loader application. If the Loader application is not running, the Monitoring application does not have any new input data.</p>
+                                 </li>
+      </ul>
+      <p>After resolving any encountered issues, the <ph keyref=""/> Incident HBase Loading Monitor application needs to be restarted.</p>
+   </conbody>
+</concept>

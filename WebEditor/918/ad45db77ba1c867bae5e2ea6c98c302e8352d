@@ -1,0 +1,43 @@
+<task id="24f20b4f4627c297e0c59e4124cd8753" xml:lang="en-US">
+   <title>Change Password for the F5 <filepath>admin</filepath> ID</title>
+   <prolog>
+      <source>ST4 ID: 14103931915</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N10032_N1002F_N10001" outputclass="st4mig_beforeProcedure">
+                                 <p>Before changing this password, see <xref keyref="059afece07cee05b31a379a128904975"/> for important considerations. </p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10043_N10040_N1002F_N10001">
+            <cmd>Log in as <option keyref="loginID"/> to the active <ph keyref="LB_VM_s"/>. </cmd>
+         </step>
+                                 <step id="step_N10055_N10040_N1002F_N10001">
+            <cmd>Execute the following command on the active <ph keyref="LB_VM_s"/>: </cmd>
+            <info>
+               <codeblock outputclass="condensed">tmsh modify auth password admin</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N1006C_N10040_N1002F_N10001">
+            <cmd>Follow the prompts to supply the new password.  </cmd>
+         </step>
+         <step id="step_N1007A_N10040_N1002F_N10001">
+            <cmd>Log in to the active F5 GUI as <option>admin</option> with the new password.</cmd>
+         </step>
+         <step id="step_N10087_N10040_N1002F_N10001">
+            <cmd>Click on <uicontrol>Changes Pending</uicontrol>.</cmd>
+         </step>
+         <step id="step_N10094_N10040_N1002F_N10001">
+            <cmd>Click on <uicontrol>Sync</uicontrol> to synchronize the nodes.</cmd>
+         </step>
+                                 <step id="step_N100A1_N10040_N1002F_N10001">
+            <cmd>Log in to the standby F5 GUI with the new password. </cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

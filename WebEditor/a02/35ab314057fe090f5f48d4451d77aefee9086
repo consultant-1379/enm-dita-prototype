@@ -1,0 +1,15 @@
+<concept id="997c56974eeccd42ed91fbe8cf0feb21" xml:lang="en-US">
+   <title>Adapter Use and Maintenance</title>
+   <prolog>
+      <source>ST4 ID: 16331491339</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <!--THIS TOPIC IS PART OF THE BESR REPO, DO NOT EDIT IT WITHOUT CONSULTING WITH DATA FLOW AREA TECHWRITERS!!!-->
+   <conbody>
+      <p>The following sections describe the use, fault and performance management, and maintenance of the Adapters.</p>
+   </conbody>
+</concept>

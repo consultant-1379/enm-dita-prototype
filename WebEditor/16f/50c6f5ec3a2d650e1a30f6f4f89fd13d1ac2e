@@ -1,0 +1,156 @@
+<concept id="80bfda2c74ba54046dbc583df99efba7" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Impacts on <ph keyref="externalIdam_initialCap"/> System</title>
+   <prolog>
+      <source>ST4 ID: 11331317643</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <conbody>
+      <p>When an <ph keyref="externalIdam"/> system is used, <ph keyref="ECM_short"/> expects
+         certain information to be returned as part of user authorization. The following information
+         is required:</p>
+      <ul>
+         <li>
+                           <p>Tenant or tenants</p>
+                        </li>
+         <li>
+                           <p>Subtenant or subtenants – if applicable</p>
+                        </li>
+         <li>
+                           <p>Role or roles</p>
+                        </li>
+         <li>
+                           <p>User group memberships – if applicable</p>
+                        </li>
+      </ul>
+      <note conkeyref="db23c2ff4d1d9523456294b0e4fa99f9/tb13784368651" id="note_N100B7_N10084_N10001"/>
+      <p>It is expected that these items are configured as groups for the user in the <ph keyref="externalIdam"/> system (for example, using the <parmname>memberOf</parmname>
+         attribute). One user can have multiple roles and belong to multiple user groups. A user can
+         also belong to multiple <ph keyref="ECM_short"/> tenants. A user is made a member of
+         multiple groups by adding these groups for the user in the <ph keyref="externalIdam"/>
+         system.</p>
+      <note id="note_N100D1_N10084_N10001" type="note">
+         <ul id="ul_fhc_vmx_cgb">
+            <li>
+               <p>The operator is responsible for configuring the <ph keyref="externalIdam"/> system
+                  per these requirements.</p>
+            </li>
+            <li>
+               <p>The use of the <option outputclass="st4mig_function">memberOf</option> attribute
+                  in the <ph keyref="externalIdam"/> system is not required. If the <ph keyref="externalIdam"/> system uses a different, but equivalent attribute, the
+                  mapping can be specified in the Add IdAM operation (<option outputclass="st4mig_function">userAttributesMapping</option>: <option outputclass="st4mig_function">ecmAttribute</option>). See <cite>Add External
+                     IdAM Operation</cite> in the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_System_Integration_Cloud_Service_Management_Guide"/>.</p>
+            </li>
+         </ul>
+      </note>
+      <note id="note_N1010E_N10084_N10001">
+         <p><ph keyref="OpenAM_s"/> uses the <parmname>userProfileRetrievalAttribute</parmname>
+            attribute value (from the template files) to retrieve a user profile. <ph keyref="OpenAM_s"/> retrieves the user profile information from all Identity Stores
+            set for the specific Authentication Module that a tenant is configured to use. When a
+            user that has an internal account in <ph keyref="ECM_short"/> signs in with the same
+            identification as an external user in the <ph keyref="externalIdam"/> system, while
+            visualizing their profile on <ph keyref="ECM_short"/>, the roles set to an internal user
+            and the roles set to an external user will be listed.</p>
+      </note>
+      <p>
+         <ph keyref="ECM_short"/> requires the following naming conventions for group names:</p>
+      <table colsep="1" frame="all" id="table_xf1_2pm_w3b" rowsep="1">
+         <title/>
+         <tgroup cols="3">
+            <colspec colname="c1" colnum="1" colwidth="1*"/>
+            <colspec colname="c2" colnum="2" colwidth="1*"/>
+            <colspec colname="newCol3" colnum="3" colwidth="1*"/>
+            <thead>
+               <row>
+                  <entry>
+                     <p>To Specify</p>
+                  </entry>
+                  <entry>
+                     <p>Naming Convention</p>
+                  </entry>
+                  <entry>
+                     <p>Example</p>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Roles for a user</p>
+                     <note id="note_N1012A_N1011B_N10118_N10084_N10001">
+                        <p>For information on defining roles and permissions in <ph keyref="OpenDJ_s"/>, see the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Security_and_Hardening_Guide"/>. Use
+                           these instructions to add roles to <ph keyref="ECM_short"/> that are
+                           configured in an <ph keyref="externalIdam"/>.</p>
+                     </note>
+                  </entry>
+                  <entry>
+                     <p><userinput>ECM_ROLE_<varname>&lt;Name of the Cloud Manager Role in
+                              OpenDJ></varname>
+                        </userinput></p>
+                  </entry>
+                  <entry>
+                     <p>To indicate that the user is a <option>Tenant  Administrator</option> and a
+                           <option>Tenant User</option>, use:
+                           <userinput>ECM_ROLE_TenantAdmin</userinput>,
+                           <userinput>ECM_ROLE_TenantUser</userinput>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Membership of user groups for a user</p>
+                  </entry>
+                  <entry>
+                     <p><userinput>ECM_GROUP_<varname>&lt;Name of the Customer Defined User Group in
+                              Cloud Manager></varname>
+                        </userinput>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>To indicate that a user belongs to the <option>EpcUser</option> group,
+                        use:</p>
+                     <p>
+                        <userinput>ECM_GROUP_EpcUser</userinput></p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>The tenant for a tenant user</p>
+                  </entry>
+                  <entry>
+                     <p><userinput>ECM_TENANT_<varname>&lt;Tenant Name in Cloud
+                              Manager></varname></userinput></p>
+                  </entry>
+                  <entry>
+                     <p>To indicate that the user belongs to <userinput>tenant1</userinput>,
+                        use:</p>
+                     <p><userinput>ECM_TENANT_tenant1</userinput></p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>The tenant and subtenant for a subtenant user</p>
+                  </entry>
+                  <entry>
+                     <p><userinput>ECM_TENANT_<varname>&lt;Tenant Name in Cloud
+                              Manager></varname>$<varname>&lt;Subtenant Name in Cloud
+                              Manager></varname>
+                        </userinput>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>To indicate that a user belongs to <userinput>subTenant1</userinput> in
+                           <userinput>tenant1</userinput>, use:</p>
+                     <p>
+                        <userinput>ECM_TENANT_tenant1$subTenant1</userinput></p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </conbody>
+</concept>

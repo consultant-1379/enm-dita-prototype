@@ -1,0 +1,68 @@
+<task id="893e04ee1edb6a5c8cef64563522e24f" xml:lang="en-US">
+   <title>Change the Passwords for the IDs custwf_process_engine and custom_workflow</title>
+   <prolog>
+      <source>ST4 ID: 14110189067</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1002E_N1002B_N10001">
+                                 <p>Use <option outputclass="st4mig_function">psql</option> to
+            change the password for the <option>process_engine</option> and the
+               <option>custom_workflow</option> IDs.</p>
+                              </context>
+                              <steps>
+                                 <step id="step_N10047_N10044_N1002B_N10001">
+            <cmd>Log in to the master <ph keyref="edbVM"/> as the <option>enterprisedb</option> user
+               (superuser). </cmd>
+         </step>
+                                 <step id="step_N1005D_N10044_N1002B_N10001">
+            <cmd>Execute the following command to connect to the database: </cmd>
+            <info>
+               <codeblock outputclass="condensed">psql -p 5432 custwfdb1</codeblock>
+            </info>
+         </step>
+                                 <step id="step_N10074_N10044_N1002B_N10001">
+                                    <cmd>
+               <ph outputclass="st4mig_cmd-para">Execute the following commands:</ph>
+            </cmd>
+            <info>
+               <note conkeyref="4eca8e75ffbcbf1eb49df51d7c64b767/tb12473715211" id="note_N10081_N1007E_N10072_N10044_N1002B_N10001"/>
+               <ul>
+                  <li>
+                                          <p>To change the password for the<option>
+                           custwf_process_engine</option> ID:</p>
+                                          <codeblock outputclass="condensed">alter user custwf_process_engine with password '<varname>New_Password</varname>';</codeblock>
+                                       </li>
+                  <li>
+                                          <p>To change the password for the
+                           <option>custom_workflow</option> ID:</p>
+                                          <codeblock outputclass="condensed">alter user custom_workflow with password '<varname>New_Password</varname>';</codeblock>
+                                       </li>
+               </ul>
+               <note id="note_N100B6_N1007E_N10072_N10044_N1002B_N10001">
+                                       <p>The <varname>New_Password</varname> is the non-encrypted
+                     version.</p><p>The single quotes are required, as shown.</p>
+                                    </note>
+            </info>
+                                    
+                                    
+                                    
+                                 </step>
+                                 
+                                 
+                              </steps>
+                           <postreq id="postreq_N100C8_N1002B_N10001">
+                                    <div outputclass="st4mig-add-info">
+                                       <!--
+			4015 add-info/title: Next Step:-->
+                                       <p>
+                                          <xref keyref="045609c1054f68b57a77b33d4469e4bc"/>
+                                       </p>
+                                    </div>
+                                 </postreq></taskbody>
+</task>

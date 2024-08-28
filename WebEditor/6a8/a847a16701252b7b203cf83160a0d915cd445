@@ -1,0 +1,15 @@
+<concept id="72f47b97f5c7badae183ca3378f572b9" xml:lang="en-US">
+   <title>Change <ph keyref="ecaProductName"/> Passwords</title>
+   <prolog>
+      <source>ST4 ID: 10704913675</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>This section provides instructions for changing passwords for IDs used with the <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/>.</p>
+   </conbody>
+</concept>

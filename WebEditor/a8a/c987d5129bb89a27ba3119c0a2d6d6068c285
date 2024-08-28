@@ -1,0 +1,61 @@
+<task id="0deaef38f7d17f1f7da151abdf446019" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change the Password in Cloud Analytics</title>
+   <prolog>
+      <source>ST4 ID: 14254664331</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+                              <context id="context_N1004B_N10048_N10001" outputclass="st4mig_beforeProcedure">
+                                 <note id="note_N10050_N1004B_N10048_N10001">
+                                    <p>If you are using the <ph keyref="ecaProductname_s"/> optional <ph keyref="valuePackage_feature"/>, you must perform the following password reset procedure in several files on that system. If you are not running <ph keyref="ecaProductname_s"/>, you can skip this procedure.</p>
+                                 </note>
+                                 <p>To change the <ph keyref="ecaProductname_s"/> 
+                                    <filepath>activemq-rar.rar</filepath> password:</p>
+                              </context>
+                              <steps>
+                               
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N10083_N10080_N10035_N10001" id="step_N10075_N10072_N10048_N10001">
+                                    <cmd/>
+                                 </step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N10094_N10080_N10035_N10001" id="step_N1007E_N10072_N10048_N10001"><cmd/></step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N100BA_N10080_N10035_N10001" id="step_N10085_N10072_N10048_N10001"><cmd/></step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N100C9_N10080_N10035_N10001" id="step_N1008C_N10072_N10048_N10001"><cmd/></step>
+         <step id="step_N100D8_N10080_N10035_N10001">
+            <cmd>Choose the <option>Change user password</option> option.</cmd>
+         </step>
+         <step id="step_N100E5_N10080_N10035_N10001">
+            <cmd>Follow the prompts.</cmd>
+            <info>
+               <note id="note_N101CE_N101C7_N1013B_N10032_N10001">
+                  <p>Use <option>admin</option> as a user for which you want to change a password.
+                  </p>
+               </note>
+            </info>
+         </step>
+         <stepsection>
+            <p>For <ph keyref="HA_s"/> deployments</p>
+         </stepsection>
+         <step id="step_N100FA_N10080_N10035_N10001">
+            <cmd>Repeat Steps 2-6 on the second <ph keyref="ECACoreVM"/>.</cmd>
+         </step>
+         <step id="step_N10107_N10080_N10035_N10001">
+            <cmd>Log in to the first <ph keyref="ECA_Collection_VM_s"/> as
+                  <userinput>osadm</userinput>.</cmd>
+         </step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N10094_N10080_N10035_N10001" id="step_N100E4_N10072_N10048_N10001"><cmd/></step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N10123_N10080_N10035_N10001" id="step_N100EB_N10072_N10048_N10001"><cmd/></step>
+                                 <step conkeyref="99851b9bfaf9f617359b2342653178e7/step_N1013B_N10080_N10035_N10001" id="step_N100F2_N10072_N10048_N10001"><cmd/></step>
+         <step id="step_N100F9_N10072_N10048_N10001">
+            <cmd>Repeat Steps 4-6.</cmd>
+         </step>
+         <step id="step_N10102_N10072_N10048_N10001">
+            <cmd>Repeat Steps 9-12 on the second <ph keyref="ECA_Collection_VM_s"/>.</cmd>
+         </step>
+                              </steps>
+                           </taskbody>
+</task>

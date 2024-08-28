@@ -1,0 +1,5 @@
+<referable-content id="b19dad100ea1ea53c6abde22c3f8791d" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/Change Password--><title>Change Password GR Required - Multiple IDs</title>
+   <rcbody>
+      <p id="st4tb12402177803">Password changes for these IDs must be completed on the standby site in geo-redundant deployments.</p>
+   </rcbody>
+</referable-content>

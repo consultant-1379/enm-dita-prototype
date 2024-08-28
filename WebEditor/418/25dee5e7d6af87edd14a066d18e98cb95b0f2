@@ -1,0 +1,101 @@
+<task id="8549d04d52c435c96b89fe8194b811b3" xml:lang="en-US">
+    <title>Provision HBase REST Services</title>
+    <shortdesc/>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <change-historylist>
+            <change-item>
+                <change-person>ztthrtx</change-person>
+                <change-request-reference>
+                    <change-request-system>TR</change-request-system>
+                    <change-request-id>HX86294</change-request-id>
+                </change-request-reference>
+                <change-completed>2020-07-02</change-completed>
+                <change-summary>New section for provisioning HBase Rest interfaces.
+Based on: EEAEPP-37968
+input from: EMRTSTE</change-summary>
+                <data/>
+            </change-item>
+        </change-historylist>
+        <resourceid appid="NA"/>
+    </prolog>
+    <taskbody>
+        <context id="context_zbn_g2d_fmb">
+            <p>The <parmname>HBASE_REST_API_ADDRESSES</parmname> JNDI parameter in JBoss contains a
+                comma-separated list of servers and ports that can be modified if more HBase REST
+                servers are needed. The web services use this parameter to check the configured
+                servers in a round-robin manner. HBase REST services are automatically provisioned
+                so that each HBase primary server is collocated with a REST server instance. By
+                default, there are three HBase REST servers.</p>
+            <p>To add more HBase REST servers</p>
+        </context>
+        <prereq id="prereq_s4n_dfd_fmb">
+            <p>
+                <ul id="ul_bl1_2fd_fmb">
+                    <li>
+                        <p>The user has <option>admin</option> privileges.</p>
+                    </li>
+                    <li>
+                        <p>The new REST servers are already added in MapR.</p>
+                    </li>
+                </ul>
+            </p>
+        </prereq>
+        <steps id="steps_phv_h2d_fmb">
+            <step id="step_N1008E_N1008A_N10054_N10001">
+                <cmd>Log on to the JBoss domain controller node with <option>admin</option>
+                    privileges.</cmd>
+                <info>
+                    <p><userinput>ssh root@dc.jboss.eea</userinput></p>
+                </info>
+            </step>
+            <step id="step_N100A5_N1008A_N10054_N10001">
+                <cmd>Enter the domain controller container.</cmd>
+                <info>
+                    <p><userinput>docker exec -ti domaincontroller bash</userinput></p>
+                </info>
+            </step>
+            <step id="step_N100B8_N1008A_N10054_N10001">
+                <cmd>Enter the JBoss CLI interface.</cmd>
+                <info>
+                    <p><userinput>/opt/jboss-eap/bin/jboss-cli.sh</userinput></p>
+                </info>
+            </step>
+            <step id="step_N100CB_N1008A_N10054_N10001">
+                <cmd>Connect to the JBoss domain controller.</cmd>
+                <info>
+                    <p><userinput>connect dc.jboss.eea:9999</userinput></p>
+                </info>
+            </step>
+            <step id="step_N100DE_N1008A_N10054_N10001">
+                <cmd>Modify the <parmname>HBASE_REST_API_ADDRESSES</parmname> parameter.</cmd>
+                <info>
+                    <p><userinput>/profile=full-ha/subsystem=naming/binding=java\:jboss\/global\/HBASE_REST_API_ADDRESSES/:write-attribute(name=value,value="<varname>new_comma_separated_list_of_hbase_servers</varname>")</userinput></p>
+                    <p>The default value of the <parmname>HBASE_REST_API_ADDRESSES</parmname> is
+                            <parmname>rest.hbase.eea:28080,node1.rest.hbase.eea:28080,node2.rest.hbase.eea:28080,node3.rest.hbase.eea:28080</parmname>.</p>
+                    <p>Set this value with servers and ports that currently have running HBase REST
+                        services. Include each REST service in the list only once.</p>
+                </info>
+            </step>
+            <step id="step_N10105_N1008A_N10054_N10001">
+                <cmd>Restart the servers.</cmd>
+                <info>
+                    <p><userinput>":restart-servers"</userinput></p>
+                </info>
+            </step>
+            <step id="step_N10118_N1008A_N10054_N10001">
+                <cmd>Verify that the new servers were successfully added.</cmd>
+                <info>
+                    <p><userinput>/profile=full-ha/subsystem=naming/binding=java\:jboss\/global\/HBASE_REST_API_ADDRESSES:read-attribute(name=value)</userinput></p>
+                </info>
+            </step>
+        </steps>
+     </taskbody>
+</task>

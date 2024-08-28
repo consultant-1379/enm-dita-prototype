@@ -1,0 +1,15 @@
+<concept id="185e9b92c0b533f37d9d25339db62617" xml:lang="en-US">
+   <title>SQM Process Engine</title>
+   <prolog>
+      <source>ST4 ID: 16363239947</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>The <ph keyref=""/> System Administrator Guide can be accessed at the
+         following link: <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*?title=SQM%20Process%20Engine%20System%20Administrator%20Guide" scope="external">SQM Process Engine System Administrator Guide</xref></p>
+   </conbody>
+</concept>

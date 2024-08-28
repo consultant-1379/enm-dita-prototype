@@ -1,0 +1,80 @@
+<task id="1fefa1b493496fe790d10a0ade046500" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title>Change Password for <ph keyref="ECM"/> ID: cmdbsync</title><prolog><source>ST4 ID: 13092514827</source><permissions view="ericsson_internal"/><metadata><othermeta content="NA" name="workitem"/></metadata><change-historylist/><resourceid id="NA" ux-source-priority="topic-and-map"/></prolog><taskbody><context id="context_N10183_N10180_N10001" outputclass="st4mig_beforeProcedure">
+                              <note id="note_N10188_N10183_N10180_N10001" type="note">
+            <p>For geo-redundant deployments, repeat these procedures on the standby site (Site B)
+               with one exception: You do not need to shut down and restart JBoss on the standby
+               site.</p>
+         </note>
+                              <p>The <userinput>cmdbsync</userinput> user is used for internal <ph keyref="ECM_short"/> operations. The following procedure describes how to change the
+            password for this user. This procedure must be completed on both <ph keyref="CoreVM"/>s.</p>
+                              <p>Allowable special characters for this ID <ph keyref="passwordCharacterSet_A"/></p>
+                           </context><steps><step id="step_N101AE_N101AB_N10180_N10001">
+            <cmd>
+               <ph outputclass="st4mig_cmd-para">Log in to the <ph keyref="CoreVM"/> as
+                     <userinput>ecm_admin</userinput>. If you are using a <ph keyref="GR_s"/>
+                  system, log in to the Active Site (Site A).</ph>
+            </cmd>
+         </step><step id="step_N101C4_N101AB_N10180_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Reset the <userinput>cmdbsync</userinput> password with the following commands:</ph>
+            </cmd><info>
+               <ol><li>
+                                       <p>
+                        <filepath>cd /app/ecm/security/openAm/ds/userstore/bin/</filepath>
+                     </p>
+                                    </li><li>
+                                       <p>
+                                          <filepath>./ldappasswordmodify -h $host -p $port -D "$bindDN" -w "$bindPassword" -a $USER_DN -n "$NEW_PASSWORD"</filepath>
+                                       </p>
+                     <note id="note_N10091_N10086_N10079_N10076_N10067_N10050_N10027_N10001">
+                        <p>The <option outputclass="st4mig_function">bindPassword</option><option>Directory Manager</option>.
+                           The password must be enclosed in single quotes if it contains special
+                           characters.</p>
+                     </note>
+                                    </li></ol>
+               <p>Sample variable values for the command:</p>
+               <codeblock outputclass="pgwide">export host=127.0.0.1
+export port=2389
+export bindDN='cn=Directory Manager'
+export bindPassword='CURRENT_Directory_Manager_Password'
+export USER_DN='dn:uid=cmdbsync,ou=People,o=ECM,dc=ecm,dc=ericsson,dc=com'
+export NEW_PASSWORD='NEW_Password_246$' value must be the current password for the cmdbsync user </codeblock>
+            </info></step><step id="step_N10211_N101AB_N10180_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Update the password parameter with the new password from the preceding step:</ph></cmd><info><p>
+                  <userinput>/app/ecm/tools/.enc-util/update_properties.py -e
+                     $JBOSS_HOME/modules/com/ericsson/configuration/main/core_config.properties -o
+                     $JBOSS_HOME/modules/com/ericsson/notifications/main/cmdbsync-configuration.properties
+                     -m encrypt -n ecmPassword -p
+                     '<varname>&lt;NEW_PASSWORD></varname>'</userinput></p></info></step><step id="step_N1022E_N101AB_N10180_N10001"><cmd>
+               <ph outputclass="st4mig_cmd-para">Change the password in the <filepath>users.properties</filepath> file.</ph>
+            </cmd><info>
+               <note conkeyref="f5c41d828e60060f2a69bbceb586dd9d/tb13442524427" id="note_N1023E_N1023B_N1022B_N101AB_N10180_N10001"/>
+               <ol outputclass="st4mig_alphalist"><li>
+                                       <p>Log in to the <ph keyref="CoreVM"/> Node 1 as <option keyref="loginID"/>. </p>
+                                    </li><li>
+                                       <p>Change to the tools directory:</p>
+                                       <p>
+                                          <userinput>cd /app/ecm/tools</userinput>
+                                       </p>
+                                    </li><li>
+                                       <p>Edit the <filepath>users.properties</filepath> file:</p><p>
+
+                                           <option keyref="sudo"/><userinput>vi users.properties</userinput>
+                                       </p>
+                                       <p>Enter the same new password as at the preceding steps in
+                        plain text (not encrypted):</p>
+                                       <p>
+                        <option outputclass="st4mig_function">ecm_user_password=</option>'<varname>new password</varname>'</p>
+                                    </li></ol>
+               <note id="note_N10124_N100D4_N100C5_N1004E_N10026_N10001">
+                  <p>For the <ph keyref="GR_s"/> deployment, repeat the steps above on the Standby
+                     Site (Site B). You <ph importance="high">do not need</ph> to shut down and
+                     restart JBoss on the Standby Site.</p>
+               </note>
+            </info></step></steps><postreq id="postreq_N102C2_N10180_N10001">
+                                 <div outputclass="st4mig-add-info">
+                                    <!--
+			4015 add-info/title: Next Step:-->
+                                    <p>Next, if the <ph keyref="nsoProductName_s"/> optional <ph keyref="valuePackage_feature"/> is installed, update the <ph keyref="nsoProductName_s"/> configuration data on the <ph keyref="edbVM"/> by
+               following the procedure in <xref keyref="126e3b719196664664e5e89055ffd09f"/>.</p>
+                                    <p>Otherwise, go directly to <xref keyref="766e4832627b5777c048e38fdc2f2adc"/>.</p>
+                                 </div>
+                              </postreq></taskbody></task>

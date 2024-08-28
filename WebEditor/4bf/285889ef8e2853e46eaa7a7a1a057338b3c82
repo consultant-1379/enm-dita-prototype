@@ -1,0 +1,5 @@
+<referable-content id="db08b5f5612ded90c06a66bb26720872" xml:lang="en-US"><!--TextModulePath:/Informationen/New Jersey2/Ericsson Cloud Manager /Textblock Pool/System Administration/IdAM--><title>Protocols</title>
+   <rcbody>
+      <p id="st4tb11450947083">The LDAP and LDAPS protocols are supported for the communication between <ph keyref="ECM"/> and the <ph keyref="externalIdam"/> system. The default protocol is LDAP; however, it is recommended to use LDAPS protocol for secure communication.</p>
+   </rcbody>
+</referable-content>

@@ -1,0 +1,17 @@
+<map id="48a9506a2b7b06afe76d58f4f69e846c" xml:lang="en-US">
+   <title>Variable Key Map Session Browser</title>
+   <keydef keys="SessionB_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Session Browser</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="SessionB_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>SB</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

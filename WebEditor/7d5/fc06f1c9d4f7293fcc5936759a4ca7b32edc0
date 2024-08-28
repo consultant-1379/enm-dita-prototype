@@ -1,0 +1,17 @@
+<map id="3eca010cbde6b989bde0d9582cb5d204" xml:lang="en-US">
+   <title>Variable Key Map Call Browser</title>
+   <keydef keys="CallBrowser_name">
+      <topicmeta>
+         <keywords>
+            <keyword>Call Browser</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+   <keydef keys="CallBrowser_acronym">
+      <topicmeta>
+         <keywords>
+            <keyword>CB</keyword>
+         </keywords>
+      </topicmeta>
+   </keydef>
+</map>

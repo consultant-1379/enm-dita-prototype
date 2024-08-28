@@ -1,0 +1,191 @@
+<task id="5c5f36bef12e0dd21d6a9bc67ea502e0" xml:lang="en-US">
+  <title>NBIA Module SSL Configuration and Activation</title>
+  <prolog>
+    <source>3/1543-CSH 109 628</source>
+    <permissions view="ericsson_internal"/>
+    <metadata>
+      <othermeta content="NA" name="workitem"/>
+    </metadata>
+    <resourceid id="NA"/>
+  </prolog>
+  <taskbody>
+    <context id="context_N1002B_N10028_N10001">
+      <note id="note_N1002F_N1002B_N10028_N10001">
+        <p>All commands throughout this subsection need to be run from
+node-1.</p>
+      </note>
+    </context>
+    <steps>
+      <step id="step_N1003C_N10039_N10028_N10001">
+        <cmd>Set keystore for NBIA module:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter @NBIA_KEYSTOREEXT@ --value
+            /home/bootloader/ssl/pgexternal_keystore.jks</userinput>
+        </info>
+      </step>
+      <step id="step_N10051_N10039_N10028_N10001">
+        <cmd>Set keystore password for the NBIA module:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter
+@NBIA_SSLKEYPASSWORD@ --value <varname>&lt;password></varname>
+          </userinput>
+        </info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config set --parameter
+@NBIA_SSLPASSWORD@ --value <varname>&lt;password></varname>
+          </userinput>
+        </info>
+      </step>
+      <step id="step_N1007A_N10039_N10028_N10001">
+        <cmd>Verify that all parameters have been set:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py config list</userinput>
+        </info>
+      </step>
+      <step id="step_N1008F_N10039_N10028_N10001">
+        <cmd>Redistribute keystore to all nodes in the cluster:</cmd>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>sudo -u actadm /opt/dve/bin/bootloaderSync.sh</userinput>
+        </info>
+      </step>
+      <step id="step_N100A4_N10039_N10028_N10001">
+        <cmd>Perform an activation for the configured parameters to
+take effect on all modules on the system, one by one:</cmd>
+        <info>
+          <note id="note_N100AA_N100A7_N100A0_N10039_N10028_N10001">
+            <p>Wait for each node to be activated before starting with the next one, otherwise
+              traffic disturbances occur. The <varname>all</varname> parameter should only be used
+              when no provisioning traffic is running.</p>
+          </note>
+        </info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+          </userinput>
+        </info>
+        <info>
+          <filepath>
+            <varname>&lt;hostname></varname>
+          </filepath> is the hostname
+of the node that is to be activated.</info>
+        <info>
+          <note id="note_N100D7_N100D4_N100A0_N10039_N10028_N10001">
+            <p>Repeat the command for each node in the cluster.</p>
+          </note>
+        </info>
+      </step>
+      <step id="step_N100E7_N10039_N10028_N10001">
+        <cmd>Verify the certificate from an external node.</cmd>
+        <info>NBIA CAI3G, NBIA module:</info>
+        <info>
+          <systemoutput>$</systemoutput>
+          <userinput>openssl s_client -connect <varname>&lt;dname_for_trf></varname>:8181 -showcerts -tls1</userinput>
+        </info>
+        <info>Output:</info>
+        <info>
+          <table colsep="0" frame="none" id="table_N10101_N100FE_N100DF_N10038_N10028_N10001" outputclass="condensed" rowsep="0">
+            <tgroup cols="1">
+              <colspec colname="col1"/>
+              <tbody>
+                <row>
+                  <entry>
+                    <p>
+                      <pre>CONNECTED(00000003)
+/.../
+&lt;Certificate output>
+</pre>
+                    </p>
+                  </entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+        </info>
+      </step>
+      <step id="step_N10133_N10039_N10028_N10001">
+        <cmd>NBIA CAI3G Test Ports, NBIA module:</cmd>
+        <info>
+          <ol>
+            <li>
+              <p>Enable CAI3G test traffic:</p>
+              <p>From node-1, run the following command to enable CAI3G test traffic:</p>
+              <p>
+                <systemoutput>$</systemoutput>
+                <userinput>bootloader.py config set --parameter
+@REGISTER_TEST_SERVICES@ --value true</userinput>
+              </p>
+            </li>
+            <li>
+              <p>From node-1 or node-2, run the following command to
+activate the configurations:</p>
+              <p>
+                <systemoutput>$</systemoutput>
+                <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+                </userinput>
+              </p>
+              <note id="note_N10169_N10152_N10137_N10134_N1012D_N10039_N10028_N10001">
+                <p>
+                  <userinput>
+                    <varname>&lt;hostname></varname>
+                  </userinput> is the hostname of the
+node that is to be activated.</p>
+              </note>
+              <p>
+                <systemoutput>$</systemoutput>
+                <userinput>openssl s_client -connect <varname>&lt;dname_for_trf></varname>:8989 -showcerts -tls1</userinput>
+              </p>
+              <p>Output:</p>
+              <table colsep="0" frame="none" id="table_N1018A_N1014F_N10134_N10131_N1012A_N10038_N10028_N10001" outputclass="condensed" rowsep="0">
+                <tgroup cols="1">
+                  <colspec colname="col1"/>
+                  <tbody>
+                    <row>
+                      <entry>
+                        <p>
+                          <pre>CONNECTED(00000003)
+/.../
+&lt;Certificate output>
+</pre>
+                        </p>
+                      </entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </table>
+            </li>
+            <li>
+              <p>To disabling the CAI3G test traffic mode, run the following
+command from node-1:</p>
+              <p>
+                <systemoutput>$</systemoutput>
+                <userinput>bootloader.py config remove --parameter
+@REGISTER_TEST_SERVICES@</userinput>
+              </p>
+            </li>
+            <li>
+              <p>From node-1 or node-2, run the following command to
+activate the configurations:</p>
+              <p>
+                <systemoutput>$</systemoutput>
+                <userinput>bootloader.py node activate --host <varname>&lt;hostname></varname>
+                </userinput>
+              </p>
+              <note id="note_N101E1_N101CA_N10137_N10134_N1012D_N10039_N10028_N10001">
+                <p>
+                  <userinput>
+                    <varname>&lt;hostname></varname>
+                  </userinput> is the hostname of
+the node that is to be activated.</p>
+              </note>
+            </li>
+          </ol>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

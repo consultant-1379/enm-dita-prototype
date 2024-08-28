@@ -1,0 +1,124 @@
+<task id="3e86ef15a54084d509a5c2b349f7ab3b" xml:lang="en-US" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+   <title>Change Password for the Security Component Administrator ID: amadmin</title>
+   <prolog>
+      <source>ST4 ID: 13577150603</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <change-historylist/>
+      <resourceid id="NA" ux-source-priority="topic-and-map"/>
+   </prolog>
+   <taskbody>
+      <prereq id="prereq_ts2_yz4_cjb">
+         <p>
+            <ul id="ul_evw_yz4_cjb">
+               <li>
+                  <p>For <ph keyref="non_HA_s"/> deployments:<ul id="ul_bpx_hbp_cjb">
+                        <li>
+                           <p>Verify that passwordless communication between nodes has been
+                              configured by using SSH keys. (See <xref keyref="6957512d1aa034c0ea595a76a1060c2e"/>)</p>
+                        </li>
+                        <li>
+                           <p>Verify that <ph keyref="OpenAM_s"/> is running on <ph keyref="CoreVM"/> 1:</p>
+                           <ol id="ol_owy_jwt_3nb">
+                              <li>
+                                 <p>Log in as<option> ecm_admin</option> to the <ph keyref="CoreVM"/> 1.</p>
+                              </li>
+                              <li>
+                                 <p>Run the commands:
+                                    <codeblock>systemctl status am
+
+systemctl status userstore
+
+systemctl status configstore</codeblock></p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ul></p>
+               </li>
+               <li>
+                  <p>For <ph keyref="HA_s"/> deployments:<ul id="ul_nlm_5wt_3nb">
+                        <li>
+                           <p>Verify that <ph keyref="OpenAM_s"/> is running on <ph keyref="CoreVM"/> 2:</p>
+                           <ol id="ol_xjj_vwt_3nb">
+                              <li>
+                                 <p>Log in as<option> ecm_admin</option> to the <ph keyref="CoreVM"/> 2.</p>
+                              </li>
+                              <li>
+                                 <p>Run the commands:
+                                    <codeblock>systemctl status am
+
+systemctl status userstore
+
+systemctl status configstore</codeblock></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Verify that  passwordless communication between <ph keyref="CoreVM"/>
+                              1 and <ph keyref="CoreVM"/> 2 is setup.</p>
+                        </li>
+                     </ul></p>
+               </li>
+               <li>
+                  <p>For <ph keyref="GR_s"/> deployments:</p>
+                  <ul id="ul_wfh_pxt_3nb">
+                     <li>
+                        <p>Perform all steps on Site A and Site B.</p>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </p>
+      </prereq>
+      <context id="context_N10067_N10064_N10001" outputclass="st4mig_beforeProcedure">
+         <p>The ID of the security component administrator is <option>amadmin</option>. Changing the
+               <option>amadmin</option> password does not change the password for <ph keyref="OpenDJ_s"/>, which is used for changing policies and validators.</p>
+         <note id="note_N10080_N10067_N10064_N10001" type="note">
+            <p>Changing the password for the <option>amadmin</option> ID automatically restarts
+               certain internal components, which interrupts the service for five minutes or
+               less.</p>
+           <p conkeyref="a759fa3eefa2780bf455485bdd709300/p_N10011_N1000E_N10001"/>
+         </note>
+      </context>
+      <steps>
+         <step id="step_N1011A_N1009B_N10064_N10001">
+            <cmd>Log in as <option>ecm_admin</option> to  the <ph keyref="CoreVM"/> 1. </cmd>
+         </step>
+         <step id="step_N10134_N1009B_N10064_N10001">
+            <cmd>Change directories: </cmd>
+            <info>
+               <codeblock outputclass="condensed">cd /app/ecm/security/openAm/sso-tools/scripts/am</codeblock>
+            </info>
+         </step>
+         <step id="step_N1014B_N1009B_N10064_N10001">
+            <cmd>Execute the script: </cmd>
+            <info>
+               <codeblock outputclass="condensed">./change-password.py</codeblock>
+            </info>
+         </step>
+         <step id="step_N10162_N1009B_N10064_N10001">
+            <cmd>Follow the script prompts to change the password. </cmd>
+            <info>
+               <note id="note_N1016D_N1016A_N1015E_N1009B_N10064_N10001">
+                  <p>The new password can include only the following special characters: <ph importance="normal">$</ph> and <ph importance="normal">!</ph></p>
+               </note>
+            </info>
+            <stepresult>
+               <codeblock>Success: 'Execution ran successfully'.</codeblock>
+            </stepresult>
+         </step>
+      </steps>
+      <result id="result_srt_dcp_cjb">
+         <p>Once all information has been provided, <ph keyref="ECM_short"/> makes the required changes
+            and restarts the required components. The restart interrupts the service for about five
+            minutes. </p>
+      </result>
+      <postreq id="postreq_yb1_fcp_cjb">
+         <p>There is no need to make any changes to the second <ph keyref="CoreVM"/> node in an <ph keyref="HA_s"/> deployment. However, if this is a <ph keyref="GR_s"/> deployment,
+            repeat the steps on the secondary site and follow the instructions specified in the
+               <cite>Managing Passwords for Geo-Redundancy</cite> chapter of the <xref conkeyref="7468388cfebd1eba24a0a2b5fb8d5ec7/xref_Geo_Redundancy_Deployment_Guide"/>.</p>
+      </postreq>
+   </taskbody>
+</task>

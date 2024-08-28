@@ -1,0 +1,24 @@
+<concept id="53fd75df0600e32a513a30789bd69263" xml:lang="en-US">
+   <title>Starting the <ph keyref=""/> GUIs</title>
+   <shortdesc>The GUIs are browser-based applications. Every deployed GUI application can be started
+      from the Launcher page.</shortdesc>
+   <prolog>
+      <source>ST4 ID: 16343854347</source>
+      <permissions view="ericsson_internal"/>
+      <metadata>
+         <othermeta content="NA" name="workitem"/>
+      </metadata>
+      <resourceid id="NA"/>
+   </prolog>
+   <conbody>
+      <p>To reach the Launcher page, open a supported web browser and navigate to the following
+         address:</p>
+      <p><filepath>https://<varname>JBoss_load_balancer_node</varname>/eea</filepath></p>
+      <p>Use the actual server name as the <varname>JBoss_load_balancer_node</varname>. The name can
+         be obtained from System Administrators.</p>
+      <note id="note_N10047_N1002B_N10001">
+         <p>If the system is not configured for secure access, use HTTP instead of HTTPS.</p>
+      </note>
+      <p>For more information regarding supported web browsers, see <xref format="html" href="urn:x-ericsson:r2:reg-doc:*-*:*:*#now1571257033403?title=Presentation%20and%20Exposure%20Layer%20Configuration%20Guide" scope="external">Web Browser Compatilibity</xref>.</p>
+   </conbody>
+</concept>
